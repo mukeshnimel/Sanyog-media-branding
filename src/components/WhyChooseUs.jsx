@@ -4,9 +4,6 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import {
-  Sparkles,
-  Sparkle,
-  Zap,
   PenTool,
   LayoutTemplate,
   PackageOpen,
@@ -88,15 +85,22 @@ const serviceIcons = [
   "/images/home/vector/032-graphic-tablet.svg",
 ];
 
+const stats = [
+  { value: "15", suffix: "+", label: "Years Experience" },
+  { value: "4.9", suffix: "/5", label: "Google Rating" },
+  { value: "450", suffix: "+", label: "Happy Clients" },
+  { value: "20", suffix: "+", label: "Core Designers" },
+];
+
 export default function WhyChooseUs() {
   return (
     <section id="why-choose-us" className="relative bg-[#07041D]">
-      {/* Background glow overlay */}
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-electric-blue/5 blur-[150px] pointer-events-none" />
+      {/* Background glow overlay — capped so it never exceeds the viewport width */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[280px] h-[280px] sm:w-[420px] sm:h-[420px] lg:w-[600px] lg:h-[600px] rounded-full bg-electric-blue/5 blur-[90px] sm:blur-[120px] lg:blur-[150px] pointer-events-none" />
 
       {/* Heading */}
-      <div className="w-full border-y border-white/10 my-10">
-        <div className="max-w-7xl mx-auto px-6 pt-10 pb-10 text-center relative z-10">
+      <div className="w-full border-y border-white/10 my-8 sm:my-10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-8 sm:pt-10 sm:pb-10 text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -104,7 +108,7 @@ export default function WhyChooseUs() {
             transition={{ duration: 0.6 }}
             className="inline-flex items-center gap-1.5 mb-4"
           >
-            <span className="text-xs uppercase tracking-[0.25em] font-bold text-sky-400">
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.2em] sm:tracking-[0.25em] font-bold text-sky-400">
               What Make Us Different
             </span>
           </motion.div>
@@ -114,7 +118,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display font-bold text-3xl md:text-5xl leading-tight text-white"
+            className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight text-white"
           >
             Custom Design &amp; Marketing Solutions at One Place
           </motion.h2>
@@ -122,16 +126,16 @@ export default function WhyChooseUs() {
       </div>
 
       {/* Sticky left / scrolling cards right */}
-      <div className="max-w-7xl mx-auto px-6 pb-24 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-          {/* LEFT — sticky */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-16 sm:pb-20 lg:pb-24 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-start">
+          {/* LEFT — sticky (only becomes sticky at lg, where there's room beside it) */}
           <div className="lg:sticky lg:top-28 self-start h-fit w-full">
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="font-display font-extrabold text-4xl md:text-5xl text-white leading-tight"
+              className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white leading-tight"
             >
               YOUR BRAND
             </motion.h3>
@@ -140,14 +144,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="
-    font-['Poppins']
-    text-[3.1rem]
-    font-medium
-    leading-tight
-    text-right
-    text-transparent
-  "
+              className="font-['Poppins'] text-3xl sm:text-4xl md:text-5xl lg:text-[3.1rem] font-medium leading-tight text-right text-transparent"
               style={{
                 WebkitTextStroke: "1px #FFF",
               }}
@@ -160,7 +157,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm md:text-base text-slate-350 leading-relaxed mb-2 max-w-md"
+              className="text-sm md:text-base text-slate-350 leading-relaxed mt-2 mb-4 sm:mb-2 max-w-md"
             >
               We provide complete brand design solutions — from logo design,
               branding, and packaging to website, graphics, and social media
@@ -169,23 +166,24 @@ export default function WhyChooseUs() {
             </motion.p>
 
             {/* Image with badge */}
-            <div className="relative w-full overflow-hidden">
+            <div className="relative w-full overflow-hidden rounded-2xl">
               <Image
                 src="/images/home/web-2.png"
                 alt="Brand strategy session"
                 width={800}
                 height={600}
                 className="w-full h-auto object-contain"
+                sizes="(max-width: 1024px) 100vw, 50vw"
               />
 
-              <div className="absolute bottom-3 left-3 inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-950 border border-glass-border text-[10px] font-medium text-sky-400 shadow-lg">
+              <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 inline-flex items-center px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-lg bg-slate-950 border border-glass-border text-[9px] sm:text-[10px] font-medium text-sky-400 shadow-lg">
                 https://sanyogmedia.in
               </div>
             </div>
           </div>
 
           {/* RIGHT — service cards */}
-          <div className="flex flex-col gap-6 w-full">
+          <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6 w-full">
             {services.map((service, index) => {
               const Icon = service.icon;
               return (
@@ -195,31 +193,31 @@ export default function WhyChooseUs() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: "-80px" }}
                   transition={{ duration: 0.5, delay: (index % 4) * 0.08 }}
-                  className="rounded-2xl p-6 bg-gradient-to-br from-[#0c1f4a] to-[#0a1730] border border-white/5 shadow-lg"
+                  className="rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-[#0c1f4a] to-[#0a1730] border border-white/5 shadow-lg"
                 >
                   {/* Icon - Vector Image or Lucide Icon */}
-                  <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-4">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white flex items-center justify-center mb-3 sm:mb-4">
                     {serviceIcons[index] ? (
                       <Image
                         src={serviceIcons[index]}
                         alt={service.title}
                         width={24}
                         height={24}
-                        className="w-10 h-10 object-contain"
+                        className="w-9 h-9 sm:w-10 sm:h-10 object-contain"
                       />
                     ) : (
                       <Icon className="w-5 h-5 text-slate-900" />
                     )}
                   </div>
-                  <h3 className="font-display font-semibold text-lg text-white mb-2">
+                  <h3 className="font-display font-semibold text-base sm:text-lg text-white mb-2">
                     {service.title}
                   </h3>
-                  <p className="text-sm text-slate-300 leading-relaxed mb-5">
+                  <p className="text-sm text-slate-300 leading-relaxed mb-4 sm:mb-5">
                     {service.description}
                   </p>
                   <Link
                     href={service.href}
-                    className="inline-flex items-center px-5 py-2 rounded-lg bg-white text-slate-900 text-xs font-bold hover:bg-slate-100 transition-colors"
+                    className="inline-flex items-center px-4 py-2 sm:px-5 rounded-lg bg-white text-slate-900 text-xs font-bold hover:bg-slate-100 transition-colors"
                   >
                     Visit Page
                   </Link>
@@ -232,71 +230,27 @@ export default function WhyChooseUs() {
 
       {/* Stats / Counter Section */}
       <div className="w-full border-y border-white/10 my-5">
-        <div className="max-w-7xl mx-auto px-6 py-5">
+        <div className="max-w-7xl mx-auto px-2 sm:px-6 py-4 sm:py-5">
           <div className="grid grid-cols-2 lg:grid-cols-4">
-            {/* Counter 1 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center px-6 py-4 border-r border-white/10"
-            >
-              <div className="text-4xl md:text-5xl font-display font-extrabold text-white">
-                15<span className="text-sky-400">+</span>
-              </div>
-              <p className="mt-2 text-sm text-slate-400 font-medium">
-                Years Experience
-              </p>
-            </motion.div>
-
-            {/* Counter 2 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="text-center px-6 py-4 lg:border-r border-white/10"
-            >
-              <div className="text-4xl md:text-5xl font-display font-extrabold text-white">
-                4.9<span className="text-sky-400">/5</span>
-              </div>
-              <p className="mt-2 text-sm text-slate-400 font-medium">
-                Google Rating
-              </p>
-            </motion.div>
-
-            {/* Counter 3 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-center px-6 py-4 border-r border-white/10"
-            >
-              <div className="text-4xl md:text-5xl font-display font-extrabold text-white">
-                450<span className="text-sky-400">+</span>
-              </div>
-              <p className="mt-2 text-sm text-slate-400 font-medium">
-                Happy Clients
-              </p>
-            </motion.div>
-
-            {/* Counter 4 */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-center px-6 py-4"
-            >
-              <div className="text-4xl md:text-5xl font-display font-extrabold text-white">
-                20<span className="text-sky-400">+</span>
-              </div>
-              <p className="mt-2 text-sm text-slate-400 font-medium">
-                Core Designers
-              </p>
-            </motion.div>
+            {stats.map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                className={`text-center px-3 sm:px-6 py-3 sm:py-4 ${i % 2 === 0 ? "border-r border-white/10" : "lg:border-r lg:border-white/10"
+                  } ${i < 2 ? "border-b lg:border-b-0 border-white/10" : ""}`}
+              >
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-extrabold text-white">
+                  {stat.value}
+                  <span className="text-sky-400">{stat.suffix}</span>
+                </div>
+                <p className="mt-1 sm:mt-2 text-xs sm:text-sm text-slate-400 font-medium">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </div>

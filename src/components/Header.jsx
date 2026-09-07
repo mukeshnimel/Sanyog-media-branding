@@ -27,7 +27,6 @@ const navItems = [
   { name: "Contact Us", href: "/contact" },
 ];
 
-// unique stagger for each dropdown row
 const rowVariants = {
   hidden: { opacity: 0, x: -8 },
   show: (i) => ({
@@ -74,18 +73,18 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 border-b ${scrolled
+        className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-500 border-b ${scrolled
           ? "bg-black/30 backdrop-blur-xl border-white/10 py-3 shadow-[0_8px_30px_-15px_rgba(0,0,0,0.6)]"
           : "bg-black/5 backdrop-blur-sm border-white/0 py-5"
           }`}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto flex min-w-0 items-center justify-between px-4 sm:px-6">
           {/* Logo */}
-          <Link href="/" className="flex items-center shrink-0">
+          <Link href="/" className="flex min-w-0 shrink-0 items-center">
             <img
               src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
               alt="Sanyog Media Concepts Logo"
-              className="h-8 md:h-11 w-auto object-contain"
+              className="h-7 w-auto max-w-[130px] object-contain sm:h-8 sm:max-w-[170px] md:h-11 md:max-w-none"
             />
           </Link>
 
@@ -111,15 +110,14 @@ export default function Header() {
                     />
                   </button>
 
-                  {/* simple light name-only dropdown, unique staggered reveal */}
                   <AnimatePresence>
                     {dropdownOpen && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
+                        initial={{ opacity: 0, maxHeight: 0 }}
+                        animate={{ opacity: 1, maxHeight: 400 }}
+                        exit={{ opacity: 0, maxHeight: 0 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute left-0 mt-4 w-64 overflow-hidden rounded-xl border border-black/5 bg-gray-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]"
+                        className="absolute left-0 mt-4 w-64 z-[100] overflow-hidden rounded-xl border border-black/5 bg-gray-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]"
                       >
                         <div>
                           {item.dropdown.map((service, i) => (
@@ -185,7 +183,7 @@ export default function Header() {
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
-            className="relative z-[60] flex h-10 w-10 items-center justify-center rounded-lg border border-white/10 bg-white/5 backdrop-blur-md md:hidden"
+            className="relative z-[60] flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 backdrop-blur-md md:hidden"
           >
             <div className="relative flex h-4 w-5 flex-col items-center justify-between">
               <motion.span
@@ -228,7 +226,7 @@ export default function Header() {
             animate={{ clipPath: "circle(150% at 92% 5%)" }}
             exit={{ clipPath: "circle(4% at 92% 5%)" }}
             transition={{ duration: 0.55, ease: [0.65, 0, 0.35, 1] }}
-            className="fixed inset-0 z-50 flex flex-col overflow-y-auto bg-[#04060b]/85 backdrop-blur-2xl md:hidden"
+            className="fixed inset-0 z-[100] flex flex-col overflow-x-hidden overflow-y-auto bg-[#04060b]/85 backdrop-blur-2xl md:hidden"
           >
             <div className="pointer-events-none absolute -top-24 -right-20 h-64 w-64 rounded-full bg-sky-500/10 blur-3xl" />
             <div className="pointer-events-none absolute bottom-0 -left-20 h-64 w-64 rounded-full bg-violet-500/10 blur-3xl" />

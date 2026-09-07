@@ -34,7 +34,7 @@ export default function FinalCTA() {
   };
   return (
     <section
-      className="relative overflow-hidden bg-dark-bg py-20 md:py-24 lg:py-20"
+      className="relative overflow-hidden bg-dark-bg py-16 sm:py-20 md:py-24 lg:py-20"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
@@ -48,7 +48,7 @@ export default function FinalCTA() {
         {/* Main content */}
         <div className="relative max-w-5xl mx-auto text-center">
 
-          {/* LEFT PAINT PALETTE */}
+          {/* LEFT PAINT PALETTE — mobile: top-left corner, out of text area | md+: floating beside heading */}
           <motion.div
             style={{
               x: smoothX,
@@ -66,16 +66,21 @@ export default function FinalCTA() {
             }}
             className="
           absolute
-          top-2
-          left-2
+          -top-2
+          left-0
+          md:top-2
           md:left-[-20px]
           lg:left-[-70px]
-          w-12
-          h-12
+          w-9
+          h-9
+          sm:w-11
+          sm:h-11
           md:w-14
           md:h-14
           z-20
           pointer-events-none
+          opacity-70
+          sm:opacity-100
         "
           >
             <Image
@@ -88,7 +93,7 @@ export default function FinalCTA() {
           </motion.div>
 
 
-          {/* RIGHT PENCIL */}
+          {/* RIGHT PENCIL — mobile: top-right corner, out of text area | md+: floating beside heading */}
           <motion.div
             style={{
               x: smoothX,
@@ -107,16 +112,21 @@ export default function FinalCTA() {
             }}
             className="
           absolute
-          top-[165px]
-          right-2
+          -top-2
+          right-0
+          md:top-[165px]
           md:right-[-20px]
           lg:right-[-70px]
-          w-12
-          h-12
+          w-9
+          h-9
+          sm:w-11
+          sm:h-11
           md:w-14
           md:h-14
           z-20
           pointer-events-none
+          opacity-70
+          sm:opacity-100
         "
           >
             <Image
@@ -144,7 +154,11 @@ export default function FinalCTA() {
           tracking-[0.18em]
           md:tracking-[0.22em]
           text-white/90
-          mb-7
+          mb-6
+          sm:mb-7
+          mt-8
+          sm:mt-6
+          md:mt-0
         "
           >
             Join the Success
@@ -159,17 +173,21 @@ export default function FinalCTA() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="
           font-display
-          text-3xl
+          text-2xl
           sm:text-4xl
           md:text-5xl
           lg:text-[3.8rem]
           xl:text-[4rem]
-          leading-[1.12]
+          leading-[1.15]
+          sm:leading-[1.12]
           tracking-tight
           text-white
-          mb-8
+          mb-6
+          sm:mb-8
           max-w-5xl
           mx-auto
+          px-4
+          sm:px-0
         "
           >
             Your Brand Is A Story — Elevating
@@ -185,13 +203,17 @@ export default function FinalCTA() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="
-          text-base
+          text-sm
+          sm:text-base
           md:text-lg
           text-slate-300
-          mb-10
+          mb-8
+          sm:mb-10
           max-w-3xl
           mx-auto
           leading-relaxed
+          px-2
+          sm:px-0
         "
           >
             Schedule Your Free Consultation Today With Our{" "}
@@ -223,10 +245,13 @@ export default function FinalCTA() {
             inline-flex
             items-center
             justify-center
-            px-8
-            py-4
+            px-6
+            sm:px-8
+            py-3
+            sm:py-4
             rounded-2xl
-            text-base
+            text-sm
+            sm:text-base
             font-bold
             text-white
             bg-sky-500

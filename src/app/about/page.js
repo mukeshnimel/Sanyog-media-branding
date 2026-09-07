@@ -194,12 +194,12 @@ function ServiceCard({ service, delay }) {
   group
   ${service.bg}
   rounded-2xl
-  p-8
+  p-6 sm:p-8
   flex flex-col
   items-center
   text-center
-  gap-4
-  min-h-[220px]
+  gap-3 sm:gap-4
+  min-h-[190px] sm:min-h-[220px]
   justify-center
   transition-all
   duration-300
@@ -214,7 +214,7 @@ function ServiceCard({ service, delay }) {
         width={50}
         height={50}
         className="
-    w-[60px] h-[60px]
+    w-[48px] h-[48px] sm:w-[60px] sm:h-[60px]
     object-contain
     brightness-0 invert
     transition-all duration-300
@@ -224,7 +224,7 @@ function ServiceCard({ service, delay }) {
   "
       />
 
-      <h3 className="font-display font-bold text-lg text-white leading-snug">
+      <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug">
         {service.title}
       </h3>
 
@@ -271,29 +271,29 @@ export default function RedesignedAboutUsPage() {
   const servicesBgY = useTransform(servicesScrollYProgress, [0, 1], ["-15%", "15%"]);
 
   return (
-    <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
+    <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-hidden">
 
       <AboutHero />
 
       {/* 2. OUR STORY */}
       <section
         id="story"
-        className="py-24  relative border-b border-glass-border"
+        className="py-16 sm:py-20 md:py-24 relative border-b border-glass-border"
       >
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 items-center">
 
             {/* Left Narrative */}
-            <div className="flex flex-col items-start pr-0 lg:pr-8">
-              <span className="text-bg font-bold uppercase tracking-widest text-neon-cyan mb-4">
+            <div className="flex flex-col items-start pr-0 lg:pr-8 order-2 lg:order-1">
+              <span className="text-sm font-bold uppercase tracking-widest text-neon-cyan mb-3 sm:mb-4">
                 At Sanyog Media Concepts,
               </span>
 
-              <h2 className="font-display font-bold text-3xl md:text-4xl text-white leading-tight mb-6">
+              <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white leading-tight mb-4 sm:mb-6">
                 We Bring Imagination To Life Across Every Touchpoint Of Your Brand
               </h2>
 
-              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-5">
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-4 sm:mb-5">
                 From Bold Exhibition Stall Designs To Compelling Visual Stories,
                 Our Mission Is To Transform Ideas Into Powerful Experiences.
                 We Specialize In Crafting Captivating Exhibition Stalls,
@@ -302,7 +302,7 @@ export default function RedesignedAboutUsPage() {
                 Unforgettable On Any Shelf.
               </p>
 
-              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-6">
+              <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-5 sm:mb-6">
                 Our Team Also Delivers Engaging Social Media Creatives,
                 Flawlessly Curated Events, And Cohesive Brand Storytelling —
                 All Guided By Creativity And Precision. With Every Project,
@@ -315,19 +315,24 @@ export default function RedesignedAboutUsPage() {
                 href="https://sanyogmedia.in/about-sanyog-media-branding-agency/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-7 py-3 rounded-xl text-sm font-semibold text-white bg-[#0069C2] hover:opacity-90 transition-opacity"
+                className="inline-flex items-center justify-center px-6 sm:px-7 py-2.5 sm:py-3 rounded-xl text-sm font-semibold text-white bg-[#0069C2] hover:opacity-90 transition-opacity"
               >
                 Know More About Us
               </a>
             </div>
 
-            {/* Right Image */}
-            <div className="w-full">
-              {/* <div className="relative aspect-[16/10] rounded-3xl overflow-hidden border border-glass-border bg-slate-950/40 shadow-xl group"> */}
+            {/* Right Image — wrapped in a relative, aspect-ratio box.
+                Previously this div had no `relative` and no defined height:
+                the gradient overlay below it was `absolute inset-0` with no
+                positioned parent, so it escaped to the nearest positioned
+                ancestor and could cover content further down the page
+                instead of just this image (same class of bug as the video
+                overlay on the reel-editing page). */}
+            <div className="relative w-full aspect-[16/10] rounded-2xl sm:rounded-3xl overflow-hidden order-1 lg:order-2">
               <img
                 src="/images/about/SMC-Churu-Landing-Page11.png"
                 alt="Sanyog Media Concepts creative workspace"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
 
               {/* Image Overlay */}
@@ -336,20 +341,21 @@ export default function RedesignedAboutUsPage() {
           </div>
 
         </div>
-        {/* </div> */}
       </section>
 
       {/* 3. WHAT WE OFFER (COLOR GRID WITH SCROLL-PARALLAX BACKGROUND) */}
-      <section className="relative py-24 overflow-hidden border-b border-glass-border">
-        {/* True fixed background — stays steady in place; the section scrolls over it */}
+      <section className="relative py-16 sm:py-20 md:py-24 overflow-hidden border-b border-glass-border">
+        {/* True fixed background — stays steady in place; the section scrolls over it.
+            bg-fixed is unreliable/janky on mobile browsers (especially iOS Safari),
+            so it's disabled below md and only kicks in on larger screens. */}
         <div
-          className="absolute inset-0 bg-fixed bg-cover bg-center"
+          className="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center"
           style={{ backgroundImage: "url('/images/about/bg1.jpg')" }}
         />
         <div className="absolute inset-0 bg-slate-950/40" />
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
 
             {/* Card 1: Section intro */}
             <motion.div
@@ -357,15 +363,15 @@ export default function RedesignedAboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5 }}
-              className="rounded-3xl border-2 border-white/80 bg-slate-600/60 backdrop-blur-sm p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[340px]"
+              className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-slate-600/60 backdrop-blur-sm p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 min-h-[280px] sm:min-h-[340px]"
             >
               <span className="material-symbols-outlined">
                 co_present
               </span>
-              <h3 className="font-display font-extrabold text-2xl text-white">
+              <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white">
                 What We Offer
               </h3>
-              <p className="text-base text-white/90">Why Choose Sanyog Media?</p>
+              <p className="text-sm sm:text-base text-white/90">Why Choose Sanyog Media?</p>
             </motion.div>
 
             {/* Card 2: Vision + Team */}
@@ -374,14 +380,14 @@ export default function RedesignedAboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="rounded-3xl border-2 border-white/80 bg-sky-600 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[340px]"
+              className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-sky-600 p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 min-h-[280px] sm:min-h-[340px]"
             >
               <span
                 className="material-symbols-outlined"
               >
                 diversity_2
               </span>
-              <h3 className="font-display font-bold text-lg text-white leading-snug">
+              <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug">
                 Your Vision Our Team: Let&apos;s Create Together
               </h3>
               <p className="text-sm text-white/90 leading-relaxed">
@@ -397,12 +403,12 @@ export default function RedesignedAboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="rounded-3xl border-2 border-white/80 bg-orange-600 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[340px]"
+              className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-orange-600 p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 min-h-[280px] sm:min-h-[340px]"
             >
               <span className="material-symbols-outlined">
                 recycling
               </span>
-              <h3 className="font-display font-bold text-lg text-white leading-snug">
+              <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug">
                 A Compelling Experience That Beckons You Back
               </h3>
               <p className="text-sm text-white/90 leading-relaxed">
@@ -417,12 +423,12 @@ export default function RedesignedAboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="rounded-3xl border-2 border-white/80 bg-amber-400 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[340px]"
+              className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-amber-400 p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 min-h-[280px] sm:min-h-[340px]"
             >
               <span className="material-symbols-outlined">
                 hourglass_check
               </span>
-              <h3 className="font-display font-bold text-lg text-white leading-snug">
+              <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug">
                 On-Time, Every Time
               </h3>
               <p className="text-sm text-white/90 leading-relaxed">
@@ -437,12 +443,12 @@ export default function RedesignedAboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="rounded-3xl border-2 border-white/80 bg-green-600 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[340px]"
+              className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-green-600 p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 min-h-[280px] sm:min-h-[340px]"
             >
               <span className="material-symbols-outlined">
                 currency_rupee
               </span>
-              <h3 className="font-display font-bold text-lg text-white leading-snug">
+              <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug">
                 Transparent, Fair Pricing
               </h3>
               <p className="text-sm text-white/90 leading-relaxed">
@@ -457,12 +463,12 @@ export default function RedesignedAboutUsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="rounded-3xl border-2 border-white/80 bg-orange-500 p-8 flex flex-col items-center justify-center text-center gap-4 min-h-[340px]"
+              className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-orange-500 p-6 sm:p-8 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 min-h-[280px] sm:min-h-[340px]"
             >
               <span className="material-symbols-outlined">
                 bar_chart_4_bars
               </span>
-              <h3 className="font-display font-bold text-lg text-white leading-snug">
+              <h3 className="font-display font-bold text-base sm:text-lg text-white leading-snug">
                 Results You Can Measure
               </h3>
               <p className="text-sm text-white/90 leading-relaxed">
@@ -476,25 +482,25 @@ export default function RedesignedAboutUsPage() {
       </section>
 
       {/* 4. TRUST & EXPERIENCE SHOWCASE — SWIPER.JS */}
-      <section className="py-24 bg-dark-bg relative border-b border-glass-border overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+      <section className="py-16 sm:py-20 md:py-24 bg-dark-bg relative border-b border-glass-border overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16">
             <span className="text-sm font-bold text-sky-400">
               Trust &amp; Experience Highlighting
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mt-4">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-white mt-3 sm:mt-4">
               Your Trusted Branding &amp; Marketing Partner
             </h2>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <Swiper
             modules={[Autoplay]}
             centeredSlides={true}
             loop={true}
             slidesPerView={1}
-            spaceBetween={20}
+            spaceBetween={16}
             breakpoints={{
               640: {
                 slidesPerView: 2,
@@ -564,18 +570,24 @@ export default function RedesignedAboutUsPage() {
       scale(0.92);
   }
 
-            .material-symbols-outlined {
-  font-size: 50px !important;
-}
+  .material-symbols-outlined {
+    font-size: 36px !important;
+  }
+
+  @media (min-width: 640px) {
+    .material-symbols-outlined {
+      font-size: 50px !important;
+    }
+  }
 `}</style>
       </section>
 
       {/* 5. OUR SERVICES (COLOR CARD GRID WITH SCROLL-PARALLAX BACKGROUND) */}
-      <section ref={servicesSectionRef} className="relative py-24 overflow-hidden border-b border-glass-border">
+      <section ref={servicesSectionRef} className="relative py-16 sm:py-20 md:py-24 overflow-hidden border-b border-glass-border">
         {/* Parallax background image */}
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute inset-0 bg-fixed bg-cover bg-center"
+            className="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center"
             style={{
               backgroundImage:
                 "url('images/about/bg2.jpg')",
@@ -585,12 +597,12 @@ export default function RedesignedAboutUsPage() {
           <div className="absolute inset-0 bg-slate-950/70" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-14">
-            <span className="text-sm md:text-base font-bold text-sky-400 block mb-3">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
+            <span className="text-xs sm:text-sm md:text-base font-bold text-sky-400 block mb-2 sm:mb-3">
               Our Services
             </span>
-            <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">
+            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-white mb-3 sm:mb-4">
               Elevate Your Brand with Our Diverse Solutions
             </h2>
             <p className="text-sm md:text-base font-semibold text-white/90 italic">
@@ -599,21 +611,21 @@ export default function RedesignedAboutUsPage() {
           </div>
 
           {/* Row 1 — 2 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 mb-5 sm:mb-6">
             {services.slice(0, 2).map((service, idx) => (
               <ServiceCard key={idx} service={service} delay={idx * 0.08} />
             ))}
           </div>
 
           {/* Row 2 — 3 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 mb-5 sm:mb-6">
             {services.slice(2, 5).map((service, idx) => (
               <ServiceCard key={idx} service={service} delay={(idx + 2) * 0.08} />
             ))}
           </div>
 
           {/* Row 3 — 2 cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6">
             {services.slice(5, 7).map((service, idx) => (
               <ServiceCard key={idx} service={service} delay={(idx + 5) * 0.08} />
             ))}
@@ -626,13 +638,12 @@ export default function RedesignedAboutUsPage() {
       {/* 7. GLOBAL FABRICATION FOOTPRINT (PARALLAX BANNER) */}
       <section
         ref={globeSectionRef}
-        className="relative py-28 md:py-36 overflow-hidden border-b border-glass-border"
+        className="relative py-20 sm:py-28 md:py-36 overflow-hidden border-b border-glass-border"
       >
-        {/* Parallax background image */}
         {/* Background image */}
         <div className="absolute inset-0 overflow-hidden">
           <div
-            className="absolute inset-0 bg-fixed bg-cover bg-center"
+            className="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center"
             style={{
               backgroundImage: "url('/images/about/bg3.png')",
             }}
@@ -641,33 +652,39 @@ export default function RedesignedAboutUsPage() {
           <div className="absolute inset-0 bg-black/55" />
         </div>
 
-        <div className="max-w-5xl mx-auto px-6 relative z-10 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10 text-center">
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5 }}
-            className="text-base md:text-lg font-medium text-lime-200 mb-6"
+            className="text-sm sm:text-base md:text-lg font-medium text-lime-200 mb-4 sm:mb-6"
           >
             Our Exhibition Booth Fabrication Services in
           </motion.p>
 
+          {/* whitespace-nowrap removed on mobile — "INDIA | U.A.E | GERMANY |
+              BANGKOK | NEPAL" at text-2xl doesn't fit a narrow phone screen
+              in one line and was overflowing horizontally. It wraps below
+              sm: and locks to one line only once there's room (sm and up). */}
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className=" whitespace-nowrap font-display font-bold text-2xl sm:text-3xl md:text-5xl text-white tracking-wide"
+            className="font-display font-bold text-white tracking-wide"
           >
-            INDIA&nbsp;
-            <span className="text-white/60 mx-1 md:mx-2">|</span>
-            &nbsp;U.A.E
-            <span className="text-white/60 mx-1 md:mx-2">|</span>
-            GERMANY
-            <span className="text-white/60 mx-1 md:mx-2">|</span>
-            BANKOK
-            <span className="text-white/60 mx-1 md:mx-2">|</span>
-            NEPAL
+            <span className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 gap-y-2 text-xl sm:text-3xl md:text-5xl">
+              <span>INDIA</span>
+              <span className="text-white/60">|</span>
+              <span>U.A.E</span>
+              <span className="text-white/60">|</span>
+              <span>GERMANY</span>
+              <span className="text-white/60">|</span>
+              <span>BANGKOK</span>
+              <span className="text-white/60">|</span>
+              <span>NEPAL</span>
+            </span>
           </motion.h2>
         </div>
       </section>
