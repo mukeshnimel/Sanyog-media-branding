@@ -3,24 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import {
-    Sparkles,
-    Star,
-    ArrowRight,
-    Phone,
-    Globe,
-    FileText,
-    ShoppingBag,
-    PenTool,
-    Zap,
-    TrendingUp,
-    UserCheck,
-    ShieldCheck,
-    Heart,
-    ClipboardCheck,
-    Quote,
-    Wallet,
-} from "lucide-react";
+import { Phone } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
 import FinalCTA from "@/components/FinalCTA";
@@ -111,13 +94,6 @@ const testimonials = [
     },
 ];
 
-const priorities = [
-    { icon: ShieldCheck, title: "Non-Compromising Work" },
-    { icon: Zap, title: "Hassle-free Work" },
-    { icon: UserCheck, title: "Single Point Of Contact" },
-    { icon: Wallet, title: "Within Your Budget" },
-];
-
 // ---------- PAGE ----------
 
 export default function ContentWritingPage() {
@@ -127,7 +103,9 @@ export default function ContentWritingPage() {
         <main className="flex-1 bg-slate-950 text-slate-100 overflow-hidden">
 
             {/* HERO SECTION */}
-            <section className="relative min-h-[750px] md:min-h-[850px] overflow-visible bg-slate-950 border-b border-slate-800">
+            {/* FIX: min-h dropped a step on mobile so the video section isn't
+                needlessly tall/empty on small phones. */}
+            <section className="relative min-h-[680px] sm:min-h-[750px] md:min-h-[850px] overflow-visible bg-slate-950 border-b border-slate-800">
 
                 <div className="absolute inset-0">
                     <video
@@ -149,26 +127,35 @@ export default function ContentWritingPage() {
                 </div>
 
                 {/* Hero Content */}
-                <div className="relative z-10 max-w-6xl mx-auto px-6 pt-28 md:pt-36 pb-24 md:pb-28 text-center flex flex-col items-center">
+                <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-36 pb-16 sm:pb-20 md:pb-28 text-center flex flex-col items-center">
 
-                    <span className="text-sm md:text-2xl font-bold uppercase tracking-[0.25em] text-white mb-6">
+                    <span className="text-xs sm:text-sm md:text-2xl font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white mb-6">
                         Your Ideas, Our Content. Let&apos;s Begin
                     </span>
 
-                    <h1 className="w-full whitespace-nowrap text-center font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white mb-8">
+                    {/* FIX: `whitespace-nowrap` forced this headline onto one line
+                        even on a 375px phone, so it either overflowed the screen or
+                        got silently clipped. It now wraps normally on mobile/tablet
+                        and only forces a single line from lg upward where there's
+                        enough width for it. */}
+                    <h1
+                        className="w-full max-w-none mx-auto text-center font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight text-white mb-8 whitespace-normal lg:whitespace-nowrap"
+                    >
                         Turn Your Brand Vision Into{" "}
-                        <span className="gradient-text">
-                            Content
-                        </span>
+                        <span className="gradient-text">Content</span>
                     </h1>
 
-                    <div className="border-3 border-white/70 rounded-[30px] px-8 md:px-25 py-3 md:py-10 mb-7 bg-white/5 backdrop-blur-sm">
-                        <span className="text-sm md:text-4xl font-bold text-cyan-400">
+                    {/* FIX: `border-3` and `px-8 md:px-25` aren't valid Tailwind
+                        utilities (no class is generated for either), so this badge had
+                        no visible border and no extra horizontal padding on desktop.
+                        Replaced with real values, scaled down for mobile. */}
+                    <div className="border-2 sm:border-[3px] border-white/70 rounded-[20px] sm:rounded-[30px] px-5 sm:px-8 md:px-[6.25rem] py-2.5 sm:py-3 md:py-10 mb-7 bg-white/5 backdrop-blur-sm">
+                        <span className="text-sm sm:text-base md:text-4xl font-bold text-cyan-400">
                             Copy Writing &amp; Content Creation
                         </span>
                     </div>
 
-                    <p className="text-base md:text-3xl italic text-white/90 font-medium mb-10">
+                    <p className="text-sm sm:text-base md:text-3xl italic text-white/90 font-medium mb-10">
                         Think It — Create It — Share It
                     </p>
 
@@ -185,30 +172,39 @@ export default function ContentWritingPage() {
                             ].map((src, i) => (
                                 <div
                                     key={i}
-                                    className="relative w-11 h-11 md:w-12 md:h-12 rounded-full border-2 border-slate-950 overflow-hidden"
+                                    className="relative w-9 h-9 sm:w-11 sm:h-11 md:w-12 md:h-12 rounded-full border-2 border-slate-950 overflow-hidden"
                                 >
                                     <Image src={src} alt={`Reviewer ${i + 1}`} fill className="object-cover" />
                                 </div>
                             ))}
                         </div>
 
-                        <span className="text-base font-bold text-white">
+                        <span className="text-sm sm:text-base font-bold text-white">
                             4.9/5 Star Rating
                         </span>
 
-                        <span className="text-sm text-cyan-400 mt-1">
+                        <span className="text-xs sm:text-sm text-cyan-400 mt-1">
                             Based on Google Review
                         </span>
                     </div>
                 </div>
 
-                {/* CTA CARD — bottom edge pe half overlap */}
-                <div className="absolute left-0 right-0 bottom-0 translate-y-1/2 z-20 px-6">
+                {/* CTA CARD */}
+                {/* FIX: this whole card used to be `absolute` + `flex justify-between`
+                    with one child forced to `absolute left-1/2 -translate-x-1/2`. That
+                    only works when all three children (phone icon / centered text /
+                    call+button) fit side-by-side, which needs a wide desktop viewport —
+                    on mobile the pieces overlapped each other and the nowrap headings
+                    inside it overflowed the card. Below lg it's now a normal stacked
+                    block sitting in the page flow (no absolute overlap, no clipped
+                    text); from lg upward it goes back to the original absolute
+                    bottom-overlap treatment. */}
+                <div className="relative lg:absolute left-0 right-0 lg:bottom-0 lg:translate-y-1/2 z-20 px-4 sm:px-6 -mt-10 sm:-mt-14 lg:mt-0">
                     <div className="max-w-6xl mx-auto">
-                        <div className="relative bg-[#0a0e27] rounded-[2.5rem] px-8 py-8 md:px-10 md:py-8 flex items-center justify-between border-2 border-slate-700 shadow-2xl">
+                        <div className="relative bg-[#0a0e27] rounded-[2rem] sm:rounded-[2.5rem] px-6 py-8 sm:px-8 md:px-10 md:py-8 flex flex-col lg:flex-row items-center lg:justify-between gap-8 lg:gap-4 border-2 border-slate-700 shadow-2xl">
 
                             {/* 1. PHONE ICON */}
-                            <div className="flex justify-center lg:justify-start shrink-0 lg:translate-x-6">
+                            <div className="flex justify-center shrink-0 scale-75 sm:scale-90 lg:scale-100 origin-center lg:translate-x-6">
                                 <div className="relative w-32 h-32 flex items-center justify-center">
 
                                     {/* OUTER RIPPLE 1 */}
@@ -235,7 +231,10 @@ export default function ContentWritingPage() {
                                     <span className="absolute w-28 h-28 rounded-full bg-cyan-400/20 blur-2xl animate-pulse" />
 
                                     {/* PHONE CIRCLE */}
-                                    <div className="relative z-10 w-25 h-25 rounded-full bg-cyan-500 flex items-center justify-center text-white shadow-[0_0_35px_rgba(34,211,238,0.65)]">
+                                    {/* FIX: w-25/h-25 aren't valid Tailwind sizes, so this
+                                        circle had no explicit size at all. Using the real
+                                        w-24/h-24 scale value instead. */}
+                                    <div className="relative z-10 w-24 h-24 rounded-full bg-cyan-500 flex items-center justify-center text-white shadow-[0_0_35px_rgba(34,211,238,0.65)]">
 
                                         <Phone
                                             className="w-12 h-12 animate-[phoneRing_0.8s_ease-in-out_infinite]"
@@ -245,21 +244,25 @@ export default function ContentWritingPage() {
                                     </div>
                                 </div>
                             </div>
-                            {/* 2. CONTENT — EXACT CENTER */}
-                            <div className="absolute left-1/2 -translate-x-1/2 text-center">
-                                <h2 className="whitespace-nowrap  text-2xl md:text-[35px] text-white mb-2">
+
+                            {/* 2. CONTENT — centered on mobile, exact-center overlay from lg */}
+                            <div className="text-center lg:absolute lg:left-1/2 lg:-translate-x-1/2 -mt-6 lg:mt-0">
+                                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[35px] text-white mb-2 whitespace-normal lg:whitespace-nowrap">
                                     Want To Order Content Writing
                                 </h2>
 
-                                <p className="whitespace-nowrap text-base md:text-[26px] text-cyan-400 ">
+                                <p className="text-sm sm:text-base lg:text-[26px] text-cyan-400 whitespace-normal lg:whitespace-nowrap">
                                     Get in Touch for a Free Personalized Pricing Plan
                                 </p>
                             </div>
 
                             {/* 3 + 4. CALL US + SAY HELLO */}
-                            <div className="ml-auto flex flex-col items-center lg:items-end gap-4">
+                            <div className="lg:ml-auto flex flex-col items-center gap-4">
                                 <div className="flex flex-col leading-tight text-center">
-                                    <span className="text-2xl uppercase tracking-wider text-slate-400 font-semibold">
+                                    {/* FIX: this label was text-2xl — bigger than the
+                                        phone number it labels. Scaled it down to a
+                                        normal small-caps label size. */}
+                                    <span className="text-xs sm:text-sm uppercase tracking-wider text-slate-400 font-semibold">
                                         Call Us
                                     </span>
 
@@ -273,12 +276,12 @@ export default function ContentWritingPage() {
 
                                 <button
                                     onClick={() => setShowPopup(true)}
-                                    className="px-8 py-3.5 border border-white rounded-[15px] text-xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-2 mb-8"
+                                    className="px-6 sm:px-8 py-3 sm:py-3.5 border border-white rounded-[15px] text-base sm:text-lg lg:text-xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-2"
                                     style={{ background: "linear-gradient(128deg, #00549B 21%, #F04F25 100%)" }}
                                 >
                                     Say Hello
                                     <span className="flex items-center justify-center">
-                                        <img src="/images/video-reel/icons/smile.svg" alt="Smile" className="w-7 h-7 brightness-0 invert" />
+                                        <img src="/images/video-reel/icons/smile.svg" alt="Smile" className="w-6 h-6 sm:w-7 sm:h-7 brightness-0 invert" />
                                     </span>
                                 </button>
 
@@ -293,42 +296,46 @@ export default function ContentWritingPage() {
 
 
             {/* 3. SERVICES */}
-            <section className="py-35 bg-dark-bg ">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+            {/* FIX: `py-35` isn't a real Tailwind spacing step, so no vertical
+                padding was actually applied on any screen size (the huge gap you saw
+                was really just the CTA card's mobile margin above). Replaced with a
+                real, responsive scale — smaller on mobile, matching the original
+                intent on desktop. */}
+            <section className="pt-16 sm:pt-20 md:pt-28 lg:pt-[8.75rem] pb-16 sm:pb-20 md:pb-28 bg-dark-bg">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
 
-                        <h2 className="font-extrabold text-3xl md:text-5xl text-white mt-4">
+                        <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl text-white mt-4">
                             Our Content Writing Services
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        {services.map((s, idx) => {
-                            const Icon = s.icon;
-                            return (
-                                <div key={idx} className="border-4 border-[#007EC3] p-6 rounded-2xl flex flex-col items-start gap-4 bg-slate-900/50">
-                                    <div className="w-15 h-15 rounded-xl bg-[#007EC3]  border-slate-700 flex items-center justify-center">
-                                        <img
-                                            src={s.image}
-                                            alt={s.title}
-                                            className="w-12 h-12 object-contain brightness-0 invert"
-                                        />
-                                    </div>
-                                    <h3 className="font-bold text-xl text-white">{s.title}</h3>
-                                    <p className="text-base text-slate-400 leading-relaxed">{s.desc}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+                        {services.map((s, idx) => (
+                            <div key={idx} className="border-4 border-[#007EC3] p-5 sm:p-6 rounded-2xl flex flex-col items-start gap-4 bg-slate-900/50">
+                                {/* FIX: w-15/h-15 aren't valid Tailwind sizes (no class
+                                    generated), which collapsed this icon box to 0×0. */}
+                                <div className="w-14 h-14 rounded-xl bg-[#007EC3] border-slate-700 flex items-center justify-center shrink-0">
+                                    <img
+                                        src={s.image}
+                                        alt={s.title}
+                                        className="w-10 h-10 sm:w-12 sm:h-12 object-contain brightness-0 invert"
+                                    />
                                 </div>
-                            );
-                        })}
+                                <h3 className="font-bold text-lg sm:text-xl text-white">{s.title}</h3>
+                                <p className="text-sm sm:text-base text-slate-400 leading-relaxed">{s.desc}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
 
             {/* 4. WORDS THAT WORK */}
-            <section className=" bg-dark-bg ">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <section className="py-16 sm:py-20 md:py-24 bg-dark-bg">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
                         <div className="flex flex-col items-start">
-                            <span className="text-xl font-bold uppercase tracking-widest text-cyan-400 mb-4">
+                            <span className="text-base sm:text-lg md:text-xl font-bold uppercase tracking-widest text-cyan-400 mb-4">
                                 At Sanyog Media Concepts
                             </span>
                             <h2 className="font-bold text-2xl md:text-4xl text-white leading-tight mb-6">
@@ -339,18 +346,19 @@ export default function ContentWritingPage() {
                             </p>
                             <Link
                                 href="/about-us"
-                                className="px-8 py-4 rounded-xl text-bg font-bold text-slate-300 border border-slate-700 hover:border-white hover:text-white transition-all bg-[#007EC3] backdrop-blur-sm w-fit"
+                                className="px-8 py-4 rounded-xl font-bold text-slate-300 border border-slate-700 hover:border-white hover:text-white transition-all bg-[#007EC3] backdrop-blur-sm w-fit"
                             >
                                 Know More About Us
                             </Link>
                         </div>
 
-                        <div className="relative aspect-square rounded-3xl overflow-hidden ">
+                        <div className="relative aspect-square rounded-3xl overflow-hidden">
                             <Image
                                 src="/images/content-writing/1.png"
                                 alt="Content Writing"
                                 fill
-                            // className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                className="object-cover"
                             />
                         </div>
                     </div>
@@ -360,34 +368,36 @@ export default function ContentWritingPage() {
             <Testimonials />
 
             {/* 6. OUR COMMITMENTS */}
-            <section className="bg-dark-bg py-15">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <span className="text-lg  uppercase tracking-widest text-cyan-400">
+            {/* FIX: `py-15` isn't a valid Tailwind step either — replaced with a
+                real responsive scale. */}
+            <section className="bg-dark-bg py-16 sm:py-20 md:py-24">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
+                        <span className="text-sm sm:text-base md:text-lg uppercase tracking-widest text-cyan-400">
                             Our Commitments To You
                         </span>
-                        <h2 className="w-full text-center whitespace-nowrap text-3xl md:text-5xl text-white mt-4">
+                        {/* FIX: whitespace-nowrap here overflowed on mobile too;
+                            now wraps below lg. */}
+                        <h2 className="w-full text-center text-2xl sm:text-3xl md:text-5xl text-white mt-4 whitespace-normal lg:whitespace-nowrap">
                             With Our Content Writing Services
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {commitments.map((c, idx) => {
-                            const Icon = c.icon;
-                            return (
-                                <div key={idx} className="border-3 border-white p-6 rounded-2xl flex flex-col gap-4">
-                                    <div className="w-15 h-15 rounded-xl bg-[#007EC3] border border-slate-700 flex items-center justify-center text-cyan-400">
-                                        <img
-                                            src={c.image}
-                                            alt={c.title}
-                                            className="w-10 h-10 object-contain brightness-0 invert"
-                                        />
-                                    </div>
-                                    <h3 className="font-bold text-xl text-white">{c.title}</h3>
-                                    <p className="text-base text-slate-400 leading-relaxed">{c.desc}</p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+                        {commitments.map((c, idx) => (
+                            <div key={idx} className="border-2 sm:border-[3px] border-white p-5 sm:p-6 rounded-2xl flex flex-col gap-4">
+                                {/* FIX: w-15/h-15 → real w-14/h-14 scale value. */}
+                                <div className="w-14 h-14 rounded-xl bg-[#007EC3] border border-slate-700 flex items-center justify-center text-cyan-400 shrink-0">
+                                    <img
+                                        src={c.image}
+                                        alt={c.title}
+                                        className="w-9 h-9 sm:w-10 sm:h-10 object-contain brightness-0 invert"
+                                    />
                                 </div>
-                            );
-                        })}
+                                <h3 className="font-bold text-lg sm:text-xl text-white">{c.title}</h3>
+                                <p className="text-sm sm:text-base text-slate-400 leading-relaxed">{c.desc}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>

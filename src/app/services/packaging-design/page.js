@@ -4,28 +4,14 @@ import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Autoplay } from "swiper/modules";
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import {
-    Sparkles,
-    Star,
     ArrowRight,
-    Award,
-    PenTool,
-    Copyright,
-    Timer,
-    ShieldCheck,
-    Quote,
     Check,
     ChevronDown,
     MessageCircleQuestion,
-    Image as ImageIcon,
-    Target,
-    Search,
-    Eye,
-    ThumbsUp,
-    Sparkle
 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
@@ -220,34 +206,37 @@ export default function PackagingDesignPage() {
     const [activeFaq, setActiveFaq] = useState(null);
 
     return (
-        <main className="flex-1 bg-dark-bg text-slate-100  overflow-hidden">
+        <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
             {/* PACKAGING DESIGN — HERO SECTION */}
-            <section className="relative py-20 md:py-28 bg-dark-bg overflow-hidden border-b border-glass-border">
-                <div className="absolute top-1/3 left-1/4 -translate-x-1/2 w-96 h-96 rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" />
+            <section className="relative py-16 sm:py-20 md:py-28 bg-dark-bg overflow-hidden border-b border-glass-border">
+                <div className="absolute top-1/3 left-1/4 -translate-x-1/2 w-64 h-64 sm:w-96 sm:h-96 rounded-full bg-electric-blue/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
                         {/* Left — copy */}
-                        <div className="lg:col-span-5 flex flex-col items-start">
+                        <div className="lg:col-span-5 flex flex-col items-start w-full">
                             <motion.p
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-base md:text-lg text-white/90 mb-2"
+                                className="text-sm sm:text-base md:text-lg text-white/90 mb-2"
                             >
                                 Unveil Your Product&apos;s Essence through
                             </motion.p>
 
+                            {/* FIX: bumped the smallest step down to text-4xl so the
+                                headline doesn't feel oversized on narrow phones, while
+                                keeping the same md/lg sizes as before. */}
                             <motion.h1
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
                                 className="font-display font-black leading-[0.95] mb-2"
                             >
-                                <span className="block text-5xl md:text-7xl text-white">
+                                <span className="block text-4xl sm:text-5xl md:text-7xl text-white">
                                     Packaging
                                 </span>
-                                <span className="block text-5xl md:text-7xl text-sky-400">
+                                <span className="block text-4xl sm:text-5xl md:text-7xl text-sky-400">
                                     Artistry
                                 </span>
                             </motion.h1>
@@ -272,7 +261,7 @@ export default function PackagingDesignPage() {
                                 {avatarSeeds.map((seed, i) => (
                                     <div
                                         key={i}
-                                        className="w-9 h-9 rounded-full border-2 border-dark-bg overflow-hidden relative"
+                                        className="w-8 h-8 sm:w-9 sm:h-9 rounded-full border-2 border-dark-bg overflow-hidden relative"
                                     >
                                         <Image
                                             src={`https://i.pravatar.cc/64?img=${seed}`}
@@ -300,7 +289,7 @@ export default function PackagingDesignPage() {
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.4 }}
-                                className="flex flex-col gap-3 mb-6"
+                                className="flex flex-col sm:flex-row flex-wrap gap-3 mb-6 w-full"
                             >
                                 <a
                                     href="/contact"
@@ -327,15 +316,23 @@ export default function PackagingDesignPage() {
                         </div>
 
                         {/* Right — continuous vertical marquee */}
+                        {/* FIX: this whole block was hardcoded for desktop —
+                            `h-65` (col 2) isn't a valid Tailwind class at all, so that
+                            column's image boxes collapsed to 0 height, and the fixed
+                            `h-[560px]` outer wrapper never scaled down. On a narrow
+                            phone, 3 columns squeezed into ~90px each while every image
+                            box stayed 224–260px tall made them look absurdly
+                            stretched/cropped. Everything below now scales down across
+                            breakpoints and uses the same height on all 3 columns. */}
                         <div className="lg:col-span-7 w-full relative">
-                            <div className="grid grid-cols-3 gap-4 h-[560px] overflow-hidden rounded-2xl">
+                            <div className="grid grid-cols-3 gap-2 sm:gap-3 md:gap-4 h-[360px] sm:h-[460px] md:h-[560px] overflow-hidden rounded-xl sm:rounded-2xl">
                                 {/* Column 1 (left) — moves down */}
                                 <div className="pkg-marquee-col">
                                     <div className="pkg-marquee-track pkg-marquee-down">
                                         {[...packagingColumn1, ...packagingColumn1].map((img, i) => (
                                             <div
                                                 key={i}
-                                                className="relative w-full h-56 rounded-2xl overflow-hidden border border-white/10 mb-4 shrink-0"
+                                                className="relative w-full h-32 sm:h-44 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 mb-2 sm:mb-3 md:mb-4 shrink-0"
                                             >
                                                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
                                             </div>
@@ -349,7 +346,7 @@ export default function PackagingDesignPage() {
                                         {[...packagingColumn2, ...packagingColumn2].map((img, i) => (
                                             <div
                                                 key={i}
-                                                className="relative w-full h-65 rounded-2xl overflow-hidden border border-white/10 mb-4 shrink-0"
+                                                className="relative w-full h-32 sm:h-44 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 mb-2 sm:mb-3 md:mb-4 shrink-0"
                                             >
                                                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
                                             </div>
@@ -363,7 +360,7 @@ export default function PackagingDesignPage() {
                                         {[...packagingColumn3, ...packagingColumn3].map((img, i) => (
                                             <div
                                                 key={i}
-                                                className="relative w-full h-56 rounded-2xl overflow-hidden border border-white/10 mb-4 shrink-0"
+                                                className="relative w-full h-32 sm:h-44 md:h-56 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 mb-2 sm:mb-3 md:mb-4 shrink-0"
                                             >
                                                 <Image src={img.src} alt={img.alt} fill className="object-cover" />
                                             </div>
@@ -372,9 +369,9 @@ export default function PackagingDesignPage() {
                                 </div>
                             </div>
                             {/* Top & Bottom Fade - cinematic effect */}
-                            <div className="absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-dark-bg to-transparent pointer-events-none z-10" />
+                            <div className="absolute inset-x-0 top-0 h-16 sm:h-20 md:h-24 bg-gradient-to-b from-dark-bg to-transparent pointer-events-none z-10" />
 
-                            <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-dark-bg to-transparent pointer-events-none z-10" />
+                            <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 md:h-24 bg-gradient-to-t from-dark-bg to-transparent pointer-events-none z-10" />
                             <div className="absolute -bottom-3 left-3 inline-flex items-center px-3 py-1.5 rounded-lg bg-slate-950 border border-glass-border text-[10px] font-medium text-sky-400 shadow-lg z-10">
                                 https://sanyogmedia.in
                             </div>
@@ -416,10 +413,9 @@ export default function PackagingDesignPage() {
             <MarqueeRibbon />
 
             {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-            {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-            <section className="py-16 bg-dark-bg border-b border-glass-border">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="flex flex-wrap items-center justify-center gap-5 md:gap-8">
+            <section className="py-12 sm:py-16 bg-dark-bg border-b border-glass-border">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-8">
                         {badges.map((badge, idx) => (
                             <motion.div
                                 key={idx}
@@ -427,16 +423,16 @@ export default function PackagingDesignPage() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, margin: "-100px" }}
                                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                                className="group w-[170px] md:w-[190px] rounded-3xl border-2 border-sky-500 flex flex-col items-center justify-center gap-4 py-8 px-4 text-center"
+                                className="group w-[130px] sm:w-[170px] md:w-[190px] rounded-2xl sm:rounded-3xl border-2 border-sky-500 flex flex-col items-center justify-center gap-3 sm:gap-4 py-6 sm:py-8 px-3 sm:px-4 text-center"
                             >
-                                <div className="w-12 h-12 rounded-xl bg-sky-500 group-hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-120">
+                                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sky-500 group-hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-110 shrink-0">
                                     <img
                                         src={badge.icon}
                                         alt={`${badge.line1} ${badge.line2}`}
-                                        className="w-10 h-10 brightness-0 invert   "
+                                        className="w-9 h-9 sm:w-10 sm:h-10 brightness-0 invert"
                                     />
                                 </div>
-                                <span className="text-sm md:text-base font-bold text-white leading-snug">
+                                <span className="text-xs sm:text-sm md:text-base font-bold text-white leading-snug">
                                     {badge.line1}
                                     <br />
                                     {badge.line2}
@@ -448,25 +444,25 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* 4. TRUST & EXPERIENCE SHOWCASE — SWIPER.JS */}
-            <section className="py-24 bg-dark-bg relative border-b border-glass-border overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+            <section className="py-16 sm:py-20 md:py-24 bg-dark-bg relative border-b border-glass-border overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                         <span className="text-sm font-bold text-sky-400">
                             Trust &amp; Experience Highlighting
                         </span>
-                        <h2 className="font-display font-bold text-3xl md:text-5xl text-white mt-4">
+                        <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-5xl text-white mt-4">
                             Your Trusted Branding &amp; Marketing Partner
                         </h2>
                     </div>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
                     <Swiper
                         modules={[Autoplay]}
                         centeredSlides={true}
                         loop={true}
                         slidesPerView={1}
-                        spaceBetween={20}
+                        spaceBetween={16}
                         breakpoints={{
                             640: {
                                 slidesPerView: 2,
@@ -539,9 +535,9 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* 5. IMMERSIVE EXPERIENCE */}
-            <section className="py-24 bg-dark-bg border-b border-glass-border relative overflow-hidden">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <section className="py-16 sm:py-20 md:py-24 bg-dark-bg border-b border-glass-border relative overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
                         {/* Left — copy */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -586,12 +582,13 @@ export default function PackagingDesignPage() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true, margin: "-100px" }}
                             transition={{ duration: 0.7, delay: 0.15 }}
-                            className="relative w-full h-[380px] md:h-[420px]"
+                            className="relative w-full h-[280px] sm:h-[340px] md:h-[420px]"
                         >
                             <Image
                                 src="/images/packaging-design/1.png"
                                 alt="Packaging design showcase"
                                 fill
+                                sizes="(max-width: 1024px) 100vw, 50vw"
                                 className="object-contain"
                             />
                         </motion.div>
@@ -602,13 +599,13 @@ export default function PackagingDesignPage() {
             <Testimonials />
 
             {/* 7. SERVICES LIST */}
-            <section className="py-24 bg-dark-bg border-b border-glass-border">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
-                        <h2 className="font-display text-3xl md:text-4xl text-white leading-tight lg:col-span-1">
+            <section className="py-16 sm:py-20 md:py-24 bg-dark-bg border-b border-glass-border">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 items-start">
+                        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl text-white leading-tight lg:col-span-1">
                             Our Packaging Design Services
                         </h2>
-                        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-5">
+                        <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4 sm:gap-y-5">
                             {services.map((s, idx) => (
                                 <div key={idx} className="flex items-center gap-3">
                                     <ArrowRight className="w-5 h-5 text-neon-cyan shrink-0" />
@@ -621,29 +618,29 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* 8. PRICING */}
-            <section id="packagingprice" className="py-24 bg-slate-950 relative overflow-hidden border-b border-glass-border">
+            <section id="packagingprice" className="py-16 sm:py-20 md:py-24 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-display font-black text-[8rem] md:text-[12rem] text-white/[0.03] leading-none tracking-tight">
+                    <span className="font-display font-black text-[5rem] sm:text-[8rem] md:text-[12rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
                     </span>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                         <span className="text-xs font-bold uppercase tracking-widest text-neon-cyan">
                             Pricing Options
                         </span>
-                        <h2 className="font-display font-extrabold text-3xl md:text-5xl text-white mt-4">
+                        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl text-white mt-4">
                             Packaging Design Pricing
                         </h2>
                         <p className="text-sm text-slate-400 mt-4">Unique Design For Your UNIQUE Product</p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
                         {pricingPlans.map((plan, idx) => (
                             <div
                                 key={idx}
-                                className={`rounded-3xl p-8 flex flex-col justify-between border ${plan.popular
+                                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between border ${plan.popular
                                     ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
                                     : "border-glass-border bg-slate-950/40"
                                     }`}
@@ -654,7 +651,7 @@ export default function PackagingDesignPage() {
                                         {plan.subtitle}
                                     </span>
 
-                                    <div className="flex items-baseline gap-2 mt-4 mb-6">
+                                    <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
                                         <span className="text-xs text-slate-500 line-through">{plan.oldPrice}</span>
                                         <span className="font-display font-extrabold text-3xl text-white">
                                             {plan.price}
@@ -692,7 +689,7 @@ export default function PackagingDesignPage() {
             {/* SECTION 6: HOW IT WORKS (ALTERNATING FULL-WIDTH ROWS) */}
             <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
                 {/* Header */}
-                <div className="py-14 md:py-20 text-center px-6">
+                <div className="py-12 sm:py-14 md:py-20 text-center px-4 sm:px-6">
                     <span className="text-xs font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
@@ -709,10 +706,10 @@ export default function PackagingDesignPage() {
                             <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px]">
                                 {/* Text block */}
                                 <div
-                                    className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 py-12 md:py-16 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
+                                    className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 sm:py-12 md:py-16 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
                                         }`}
                                 >
-                                    <div className="w-10 h-10 rounded-full  flex items-center justify-center mb-5 md:mb-6">
+                                    <div className="w-10 h-10 rounded-full flex items-center justify-center mb-5 md:mb-6">
                                         <img
                                             src={step.iconImage}
                                             alt={`${step.title} icon`}
@@ -729,7 +726,7 @@ export default function PackagingDesignPage() {
 
                                 {/* Image block */}
                                 <div
-                                    className={`relative w-full h-[240px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                                    className={`relative w-full h-[220px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
                                         }`}
                                 >
                                     <Image
@@ -748,8 +745,8 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* 10. FAQ — FULL WIDTH GRADIENT ACCORDION */}
-            <section className="py-24 bg-dark-bg relative">
-                <div className="max-w-4xl mx-auto px-6 text-center mb-16 flex flex-col items-center">
+            <section className="py-16 sm:py-20 md:py-24 bg-dark-bg relative">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 flex flex-col items-center">
                     <div className="w-14 h-14 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 text-white" strokeWidth={1.5} />
                     </div>
@@ -767,13 +764,17 @@ export default function PackagingDesignPage() {
                     </p>
                 </div>
 
-                <div className="w-full flex flex-col gap-3">
+                {/* FIX: no max-width wrapper meant rows stretched edge-to-edge on
+                    wide screens, and `pl-15 md:pl-19` (invalid Tailwind — no class is
+                    generated) left the answer text with zero left indent instead of
+                    lining up under the question. */}
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full flex flex-col gap-3">
                     {faqs.map((faq, idx) => {
                         const isOpen = activeFaq === idx;
                         return (
                             <div
                                 key={idx}
-                                className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
+                                className={`w-full transition-all duration-300 rounded-xl ${isOpen ? "border border-white" : "border border-transparent"
                                     }`}
                                 style={{
                                     background: "#1487c9",
@@ -800,7 +801,7 @@ export default function PackagingDesignPage() {
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <div className="px-6 md:px-10 pb-6 pl-15 md:pl-19 text-sm text-white/85 leading-relaxed">
+                                            <div className="px-4 sm:px-6 md:px-10 pb-6 pl-[3.25rem] md:pl-[3.75rem] text-sm text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (
@@ -820,7 +821,7 @@ export default function PackagingDesignPage() {
                 </div>
             </section>
 
-           <FinalCTA />
+            <FinalCTA />
 
         </main>
     );

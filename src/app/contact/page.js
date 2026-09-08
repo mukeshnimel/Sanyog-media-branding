@@ -438,8 +438,8 @@ export default function ContactPage() {
               </div>
             </motion.div>
 
-            {/* mobile: small centered image below content since absolute is desktop-only above */}
-            <div className="md:hidden w-full flex justify-center">
+            {/* MOBILE IMAGE */}
+            <div className="md:hidden w-full flex justify-center translate-y-20">
               <img
                 src="/images/contact/2.png"
                 alt="Contact Sanyog Media Concepts"

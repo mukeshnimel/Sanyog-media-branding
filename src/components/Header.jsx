@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown } from "lucide-react";
@@ -84,7 +83,7 @@ export default function Header() {
             <img
               src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
               alt="Sanyog Media Concepts Logo"
-              className="h-7 w-auto max-w-[130px] object-contain sm:h-8 sm:max-w-[170px] md:h-11 md:max-w-none"
+              className="h-9 w-auto max-w-[180px] object-contain sm:h-10 sm:max-w-[200px] md:h-11 md:max-w-none"
             />
           </Link>
 
@@ -219,25 +218,41 @@ export default function Header() {
       </header>
 
       {/* Mobile Drawer */}
+      {/*
+        FIX — this was the cause of the "blink / hang" on mobile:
+        the drawer animated `clipPath` from a tiny circle to a huge one
+        WHILE the same element also had `backdrop-blur-2xl` covering the
+        full screen (`fixed inset-0`). Animating clip-path together with a
+        full-screen backdrop-filter every frame is very GPU-expensive, and
+        most phone browsers can't composite that combo smoothly — it drops
+        frames and reads as the menu freezing/blinking when it opens.
+
+        Fix: swap the clip-path reveal for a cheap opacity + transform
+        animation (fully compositor-friendly, no per-frame repaint of a
+        blurred surface), and back off the blur strength one notch so it
+        stays smooth even on lower-end phones. Also switched the drawer
+        logo from a remote URL to the same local file the header already
+        uses, so it doesn't pop in late over a slow connection (which read
+        as a second "blink").
+      */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ clipPath: "circle(4% at 92% 5%)" }}
-            animate={{ clipPath: "circle(150% at 92% 5%)" }}
-            exit={{ clipPath: "circle(4% at 92% 5%)" }}
-            transition={{ duration: 0.55, ease: [0.65, 0, 0.35, 1] }}
-            className="fixed inset-0 z-[100] flex flex-col overflow-x-hidden overflow-y-auto bg-[#04060b]/85 backdrop-blur-2xl md:hidden"
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed inset-0 z-[100] flex flex-col overflow-x-hidden overflow-y-auto bg-[#04060b]/95 backdrop-blur-md md:hidden"
+            style={{ willChange: "opacity, transform" }}
           >
             <div className="pointer-events-none absolute -top-24 -right-20 h-64 w-64 rounded-full bg-sky-500/10 blur-3xl" />
             <div className="pointer-events-none absolute bottom-0 -left-20 h-64 w-64 rounded-full bg-violet-500/10 blur-3xl" />
 
             <div className="relative flex items-center justify-between px-5 pt-6 sm:px-6">
-              <Image
-                src="https://sanyogmedia.in/wp-content/uploads/2025/03/SANYOG-MEDIA-CONCEPTS-BRANDING-1-2048x291.png"
+              <img
+                src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
                 alt="Sanyog Media Concepts Logo"
-                width={170}
-                height={24}
-                className="h-6 w-auto object-contain sm:h-7"
+                className="h-6 w-auto max-w-[150px] object-contain sm:h-7"
               />
               <button
                 onClick={() => setIsOpen(false)}

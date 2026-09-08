@@ -7,24 +7,9 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import {
-    Sparkles,
-    Star,
-    ArrowRight,
-    ShoppingCart,
-    Smartphone,
-    PenTool,
-    RefreshCw,
-    Layers,
-    ShieldCheck,
-    Quote,
     Check,
     ChevronDown,
     MessageCircleQuestion,
-    Image as ImageIcon,
-    Target,
-    Search,
-    Eye,
-    ThumbsUp,
     ChevronLeft, ChevronRight, X, ZoomIn
 } from "lucide-react";
 import HeroVisual from "@/components/HeroVisual";
@@ -325,32 +310,41 @@ export default function WebsiteDesignPage() {
     }, [isLightboxOpen, closeLightbox, showPrevImage, showNextImage]);
 
     return (
-        <main className="flex-1 bg-dark-bg text-slate-100">
+        // FIX: `overflow-hidden` would clip the stray decorative blur circles,
+        // but it also creates a new scroll container — and any such ancestor
+        // between a `position: sticky` element and the viewport breaks that
+        // sticky behaviour. `overflow-x-clip` clips the visual/horizontal
+        // overflow the exact same way WITHOUT creating a scroll container,
+        // so the sticky column further down keeps working.
+        <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-clip">
 
             {/* 1. HERO */}
-            <section className="relative py-20 md:py-28 bg-dark-bg border-b border-glass-border overflow-hidden">
-                <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" />
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <section className="relative py-16 sm:py-20 md:py-28 bg-dark-bg border-b border-glass-border overflow-hidden">
+                <div className="absolute top-1/3 left-1/4 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-electric-blue/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-center">
                         {/* Left — copy */}
-                        <div className="flex flex-col items-start">
+                        {/* Left — copy */}
+                        <div className="flex flex-col items-start w-full pt-8 sm:pt-10 md:pt-0">
                             <span className="text-sm md:text-base text-white/90 mb-3">
                                 Creating Your Unique Website.......
                             </span>
 
-                            <h1 className="font-display font-extrabold text-4xl md:text-6xl leading-tight text-white mb-2">
+                            <h1 className="font-display font-extrabold text-3xl sm:text-4xl md:text-6xl leading-tight text-white mb-2 break-words">
                                 Website Design
                             </h1>
 
                             {/* Rotating headline — letter-by-letter WAVE animation (Elementor-style) */}
-                            <div className="h-10 mb-6 overflow-visible flex items-start">
+                            {/* FIX: fixed h-10 was clipping the md:text-4xl word; switched to a
+                                responsive min-height so nothing gets cut off on any screen size. */}
+                            <div className="min-h-[1.75rem] sm:min-h-[2.25rem] md:min-h-[3rem] mb-6 overflow-visible flex items-start w-full">
                                 <AnimatePresence mode="wait">
                                     <motion.div
                                         key={wordIndex}
                                         initial="hidden"
                                         animate="visible"
                                         exit="exit"
-                                        className="flex text-lg md:text-4xl  text-sky-400"
+                                        className="flex flex-wrap text-base sm:text-lg md:text-4xl text-sky-400"
                                     >
                                         {rotatingWords[wordIndex].split("").map((char, i) => (
                                             <motion.span
@@ -375,7 +369,7 @@ export default function WebsiteDesignPage() {
                                 {avatarSeeds.map((seed, i) => (
                                     <div
                                         key={i}
-                                        className="w-10 h-10 rounded-full border-2 border-dark-bg overflow-hidden relative"
+                                        className="w-9 h-9 sm:w-10 sm:h-10 rounded-full border-2 border-dark-bg overflow-hidden relative"
                                     >
                                         <Image
                                             src={`https://i.pravatar.cc/64?img=${seed}`}
@@ -394,24 +388,32 @@ export default function WebsiteDesignPage() {
                                 </p>
                             </div>
 
-                            <div className="relative flex flex-col gap-3">
+                            {/* FIX: buttons now wrap and go row on larger screens instead of
+                                always stacking; the decorative dot-grid was moved off a fixed
+                                px offset (which could overflow on md screens) and is now only
+                                shown from lg upward, positioned safely inside the container. */}
+                            <div className="relative flex flex-col sm:flex-row flex-wrap items-center justify-start gap-3 w-full">
                                 <a
                                     href="#contact"
-                                    className="px-6 py-3 rounded-full text-sm font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-fit"
+                                    className="inline-flex items-center justify-center px-6 py-3 min-w-[170px] rounded-full text-sm font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center leading-none"
                                 >
                                     Connect With Us
                                 </a>
+
                                 <a
                                     href="#webportfolio"
-                                    className="px-6 py-2.5 rounded-full text-sm font-bold text-white bg-cyan-500 hover:bg-cyan-600 transition-colors text-center w-fit"
+                                    className="inline-flex items-center justify-center px-6 py-3 min-w-[130px] rounded-full text-sm font-bold text-white bg-cyan-500 hover:bg-cyan-600 transition-colors text-center leading-none"
                                 >
                                     Portfolio
                                 </a>
 
-                                {/* Decorative dot grid */}
-                                <div className="hidden sm:grid grid-cols-6 gap-8 absolute left-[150px] top-2">
+                                {/* Decorative dot grid — desktop only */}
+                                <div className="hidden lg:grid grid-cols-6 gap-6 self-center ml-4">
                                     {[...Array(24)].map((_, i) => (
-                                        <span key={i} className="w-1 h-1 rounded-full bg-indigo-400/80" />
+                                        <span
+                                            key={i}
+                                            className="w-1 h-1 rounded-full bg-indigo-400/80"
+                                        />
                                     ))}
                                 </div>
                             </div>
@@ -424,13 +426,18 @@ export default function WebsiteDesignPage() {
 
             <MarqueeRibbon />
 
-            <section className="relative bg-dark-bg">
-                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-electric-blue/5 blur-[150px] pointer-events-none" />
+            {/* FIX: this section contains the `lg:sticky` left column below.
+                It previously used `overflow-hidden` to clip the blurred circle,
+                but that also breaks position:sticky on its descendants.
+                `overflow-x-clip` clips the same way without breaking sticky. */}
+            <section className="relative bg-dark-bg overflow-x-clip">
+                <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[400px] sm:w-[600px] h-[400px] sm:h-[600px] rounded-full bg-electric-blue/5 blur-[110px] sm:blur-[150px] pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 items-start">
 
-                        {/* LEFT — STAYS STICKY */}
+                        {/* LEFT — STAYS STICKY (desktop only, sticky is disabled below lg
+                            since there's nothing to scroll past on stacked mobile layouts) */}
                         <div className="lg:sticky lg:top-28 self-start h-fit w-full">
 
                             <span className="text-xs font-bold uppercase tracking-widest text-neon-cyan block mb-4">
@@ -460,6 +467,7 @@ export default function WebsiteDesignPage() {
                                                 src={src}
                                                 alt="Website Design"
                                                 fill
+                                                sizes="(max-width: 1024px) 100vw, 50vw"
                                                 className="object-cover"
                                             />
                                         </div>
@@ -470,35 +478,37 @@ export default function WebsiteDesignPage() {
 
 
                         {/* RIGHT — CARDS KEEP SCROLLING */}
-                        <div className="flex flex-col gap-6 w-full lg:sticky lg:top-28 self-start h-fit w-full">
+                        {/* FIX: this column was previously also `lg:sticky`, which pinned it
+                            in place and made the whole section feel broken (right column
+                            never scrolled past the left one). Removed the sticky + duplicate
+                            `w-full` class so cards flow normally underneath the sticky image. */}
+                        <div className="flex flex-col gap-6 w-full">
 
-                            {services.map((s, idx) => {
-                                const Icon = s.icon;
-
-                                return (
-                                    <div
-                                        key={idx}
-                                        className="glass-card p-6 rounded-2xl flex flex-col gap-4 min-h-[220px]"
-                                    >
-                                        <div className="w-15 h-15 rounded-xl bg-white border border-glass-border flex items-center justify-center mb-6">
-                                            <img
-                                                src={s.iconImage}
-                                                alt={`${s.title} icon`}
-                                                className="w-12 h-12"
-                                            // style={{ filter: "invert(70%) sepia(70%) saturate(1000%) hue-rotate(150deg) brightness(1.1)" }}
-                                            />
-                                        </div>
-
-                                        <h3 className="font-display font-bold text-lg text-white">
-                                            {s.title}
-                                        </h3>
-
-                                        <p className="text-xs text-slate-400 leading-relaxed">
-                                            {s.desc}
-                                        </p>
+                            {services.map((s, idx) => (
+                                <div
+                                    key={idx}
+                                    className="glass-card p-5 sm:p-6 rounded-2xl flex flex-col gap-4 min-h-[200px] sm:min-h-[220px]"
+                                >
+                                    {/* FIX: w-15/h-15 aren't valid Tailwind sizes (no class is
+                                        generated), which collapsed this box to 0×0. Using the
+                                        real w-14/h-14 scale value instead. */}
+                                    <div className="w-14 h-14 rounded-xl bg-white border border-glass-border flex items-center justify-center mb-4 sm:mb-6 shrink-0">
+                                        <img
+                                            src={s.iconImage}
+                                            alt={`${s.title} icon`}
+                                            className="w-10 h-10 sm:w-12 sm:h-12"
+                                        />
                                     </div>
-                                );
-                            })}
+
+                                    <h3 className="font-display font-bold text-lg text-white">
+                                        {s.title}
+                                    </h3>
+
+                                    <p className="text-xs text-slate-400 leading-relaxed">
+                                        {s.desc}
+                                    </p>
+                                </div>
+                            ))}
 
                         </div>
 
@@ -507,9 +517,9 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 5. MAKING A LASTING MARK — VIDEO */}
-            <section className="py-24 bg-dark-bg border-b border-glass-border">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-12">
+            <section className="py-16 md:py-24 bg-dark-bg border-b border-glass-border">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-10 md:mb-12">
                         <h2 className="font-display font-extrabold text-3xl md:text-5xl text-white leading-tight">
                             Making a Lasting <span className="gradient-text">Mark in The Market</span>
                         </h2>
@@ -520,7 +530,7 @@ export default function WebsiteDesignPage() {
                     </div>
 
                     {/* Brand Story Video */}
-                    <div className="relative aspect-video rounded-3xl overflow-hidden border border-glass-border bg-slate-950/40">
+                    <div className="relative aspect-video rounded-2xl sm:rounded-3xl overflow-hidden border border-glass-border bg-slate-950/40">
                         <video
                             className="w-full h-full object-cover"
                             src="/images/web-design/web-ad.mp4"
@@ -537,9 +547,9 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 6. PORTFOLIO GALLERY */}
-            <section id="webportfolio" className="py-24 bg-slate-950 border-b border-glass-border">
-                <div className="max-w-7xl mx-auto px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+            <section id="webportfolio" className="py-16 md:py-24 bg-slate-950 border-b border-glass-border">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                         <h2 className="font-display font-extrabold text-3xl md:text-5xl text-white leading-tight mb-4">
                             Your Website is a Canvas Where Your Brand&apos;s{" "}
                             <span className="gradient-text">Story Comes Alive</span>
@@ -589,14 +599,14 @@ export default function WebsiteDesignPage() {
                             className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 sm:p-8"
                             onClick={closeLightbox}
                         >
-                            <div className="absolute top-5 left-5 sm:top-6 sm:left-8 text-white/80 font-mono text-sm tracking-wider z-10">
+                            <div className="absolute top-4 left-4 sm:top-6 sm:left-8 text-white/80 font-mono text-xs sm:text-sm tracking-wider z-10">
                                 {activeIndex + 1} / {portfolioGallery.length}
                             </div>
 
                             <button
                                 type="button"
                                 onClick={closeLightbox}
-                                className="absolute top-5 right-5 sm:top-6 sm:right-8 flex items-center justify-center w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
+                                className="absolute top-4 right-4 sm:top-6 sm:right-8 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
                             >
                                 <X className="w-5 h-5 text-white" />
                             </button>
@@ -604,17 +614,17 @@ export default function WebsiteDesignPage() {
                             <button
                                 type="button"
                                 onClick={showPrevImage}
-                                className="absolute left-3 sm:left-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
+                                className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
                             >
-                                <ChevronLeft className="w-6 h-6 text-white" />
+                                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                             </button>
 
                             <button
                                 type="button"
                                 onClick={showNextImage}
-                                className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
+                                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
                             >
-                                <ChevronRight className="w-6 h-6 text-white" />
+                                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                             </button>
 
                             <AnimatePresence mode="wait">
@@ -645,15 +655,15 @@ export default function WebsiteDesignPage() {
             <Testimonials />
 
             {/* 8. PRICING */}
-            <section id="pricing" className="py-24 bg-slate-950 relative overflow-hidden border-b border-glass-border">
+            <section id="pricing" className="py-16 md:py-24 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-display font-black text-[8rem] md:text-[12rem] text-white/[0.03] leading-none tracking-tight">
+                    <span className="font-display font-black text-[5rem] sm:text-[8rem] md:text-[12rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
                     </span>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-6 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
                         <span className="text-xs font-bold uppercase tracking-widest text-neon-cyan">
                             Website Design Packages
                         </span>
@@ -682,7 +692,7 @@ export default function WebsiteDesignPage() {
                                         {plan.subtitle}
                                     </span>
 
-                                    <div className="flex items-baseline gap-2 mt-4 mb-6">
+                                    <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
                                         <span className="text-xs text-slate-500 line-through">{plan.oldPrice}</span>
                                         <span className="font-display font-extrabold text-2xl text-white">
                                             {plan.price}
@@ -708,8 +718,11 @@ export default function WebsiteDesignPage() {
                                                     <span>{feat}</span>
                                                 </li>
                                             ))}
+                                            {/* FIX: text-slate-550 isn't a real Tailwind color
+                                                (no class generated → invisible/unstyled text).
+                                                Using text-slate-500 which is on the real scale. */}
                                             {plan.excluded?.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2 text-xs text-slate-550">
+                                                <li key={fIdx} className="flex items-start gap-2 text-xs text-slate-500">
                                                     <span className="w-3.5 h-3.5 shrink-0 mt-0.5 text-center">✕</span>
                                                     <span>{feat}</span>
                                                 </li>
@@ -726,7 +739,7 @@ export default function WebsiteDesignPage() {
             {/* SECTION 6: HOW IT WORKS (ALTERNATING FULL-WIDTH ROWS) */}
             <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
                 {/* Header */}
-                <div className="py-14 md:py-20 text-center px-6">
+                <div className="py-12 sm:py-14 md:py-20 text-center px-4 sm:px-6">
                     <span className="text-xs font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
@@ -743,10 +756,10 @@ export default function WebsiteDesignPage() {
                             <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px]">
                                 {/* Text block */}
                                 <div
-                                    className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 py-12 md:py-16 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
+                                    className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 py-10 sm:py-12 md:py-16 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
                                         }`}
                                 >
-                                    <div className="w-10 h-10 rounded-full  flex items-center justify-center mb-5 md:mb-6">
+                                    <div className="w-10 h-10 rounded-full flex items-center justify-center mb-5 md:mb-6">
                                         <img
                                             src={step.iconImage}
                                             alt={`${step.title} icon`}
@@ -763,7 +776,7 @@ export default function WebsiteDesignPage() {
 
                                 {/* Image block */}
                                 <div
-                                    className={`relative w-full h-[240px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                                    className={`relative w-full h-[220px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
                                         }`}
                                 >
                                     <Image
@@ -782,8 +795,8 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 10. FAQ — FULL WIDTH GRADIENT ACCORDION */}
-            <section className="py-24 bg-dark-bg relative">
-                <div className="max-w-4xl mx-auto px-6 text-center mb-16 flex flex-col items-center">
+            <section className="py-16 md:py-24 bg-dark-bg relative">
+                <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 flex flex-col items-center">
                     <div className="w-14 h-14 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 text-white" strokeWidth={1.5} />
                     </div>
@@ -801,13 +814,19 @@ export default function WebsiteDesignPage() {
                     </p>
                 </div>
 
-                <div className="w-full flex flex-col gap-3">
+                {/* FIX: this list had no max-width / horizontal padding, so on wide
+                    screens rows stretched edge-to-edge, and on mobile the answer text
+                    (pl-15/pl-19, which don't exist in Tailwind) sat flush against the
+                    icon instead of indenting. Added a real max-width wrapper and
+                    swapped the invalid padding for arbitrary values that line up
+                    with the chevron icon width. */}
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 w-full flex flex-col gap-3">
                     {faqs.map((faq, idx) => {
                         const isOpen = activeFaq === idx;
                         return (
                             <div
                                 key={idx}
-                                className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
+                                className={`w-full transition-all duration-300 rounded-xl ${isOpen ? "border border-white" : "border border-transparent"
                                     }`}
                                 style={{
                                     background: " #1487c9",
@@ -834,7 +853,7 @@ export default function WebsiteDesignPage() {
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <div className="px-6 md:px-10 pb-6 pl-15 md:pl-19 text-sm text-white/85 leading-relaxed">
+                                            <div className="px-4 sm:px-6 md:px-10 pb-6 pl-[3.25rem] md:pl-[3.75rem] text-sm text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (
