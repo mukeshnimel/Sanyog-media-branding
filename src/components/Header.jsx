@@ -73,22 +73,23 @@ export default function Header() {
     <>
       <header
         className={`fixed top-0 left-0 right-0 z-[100] w-full transition-all duration-500 border-b ${scrolled
-          ? "bg-black/30 backdrop-blur-xl border-white/10 py-3 shadow-[0_8px_30px_-15px_rgba(0,0,0,0.6)]"
-          : "bg-black/5 backdrop-blur-sm border-white/0 py-5"
+          ? "bg-black/30 backdrop-blur-xl border-white/10 py-3 4xl:py-4 shadow-[0_8px_30px_-15px_rgba(0,0,0,0.6)]"
+          : "bg-black/5 backdrop-blur-sm border-white/0 py-5 4xl:py-7"
           }`}
       >
-        <div className="max-w-7xl mx-auto flex min-w-0 items-center justify-between px-4 sm:px-6">
+        {/* Container ab bade screens pe bhi stretch hoga, Hero ke max-width ke consistent */}
+        <div className="max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto flex min-w-0 items-center justify-between px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24">
           {/* Logo */}
           <Link href="/" className="flex min-w-0 shrink-0 items-center">
             <img
               src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
               alt="Sanyog Media Concepts Logo"
-              className="h-9 w-auto max-w-[180px] object-contain sm:h-10 sm:max-w-[200px] md:h-11 md:max-w-none"
+              className="h-9 w-auto max-w-[180px] object-contain sm:h-10 sm:max-w-[200px] md:h-11 md:max-w-none xl:h-12 4xl:h-16"
             />
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden md:flex items-center gap-5 xl:gap-6 4xl:gap-8 ml-12 xl:ml-20 4xl:ml-28">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div
@@ -97,14 +98,14 @@ export default function Header() {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button className="group relative flex items-center gap-1.5 py-2 text-[20px] font-semibold text-white/90 hover:text-white transition-colors cursor-pointer">
+                  <button className="group relative flex items-center gap-1.5 py-2 text-[16px] xl:text-[17px] 4xl:text-[21px] font-semibold text-white/90 hover:text-white transition-colors cursor-pointer">
                     <span
                       className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${dropdownOpen ? "scale-y-100" : "scale-y-0"
                         }`}
                     />
                     {item.name}
                     <ChevronDown
-                      className={`w-3.5 h-3.5 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
+                      className={`w-3.5 h-3.5 4xl:w-4 4xl:h-4 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
                         }`}
                     />
                   </button>
@@ -116,7 +117,7 @@ export default function Header() {
                         animate={{ opacity: 1, maxHeight: 400 }}
                         exit={{ opacity: 0, maxHeight: 0 }}
                         transition={{ duration: 0.2, ease: "easeOut" }}
-                        className="absolute left-0 mt-4 w-64 z-[100] overflow-hidden rounded-xl border border-black/5 bg-gray-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]"
+                        className="absolute left-0 mt-4 w-64 4xl:w-80 z-[100] overflow-hidden rounded-xl border border-black/5 bg-gray-100 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]"
                       >
                         <div>
                           {item.dropdown.map((service, i) => (
@@ -134,7 +135,7 @@ export default function Header() {
                             >
                               <Link
                                 href={service.href}
-                                className="group/row relative flex items-center px-5 py-3 text-[14px] font-medium text-gray-700 transition-colors duration-200 hover:bg-[#07041D] hover:text-white"
+                                className="group/row relative flex items-center px-5 py-3 4xl:px-6 4xl:py-4 text-[14px] 4xl:text-[16px] font-medium text-gray-700 transition-colors duration-200 hover:bg-[#07041D] hover:text-white"
                               >
                                 <span className="absolute left-0 top-1/2 h-4 w-[3px] -translate-y-1/2 origin-center scale-y-0 bg-sky-400 transition-transform duration-200 group-hover/row:scale-y-100" />
                                 {service.name}
@@ -150,7 +151,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="group relative inline-flex items-center py-2 text-[20px] font-semibold text-white/90 hover:text-white transition-colors"
+                  className="group relative inline-flex items-center py-2 text-[16px] xl:text-[17px] 4xl:text-[21px] font-semibold text-white/90 hover:text-white transition-colors"
                 >
                   <span
                     className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${isActive(item.href)
@@ -167,11 +168,11 @@ export default function Header() {
           </nav>
 
           {/* CTA */}
-          <div className="hidden md:block shrink-0">
+          <div className="hidden md:block shrink-0 ml-10 xl:ml-16 4xl:ml-24">
             <Link
               href="/contact"
               onClick={handleConnectClick}
-              className="relative inline-block rounded-lg bg-sky-500 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-sky-400"
+              className="relative inline-block rounded-lg bg-sky-500 px-5 py-2.5 xl:px-6 xl:py-3 4xl:px-8 4xl:py-4 text-sm xl:text-[15px] 4xl:text-lg font-semibold text-white transition-colors hover:bg-sky-400"
             >
               Connect With Us
             </Link>

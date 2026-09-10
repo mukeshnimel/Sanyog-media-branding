@@ -71,46 +71,55 @@ const portfolioData = {
   ],
 };
 
+// Header/Hero/WhyChooseUs ke container ke saath consistent
+const CONTAINER =
+  "max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto";
+const CONTAINER_PX = "px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24";
+
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState(categories[0]);
   const items = portfolioData[activeCategory];
 
   return (
-    <section id="portfolio" className="py-14 sm:py-20 lg:py-24 bg-[#07041D]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="portfolio" className="py-14 sm:py-20 lg:py-24 4xl:py-32 bg-[#07041D]">
+      <div className={`${CONTAINER} ${CONTAINER_PX}`}>
         {/* Header */}
-        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10">
-          <motion.h2
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            className="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-3 sm:mb-4 leading-snug"
-          >
-            &ldquo;Your Brand Is a Story Unfolding Across All Customer
-            Touchpoints&rdquo;
-          </motion.h2>
+        {/* Header */}
+        <div className="w-full max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto mb-8 sm:mb-10 4xl:mb-14">
+
+          <div className="w-full flex justify-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="whitespace-nowrap font-display font-bold text-center text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 sm:mb-4 leading-snug"
+            >
+              &ldquo;Your Brand Is a Story Unfolding Across All Customer Touchpoints&rdquo;
+            </motion.h2>
+          </div>
 
           <motion.p
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="text-sm sm:text-base font-medium text-sky-400"
+            className="w-full text-center text-sm sm:text-base xl:text-[1.25rem] 4xl:text-[2rem] font-medium text-sky-400"
           >
             Check Out These Samples Of Our Work
           </motion.p>
+
         </div>
 
         {/* Category Tabs — horizontal scroll is intentional here (contained, not page-level) */}
-        <div className="border-t border-b border-white py-4 sm:py-5 mb-8 sm:mb-10">
-          <div className="flex items-center gap-2 sm:justify-center sm:gap-3 overflow-x-auto scrollbar-hide px-1">
+        <div className="border-t border-b border-white py-4 sm:py-5 4xl:py-6 mb-8 sm:mb-10 4xl:mb-14">
+          <div className="flex items-center gap-2 sm:justify-center sm:gap-3 4xl:gap-4 overflow-x-auto scrollbar-hide px-1">
             {categories.map((category) => {
               const isActive = category === activeCategory;
               return (
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`shrink-0 whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 rounded-full text-xs sm:text-base font-semibold transition-all duration-200 ${isActive
+                  className={`shrink-0 whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 xl:px-6 xl:py-3 4xl:px-7 4xl:py-3.5 rounded-full text-xs sm:text-base xl:text-lg 4xl:text-xl font-semibold transition-all duration-200 ${isActive
                     ? "bg-sky-500 text-white"
                     : "text-slate-300 hover:text-sky-400"
                     }`}
@@ -130,18 +139,18 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.35 }}
-            className="columns-1 sm:columns-2 lg:columns-3 gap-4 sm:gap-6 [column-fill:_balance]"
+            className="columns-1 sm:columns-2 lg:columns-3 xl:columns-3 3xl:columns-4 4xl:columns-4 gap-4 sm:gap-6 4xl:gap-8 [column-fill:_balance]"
           >
             {items.map((item, idx) => (
               <div
                 key={idx}
-                className={`relative w-full ${item.aspect} rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 break-inside-avoid border border-white/10`}
+                className={`relative w-full ${item.aspect} rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-6 4xl:mb-8 break-inside-avoid border border-white/10`}
               >
                 {item.type === "logo" ? (
                   <div
                     className={`w-full h-full flex items-center justify-center ${item.bg}`}
                   >
-                    <span className={`text-2xl sm:text-3xl md:text-4xl ${item.nameClass}`}>
+                    <span className={`text-2xl sm:text-3xl md:text-4xl 4xl:text-5xl ${item.nameClass}`}>
                       {item.name}
                     </span>
                   </div>
@@ -152,11 +161,11 @@ export default function Portfolio() {
                       alt={`${activeCategory} sample`}
                       fill
                       className="object-cover"
-                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, (max-width: 1920px) 33vw, 25vw"
                     />
                     {item.overlayText && (
                       <div className="absolute inset-0 bg-black/25 flex items-center justify-center">
-                        <span className="text-lg sm:text-2xl md:text-3xl font-bold text-white drop-shadow-lg">
+                        <span className="text-lg sm:text-2xl md:text-3xl 4xl:text-4xl font-bold text-white drop-shadow-lg">
                           {item.overlayText}
                         </span>
                       </div>

@@ -60,6 +60,11 @@ const socials = [
   },
 ];
 
+// Header/Hero/WhyChooseUs/Portfolio/WhatWeDo/Priorities/Testimonials/FinalCTA ke container ke saath consistent
+const CONTAINER =
+  "max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto";
+const CONTAINER_PX = "px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24";
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -68,7 +73,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="relative bg-[#07041D] pt-16 pb-0 overflow-hidden"
+      className="relative bg-[#07041D] pt-12 sm:pt-16 xl:pt-20 4xl:pt-28 pb-0 overflow-hidden"
     >
       {/* Argyle / diamond background pattern */}
       <div
@@ -95,8 +100,8 @@ export default function Footer() {
 
 
       {/* Decorative glow orbs */}
-      <div className="absolute -top-20 left-1/4 w-72 h-72 rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-neon-cyan/5 blur-[130px] pointer-events-none" />
+      <div className="absolute -top-20 left-1/4 w-52 h-52 sm:w-72 sm:h-72 4xl:w-[26rem] 4xl:h-[26rem] rounded-full bg-electric-blue/10 blur-[90px] sm:blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 sm:w-96 sm:h-96 4xl:w-[32rem] 4xl:h-[32rem] rounded-full bg-neon-cyan/5 blur-[90px] sm:blur-[130px] pointer-events-none" />
 
       {/* Scroll to top button */}
       <motion.button
@@ -104,30 +109,30 @@ export default function Footer() {
         whileHover={{ scale: 1.1, y: -3 }}
         whileTap={{ scale: 0.95 }}
         aria-label="Back to top"
-        className="absolute top-8 right-6 w-10 h-10 rounded-full bg-sky-500 hover:bg-sky-600 flex items-center justify-center text-white shadow-lg transition-colors z-20"
+        className="absolute top-6 right-4 sm:top-8 sm:right-6 xl:top-10 xl:right-10 4xl:top-12 4xl:right-16 w-9 h-9 sm:w-10 sm:h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full bg-sky-500 hover:bg-sky-600 flex items-center justify-center text-white shadow-lg transition-colors z-20"
       >
-        <ArrowUp className="w-4 h-4" />
+        <ArrowUp className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6" />
       </motion.button>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
+      <div className={`${CONTAINER} ${CONTAINER_PX} relative z-10`}>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12 xl:gap-16 4xl:gap-24 mb-12 sm:mb-16 xl:mb-20 4xl:mb-28">
           {/* Brand Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="flex flex-col gap-6"
+            className="flex flex-col gap-5 sm:gap-6 4xl:gap-8"
           >
             <Link href="/" className="flex items-center w-fit">
               <img
                 src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
                 alt="Sanyog Media Concepts Logo"
-                className="h-8 md:h-11 w-auto object-contain"
+                className="h-8 md:h-11 xl:h-12 4xl:h-16 w-auto object-contain"
               />
             </Link>
 
-            <p className="text-sm text-slate-400 leading-relaxed">
+            <p className="text-sm xl:text-base 4xl:text-lg text-slate-400 leading-relaxed">
               We Ignite Brands With Bold Creativity, Blending Visionary
               Branding With Striking Social Media Campaigns And Flawless
               Design. Our Approach Goes Beyond Visuals — We Create Powerful
@@ -137,7 +142,7 @@ export default function Footer() {
               In A Crowded World.
             </p>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 4xl:gap-5">
               {socials.map((social) => (
                 <Link
                   key={social.name}
@@ -147,7 +152,7 @@ export default function Footer() {
                 >
                   {social.outline ? (
                     <svg
-                      className="w-5 h-5"
+                      className="w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7"
                       fill="none"
                       stroke="currentColor"
                       strokeWidth="2"
@@ -160,7 +165,7 @@ export default function Footer() {
                       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
                     </svg>
                   ) : (
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7" fill="currentColor" viewBox="0 0 24 24">
                       <path d={social.path} />
                     </svg>
                   )}
@@ -175,21 +180,21 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-4 sm:gap-5 4xl:gap-7"
           >
-            <h3 className="font-display font-bold text-white text-xl">
+            <h3 className="font-display font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Services
             </h3>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">
               {services.map((service) => {
                 const Icon = service.icon;
                 return (
                   <li key={service.label}>
                     <Link
                       href={service.href}
-                      className="flex items-center gap-3 text-[17px] text-slate-300 hover:text-sky-400 transition-colors group"
+                      className="flex items-center gap-3 4xl:gap-4 text-[15px] sm:text-[17px] xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                     >
-                      <Icon className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform shrink-0" />
+                      <Icon className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform shrink-0" />
                       <span>{service.label}</span>
                     </Link>
                   </li>
@@ -204,49 +209,49 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col gap-5"
+            className="flex flex-col gap-4 sm:gap-5 4xl:gap-7"
           >
-            <h3 className="font-display font-bold text-white text-xl">
+            <h3 className="font-display font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Get In Touch
             </h3>
-            <ul className="flex flex-col gap-4">
+            <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">
               <li>
                 <a
                   href="tel:+919929600601"
-                  className="flex items-center gap-3 text-[17px] text-slate-300 hover:text-sky-400 transition-colors group"
+                  className="flex items-center gap-3 4xl:gap-4 text-[15px] sm:text-[17px] xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                 >
-                  <Phone className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+                  <Phone className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform" />
                   <span>+91 - 9929 600 601</span>
                 </a>
               </li>
               <li>
-                <a
-                  href="tel:+917726966902"
-                  className="flex items-center gap-3 text-lg text-slate-300 hover:text-sky-400 transition-colors group"
+
+                <a href="tel:+917726966902"
+                  className="flex items-center gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                 >
-                  <Phone className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+                  <Phone className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform" />
                   <span>+91 - 7726 966 902</span>
                 </a>
               </li>
               <li>
                 <a
                   href="mailto:hello@sanyogmedia.com"
-                  className="flex items-center gap-3 text-lg text-slate-300 hover:text-sky-400 transition-colors group"
+                  className="flex items-center gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                 >
-                  <Mail className="w-4 h-4 text-sky-400 group-hover:scale-110 transition-transform" />
+                  <Mail className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform" />
                   <span>hello@sanyogmedia.com</span>
                 </a>
               </li>
-              <li className="flex gap-3 text-lg text-slate-300 leading-relaxed">
-                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+              <li className="flex gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 leading-relaxed">
+                <MapPin className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 shrink-0 mt-0.5" />
                 <p>
                   15, 1st floor, Jai Bharat Industrial Estate, Western Express
                   Hwy, opp. Virwani, Vishveshwar Nagar, Goregaon, Mumbai,
                   Maharashtra 400063
                 </p>
               </li>
-              <li className="flex gap-3 text-lg text-slate-300 leading-relaxed">
-                <MapPin className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
+              <li className="flex gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 leading-relaxed">
+                <MapPin className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 shrink-0 mt-0.5" />
                 <p>
                   Regd. Ad. - Sanyog, Dharam Stoop Near Water Works, Bissau
                   Road, Churu ( Raj. ) - 331001
@@ -258,8 +263,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="relative z-10 bg-indigo-950/80 border-t border-white/10 py-4">
-        <p className="text-center text-xs md:text-lg text-slate-300">
+      <div className="relative z-10 bg-indigo-950/80 border-t border-white/10 py-3 sm:py-4 xl:py-5 4xl:py-7">
+        <p className="text-center text-[11px] sm:text-xs md:text-lg xl:text-xl 4xl:text-2xl text-slate-300 px-4">
           &copy; {new Date().getFullYear()} Sanyog Media Concepts, Trademarks
           and Brands are The Property of Their Respective Owner.
         </p>
