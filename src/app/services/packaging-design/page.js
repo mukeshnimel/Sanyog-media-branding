@@ -215,7 +215,7 @@ export default function PackagingDesignPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 items-center">
                         {/* Left — copy */}
-                        <div className="lg:col-span-5 flex flex-col items-start w-full">
+                        <div className="lg:col-span-5 flex flex-col items-start w-full mt-5 sm:mt-4 lg:mt-0">
                             <motion.p
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}

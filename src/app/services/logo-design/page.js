@@ -23,7 +23,8 @@ import {
   Timer,
   IndianRupee,
   Target, Search, Eye, ThumbsUp,
-  MessageCircleQuestion
+  MessageCircleQuestion,
+  ZoomIn, X, ChevronLeft, ChevronRight
 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
@@ -413,6 +414,24 @@ const badges = [
 export default function LogoDesignServicePage() {
   const [activeFaq, setActiveFaq] = useState(null);
 
+  const items = portfolioData["Logo Design & Branding"];
+
+  const [activeIndex, setActiveIndex] = useState(null);
+  const isLightboxOpen = activeIndex !== null;
+
+  const closeLightbox = () => setActiveIndex(null);
+
+  const showPrevImage = (e) => {
+    e.stopPropagation();
+    setActiveIndex((prev) => (prev === 0 ? items.length - 1 : prev - 1));
+  };
+
+  const showNextImage = (e) => {
+    e.stopPropagation();
+    setActiveIndex((prev) => (prev === items.length - 1 ? 0 : prev + 1));
+  };
+
+
   return (
     <main className="flex-1 bg-dark-bg text-slate-100 pt-24 overflow-hidden">
 
@@ -425,108 +444,7 @@ export default function LogoDesignServicePage() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
 
             {/* Left Content Column */}
-            <div className="lg:col-span-6 text-left flex flex-col items-start">
-              <p className="text-xl text-nowrap font-bold  tracking-widest text-white mb-4">
-                Unveil Your Brand's Identity with Captivating
-              </p>
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="font-display font-extrabold text-4xl md:text-7xl leading-tight tracking-tight text-white mb-6"
-              >
-                Logo Design
-              </motion.h1>
-
-              {/* Rotating word border box */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="relative overflow-hidden rounded-2xl border-2 border-white px-6 py-3.5 mb-6 bg-white/[0.02]"
-              >
-                <div className="flex items-center gap-2 text-xl md:text-2xl font-bold whitespace-nowrap">
-                  {/* <span className="text-white">With</span> */}
-                  <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key="logo-design"
-                        initial={{ y: "-100%", opacity: 0 }}
-                        animate={{ y: "0%", opacity: 1 }}
-                        exit={{ y: "100%", opacity: 0 }}
-                        transition={{ duration: 0.45, ease: "easeInOut" }}
-                        className="block text-sky-400"
-                      >
-                        & Brand Identity
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
-                </div>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base md:text-lg text-slate-350 max-w-xl mb-8 leading-relaxed"
-              >
-                Top-Rated Creative Branding Agency for Logo, Web & Design Solutions.
-              </motion.p>
-
-              {/* Avatars + rating */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.25 }}
-                className="mb-6"
-              >
-                <div className="flex -space-x-3 mb-4">
-                  {avatars.map((src, i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 rounded-full border-2 border-dark-bg overflow-hidden relative"
-                    >
-                      <Image src={src} alt="Client avatar" fill className="object-cover" />
-                    </div>
-                  ))}
-                </div>
-                <p className="text-base font-bold text-white">4.9/5 Star Rating on Google</p>
-                <p className="text-sm font-semibold text-sky-400">
-                  Trusted By Businesses Across Industries
-                </p>
-              </motion.div>
-
-              {/* Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-                className="relative flex flex-col gap-3"
-              >
-                <Link
-                  href="/contact"
-                  className="px-6 py-3 rounded-full text-sm font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-fit"
-                >
-                  Connect With Us
-                </Link>
-                <Link
-                  href="#portfolio"
-                  className="px-6 py-2.5 rounded-full text-sm font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-fit"
-                >
-                  Portfolio
-                </Link>
-
-                {/* Decorative dot grid */}
-                <div className="hidden sm:grid grid-cols-8 gap-2 absolute left-[220px] top-2">
-                  {[...Array(24)].map((_, i) => (
-                    <span
-                      key={i}
-                      className="w-1 h-1 rounded-full bg-indigo-400/30"
-                    />
-                  ))}
-                </div>
-              </motion.div>
-            </div>
+            <div className="lg:col-span-6 text-left flex flex-col items-start -mt-20 sm:-mt-4 lg:mt-0"> <p className="text-base sm:text-xl font-bold tracking-wider sm:tracking-widest text-white mb-3 sm:mb-4 leading-snug max-w-full break-words"> Unveil Your Brand's Identity with Captivating </p> <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="font-display font-extrabold text-4xl sm:text-5xl md:text-7xl leading-tight tracking-tight text-white mb-5 sm:mb-6" > Logo Design </motion.h1> {/* Rotating word border box */} <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative overflow-hidden rounded-2xl border-2 border-white px-4 sm:px-6 py-3 sm:py-3.5 mb-5 sm:mb-6 bg-white/[0.02] max-w-full" > <div className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl font-bold whitespace-nowrap"> <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom"> <AnimatePresence mode="wait"> <motion.span key="logo-design" initial={{ y: "-100%", opacity: 0 }} animate={{ y: "0%", opacity: 1 }} exit={{ y: "100%", opacity: 0 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="block text-sky-400" > & Brand Identity </motion.span> </AnimatePresence> </span> </div> </motion.div> <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-base md:text-lg text-slate-350 max-w-xl mb-6 sm:mb-8 leading-relaxed" > Top-Rated Creative Branding Agency for Logo, Web & Design Solutions. </motion.p> {/* Avatars + rating */} <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="mb-6" > <div className="flex -space-x-3 mb-4"> {avatars.map((src, i) => (<div key={i} className="w-10 h-10 rounded-full border-2 border-dark-bg overflow-hidden relative" > <Image src={src} alt="Client avatar" fill className="object-cover" /> </div>))} </div> <p className="text-base font-bold text-white"> 4.9/5 Star Rating on Google </p> <p className="text-sm font-semibold text-sky-400"> Trusted By Businesses Across Industries </p> </motion.div> <div className="relative flex flex-col sm:flex-row flex-wrap items-center justify-start gap-3 w-full"> <a href="#contact" className="inline-flex items-center justify-center px-6 py-3 min-w-[170px] rounded-full text-sm font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center leading-none" > Connect With Us </a> <a href="#webportfolio" className="inline-flex items-center justify-center px-6 py-3 min-w-[130px] rounded-full text-sm font-bold text-white bg-cyan-500 hover:bg-cyan-600 transition-colors text-center leading-none" > Portfolio </a> {/* Decorative dot grid — desktop only */} <div className="hidden lg:grid grid-cols-6 gap-6 self-center ml-4"> {[...Array(24)].map((_, i) => (<span key={i} className="w-1 h-1 rounded-full bg-indigo-400/80" />))} </div> </div> </div>
 
             {/* Right Image */}
             <div className="lg:col-span-5 w-full flex">
@@ -554,10 +472,9 @@ export default function LogoDesignServicePage() {
       <MarqueeRibbon />
 
       {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-      {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-      <section className="py-16 bg-dark-bg border-b border-glass-border">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-wrap items-center justify-center gap-5 md:gap-8">
+      <section className="py-12 sm:py-16 bg-dark-bg border-b border-glass-border">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-8">
             {badges.map((badge, idx) => (
               <motion.div
                 key={idx}
@@ -565,16 +482,16 @@ export default function LogoDesignServicePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="group w-[170px] md:w-[190px] rounded-3xl border-2 border-sky-500 flex flex-col items-center justify-center gap-4 py-8 px-4 text-center"
+                className="group w-[130px] sm:w-[170px] md:w-[190px] rounded-2xl sm:rounded-3xl border-2 border-sky-500 flex flex-col items-center justify-center gap-3 sm:gap-4 py-6 sm:py-8 px-3 sm:px-4 text-center"
               >
-                <div className="w-12 h-12 rounded-xl bg-sky-500 group-hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-120">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sky-500 group-hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-110 shrink-0">
                   <img
                     src={badge.icon}
                     alt={`${badge.line1} ${badge.line2}`}
-                    className="w-10 h-10 brightness-0 invert   "
+                    className="w-9 h-9 sm:w-10 sm:h-10 brightness-0 invert"
                   />
                 </div>
-                <span className="text-sm md:text-base font-bold text-white leading-snug">
+                <span className="text-xs sm:text-sm md:text-base font-bold text-white leading-snug">
                   {badge.line1}
                   <br />
                   {badge.line2}
@@ -633,36 +550,25 @@ export default function LogoDesignServicePage() {
 
           {/* Heading */}
           <div className="text-center mb-14 overflow-x-auto">
-            <motion.h2
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              className="font-display font-bold text-xl md:text-2xl lg:text-4xl text-white leading-snug mb-4 whitespace-nowrap"
-            >
+            <h2 className="font-display font-bold text-xl md:text-2xl lg:text-4xl text-white leading-snug mb-4 whitespace-nowrap">
               Your Brand is a Story Unfolding Across all Customer Touch Points
-            </motion.h2>
+            </h2>
 
-            <motion.p
-              initial={{ opacity: 0, y: 15 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ delay: 0.1 }}
-              className="text-sm md:text-base font-semibold text-sky-400"
-            >
+            <p className="text-sm md:text-base font-semibold text-sky-400">
               Check Out These Samples Of Our Work
-            </motion.p>
+            </p>
           </div>
 
           {/* Masonry Portfolio */}
           <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 [column-fill:_balance]">
-            {portfolioData["Logo Design & Branding"].map((item, idx) => (
-              <motion.div
+            {items.map((item, idx) => (
+              <div
                 key={idx}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className={`relative w-full ${item.aspect} rounded-2xl overflow-hidden mb-6 break-inside-avoid bg-slate-100 group`}
+                className={`relative w-full ${item.aspect} rounded-2xl overflow-hidden mb-6 break-inside-avoid bg-slate-100 group ${item.type === "video" ? "" : "cursor-zoom-in"
+                  }`}
+                onClick={() => {
+                  if (item.type !== "video") setActiveIndex(idx);
+                }}
               >
                 {item.type === "video" ? (
                   <video
@@ -689,10 +595,81 @@ export default function LogoDesignServicePage() {
                     </span>
                   </div>
                 )}
-              </motion.div>
+
+                {/* Zoom icon on hover (images only) */}
+                {item.type !== "video" && (
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-500 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500">
+                      <span className="flex items-center justify-center w-11 h-11 rounded-full border border-white/40 bg-white/10 backdrop-blur-sm">
+                        <ZoomIn className="w-4 h-4 text-white" />
+                      </span>
+                    </div>
+                  </div>
+                )}
+              </div>
             ))}
           </div>
         </div>
+
+        {/* LIGHTBOX */}
+        <AnimatePresence>
+          {isLightboxOpen && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 sm:p-8"
+              onClick={closeLightbox}
+            >
+              <div className="absolute top-4 left-4 sm:top-6 sm:left-8 text-white/80 font-mono text-xs sm:text-sm tracking-wider z-10">
+                {activeIndex + 1} / {items.length}
+              </div>
+
+              <button
+                type="button"
+                onClick={closeLightbox}
+                className="absolute top-4 right-4 sm:top-6 sm:right-8 flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
+              >
+                <X className="w-5 h-5 text-white" />
+              </button>
+
+              <button
+                type="button"
+                onClick={showPrevImage}
+                className="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
+              >
+                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </button>
+
+              <button
+                type="button"
+                onClick={showNextImage}
+                className="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center w-9 h-9 sm:w-12 sm:h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 transition-colors z-10"
+              >
+                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              </button>
+
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={activeIndex}
+                  initial={{ opacity: 0, scale: 0.96 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.96 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                  className="relative flex items-center justify-center max-w-[90vw] max-h-[90vh]"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img
+                    src={items[activeIndex].src}
+                    alt={items[activeIndex].overlayText || "Portfolio sample"}
+                    className="max-w-[90vw] max-h-[90vh] w-auto h-auto object-contain"
+                  />
+                </motion.div>
+              </AnimatePresence>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </section>
 
 

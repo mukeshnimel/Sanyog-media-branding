@@ -351,6 +351,7 @@ export default function GraphicDesignPage() {
                     </div>
                 </div>
             </section>
+            
             {/* 4. WHY CHOOSE US — IMAGE ACCORDION */}
             <section className="py-16 md:py-20 bg-dark-bg">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6">

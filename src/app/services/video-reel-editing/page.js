@@ -243,7 +243,7 @@ export default function VideoReelEditingPage() {
                         }}
                     />
                 </div>
-                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center">
+                <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center mt-5 sm:mt-4 lg:mt-0">
                     <span className="text-white text-base sm:text-xl md:text-3xl lg:text-4xl font-medium mb-4 sm:mb-6">
                         What We Do
                     </span>
