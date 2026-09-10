@@ -296,7 +296,7 @@ export default function SocialMediaMarketingPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
                         {/* Left — copy */}
-                        <div className="flex flex-col items-start">
+                        <div className="flex flex-col items-start pt-8 sm:pt-10 md:pt-0">
                             <h1 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl leading-tight text-white mb-1">
                                 We Manage Your
                             </h1>
@@ -346,7 +346,7 @@ export default function SocialMediaMarketingPage() {
                                 </a>
                                 <a
                                     href="#smmport"
-                                    className="px-6 py-2.5 rounded-full text-sm font-bold text-white bg-cyan-500 hover:bg-cyan-600 transition-colors text-center w-full sm:w-fit"
+                                    className="px-6 py-2.5 rounded-full text-sm font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
                                 </a>

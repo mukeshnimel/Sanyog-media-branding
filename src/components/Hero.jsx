@@ -78,7 +78,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-5 sm:mb-6"
+              className="font-extrabold text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-5 sm:mb-6"
             >
               Build a Brand That <br />
               Lasts Forever

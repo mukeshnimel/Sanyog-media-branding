@@ -1,4 +1,4 @@
-import { Outfit, Inter, Poppins } from "next/font/google";
+import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -10,31 +10,21 @@ const outfit = Outfit({
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 
+
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
 
-// Poppins — Main website font
-const poppins = Poppins({
-  variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-});
 
 export const metadata = {
   title: "Sanyog Media Concepts | Top-Rated Creative Branding & Digital Agency",
-  description:
-    "Top-Rated Creative Branding Agency for Logo, Web & Design Solutions. Crafting complete brand design solutions and powerful visual stories.",
-  keywords:
-    "Logo Design, Website Design, Packaging Design, Social Media Marketing, Graphics Design, Video Editing, Content Writing, Sanyog Media, Churu, Mumbai",
-
+  description: "Top-Rated Creative Branding Agency for Logo, Web & Design Solutions. Crafting complete brand design solutions and powerful visual stories.",
+  keywords: "Logo Design, Website Design, Packaging Design, Social Media Marketing, Graphics Design, Video Editing, Content Writing, Sanyog Media, Churu, Mumbai",
   openGraph: {
-    title:
-      "Sanyog Media Concepts | Top-Rated Creative Branding & Digital Agency",
-    description:
-      "Top-Rated Creative Branding Agency for Logo, Web & Design Solutions. Crafting complete brand design solutions and powerful visual stories.",
+    title: "Sanyog Media Concepts | Top-Rated Creative Branding & Digital Agency",
+    description: "Top-Rated Creative Branding Agency for Logo, Web & Design Solutions. Crafting complete brand design solutions and powerful visual stories.",
     images: [
       {
         url: "https://sanyogmedia.in/wp-content/uploads/2025/03/SANYOG-MEDIA-CONCEPTS-BRANDING-1-2048x291.png",
@@ -50,7 +40,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${poppins.variable} h-full antialiased`}
+      className={`${outfit.variable} ${inter.variable} h-full antialiased`}
     >
       <head>
         <link
@@ -64,13 +54,9 @@ export default function RootLayout({ children }) {
         /> */}
       </head>
 
-      <body
-        className={`${poppins.className} min-h-full flex flex-col bg-dark-bg text-slate-100`}
-      >
+      <body className={`${inter.variable} min-h-full flex flex-col font-sans bg-dark-bg text-slate-100`}>
         <Header />
-
         {children}
-
         <Footer />
       </body>
     </html>

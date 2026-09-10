@@ -87,10 +87,10 @@ function ContactForm({ idPrefix = "cf" }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+    <form onSubmit={handleSubmit} className="flex flex-col gap-5 3xl:gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 3xl:gap-6">
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-name`} className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <label htmlFor={`${idPrefix}-name`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
             Your Name*
           </label>
           <input
@@ -101,11 +101,11 @@ function ContactForm({ idPrefix = "cf" }) {
             value={formData.name}
             onChange={handleChange}
             placeholder="Your Name*"
-            className="w-full px-4 py-3 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-phone`} className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <label htmlFor={`${idPrefix}-phone`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
             Phone Number*
           </label>
           <input
@@ -118,14 +118,14 @@ function ContactForm({ idPrefix = "cf" }) {
             value={formData.phone}
             onChange={handleChange}
             placeholder="Phone Number*"
-            className="w-full px-4 py-3 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 3xl:gap-6">
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-email`} className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <label htmlFor={`${idPrefix}-email`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
             Email*
           </label>
           <input
@@ -136,11 +136,11 @@ function ContactForm({ idPrefix = "cf" }) {
             value={formData.email}
             onChange={handleChange}
             placeholder="Email*"
-            className="w-full px-4 py-3 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-website`} className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+          <label htmlFor={`${idPrefix}-website`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
             Website
           </label>
           <input
@@ -150,13 +150,13 @@ function ContactForm({ idPrefix = "cf" }) {
             value={formData.website}
             onChange={handleChange}
             placeholder="Website"
-            className="w-full px-4 py-3 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
           />
         </div>
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor={`${idPrefix}-service`} className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+        <label htmlFor={`${idPrefix}-service`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
           Select Service
         </label>
         <select
@@ -164,7 +164,7 @@ function ContactForm({ idPrefix = "cf" }) {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 rounded-xl border border-glass-border bg-slate-950 text-white text-sm focus:border-neon-cyan outline-none transition-all appearance-none cursor-pointer"
+          className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950 text-white text-sm 3xl:text-base focus:border-neon-cyan outline-none transition-all appearance-none cursor-pointer"
         >
           {SERVICE_OPTIONS.map((opt) => (
             <option key={opt} value={opt}>
@@ -175,7 +175,7 @@ function ContactForm({ idPrefix = "cf" }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor={`${idPrefix}-message`} className="text-xs font-semibold text-slate-400 uppercase tracking-wider">
+        <label htmlFor={`${idPrefix}-message`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
           Message*
         </label>
         <textarea
@@ -186,28 +186,28 @@ function ContactForm({ idPrefix = "cf" }) {
           value={formData.message}
           onChange={handleChange}
           placeholder="Message"
-          className="w-full px-4 py-3 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all resize-none"
+          className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all resize-none"
         />
       </div>
 
       <button
         type="submit"
         disabled={status === "sending" || status === "success"}
-        className="glow-btn-primary w-full py-4 rounded-xl font-bold text-white flex items-center justify-center gap-2 cursor-pointer active:scale-98 disabled:opacity-50"
+        className="glow-btn-primary w-full py-4 3xl:py-5 rounded-xl font-bold text-white text-sm 3xl:text-base flex items-center justify-center gap-2 cursor-pointer active:scale-98 disabled:opacity-50"
       >
         {status === "sending" ? (
           <>
-            <Loader2 className="w-4 h-4 animate-spin" />
+            <Loader2 className="w-4 h-4 3xl:w-5 3xl:h-5 animate-spin" />
             Sending...
           </>
         ) : status === "success" ? (
           <>
-            <Check className="w-4 h-4 text-emerald-400" />
+            <Check className="w-4 h-4 3xl:w-5 3xl:h-5 text-emerald-400" />
             Submitted
           </>
         ) : (
           <>
-            <Send className="w-4 h-4" />
+            <Send className="w-4 h-4 3xl:w-5 3xl:h-5" />
             Submit
           </>
         )}
@@ -231,22 +231,22 @@ export default function ContactPage() {
     <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
       {/* HERO */}
-      <section className="relative bg-dark-bg  overflow-hidden pt-24 pb-8">
+      <section className="relative bg-dark-bg  overflow-hidden pt-24 pb-8 3xl:pt-32 3xl:pb-12">
         {/* <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" /> */}
         {/* <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-neon-cyan/10 blur-[130px] pointer-events-none" /> */}
 
-        <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 3xl:gap-20 items-center">
 
             {/* LEFT — CONTENT */}
             <div>
               <motion.div
                 initial={{ opacity: 0, y: -15 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full border border-glass-border bg-slate-900/60 backdrop-blur-md mb-6"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 3xl:px-5 3xl:py-2 rounded-full border border-glass-border bg-slate-900/60 backdrop-blur-md mb-6"
               >
-                <Sparkles className="w-3.5 h-3.5 text-neon-cyan" />
-                <span className="text-[10px] uppercase tracking-[0.25em] font-semibold text-slate-400">
+                <Sparkles className="w-3.5 h-3.5 3xl:w-4 3xl:h-4 text-neon-cyan" />
+                <span className="text-[10px] 3xl:text-xs uppercase tracking-[0.25em] font-semibold text-slate-400">
                   Contact Sanyog Media Concepts
                 </span>
               </motion.div>
@@ -255,7 +255,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl leading-tight tracking-tight text-white mb-6"
+                className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl leading-tight tracking-tight text-white mb-6"
               >
                 Contact Us
               </motion.h1>
@@ -264,33 +264,33 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-base text-slate-400 mb-10 leading-relaxed max-w-xl"
+                className="text-base 3xl:text-lg text-slate-400 mb-10 leading-relaxed max-w-xl 3xl:max-w-2xl"
               >
                 We would love to speak with you. Feel free to reach out using the below details.
               </motion.p>
 
-              <div className="flex flex-wrap gap-4 w-full">
+              <div className="flex flex-wrap gap-4 3xl:gap-5 w-full">
 
                 <a href="tel:+919929600601"
-                  className="px-4 py-3 rounded-xl border border-glass-border bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
+                  className="px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-900/40 text-xs 3xl:text-sm font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
                 >
-                  <Phone className="w-4 h-4 text-neon-cyan" />
+                  <Phone className="w-4 h-4 3xl:w-5 3xl:h-5 text-neon-cyan" />
                   <span>+91 - 9929 600 601</span>
                 </a>
 
 
                 <a href="tel:+917726966902"
-                  className="px-4 py-3 rounded-xl border border-glass-border bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
+                  className="px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-900/40 text-xs 3xl:text-sm font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
                 >
-                  <Phone className="w-4 h-4 text-neon-cyan" />
+                  <Phone className="w-4 h-4 3xl:w-5 3xl:h-5 text-neon-cyan" />
                   <span>+91 - 7726 966 902</span>
                 </a>
 
 
                 <a href="mailto:hello@sanyogmedia.com"
-                  className="px-4 py-3 rounded-xl border border-glass-border bg-slate-900/40 text-xs font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
+                  className="px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-900/40 text-xs 3xl:text-sm font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
                 >
-                  <Mail className="w-4 h-4 text-neon-cyan" />
+                  <Mail className="w-4 h-4 3xl:w-5 3xl:h-5 text-neon-cyan" />
                   <span>hello@sanyogmedia.com</span>
                 </a>
               </div>
@@ -303,7 +303,7 @@ export default function ContactPage() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="flex items-center justify-end w-full"
             >
-              <div className="w-full max-w-[600px] translate-x-6 md:translate-x-15">
+              <div className="w-full max-w-[600px] 3xl:max-w-[720px] 4xl:max-w-[820px] translate-x-6 md:translate-x-15">
                 <img
                   src="/images/contact/hero.png"
                   alt="Contact Sanyog Media Concepts"
@@ -317,18 +317,18 @@ export default function ContactPage() {
       </section>
 
       {/* FORM + MAP */}
-      <section className="py-24 bg-dark-bg relative border-b border-glass-border">
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-stretch">
+      <section className="py-24 3xl:py-32 bg-dark-bg relative border-b border-glass-border">
+        <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 3xl:gap-16 items-stretch">
 
             <div
               id="contact-form"
-              className="glass-card p-8 rounded-3xl border border-glass-border bg-slate-900/10 backdrop-blur-md"
+              className="glass-card p-8 3xl:p-10 rounded-3xl 3xl:rounded-[2rem] border border-glass-border bg-slate-900/10 backdrop-blur-md"
             >
               <ContactForm idPrefix="main" />
             </div>
 
-            <div className="relative rounded-3xl overflow-hidden border border-glass-border h-[400px] md:h-[400px] lg:h-[550px]">
+            <div className="relative rounded-3xl 3xl:rounded-[2rem] overflow-hidden border border-glass-border h-[400px] md:h-[400px] lg:h-[550px] 3xl:h-[650px]">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7026.545359674175!2d74.96573529999999!3d28.2900629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ab7072948e559c7%3A0x8a361dda702872e!2sSanyog%20Media%20Academy!5e0!3m2!1sen!2sin!4v1788000410719!5m2!1sen!2sin"
                 className="absolute inset-0 w-full h-full border-0"
@@ -345,7 +345,7 @@ export default function ContactPage() {
       {/* CTA */}
       <section
         ref={ctaRef}
-        className="relative py-14 md:py-20 bg-[#0a0e27] border-b border-glass-border"
+        className="relative py-14 md:py-20 3xl:py-28 bg-[#0a0e27] border-b border-glass-border"
       >
         {/* Background Image */}
         <div className="absolute inset-0 ">
@@ -395,8 +395,8 @@ export default function ContactPage() {
         </motion.div>
 
         {/* CTA Content */}
-        <div className="max-w-7xl mx-auto px-9 relative z-10">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-10 py-5 md:py-6">
+        <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-9 relative z-10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-10 3xl:gap-14 py-5 md:py-6 3xl:py-8">
 
             {/* LEFT — CONTENT (yehi ab section ki height decide karega) */}
             <motion.div
@@ -406,18 +406,18 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="w-full md:w-1/2"
             >
-              <span className="text-xl font-bold uppercase tracking-widest text-white">
+              <span className="text-xl 3xl:text-2xl font-bold uppercase tracking-widest text-white">
                 Our Team is Here to Help
               </span>
-              <h2 className="font-display font-bold text-2xl md:text-4xl text-white mt-2 mb-4">
+              <h2 className="font-display font-bold text-2xl md:text-4xl 3xl:text-5xl text-white mt-2 mb-4">
                 Ready to Elevate Your Brand?
               </h2>
               <button
                 onClick={() => setShowPopup(true)}
-                className="px-7 py-3.5 rounded-xl text-sm font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
+                className="px-7 py-3.5 3xl:px-9 3xl:py-4 rounded-xl text-sm 3xl:text-base font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
               >
                 Contact Us
-                <ArrowRight className="w-4 h-4" />
+                <ArrowRight className="w-4 h-4 3xl:w-5 3xl:h-5" />
               </button>
             </motion.div>
 
@@ -427,9 +427,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.15 }}
-              className="hidden md:block absolute right-6 lg:right-10 bottom-[-16px] translate-y-20 lg:translate-y-16 pointer-events-none"
+              className="hidden md:block absolute right-6 lg:right-10 3xl:right-16 bottom-[-16px] translate-y-20 lg:translate-y-16 pointer-events-none"
             >
-              <div className="w-[240px] lg:w-[300px] pointer-events-auto">
+              <div className="w-[240px] lg:w-[300px] 3xl:w-[380px] 4xl:w-[440px] pointer-events-auto">
                 <img
                   src="/images/contact/2.png"
                   alt="Contact Sanyog Media Concepts"
@@ -457,16 +457,16 @@ export default function ContactPage() {
       {
         showPopup && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-            <div className="relative w-full max-w-lg glass-card rounded-3xl border border-glass-border bg-slate-900 p-8">
+            <div className="relative w-full max-w-lg 3xl:max-w-xl glass-card rounded-3xl 3xl:rounded-[2rem] border border-glass-border bg-slate-900 p-8 3xl:p-10">
               <button
                 onClick={() => setShowPopup(false)}
                 aria-label="Close"
-                className="absolute top-5 right-5 text-slate-400 hover:text-white"
+                className="absolute top-5 right-5 3xl:top-6 3xl:right-6 text-slate-400 hover:text-white"
               >
-                <X className="w-5 h-5" />
+                <X className="w-5 h-5 3xl:w-6 3xl:h-6" />
               </button>
-              <h2 className="font-display font-bold text-2xl text-white mb-1">How Can We Help You</h2>
-              <h3 className="text-sm text-neon-cyan font-semibold mb-6">Let's have a chat</h3>
+              <h2 className="font-display font-bold text-2xl 3xl:text-3xl text-white mb-1">How Can We Help You</h2>
+              <h3 className="text-sm 3xl:text-base text-neon-cyan font-semibold mb-6">Let's have a chat</h3>
               <ContactForm idPrefix="popup" />
             </div>
           </div>

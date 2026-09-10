@@ -7,8 +7,13 @@
   --color-neon-cyan: #00F0FF;
   --color-glass-border: rgba(255, 255, 255, 0.08);
 
+  /* ✅ Saare fonts yahan register karo */
   --font-display: var(--font-outfit), sans-serif;
   --font-sans: var(--font-inter), sans-serif;
+  --font-nunito: var(--font-nunito), sans-serif;
+  --font-outfit: var(--font-outfit), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
 }
 
 @theme {
