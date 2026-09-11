@@ -148,10 +148,10 @@ export default function WebsiteDesignPage() {
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-clip">
 
             {/* 1. HERO */}
-            <section className="relative py-16 sm:py-20 md:py-28 4xl:py-36 bg-dark-bg border-b border-glass-border overflow-hidden">
+            <section className="relative flex items-center overflow-hidden bg-dark-bg pt-24 pb-14 sm:pt-28 sm:pb-20">
                 <div className="absolute top-1/3 left-1/4 w-72 h-72 sm:w-96 sm:h-96 4xl:w-[30rem] 4xl:h-[30rem] rounded-full bg-electric-blue/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
 
-                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
+                <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 xl:gap-16 4xl:gap-24 items-center">
 
                         {/* Left — copy */}
@@ -160,7 +160,7 @@ export default function WebsiteDesignPage() {
                                 Creating Your Unique Website.......
                             </span>
 
-                            <h1 className=" font-extrabold text-3xl sm:text-4xl md:text-6xl xl:text-6xl 4xl:text-8xl leading-tight text-white mb-2 break-words">
+                            <h1 className=" font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-7xl leading-tight text-white mb-2 break-words">
                                 Website Design
                             </h1>
 
@@ -171,7 +171,7 @@ export default function WebsiteDesignPage() {
                                         initial="hidden"
                                         animate="visible"
                                         exit="exit"
-                                        className="flex flex-wrap text-base sm:text-lg md:text-4xl xl:text-5xl 4xl:text-6xl text-sky-400"
+                                        className="flex flex-wrap text-base sm:text-lg md:text-3xl xl:text-4xl 4xl:text-5xl text-sky-400"
                                     >
                                         {rotatingWords[wordIndex].split("").map((char, i) => (
                                             <motion.span key={i} custom={i} variants={waveLetterVariants} className="inline-block">
@@ -244,7 +244,7 @@ export default function WebsiteDesignPage() {
                             <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan block mb-4">
                                 Why Choose Sanyog Media
                             </span>
-                            <h2 className="font-display font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-8 leading-tight">
+                            <h2 className="font-display font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-8 leading-tight">
                                 Specialized in Developing Websites
                             </h2>
 
@@ -288,7 +288,7 @@ export default function WebsiteDesignPage() {
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 md:mb-12 4xl:mb-16">
-                        <h2 className="font-display font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white leading-tight">
+                        <h2 className="font-display font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
                             Making a Lasting <span className="gradient-text">Mark in The Market</span>
                         </h2>
                         <p className="text-slate-400 mt-4 xl:text-lg 4xl:text-xl">
@@ -307,12 +307,31 @@ export default function WebsiteDesignPage() {
             {/* 4. PORTFOLIO GALLERY */}
             <section id="webportfolio" className="py-16 md:py-24 4xl:py-32 bg-slate-950 border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
-                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <h2 className="font-display font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white leading-tight mb-4">
+                    <div className="w-full text-center mb-12 md:mb-16 4xl:mb-20">
+                        <h2
+                            className="
+      relative
+      left-1/2
+      -translate-x-1/2
+      w-max
+      font-display
+      font-extrabold
+      text-xl
+      md:text-3xl
+      xl:text-4xl
+      4xl:text-5xl
+      text-white
+      leading-tight
+      mb-4
+      whitespace-nowrap
+      text-center
+    "
+                        >
                             Your Website is a Canvas Where Your Brand&apos;s{" "}
                             <span className="gradient-text">Story Comes Alive</span>
                         </h2>
-                        <p className="text-slate-400 xl:text-lg 4xl:text-xl">
+
+                        <p className="text-slate-400 xl:text-lg 4xl:text-xl text-center">
                             Check out these samples for your website landing page
                         </p>
                     </div>
@@ -401,11 +420,12 @@ export default function WebsiteDesignPage() {
                 </div>
 
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
-                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+                    <div className="w-full flex flex-col items-center text-center mb-12 md:mb-16 4xl:mb-20">
                         <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                             Website Design Packages
                         </span>
-                        <h2 className="font-display font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
+
+                        <h2 className="inline-block font-display font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
                             Expert Website Design at a Price That Fits Your Business
                         </h2>
                     </div>
@@ -415,8 +435,8 @@ export default function WebsiteDesignPage() {
                             <div
                                 key={idx}
                                 className={`rounded-3xl p-6 xl:p-7 4xl:p-9 flex flex-col justify-between border ${plan.popular
-                                        ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
-                                        : "border-glass-border bg-slate-950/40"
+                                    ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
+                                    : "border-glass-border bg-slate-950/40"
                                     }`}
                             >
                                 <div>
@@ -442,8 +462,8 @@ export default function WebsiteDesignPage() {
                                     <a
                                         href="#contact"
                                         className={`w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-6 ${plan.popular
-                                                ? "bg-white text-slate-950 hover:bg-slate-100"
-                                                : "bg-slate-900 border border-glass-border text-white hover:border-white"
+                                            ? "bg-white text-slate-950 hover:bg-slate-100"
+                                            : "bg-slate-900 border border-glass-border text-white hover:border-white"
                                             }`}
                                     >
                                         Buy Now
@@ -478,7 +498,7 @@ export default function WebsiteDesignPage() {
                     <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
-                    <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4 leading-snug">
+                    <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
                         Makes It Easy to Create Your Logo &amp; Branding
                     </h2>
                 </div>

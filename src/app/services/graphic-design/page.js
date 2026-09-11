@@ -272,24 +272,24 @@ export default function GraphicDesignPage() {
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
             {/* 1. HERO */}
-            <section className="relative py-14 sm:py-20 md:py-28 bg-dark-bg overflow-hidden">
-                <div className="absolute top-1/3 left-1/4 w-72 h-72 md:w-96 md:h-96 rounded-full pointer-events-none" />
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+            <section className="relative py-14 sm:py-20 md:py-28 4xl:py-36 bg-dark-bg overflow-hidden">
+                <div className="absolute top-1/3 left-1/4 w-72 h-72 md:w-96 md:h-96 4xl:w-[30rem] 4xl:h-[30rem] rounded-full pointer-events-none" />
+                <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
 
                         <div className="flex flex-col items-start">
-                            <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 mb-3">
+                            <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400 mb-3">
                                 Transforming Brands With Design
                             </span>
-                            <h1 className="font-extrabold text-3xl sm:text-4xl md:text-6xl leading-tight text-white mb-2">
-                                Graphic <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">Designs</span>
+                            <h1 className="font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight text-white mb-2">
+                                Graphic Designs
                             </h1>
 
-                            <div className="text-base sm:text-lg md:text-2xl font-bold text-sky-400 mb-6">
+                            <div className="text-base sm:text-lg md:text-2xl xl:text-3xl 4xl:text-4xl font-bold text-sky-400 mb-6">
                                 <BlindsRotatingText words={rotatingWords} delay={1500} />
                             </div>
 
-                            <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
                                 Sanyog Media Concepts&apos; graphic design expertise weaves stories that captivate, elevating your brand with artful visual solutions.
                             </p>
 
@@ -298,7 +298,7 @@ export default function GraphicDesignPage() {
                                 {avatarSeeds.map((seed, i) => (
                                     <div
                                         key={i}
-                                        className="w-9 h-9 md:w-10 md:h-10 rounded-full border-2 border-dark-bg overflow-hidden relative"
+                                        className="w-9 h-9 md:w-10 md:h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full border-2 border-dark-bg overflow-hidden relative"
                                     >
                                         <Image
                                             src={`https://i.pravatar.cc/64?img=${seed}`}
@@ -312,21 +312,21 @@ export default function GraphicDesignPage() {
 
                             {/* Rating */}
                             <div className="flex flex-col leading-tight mb-8">
-                                <span className="text-base font-bold text-white">4.9/5 Star Rating</span>
-                                <span className="text-sm text-cyan-400 font-medium">Based on Google Review</span>
+                                <span className="text-base xl:text-lg 4xl:text-xl font-bold text-white">4.9/5 Star Rating</span>
+                                <span className="text-sm xl:text-base 4xl:text-lg text-cyan-400 font-medium">Based on Google Review</span>
                             </div>
 
                             {/* Buttons stacked */}
-                            <div className="flex flex-col gap-3 w-full sm:w-auto sm:max-w-[220px]">
+                            <div className="flex flex-col gap-3 xl:gap-4 w-full sm:w-auto sm:max-w-[220px] xl:sm:max-w-[260px] 4xl:sm:max-w-[300px]">
                                 <Link
                                     href="#contact"
-                                    className="px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 text-center"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 text-center"
                                 >
                                     Connect With Us
                                 </Link>
                                 <Link
                                     href="#gdportfolio"
-                                    className="px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-cyan-400 to-sky-300 hover:brightness-110 transition-all text-center"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-400 to-sky-300 hover:brightness-110 transition-all text-center"
                                 >
                                     Portfolio
                                 </Link>
@@ -334,9 +334,9 @@ export default function GraphicDesignPage() {
                         </div>
 
                         {/* Right side - GIF illustration */}
-                        <div className="relative flex items-center justify-center min-h-[260px] sm:min-h-[340px] lg:min-h-[420px]">
-                            <div className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-                            <div className="relative w-full max-w-md rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-cyan-500/10">
+                        <div className="relative flex items-center justify-center min-h-[260px] sm:min-h-[340px] lg:min-h-[420px] xl:min-h-[480px] 4xl:min-h-[560px]">
+                            <div className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 4xl:w-96 4xl:h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
+                            <div className="relative w-full max-w-md xl:max-w-lg 4xl:max-w-2xl rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-cyan-500/10">
                                 <Image
                                     src="/images/graphic-design/1.gif"
                                     alt="Graphic design showcase"
@@ -351,19 +351,19 @@ export default function GraphicDesignPage() {
                     </div>
                 </div>
             </section>
-            
+
             {/* 4. WHY CHOOSE US — IMAGE ACCORDION */}
-            <section className="py-16 md:py-20 bg-dark-bg">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16">
-                        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl text-white leading-tight mb-4">
+            <section className="py-16 md:py-20 4xl:py-28 bg-dark-bg">
+                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
+                    <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
+                        <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Professional Designs Unique Solutions
                         </h2>
                     </div>
 
                     {/* Interactive image accordion — stacked vertically on mobile/tablet-portrait,
                         side-by-side from md: (tablet-landscape) up */}
-                    <div className="relative left-1/2 -translate-x-1/2 w-screen h-[680px] sm:h-[560px] md:h-[420px] lg:h-[500px] mb-12 md:mb-16">
+                    <div className="relative left-1/2 -translate-x-1/2 w-screen h-[680px] sm:h-[560px] md:h-[420px] lg:h-[500px] xl:h-[580px] 4xl:h-[680px] mb-12 md:mb-16 4xl:mb-20">
                         <div className="flex flex-col md:flex-row h-full w-full gap-1 md:gap-0 px-1 md:px-0">
                             {accordionImages.map((src, idx) => {
                                 const accordionTitles = [
@@ -388,22 +388,22 @@ export default function GraphicDesignPage() {
                                         />
 
                                         {/* Black shade only at the bottom, not on full image */}
-                                        <div className="absolute bottom-0 left-0 right-0 h-40 sm:h-48 md:h-56 bg-gradient-to-t from-black via-black/70 to-transparent" />
+                                        <div className="absolute bottom-0 left-0 right-0 h-40 sm:h-48 md:h-56 4xl:h-64 bg-gradient-to-t from-black via-black/70 to-transparent" />
 
                                         {isActive && (
-                                            <div
-                                                key={idx}
-                                                className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center justify-end gap-3 md:gap-4 px-3 md:px-4 w-full animate-emerge"
-                                            >
-                                                <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl font-display text-center leading-snug px-2">
-                                                    {accordionTitles[idx]}
-                                                </h3>
+                                            <div className="absolute inset-0 flex flex-col items-center justify-end pb-4 md:pb-6 4xl:pb-8 animate-emerge">
+                                                <div className="flex flex-col items-center gap-3 md:gap-4 4xl:gap-5 px-3 md:px-4 w-full max-w-[90%]">
+                                                    <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-display text-center leading-snug">
+                                                        {accordionTitles[idx]}
+                                                    </h3>
 
-                                                <a href="#contact"
-                                                    className="bg-white text-black px-4 sm:px-5 md:px-6 py-2 md:py-3 rounded-full text-sm sm:text-base md:text-lg lg:text-xl font-bold whitespace-nowrap transition-all duration-300 hover:scale-105"
-                                                >
-                                                    Contact Us
-                                                </a>
+
+                                                    <a href="#contact"
+                                                        className="bg-white text-black px-4 sm:px-5 md:px-6 xl:px-7 4xl:px-9 py-2 md:py-3 xl:py-3.5 4xl:py-4 rounded-full text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-bold whitespace-nowrap transition-all duration-300 hover:scale-105"
+                                                    >
+                                                        Contact Us
+                                                    </a>
+                                                </div>
                                             </div>
                                         )}
                                     </div>
@@ -414,24 +414,24 @@ export default function GraphicDesignPage() {
                 </div>
             </section>
             {/* 3. SERVICES GRID */}
-            <section className="py-16 md:py-24 bg-dark-bg">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                        <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg">
+                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
+                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+                        <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                             Our Graphic Design
                         </span>
-                        <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl text-white mt-4">
+                        <h2 className="font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
                             Services
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 3xl:grid-cols-5 gap-3 sm:gap-4 xl:gap-5 4xl:gap-6">
                         {services.map((s, idx) => (
                             <div
                                 key={idx}
-                                className="border border-slate-700 px-4 sm:px-5 py-5 sm:py-6 rounded-2xl flex items-center justify-center text-center hover:border-white/30 transition-all cursor-default bg-[#07ADD0]"
+                                className="border border-slate-700 px-4 sm:px-5 xl:px-6 4xl:px-8 py-5 sm:py-6 xl:py-7 4xl:py-9 rounded-2xl flex items-center justify-center text-center hover:border-white/30 transition-all cursor-default bg-[#07ADD0]"
                             >
-                                <span className="font-semibold text-base sm:text-lg md:text-xl text-white">{s}</span>
+                                <span className="font-semibold text-base sm:text-lg md:text-xl xl:text-xl 2xl:text-3xl text-white">{s}</span>
                             </div>
                         ))}
                     </div>
@@ -440,7 +440,7 @@ export default function GraphicDesignPage() {
 
 
             {/* 4. WE DESIGN GRAPHICS THAT DEFINE */}
-            <section className="py-16 md:py-24 bg-dark-bg relative overflow-hidden">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
                 {(() => {
                     const SLOT_SECONDS = 3; // har image kitni der visible rahegi
                     const N = showcaseCategories.length;
@@ -464,30 +464,30 @@ export default function GraphicDesignPage() {
                     );
                 })()}
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
 
                         {/* Left: Text */}
                         <div className="flex flex-col items-start">
-                            <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl text-white mb-1">
+                            <h2 className="font-extrabold text-2xl sm:text-[15px] md:text-[20px] xl:text-[25px] 4xl:text-[30px] text-white mb-1">
                                 We Design Graphics That Define
                             </h2>
-                            <h3 className="font-extrabold text-2xl sm:text-3xl md:text-5xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-6">
-                                Elevate &amp; Inspire Brands
+                            <h3 className="font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-[50px] 4xl:text-7xl leading-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 mb-6">
+                                Elevate &amp; <br /> Inspire Brands
                             </h3>
-                            <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-xl">
+                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
                                 We are a team of passionate creatives, strategists, and storytellers who specialize in transforming ideas into visually compelling designs. From logos to complete brand identities, our graphic design solutions are tailored to communicate your message with clarity and impact. We don&apos;t just make things look good — we design with purpose, helping your brand stand out in a crowded digital world.
                             </p>
-                            <div className="flex flex-col gap-3 w-full sm:w-auto sm:max-w-[240px]">
+                            <div className="flex flex-col gap-3 xl:gap-4 w-full sm:w-auto sm:max-w-[240px] xl:sm:max-w-[280px] 4xl:sm:max-w-[320px]">
                                 <Link
                                     href="#contact"
-                                    className="px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 text-center"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 text-center"
                                 >
                                     Connect With Us
                                 </Link>
                                 <Link
                                     href="/about-us"
-                                    className="px-6 py-3 rounded-full text-sm font-bold text-white bg-gradient-to-r from-cyan-400 to-sky-300 hover:brightness-110 transition-all text-center"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-400 to-sky-300 hover:brightness-110 transition-all text-center"
                                 >
                                     Know More About Us
                                 </Link>
@@ -495,7 +495,7 @@ export default function GraphicDesignPage() {
                         </div>
 
                         {/* Right: Whole-image crossfade */}
-                        <div className="relative aspect-[4/3] rounded-xl overflow-hidden">
+                        <div className="relative w-full h-full rounded-xl overflow-hidden">
                             {showcaseCategories.map((item, i) => (
                                 <div
                                     key={`${item.title}-${i}`}
@@ -525,14 +525,14 @@ export default function GraphicDesignPage() {
             <Testimonials />
 
             {/* 7. KEY PRIORITY */}
-            <section className="py-16 md:py-24 bg-dark-bg relative overflow-hidden">
-                <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[260px] h-[260px] md:w-[400px] md:h-[400px] bg-indigo-600/20 blur-[90px] md:blur-[120px] rounded-full pointer-events-none" />
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
+                <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[260px] h-[260px] md:w-[400px] md:h-[400px] 4xl:w-[560px] 4xl:h-[560px] bg-indigo-600/20 blur-[90px] md:blur-[120px] rounded-full pointer-events-none" />
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 xl:gap-20 4xl:gap-28 items-center">
 
                         {/* Left: overlapping images */}
-                        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] flex items-center">
+                        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] xl:h-[560px] 4xl:h-[640px] flex items-center">
                             <div className="absolute top-0 left-0 w-[85%] h-[75%] rounded-2xl overflow-hidden border border-slate-700 shadow-2xl">
                                 <Image
                                     src="/images/graphic-design/priority2.png"
@@ -553,27 +553,27 @@ export default function GraphicDesignPage() {
 
                         {/* Right: text + priority grid */}
                         <div>
-                            <div className="text-center lg:text-left mb-8 md:mb-10">
-                                <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+                            <div className="text-center lg:text-left mb-8 md:mb-10 4xl:mb-14">
+                                <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                                     Our Key Priority
                                 </span>
-                                <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl text-white mt-4 leading-tight">
+                                <h2 className="font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-tight">
                                     Customer Satisfaction Is Our Main Priority
                                 </h2>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                            <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:gap-5 4xl:gap-6">
                                 {priorities.map((p, idx) => {
                                     const Icon = p.icon;
                                     return (
                                         <div
                                             key={idx}
-                                            className="flex flex-col items-center text-center gap-3 py-6 sm:py-8 px-3 sm:px-4 rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-colors"
+                                            className="flex flex-col items-center text-center gap-3 xl:gap-4 py-6 sm:py-8 xl:py-9 4xl:py-11 px-3 sm:px-4 rounded-2xl border border-slate-700 hover:border-cyan-500/50 transition-colors"
                                         >
-                                            <div className={`w-11 h-11 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center text-white ${p.bg}`}>
-                                                <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
+                                            <div className={`w-11 h-11 sm:w-12 sm:h-12 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16 rounded-xl flex items-center justify-center text-white ${p.bg}`}>
+                                                <Icon className="w-5 h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7 4xl:w-8 4xl:h-8" />
                                             </div>
-                                            <span className="text-xs sm:text-sm font-bold text-white">{p.title}</span>
+                                            <span className="text-xs sm:text-sm xl:text-base 4xl:text-lg font-bold text-white">{p.title}</span>
                                         </div>
                                     );
                                 })}
@@ -585,53 +585,53 @@ export default function GraphicDesignPage() {
             </section>
 
             {/* 8. PRICING */}
-            <section id="pricing" className="py-16 md:py-24 bg-dark-bg relative overflow-hidden">
+            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-black text-[5rem] sm:text-[8rem] md:text-[12rem] text-white/[0.03] leading-none tracking-tight">
+                    <span className="font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
                         PRICING
                     </span>
                 </div>
 
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16">
-                        <span className="text-xs font-bold uppercase tracking-widest text-cyan-400">
+                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
+                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+                        <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                             Graphic Design Packages
                         </span>
-                        <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl text-white mt-4">
+                        <h2 className="font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
                             Flexible Graphic Design Packages To Suit Your Needs
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8 4xl:gap-10">
                         {pricingPlans.map((plan, idx) => (
                             <div
                                 key={idx}
-                                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between border ${plan.popular
+                                className={`rounded-3xl p-6 sm:p-8 xl:p-9 4xl:p-11 flex flex-col justify-between border ${plan.popular
                                     ? "border-white/20 bg-slate-800/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
                                     : "border-slate-700 bg-slate-900/40"
                                     }`}
                             >
                                 <div>
                                     {plan.popular && (
-                                        <span className="inline-block mb-3 px-3 py-1 rounded-full bg-white text-slate-950 text-[10px] font-bold uppercase tracking-widest">
+                                        <span className="inline-block mb-3 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
                                             Most Popular
                                         </span>
                                     )}
-                                    <h3 className="font-bold text-lg text-white mb-1">{plan.name}</h3>
-                                    <span className="text-xs text-slate-500 uppercase tracking-wider">
+                                    <h3 className="font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 mt-4 mb-1">
-                                        <span className="font-extrabold text-3xl text-white">
+                                        <span className="font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
                                             {plan.price}
                                         </span>
                                     </div>
-                                    <span className="text-xs text-slate-500">{plan.period}</span>
+                                    <span className="text-xs xl:text-sm 4xl:text-base text-slate-500">{plan.period}</span>
 
                                     <Link
                                         href="#contact"
-                                        className={`w-full py-3 rounded-xl font-bold text-center text-sm transition-all block mt-6 mb-8 ${plan.popular
+                                        className={`w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mt-6 mb-8 ${plan.popular
                                             ? "bg-white text-slate-950 hover:bg-slate-100"
                                             : "bg-slate-800 border border-slate-700 text-white hover:border-white"
                                             }`}
@@ -642,8 +642,8 @@ export default function GraphicDesignPage() {
                                     <div className="border-t border-slate-700/60 pt-6">
                                         <ul className="flex flex-col gap-3">
                                             {plan.features.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2.5 text-xs text-slate-300">
-                                                    <Check className="w-3.5 h-3.5 text-cyan-400 shrink-0 mt-0.5" />
+                                                <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-300">
+                                                    <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-cyan-400 shrink-0 mt-0.5" />
                                                     <span>{feat}</span>
                                                 </li>
                                             ))}
@@ -657,12 +657,12 @@ export default function GraphicDesignPage() {
             </section>
 
             {/* 9. FAQ — FULL WIDTH GRADIENT ACCORDION */}
-            <section className="py-16 md:py-24 bg-dark-bg relative">
-                <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 flex flex-col items-center">
-                    <div className="w-14 h-14 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
-                        <MessageCircleQuestion className="w-6 h-6 text-white" strokeWidth={1.5} />
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
+                <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
+                    <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
+                        <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl text-white mb-4">
+                    <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -671,12 +671,12 @@ export default function GraphicDesignPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                         <span className="w-10 h-1 rounded-full bg-sky-500" />
                     </div>
-                    <p className="text-sm text-slate-400">
+                    <p className="text-sm xl:text-base 4xl:text-lg text-slate-400">
                         Answer To Our Most Frequently Asked Questions are just one Click Away.
                     </p>
                 </div>
 
-                <div className="w-full flex flex-col gap-3">
+                <div className="w-full flex flex-col gap-3 xl:gap-4">
                     {faqs.map((faq, idx) => {
                         const isOpen = activeFaq === idx;
                         return (
@@ -690,13 +690,13 @@ export default function GraphicDesignPage() {
                             >
                                 <button
                                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                                    className="w-full px-4 md:px-5 py-4 flex items-center gap-4 text-left"
+                                    className="w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                                 >
                                     <ChevronDown
-                                        className={`w-5 h-5 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
+                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-bold text-sm md:text-base text-white">
+                                    <span className="font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
@@ -709,7 +709,7 @@ export default function GraphicDesignPage() {
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <div className="px-4 md:px-5 pb-4 pl-14 md:pl-[4.75rem] text-sm text-white/85 leading-relaxed">
+                                            <div className="px-4 md:px-5 xl:px-6 pb-4 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (
@@ -748,20 +748,19 @@ export default function GraphicDesignPage() {
                   }
 
                   @keyframes emerge {
-    0% {
-        opacity: 0;
-        transform: translate(-50%, 30px) scale(0.7);
-    }
-    100% {
-        opacity: 1;
-        transform: translate(-50%, 0) scale(1);
-    }
-}
+                      0% {
+                          opacity: 0;
+                          transform: translateY(30px) scale(0.7);
+                      }
+                      100% {
+                          opacity: 1;
+                          transform: translateY(0) scale(1);
+                      }
+                  }
 
-.animate-emerge {
-    animation: emerge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-}
-
+                  .animate-emerge {
+                      animation: emerge 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+                  }
               `}</style>
 
         </main >

@@ -83,7 +83,7 @@ export default function Priorities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.1 }}
-              className="font-display font-bold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-6 sm:mb-8 lg:mb-10 4xl:mb-14"
+              className="font-display font-bold text-2xl sm:text-3xl md:text-4xl xl:text-4xl 4xl:text-6xl leading-tight text-white mb-6 sm:mb-8 lg:mb-10 4xl:mb-14"
             >
               &ldquo;Your Brand Is A Story — Elevating Branding &amp;
               Marketing&rdquo;

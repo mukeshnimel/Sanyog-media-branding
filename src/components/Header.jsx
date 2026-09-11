@@ -235,6 +235,16 @@ export default function Header() {
         logo from a remote URL to the same local file the header already
         uses, so it doesn't pop in late over a slow connection (which read
         as a second "blink").
+
+        ADDITIONAL FIX (this pass):
+        - Nav links were too large on mobile (text-2xl/3xl) -> reduced to
+          text-lg/xl.
+        - `justify-center` on the nav made a huge empty gap above/below the
+          links whenever the list was shorter than the viewport -> switched
+          to `justify-start` with smaller top/bottom padding and smaller
+          per-row padding so the menu reads as compact.
+        - Drawer logo was noticeably smaller than the header logo -> bumped
+          it up to match (h-9/h-10, same as header).
       */}
       <AnimatePresence>
         {isOpen && (
@@ -253,7 +263,7 @@ export default function Header() {
               <img
                 src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
                 alt="Sanyog Media Concepts Logo"
-                className="h-6 w-auto max-w-[150px] object-contain sm:h-7"
+                className="h-9 w-auto max-w-[190px] object-contain sm:h-10"
               />
               <button
                 onClick={() => setIsOpen(false)}
@@ -264,10 +274,10 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="relative flex flex-1 flex-col justify-center gap-1 px-5 py-8 sm:px-6">
+            <nav className="relative flex flex-1 flex-col justify-start gap-0.5 px-5 pt-4 pb-6 sm:px-6">
               {navItems.map((item, idx) =>
                 item.dropdown ? (
-                  <div key={item.name} className="border-b border-white/10 py-3">
+                  <div key={item.name} className="border-b border-white/10 py-2">
                     <button
                       onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                       className="flex w-full items-center justify-between text-left"
@@ -276,7 +286,7 @@ export default function Header() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.15 + idx * 0.05 }}
-                        className="text-2xl font-semibold tracking-tight text-white sm:text-3xl"
+                        className="text-lg font-semibold tracking-tight text-white sm:text-xl"
                       >
                         {item.name}
                       </motion.span>
@@ -323,12 +333,12 @@ export default function Header() {
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.15 + idx * 0.05 }}
-                    className="border-b border-white/10 py-3"
+                    className="border-b border-white/10 py-2"
                   >
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`text-2xl font-semibold tracking-tight transition-colors sm:text-3xl ${isActive(item.href) ? "text-sky-400" : "text-white"
+                      className={`text-lg font-semibold tracking-tight transition-colors sm:text-xl ${isActive(item.href) ? "text-sky-400" : "text-white"
                         }`}
                     >
                       {item.name}
