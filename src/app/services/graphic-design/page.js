@@ -316,20 +316,27 @@ export default function GraphicDesignPage() {
                                 <span className="text-sm xl:text-base 4xl:text-lg text-cyan-400 font-medium">Based on Google Review</span>
                             </div>
 
-                            {/* Buttons stacked */}
-                            <div className="flex flex-col gap-3 xl:gap-4 w-full sm:w-auto sm:max-w-[220px] xl:sm:max-w-[260px] 4xl:sm:max-w-[300px]">
-                                <Link
+                            {/* ✅ FIX: restored missing opening <a tags */}
+                            <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
+                                <a
                                     href="#contact"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 text-center"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
-                                </Link>
-                                <Link
-                                    href="#gdportfolio"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-400 to-sky-300 hover:brightness-110 transition-all text-center"
+                                </a>
+
+                                <a
+                                    href="#smmport"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
-                                </Link>
+                                </a>
+
+                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
+                                    {[...Array(24)].map((_, i) => (
+                                        <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
+                                    ))}
+                                </div>
                             </div>
                         </div>
 

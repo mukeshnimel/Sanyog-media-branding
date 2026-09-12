@@ -198,26 +198,27 @@ export default function PackagingDesignPage() {
                             </motion.div>
 
                             {/* ✅ FIX: restored missing opening <a tags */}
-                            <motion.div
-                                initial={{ opacity: 0, y: 15 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.4 }}
-                                className="flex flex-col sm:flex-row flex-wrap gap-3 xl:gap-4 mb-6 w-full"
-                            >
+                            <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
                                 <a
-                                    href="/contact"
-                                    className="px-6 py-3 xl:px-8 xl:py-4 4xl:px-10 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-fit"
+                                    href="#contact"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
                                 </a>
 
                                 <a
-                                    href="#pricing"
-                                    className="px-6 py-2.5 xl:px-8 xl:py-3.5 4xl:px-10 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white bg-cyan-500 hover:bg-cyan-600 transition-colors text-center w-fit"
+                                    href="#smmport"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
-                                    Prices
+                                    Portfolio
                                 </a>
-                            </motion.div>
+
+                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
+                                    {[...Array(24)].map((_, i) => (
+                                        <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
+                                    ))}
+                                </div>
+                            </div>
 
                             <div className="flex items-center gap-6">
                                 <div className="flex items-center gap-2 xl:gap-3">

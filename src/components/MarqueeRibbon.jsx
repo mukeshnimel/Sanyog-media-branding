@@ -4,8 +4,8 @@ import Image from "next/image";
 
 export default function MarqueeRibbon() {
     return (
-        <section className="py-0 bg-slate-950 border-b border-glass-border relative overflow-hidden">
-            <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-5 border-y border-glass-border/40">
+        <section className="py-0 bg-slate-950 relative overflow-hidden">
+            <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-5">
                 
                 <div className="marquee-track flex items-center gap-16 whitespace-nowrap">
                     {[...Array(2)].map((_, setIdx) => (

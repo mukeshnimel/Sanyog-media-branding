@@ -144,33 +144,28 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* Buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative flex flex-col xs:flex-row sm:flex-row gap-3 4xl:gap-6 w-full xs:w-auto"
-            >
-              <Link
-                href="/contact"
-                className="px-6 py-3 xl:px-8 xl:py-4 4xl:px-10 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-xl font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full xs:w-fit"
+            {/* ✅ FIX: restored missing opening <a tags */}
+            <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
+              <a
+                href="#contact"
+                className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
               >
                 Connect With Us
-              </Link>
-              <Link
-                href="#portfolio"
-                className="px-6 py-2.5 xl:px-8 xl:py-3.5 4xl:px-10 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-xl font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full xs:w-fit"
+              </a>
+
+              <a
+                href="#smmport"
+                className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
               >
                 Portfolio
-              </Link>
+              </a>
 
-              {/* Decorative dot grid — ab flex se positioned, fixed px nahi */}
-              <div className="hidden xl:grid grid-cols-8 gap-2 4xl:gap-3 self-center ml-10 4xl:ml-16">
+              <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
                 {[...Array(24)].map((_, i) => (
-                  <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/30" />
+                  <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
 
           {/* Right Image Collage */}

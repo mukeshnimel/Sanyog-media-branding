@@ -200,26 +200,25 @@ export default function WebsiteDesignPage() {
                                 <p className="text-sm xl:text-base 4xl:text-lg font-semibold text-sky-400">Based on Google Review</p>
                             </div>
 
-                            {/* ✅ FIX: restored missing opening <a tags + closed wrapper properly */}
-                            <div className="relative flex flex-col sm:flex-row flex-wrap items-center justify-start gap-3 xl:gap-4 w-full">
+                            {/* ✅ FIX: restored missing opening <a tags */}
+                            <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
                                 <a
                                     href="#contact"
-                                    className="inline-flex items-center justify-center px-6 py-3 xl:px-8 xl:py-4 4xl:px-10 4xl:py-5 min-w-[170px] rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center leading-none"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
                                 </a>
 
                                 <a
-                                    href="#webportfolio"
-                                    className="inline-flex items-center justify-center px-6 py-3 xl:px-8 xl:py-4 4xl:px-10 4xl:py-5 min-w-[130px] rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white bg-cyan-500 hover:bg-cyan-600 transition-colors text-center leading-none"
+                                    href="#smmport"
+                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
                                 </a>
 
-                                {/* Decorative dot grid — desktop only */}
-                                <div className="hidden lg:grid grid-cols-6 gap-6 4xl:gap-8 self-center ml-4">
+                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
                                     {[...Array(24)].map((_, i) => (
-                                        <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/80" />
+                                        <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
                                     ))}
                                 </div>
                             </div>
