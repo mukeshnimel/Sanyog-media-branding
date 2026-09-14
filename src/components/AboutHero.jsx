@@ -46,7 +46,7 @@ export default function AboutHero() {
     );
 
     return (
-        <section className="relative h-[100dvh] sm:h-[100vh] min-h-[520px] sm:min-h-[480px] max-h-[640px] 4xl:max-h-[820px] flex items-center overflow-hidden bg-dark-bg border-b border-glass-border">
+        <section className="relative h-[100dvh] sm:h-[100vh] min-h-[520px] sm:min-h-[560px] md:min-h-[620px] lg:min-h-[680px] xl:min-h-[720px] 2xl:min-h-[760px] max-h-[640px] lg:max-h-[700px] xl:max-h-[760px] 2xl:max-h-[800px] 3xl:max-h-[850px] 4xl:max-h-[900px] flex items-center overflow-hidden bg-dark-bg">
 
             {/* Shattering tile background slider — pure CSS cover + clip-path, no JS measurement needed */}
             <div className="absolute inset-0">
@@ -95,7 +95,7 @@ export default function AboutHero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 4xl:px-16 text-center flex flex-col items-center justify-center">
+            <div className="relative z-10 w-full max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 4xl:px-16 pt-16 sm:pt-10 lg:pt-6 text-center flex flex-col items-center justify-center">
 
                 <motion.span
                     initial={{ opacity: 0, y: -15 }}

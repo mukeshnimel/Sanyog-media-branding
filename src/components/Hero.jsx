@@ -161,9 +161,9 @@ export default function Hero() {
               </a>
 
               <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
-                {[...Array(24)].map((_, i) => (
+                {/* {[...Array(24)].map((_, i) => (
                   <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
-                ))}
+                ))} */}
               </div>
             </div>
           </div>

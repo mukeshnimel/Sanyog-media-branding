@@ -160,18 +160,19 @@ export default function WebsiteDesignPage() {
                                 Creating Your Unique Website.......
                             </span>
 
-                            <h1 className=" font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-7xl leading-tight text-white mb-2 break-words">
+                            <h1 className="font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl leading-tight text-white mb-2 break-words">
                                 Website Design
                             </h1>
 
                             <div className="min-h-[1.75rem] sm:min-h-[2.25rem] md:min-h-[3rem] 4xl:min-h-[4rem] mb-6 overflow-visible flex items-start w-full">
                                 <AnimatePresence mode="wait">
+                                    {/* Rotating word */}
                                     <motion.div
                                         key={wordIndex}
                                         initial="hidden"
                                         animate="visible"
                                         exit="exit"
-                                        className="flex flex-wrap text-base sm:text-lg md:text-3xl xl:text-4xl 4xl:text-5xl text-sky-400"
+                                        className="flex flex-wrap text-base sm:text-lg md:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-5xl text-sky-400"
                                     >
                                         {rotatingWords[wordIndex].split("").map((char, i) => (
                                             <motion.span key={i} custom={i} variants={waveLetterVariants} className="inline-block">
@@ -182,7 +183,7 @@ export default function WebsiteDesignPage() {
                                 </AnimatePresence>
                             </div>
 
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
+                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 2xl:max-w-2xl 3xl:max-w-3xl 4xl:max-w-3xl">
                                 Our Expert Designers Craft Visual Stories That Resonate With Your
                                 Target Audience, Ensuring A Strong and Memorable Brand Presence
                             </p>

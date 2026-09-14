@@ -296,20 +296,44 @@ export default function ContactPage() {
               </div>
             </div>
 
-            {/* RIGHT — IMAGE */}
+            {/* RIGHT — FLOATING IMAGE */}
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
               className="flex items-center justify-end w-full"
             >
-              <div className="w-full max-w-[600px] 3xl:max-w-[720px] 4xl:max-w-[820px] translate-x-6 md:translate-x-15">
-                <img
-                  src="/images/contact/hero.png"
+              <motion.div
+                className="w-full max-w-[500px] 3xl:max-w-[600px] 4xl:max-w-[680px] cursor-pointer"
+                animate={{
+                  y: [0, -12, 0, 12, 0],
+                  rotate: [0, 1, 0, -1, 0],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                whileHover={{
+                  scale: 1.03,
+                  transition: { duration: 0.3 },
+                }}
+              >
+                <motion.img
+                  src="/images/contact/hero2.png"
                   alt="Contact Sanyog Media Concepts"
                   className="w-full h-auto object-contain"
+                  whileHover={{
+                    x: 8,
+                    y: -5,
+                    rotate: 2,
+                    transition: {
+                      duration: 0.3,
+                      ease: "easeOut",
+                    },
+                  }}
                 />
-              </div>
+              </motion.div>
             </motion.div>
 
           </div>

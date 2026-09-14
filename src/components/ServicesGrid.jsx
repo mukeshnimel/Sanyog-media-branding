@@ -103,7 +103,7 @@ export default function WhatWeDo() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.15 }}
-            className="relative w-full aspect-[8/5] max-w-md xl:max-w-lg 4xl:max-w-2xl mx-auto lg:max-w-none lg:mx-0"
+            className="relative w-full aspect-[8/5] max-w-md mx-auto lg:max-w-none lg:mx-0"
           >
             {/* Glow behind images */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 sm:w-52 sm:h-52 lg:w-64 lg:h-64 4xl:w-80 4xl:h-80 rounded-full bg-sky-500/10 blur-[70px] sm:blur-[90px] lg:blur-[100px] pointer-events-none" />
