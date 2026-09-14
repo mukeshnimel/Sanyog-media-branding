@@ -363,7 +363,7 @@ export default function GraphicDesignPage() {
             <section className="py-16 md:py-20 4xl:py-28 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                        <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Professional Designs Unique Solutions
                         </h2>
                     </div>
@@ -400,7 +400,7 @@ export default function GraphicDesignPage() {
                                         {isActive && (
                                             <div className="absolute inset-0 flex flex-col items-center justify-end pb-4 md:pb-6 4xl:pb-8 animate-emerge">
                                                 <div className="flex flex-col items-center gap-3 md:gap-4 4xl:gap-5 px-3 md:px-4 w-full max-w-[90%]">
-                                                    <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-display text-center leading-snug">
+                                                    <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-jakarta text-center leading-snug">
                                                         {accordionTitles[idx]}
                                                     </h3>
 

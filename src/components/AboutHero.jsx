@@ -109,7 +109,7 @@ export default function AboutHero() {
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="font-display leading-tight text-white mb-2 text-center w-full"
+                    className="font-jakarta leading-tight text-white mb-2 text-center w-full"
                 >
                     <span className="block text-[clamp(24px,5vw,78px)] mb-1">
                         We&apos;re a High-End

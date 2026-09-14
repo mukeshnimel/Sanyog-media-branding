@@ -4,6 +4,12 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["600", "700", "800"],
+});
 
 const rotatingWords = [
   "Video Editing",
@@ -44,11 +50,17 @@ function CollageTile({ src, alt, tall }) {
   return (
     <div
       className={`relative shrink-0 overflow-hidden rounded-2xl border border-white/10 ${tall
-        ? "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
-        : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
+          ? "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
+          : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
         }`}
     >
-      <Image src={src} alt={alt} fill className="object-cover" sizes="(max-width: 1024px) 45vw, 320px" />
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 45vw, 320px"
+      />
     </div>
   );
 }
@@ -65,22 +77,69 @@ export default function Hero() {
 
   return (
     <section className="relative flex items-center overflow-hidden bg-dark-bg pt-24 pb-14 sm:pt-28 sm:pb-20">
+      {/* 🔵 Unique animated background — FULL SECTION */}
+      <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
+        <motion.div
+          className="absolute -top-20 -left-20 w-[500px] h-[500px] bg-sky-500/30 rounded-full blur-3xl"
+          animate={{ x: [0, 40, -20, 0], y: [0, -30, 20, 0] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+
+        <motion.div
+          className="absolute top-1/3 -right-10 w-[420px] h-[420px] bg-sky-400/20 rounded-full blur-3xl"
+          animate={{ x: [0, -25, 15, 0], y: [0, 25, -15, 0] }}
+          transition={{
+            duration: 11,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 0.5,
+          }}
+        />
+
+        <motion.div
+          className="absolute bottom-0 right-10 w-96 h-96 bg-indigo-500/20 rounded-full blur-3xl"
+          animate={{ x: [0, -30, 20, 0], y: [0, 20, -20, 0] }}
+          transition={{
+            duration: 12,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        />
+
+        <motion.div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage:
+              "radial-gradient(rgba(56,189,248,0.5) 1px, transparent 1px)",
+            backgroundSize: "22px 22px",
+          }}
+          animate={{ backgroundPosition: ["0px 0px", "22px 22px"] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+        />
+      </div>
+
       {/* Background glow overlay */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 4xl:w-[32rem] 4xl:h-[32rem] rounded-full bg-electric-blue/10 blur-[100px] sm:blur-[120px] pointer-events-none" />
       <div className="absolute bottom-1/4 right-1/4 translate-x-1/2 translate-y-1/2 w-72 h-72 sm:w-96 sm:h-96 4xl:w-[32rem] 4xl:h-[32rem] rounded-full bg-neon-cyan/10 blur-[100px] sm:blur-[120px] pointer-events-none" />
 
-      {/* Container ab har breakpoint pe apni width badhata jayega, 4K tak */}
       <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
           {/* Left Text */}
-          <div className="lg:col-span-6 text-left flex flex-col items-start ">
+          <div className="lg:col-span-6 text-left flex flex-col items-start relative">
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="font-extrabold text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-5 sm:mb-6"
+              className="font-jakarta  text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white/90 mb-5 sm:mb-6"
             >
-              Build a Brand That <br />
+              Build a{" "}
+              <span
+                className={`${playfair.className} italic bg-gradient-to-r from-sky-400 via-sky-300 to-indigo-400 bg-clip-text text-transparent`}
+              >
+                Brand
+              </span>{" "}
+              That <br />
               Lasts Forever
             </motion.h1>
 
@@ -114,9 +173,10 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl text-slate-350 max-w-xl xl:max-w-2xl 4xl:max-w-3xl mb-7 sm:mb-8 leading-relaxed"
+              className="text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl text-slate-300 max-w-xl xl:max-w-2xl 4xl:max-w-3xl mb-7 sm:mb-8 leading-relaxed"
             >
-              Top-Rated Creative Branding Agency for Logo, Web & Design Solutions.
+              Top-Rated Creative Branding Agency for Logo, Web & Design
+              Solutions.
             </motion.p>
 
             {/* Avatars + rating */}
@@ -132,7 +192,13 @@ export default function Hero() {
                     key={i}
                     className="w-9 h-9 sm:w-10 sm:h-10 xl:w-12 xl:h-12 4xl:w-16 4xl:h-16 rounded-full border-2 border-dark-bg overflow-hidden relative"
                   >
-                    <Image src={src} alt="Client avatar" fill className="object-cover" sizes="64px" />
+                    <Image
+                      src={src}
+                      alt="Client avatar"
+                      fill
+                      className="object-cover"
+                      sizes="64px"
+                    />
                   </div>
                 ))}
               </div>
@@ -144,27 +210,21 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* ✅ FIX: restored missing opening <a tags */}
+            {/* ✅ FIXED: Buttons with proper <Link> tags */}
             <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
-              <a
+              <Link
                 href="#contact"
                 className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
               >
                 Connect With Us
-              </a>
+              </Link>
 
-              <a
+              <Link
                 href="#smmport"
                 className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
               >
                 Portfolio
-              </a>
-
-              <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
-                {/* {[...Array(24)].map((_, i) => (
-                  <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
-                ))} */}
-              </div>
+              </Link>
             </div>
           </div>
 
@@ -176,7 +236,6 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="grid grid-cols-2 gap-2 sm:gap-3 xl:gap-4"
             >
-              {/* Column A */}
               <div className="relative h-[300px] sm:h-[380px] lg:h-[500px] xl:h-[580px] 2xl:h-[650px] 3xl:h-[720px] 4xl:h-[800px] overflow-hidden">
                 <motion.div
                   animate={{ y: ["0%", "-50%"] }}
@@ -184,12 +243,11 @@ export default function Hero() {
                   className="flex flex-col gap-2 sm:gap-3 xl:gap-4"
                 >
                   {columnALoop.map((img, i) => (
-                    <CollageTile key={`a-${i}`} {...img} />
+                    <CollageTile key={`a-${i}-${img.src}`} {...img} />
                   ))}
                 </motion.div>
               </div>
 
-              {/* Column B */}
               <div className="relative h-[300px] sm:h-[380px] lg:h-[500px] xl:h-[580px] 2xl:h-[650px] 3xl:h-[720px] 4xl:h-[800px] overflow-hidden pt-4 sm:pt-6 lg:pt-8">
                 <motion.div
                   animate={{ y: ["-50%", "0%"] }}
@@ -197,13 +255,12 @@ export default function Hero() {
                   className="flex flex-col gap-2 sm:gap-3 xl:gap-4"
                 >
                   {columnBLoop.map((img, i) => (
-                    <CollageTile key={`b-${i}`} {...img} />
+                    <CollageTile key={`b-${i}-${img.src}`} {...img} />
                   ))}
                 </motion.div>
               </div>
             </motion.div>
 
-            {/* Top & Bottom Fade */}
             <div className="absolute inset-x-0 top-0 h-12 sm:h-16 bg-gradient-to-b from-dark-bg to-transparent pointer-events-none z-10" />
             <div className="absolute inset-x-0 bottom-0 h-12 sm:h-16 bg-gradient-to-t from-dark-bg to-transparent pointer-events-none z-10" />
           </div>

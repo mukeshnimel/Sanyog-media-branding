@@ -92,7 +92,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="whitespace-nowrap font-display font-bold text-center text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 sm:mb-4 leading-snug"
+              className="whitespace-nowrap font-jakarta font-bold text-center text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 sm:mb-4 leading-snug"
             >
               &ldquo;Your Brand Is a Story Unfolding Across All Customer Touchpoints&rdquo;
             </motion.h2>

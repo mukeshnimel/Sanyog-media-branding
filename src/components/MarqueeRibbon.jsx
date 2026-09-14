@@ -30,7 +30,7 @@ export default function MarqueeRibbon() {
                                     </div>
 
                                     {/* TEXT */}
-                                    <span className="font-display font-bold text-2xl md:text-3xl text-white tracking-wide">
+                                    <span className="font-jakarta font-bold text-2xl md:text-3xl text-white tracking-wide">
                                         We Build Brand
                                     </span>
                                 </div>

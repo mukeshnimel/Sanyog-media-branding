@@ -436,66 +436,132 @@ export default function LogoDesignServicePage() {
     <main className="flex-1 bg-dark-bg text-slate-100 pt-24 overflow-hidden">
 
       {/* SECTION 1: HERO BANNER (SPLIT 60/40) */}
-      <section className="relative py-24 md:py-15 3xl:py-28 flex items-center bg-dark-bg border-b border-glass-border">
+      <section className="relative py-24 md:py-10 3xl:py-28 flex items-center bg-dark-bg border-b border-glass-border">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
-        <div className="max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-6 lg:px-10 xl:px-16 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 3xl:gap-16 items-center">
+        <div className="max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-6 lg:px-10 xl:px-16 4xl:px-24 relative z-10 w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 3xl:gap-16 4xl:gap-24 items-center">
 
             {/* Left Content Column */}
-            <div className="lg:col-span-6 text-left flex flex-col items-start -mt-20 sm:-mt-4 lg:mt-0"> <p className="text-base sm:text-xl 3xl:text-2xl font-bold tracking-wider sm:tracking-widest text-white mb-3 sm:mb-4 leading-snug max-w-full break-words"> Unveil Your Brand's Identity with Captivating </p> <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="font-display font-extrabold text-4xl sm:text-5xl md:text-7xl 3xl:text-8xl leading-tight tracking-tight text-white mb-5 sm:mb-6" > Logo Design </motion.h1> {/* Rotating word border box */} <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.1 }} className="relative overflow-hidden rounded-2xl border-2 border-white px-4 sm:px-6 3xl:px-8 py-3 sm:py-3.5 3xl:py-4 mb-5 sm:mb-6 bg-white/[0.02] max-w-full" > <div className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl 3xl:text-3xl font-bold whitespace-nowrap"> <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom"> <AnimatePresence mode="wait"> <motion.span key="logo-design" initial={{ y: "-100%", opacity: 0 }} animate={{ y: "0%", opacity: 1 }} exit={{ y: "100%", opacity: 0 }} transition={{ duration: 0.45, ease: "easeInOut" }} className="block text-sky-400" > & Brand Identity </motion.span> </AnimatePresence> </span> </div> </motion.div> <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.2 }} className="text-base md:text-lg 3xl:text-xl text-slate-350 max-w-xl 3xl:max-w-2xl mb-6 sm:mb-8 leading-relaxed" > Top-Rated Creative Branding Agency for Logo, Web & Design Solutions. </motion.p> {/* Avatars + rating */} <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.25 }} className="mb-6" > <div className="flex -space-x-3 mb-4"> {avatars.map((src, i) => (<div key={i} className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-full border-2 border-dark-bg overflow-hidden relative" > <Image src={src} alt="Client avatar" fill className="object-cover" /> </div>))} </div> <p className="text-base 3xl:text-lg font-bold text-white"> 4.9/5 Star Rating on Google </p> <p className="text-sm 3xl:text-base font-semibold text-sky-400"> Trusted By Businesses Across Industries </p> </motion.div>    {/* ✅ FIX: restored missing opening <a tags */}
-              <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
-                <a
-                  href="#contact"
+            <div className="lg:col-span-6 text-left flex flex-col items-start -mt-10 sm:-mt-4 lg:mt-0">
+              <p className="text-base sm:text-xl 3xl:text-2xl 4xl:text-3xl font-bold tracking-wider sm:tracking-widest text-white mb-3 sm:mb-4 leading-snug max-w-full break-words">
+                Unveil Your Brand's Identity with Captivating
+              </p>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                className="font-jakarta font-extrabold text-4xl sm:text-5xl md:text-7xl 3xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-5 sm:mb-6"
+              >
+                Logo Design
+              </motion.h1>
+
+              {/* Rotating word border box */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="relative overflow-hidden rounded-2xl border-2 border-white px-4 sm:px-6 3xl:px-8 4xl:px-10 py-3 sm:py-3.5 3xl:py-4 4xl:py-5 mb-5 sm:mb-6 bg-white/[0.02] max-w-full"
+              >
+                <div className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold whitespace-nowrap">
+                  <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom">
+                    <AnimatePresence mode="wait">
+                      <motion.span
+                        key="logo-design"
+                        initial={{ y: "-100%", opacity: 0 }}
+                        animate={{ y: "0%", opacity: 1 }}
+                        exit={{ y: "100%", opacity: 0 }}
+                        transition={{ duration: 0.45, ease: "easeInOut" }}
+                        className="block text-sky-400"
+                      >
+                        & Brand Identity
+                      </motion.span>
+                    </AnimatePresence>
+                  </span>
+                </div>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                className="text-base md:text-lg 3xl:text-xl 4xl:text-2xl text-slate-350 max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl mb-6 sm:mb-8 leading-relaxed"
+              >
+                Top-Rated Creative Branding Agency for Logo, Web & Design Solutions.
+              </motion.p>
+
+              {/* Avatars + rating */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.25 }}
+                className="mb-6"
+              >
+                <div className="flex -space-x-3 mb-4">
+                  {avatars.map((src, i) => (
+                    <div
+                      key={i}
+                      className="w-10 h-10 3xl:w-12 3xl:h-12 4xl:w-16 4xl:h-16 rounded-full border-2 border-dark-bg overflow-hidden relative"
+                    >
+                      <Image src={src} alt="Client avatar" fill className="object-cover" sizes="64px" />
+                    </div>
+                  ))}
+                </div>
+                <p className="text-base 3xl:text-lg 4xl:text-2xl font-bold text-white">
+                  4.9/5 Star Rating on Google
+                </p>
+                <p className="text-sm 3xl:text-base 4xl:text-xl font-semibold text-sky-400">
+                  Trusted By Businesses Across Industries
+                </p>
+              </motion.div>
+
+              <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 4xl:gap-5 w-full sm:w-auto">
+
+                <a href="#contact"
                   className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                 >
                   Connect With Us
                 </a>
 
-                <a
-                  href="#smmport"
+
+                <a href="#smmport"
                   className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                 >
                   Portfolio
                 </a>
-
-                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
-                  {[...Array(24)].map((_, i) => (
-                    <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
-                  ))}
-                </div>
-              </div> </div>
+              </div>
+            </div>
 
             {/* Right Image */}
-            <div className="lg:col-span-5 w-full flex">
+            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
               <motion.div
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative -translate-y-14 max-w-[700px] 3xl:max-w-[860px] 4xl:max-w-[980px]"
+                className="relative w-full max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] 3xl:max-w-[860px] 4xl:max-w-[980px] aspect-[7/5]"
               >
                 <Image
                   src="/images/logo-design/1.png"
                   alt="Brand Identity Showreel"
-                  width={700}
-                  height={500}
+                  fill
                   priority
-                  className="w-auto h-auto max-w-full object-contain"
+                  className="object-contain"
+                  sizes="(max-width: 1024px) 90vw, 45vw"
                 />
               </motion.div>
             </div>
 
           </div>
         </div>
-      </section>
+      </section >
 
       <MarqueeRibbon />
-
       {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-      <section className="py-12 sm:py-16 3xl:py-20 bg-dark-bg border-b border-glass-border">
-        <div className="max-w-7xl 3xl:max-w-[1700px] 4xl:max-w-[2000px] mx-auto px-4 sm:px-6">
-          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-8 3xl:gap-10">
+      <section className="py-12 sm:py-16 3xl:py-20 4xl:py-24 bg-dark-bg border-b border-glass-border">
+        <div className="max-w-7xl 3xl:max-w-[1700px] 4xl:max-w-[2200px] mx-auto px-4 sm:px-6 4xl:px-10">
+          <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-8 3xl:gap-10 4xl:gap-14">
             {badges.map((badge, idx) => (
               <motion.div
                 key={idx}
@@ -503,16 +569,16 @@ export default function LogoDesignServicePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.4, delay: idx * 0.08 }}
-                className="group w-[130px] sm:w-[170px] md:w-[190px] 3xl:w-[220px] rounded-2xl sm:rounded-3xl border-2 border-sky-500 flex flex-col items-center justify-center gap-3 sm:gap-4 py-6 sm:py-8 3xl:py-10 px-3 sm:px-4 text-center"
+                className="group w-full sm:w-[170px] md:w-[190px] 3xl:w-[220px] 4xl:w-[260px] rounded-2xl sm:rounded-3xl border-2 border-sky-500 flex flex-col items-center justify-center gap-3 sm:gap-4 py-6 sm:py-8 3xl:py-10 4xl:py-12 px-3 sm:px-4 text-center"
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 3xl:w-14 3xl:h-14 rounded-xl bg-sky-500 group-hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-110 shrink-0">
+                <div className="w-11 h-11 sm:w-12 sm:h-12 3xl:w-14 3xl:h-14 4xl:w-16 4xl:h-16 rounded-xl bg-sky-500 group-hover:bg-orange-500 transition-colors duration-300 flex items-center justify-center overflow-hidden transition-transform duration-500 ease-out hover:scale-110 shrink-0">
                   <img
                     src={badge.icon}
                     alt={`${badge.line1} ${badge.line2}`}
-                    className="w-9 h-9 sm:w-10 sm:h-10 3xl:w-12 3xl:h-12 brightness-0 invert"
+                    className="w-9 h-9 sm:w-10 sm:h-10 3xl:w-12 3xl:h-12 4xl:w-14 4xl:h-14 brightness-0 invert"
                   />
                 </div>
-                <span className="text-xs sm:text-sm md:text-base 3xl:text-lg font-bold text-white leading-snug">
+                <span className="text-xs sm:text-sm md:text-base 3xl:text-lg 4xl:text-xl font-bold text-white leading-snug">
                   {badge.line1}
                   <br />
                   {badge.line2}
@@ -534,7 +600,7 @@ export default function LogoDesignServicePage() {
               <h3 className="text-2xl md:text-3xl 3xl:text-4xl font-bold text-white leading-snug">
                 Making a Lasting
               </h3>
-              <h2 className="font-display font-extrabold text-4xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight">
+              <h2 className="font-jakarta font-extrabold text-4xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight">
                 Mark in The Market
               </h2>
             </div>
@@ -571,7 +637,7 @@ export default function LogoDesignServicePage() {
 
           {/* Heading */}
           <div className="text-center mb-14 3xl:mb-18 overflow-x-auto">
-            <h2 className="font-display font-bold text-xl md:text-2xl lg:text-4xl 3xl:text-5xl text-white leading-snug mb-4 whitespace-nowrap">
+            <h2 className="font-jakarta font-bold text-xl md:text-2xl lg:text-4xl 3xl:text-5xl text-white leading-snug mb-4 whitespace-nowrap">
               Your Brand is a Story Unfolding Across all Customer Touch Points
             </h2>
 
@@ -703,7 +769,7 @@ export default function LogoDesignServicePage() {
       <section id="pricing" className="py-24 3xl:py-32 bg-dark-bg relative overflow-hidden">
         {/* Giant faded background text */}
         <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-          <span className="font-display font-black text-[10rem] md:text-[14rem] 3xl:text-[18rem] text-white/[0.03] leading-none tracking-tight">
+          <span className="font-jakarta font-black text-[10rem] md:text-[14rem] 3xl:text-[18rem] text-white/[0.03] leading-none tracking-tight">
             PRICING
           </span>
         </div>
@@ -714,7 +780,7 @@ export default function LogoDesignServicePage() {
               <span className="inline-flex items-center gap-2 text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan bg-slate-900/60 border border-glass-border px-4 py-1.5 3xl:px-5 3xl:py-2 rounded-full mb-4">
                 Pricing
               </span>
-              <h2 className="font-display font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white">
+              <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white">
                 Our Logo Design Packages
               </h2>
             </div>
@@ -744,9 +810,9 @@ export default function LogoDesignServicePage() {
                   </div>
 
                   <div className="flex items-start justify-between mb-1">
-                    <h3 className="font-display font-bold text-lg 3xl:text-xl text-white">{pkg.name}</h3>
+                    <h3 className="font-jakarta font-bold text-lg 3xl:text-xl text-white">{pkg.name}</h3>
                     <div className="text-right shrink-0 ml-3">
-                      <span className="font-display font-extrabold text-2xl 3xl:text-3xl text-white">{pkg.price}</span>
+                      <span className="font-jakarta font-extrabold text-2xl 3xl:text-3xl text-white">{pkg.price}</span>
                       <span className="text-xs 3xl:text-sm text-slate-500"> / GST</span>
                     </div>
                   </div>
@@ -799,7 +865,7 @@ export default function LogoDesignServicePage() {
           <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
             How It Works
           </span>
-          <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 leading-snug">
+          <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 leading-snug">
             Makes It Easy to Create Your Logo &amp; Branding
           </h2>
         </div>
@@ -822,7 +888,7 @@ export default function LogoDesignServicePage() {
                       className="w-11 h-11 3xl:w-14 3xl:h-14"
                     />
                   </div>
-                  <h3 className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl 3xl:text-4xl text-slate-950 mb-3 md:mb-4 max-w-sm 3xl:max-w-md leading-snug">
+                  <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-3xl 3xl:text-4xl text-slate-950 mb-3 md:mb-4 max-w-sm 3xl:max-w-md leading-snug">
                     {step.title}
                   </h3>
                   <p className="text-sm md:text-base 3xl:text-lg text-slate-900/80 max-w-md 3xl:max-w-lg leading-relaxed">
@@ -857,7 +923,7 @@ export default function LogoDesignServicePage() {
           <div className="w-14 h-14 3xl:w-16 3xl:h-16 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
             <MessageCircleQuestion className="w-6 h-6 3xl:w-7 3xl:h-7 text-white" strokeWidth={1.5} />
           </div>
-          <h2 className="font-display font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mb-4">
+          <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mb-4">
             Frequently Asked Questions
           </h2>
           <div className="flex items-center gap-1.5 mb-4">
@@ -892,7 +958,7 @@ export default function LogoDesignServicePage() {
                     className={`w-5 h-5 3xl:w-6 3xl:h-6 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
                       }`}
                   />
-                  <span className="font-display font-bold text-sm md:text-base 3xl:text-lg text-white">
+                  <span className="font-jakarta font-bold text-sm md:text-base 3xl:text-lg text-white">
                     {faq.q}
                   </span>
                 </button>
@@ -927,6 +993,6 @@ export default function LogoDesignServicePage() {
 
       <FinalCTA />
 
-    </main>
+    </main >
   );
 }

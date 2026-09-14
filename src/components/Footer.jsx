@@ -182,7 +182,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col gap-4 sm:gap-5 4xl:gap-7"
           >
-            <h3 className="font-display font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
+            <h3 className="font-jakarta font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Services
             </h3>
             <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">
@@ -211,7 +211,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col gap-4 sm:gap-5 4xl:gap-7"
           >
-            <h3 className="font-display font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
+            <h3 className="font-jakarta font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Get In Touch
             </h3>
             <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">

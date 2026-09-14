@@ -123,7 +123,7 @@ export default function WhyChooseUs() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 4xl:text-6xl leading-tight text-white"
+            className="font-jakarta font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-5xl 4xl:text-6xl leading-tight text-white"
           >
             Custom Design &amp; Marketing Solutions at One Place
           </motion.h2>
@@ -140,7 +140,7 @@ export default function WhyChooseUs() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6 }}
-              className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight"
+              className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight"
             >
               YOUR BRAND
             </motion.h3>
@@ -214,7 +214,7 @@ export default function WhyChooseUs() {
                       <Icon className="w-5 h-5 text-slate-900" />
                     )}
                   </div>
-                  <h3 className="font-display font-semibold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white mb-2">
+                  <h3 className="font-jakarta font-semibold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white mb-2">
                     {service.title}
                   </h3>
                   <p className="text-sm xl:text-base 4xl:text-lg text-slate-300 leading-relaxed mb-4 sm:mb-5">
@@ -247,7 +247,7 @@ export default function WhyChooseUs() {
                 className={`text-center px-3 sm:px-6 4xl:px-8 py-3 sm:py-4 4xl:py-6 ${i % 2 === 0 ? "border-r border-white/10" : "lg:border-r lg:border-white/10"
                   } ${i < 2 ? "border-b lg:border-b-0 border-white/10" : ""}`}
               >
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-display font-extrabold text-white">
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 4xl:text-7xl font-jakarta font-extrabold text-white">
                   {stat.value}
                   <span className="text-sky-400">{stat.suffix}</span>
                 </div>

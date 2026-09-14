@@ -255,7 +255,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="font-display font-extrabold text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl leading-tight tracking-tight text-white mb-6"
+                className="font-jakarta font-extrabold text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl leading-tight tracking-tight text-white mb-6"
               >
                 Contact Us
               </motion.h1>
@@ -433,7 +433,7 @@ export default function ContactPage() {
               <span className="text-xl 3xl:text-2xl font-bold uppercase tracking-widest text-white">
                 Our Team is Here to Help
               </span>
-              <h2 className="font-display font-bold text-2xl md:text-4xl 3xl:text-5xl text-white mt-2 mb-4">
+              <h2 className="font-jakarta font-bold text-2xl md:text-4xl 3xl:text-5xl text-white mt-2 mb-4">
                 Ready to Elevate Your Brand?
               </h2>
               <button
@@ -489,7 +489,7 @@ export default function ContactPage() {
               >
                 <X className="w-5 h-5 3xl:w-6 3xl:h-6" />
               </button>
-              <h2 className="font-display font-bold text-2xl 3xl:text-3xl text-white mb-1">How Can We Help You</h2>
+              <h2 className="font-jakarta font-bold text-2xl 3xl:text-3xl text-white mb-1">How Can We Help You</h2>
               <h3 className="text-sm 3xl:text-base text-neon-cyan font-semibold mb-6">Let's have a chat</h3>
               <ContactForm idPrefix="popup" />
             </div>

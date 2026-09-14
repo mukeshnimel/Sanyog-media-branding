@@ -164,7 +164,7 @@ export default function WebsiteDesignPage() {
                                 Website Design
                             </h1>
 
-                            <div className="min-h-[1.75rem] sm:min-h-[2.25rem] md:min-h-[3rem] 4xl:min-h-[4rem] mb-6 overflow-visible flex items-start w-full">
+                            <div className="min-h-[1.75rem] sm:min-h-[2.25rem] md:min-h-[3rem] 3xl:min-h-[3.5rem] 4xl:min-h-[4.5rem] mb-6 overflow-visible flex items-start w-full">
                                 <AnimatePresence mode="wait">
                                     {/* Rotating word */}
                                     <motion.div
@@ -172,7 +172,7 @@ export default function WebsiteDesignPage() {
                                         initial="hidden"
                                         animate="visible"
                                         exit="exit"
-                                        className="flex flex-wrap text-base sm:text-lg md:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-5xl text-sky-400"
+                                        className="flex flex-wrap text-base sm:text-lg md:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl text-sky-400"
                                     >
                                         {rotatingWords[wordIndex].split("").map((char, i) => (
                                             <motion.span key={i} custom={i} variants={waveLetterVariants} className="inline-block">
@@ -183,7 +183,7 @@ export default function WebsiteDesignPage() {
                                 </AnimatePresence>
                             </div>
 
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 2xl:max-w-2xl 3xl:max-w-3xl 4xl:max-w-3xl">
+                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-2xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 2xl:max-w-2xl 3xl:max-w-3xl 4xl:max-w-4xl">
                                 Our Expert Designers Craft Visual Stories That Resonate With Your
                                 Target Audience, Ensuring A Strong and Memorable Brand Presence
                             </p>
@@ -191,33 +191,32 @@ export default function WebsiteDesignPage() {
                             <div className="flex -space-x-3 mb-5">
                                 {avatarSeeds.map((seed, i) => (
                                     <div key={i} className="w-9 h-9 sm:w-10 sm:h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full border-2 border-dark-bg overflow-hidden relative">
-                                        <Image src={`https://i.pravatar.cc/64?img=${seed}`} alt="Client avatar" fill className="object-cover" />
+                                        <Image src={`https://i.pravatar.cc/64?img=${seed}`} alt="Client avatar" fill className="object-cover" sizes="64px" />
                                     </div>
                                 ))}
                             </div>
 
                             <div className="mb-8">
-                                <p className="text-base xl:text-lg 4xl:text-xl font-bold text-white">4.9/5 Star Rating</p>
-                                <p className="text-sm xl:text-base 4xl:text-lg font-semibold text-sky-400">Based on Google Review</p>
+                                <p className="text-base xl:text-lg 4xl:text-2xl font-bold text-white">4.9/5 Star Rating</p>
+                                <p className="text-sm xl:text-base 4xl:text-xl font-semibold text-sky-400">Based on Google Review</p>
                             </div>
 
-                            {/* ✅ FIX: restored missing opening <a tags */}
-                            <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
-                                <a
-                                    href="#contact"
+                            <div className="flex flex-col sm:flex-row items-start gap-3 xl:gap-4 4xl:gap-6 w-full sm:w-auto">
+
+                                <a href="#contact"
                                     className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
                                 </a>
 
-                                <a
-                                    href="#smmport"
+
+                                <a href="#smmport"
                                     className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
                                 </a>
 
-                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
+                                <div className="hidden xl:grid grid-cols-8 gap-2 4xl:gap-3 self-center ml-2 4xl:ml-4">
                                     {[...Array(24)].map((_, i) => (
                                         <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
                                     ))}
@@ -228,7 +227,7 @@ export default function WebsiteDesignPage() {
                         <HeroVisual />
                     </div>
                 </div>
-            </section>
+            </section >
 
             <MarqueeRibbon />
 
@@ -244,7 +243,7 @@ export default function WebsiteDesignPage() {
                             <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan block mb-4">
                                 Why Choose Sanyog Media
                             </span>
-                            <h2 className="font-display font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-8 leading-tight">
+                            <h2 className="font-jakarta font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-8 leading-tight">
                                 Specialized in Developing Websites
                             </h2>
 
@@ -274,7 +273,7 @@ export default function WebsiteDesignPage() {
                                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-xl bg-white border border-glass-border flex items-center justify-center mb-4 sm:mb-6 shrink-0">
                                         <img src={s.iconImage} alt={`${s.title} icon`} className="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
                                     </div>
-                                    <h3 className="font-display font-bold text-lg xl:text-xl 4xl:text-2xl text-white">{s.title}</h3>
+                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white">{s.title}</h3>
                                     <p className="text-xs xl:text-sm 4xl:text-base text-slate-400 leading-relaxed">{s.desc}</p>
                                 </div>
                             ))}
@@ -288,7 +287,7 @@ export default function WebsiteDesignPage() {
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 md:mb-12 4xl:mb-16">
-                        <h2 className="font-display font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
+                        <h2 className="font-jakarta font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
                             Making a Lasting <span className="gradient-text">Mark in The Market</span>
                         </h2>
                         <p className="text-slate-400 mt-4 xl:text-lg 4xl:text-xl">
@@ -314,7 +313,7 @@ export default function WebsiteDesignPage() {
       left-1/2
       -translate-x-1/2
       w-max
-      font-display
+      font-jakarta
       font-extrabold
       text-xl
       md:text-3xl
@@ -414,7 +413,7 @@ export default function WebsiteDesignPage() {
             {/* 5. PRICING */}
             <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-display font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
+                    <span className="font-jakarta font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
                     </span>
                 </div>
@@ -425,7 +424,7 @@ export default function WebsiteDesignPage() {
                             Website Design Packages
                         </span>
 
-                        <h2 className="inline-block font-display font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
+                        <h2 className="inline-block font-jakarta font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
                             Expert Website Design at a Price That Fits Your Business
                         </h2>
                     </div>
@@ -445,14 +444,14 @@ export default function WebsiteDesignPage() {
                                             Most Popular
                                         </span>
                                     )}
-                                    <h3 className="font-display font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
                                     <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
                                         <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                        <span className="font-display font-extrabold text-2xl xl:text-3xl 4xl:text-4xl text-white">
+                                        <span className="font-jakarta font-extrabold text-2xl xl:text-3xl 4xl:text-4xl text-white">
                                             {plan.price}
                                         </span>
                                         <span className="text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
@@ -498,7 +497,7 @@ export default function WebsiteDesignPage() {
                     <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
-                    <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                    <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
                         Makes It Easy to Create Your Logo &amp; Branding
                     </h2>
                 </div>
@@ -515,7 +514,7 @@ export default function WebsiteDesignPage() {
                                     <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
                                         <img src={step.iconImage} alt={`${step.title} icon`} className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
                                     </div>
-                                    <h3 className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                    <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
                                         {step.title}
                                     </h3>
                                     <p className="text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
@@ -541,7 +540,7 @@ export default function WebsiteDesignPage() {
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-display font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -573,7 +572,7 @@ export default function WebsiteDesignPage() {
                                         className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-display font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-jakarta font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
@@ -602,6 +601,6 @@ export default function WebsiteDesignPage() {
             </section>
 
             <FinalCTA />
-        </main>
+        </main >
     );
 }

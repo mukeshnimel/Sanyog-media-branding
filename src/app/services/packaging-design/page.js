@@ -154,12 +154,12 @@ export default function PackagingDesignPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
-                                className="font-display font-black leading-[0.95] mb-2"
+                                className="font-jakarta font-black leading-[0.95] mb-2"
                             >
-                                <span className="block text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-white">
+                                <span className="block font-jakarta text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-white">
                                     Packaging
                                 </span>
-                                <span className="block text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-sky-400">
+                                <span className="block font-jakarta text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-sky-400">
                                     Artistry
                                 </span>
                             </motion.h1>
@@ -325,7 +325,7 @@ export default function PackagingDesignPage() {
                             Trust &amp; Experience Highlighting
                         </span>
 
-                        <h2 className="inline-block font-display font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
+                        <h2 className="inline-block font-jakarta font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
                             Your Trusted Branding &amp; Marketing Partner
                         </h2>
 
@@ -385,7 +385,7 @@ export default function PackagingDesignPage() {
                             transition={{ duration: 0.6 }}
                             className="flex flex-col items-start"
                         >
-                            <h2 className="font-display text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                            <h2 className="font-jakarta text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                                 Immersive Experience That Deeply Connects With{" "}
                                 <span className="text-sky-400">Your Audience.</span>
                             </h2>
@@ -441,7 +441,7 @@ export default function PackagingDesignPage() {
             <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 xl:gap-16 4xl:gap-20 items-start">
-                        <h2 className="font-display text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight lg:col-span-1">
+                        <h2 className="font-jakarta text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight lg:col-span-1">
                             Our Packaging Design Services
                         </h2>
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 xl:gap-x-10 gap-y-4 sm:gap-y-5 xl:gap-y-6">
@@ -459,7 +459,7 @@ export default function PackagingDesignPage() {
             {/* PRICING */}
             <section id="packagingprice" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-display font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
+                    <span className="font-jakarta font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
                     </span>
                 </div>
@@ -469,7 +469,7 @@ export default function PackagingDesignPage() {
                         <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                             Pricing Options
                         </span>
-                        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
+                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
                             Packaging Design Pricing
                         </h2>
                         <p className="text-sm xl:text-base 4xl:text-lg text-slate-400 mt-4">Unique Design For Your UNIQUE Product</p>
@@ -485,14 +485,14 @@ export default function PackagingDesignPage() {
                                     }`}
                             >
                                 <div>
-                                    <h3 className="font-display font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
                                     <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
                                         <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                        <span className="font-display font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
+                                        <span className="font-jakarta font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
                                             {plan.price}
                                         </span>
                                         <span className="text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
@@ -532,7 +532,7 @@ export default function PackagingDesignPage() {
                     <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
-                    <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                    <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
                         Makes It Easy to Create Your Logo &amp; Branding
                     </h2>
                 </div>
@@ -549,7 +549,7 @@ export default function PackagingDesignPage() {
                                     <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
                                         <img src={step.iconImage} alt={`${step.title} icon`} className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
                                     </div>
-                                    <h3 className="font-display font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                    <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
                                         {step.title}
                                     </h3>
                                     <p className="text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
@@ -582,7 +582,7 @@ export default function PackagingDesignPage() {
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-display font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -615,7 +615,7 @@ export default function PackagingDesignPage() {
                                         className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-display font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-jakarta font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>

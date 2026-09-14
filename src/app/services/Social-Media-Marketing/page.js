@@ -248,10 +248,10 @@ export default function SocialMediaMarketingPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         {/* Left — copy */}
                         <div className="flex flex-col items-start pt-8 sm:pt-10 md:pt-0">
-                            <h1 className="font-display font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-1">
+                            <h1 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-1">
                                 We Manage Your
                             </h1>
-                            <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight mb-4 text-sky-400">
+                            <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight mb-4 text-sky-400">
                                 Socials Media
                             </h2>
 
@@ -343,7 +343,7 @@ export default function SocialMediaMarketingPage() {
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
-                                        <span className="font-display font-bold text-lg sm:text-xl md:text-3xl 4xl:text-4xl text-white tracking-wide">
+                                        <span className="font-jakarta font-bold text-lg sm:text-xl md:text-3xl 4xl:text-4xl text-white tracking-wide">
                                             {text}
                                         </span>
                                     </div>
@@ -384,7 +384,7 @@ export default function SocialMediaMarketingPage() {
                                     />
                                 </div>
 
-                                <h3 className="font-display font-bold text-xl xl:text-2xl 4xl:text-3xl text-white">
+                                <h3 className="font-jakarta font-bold text-xl xl:text-2xl 4xl:text-3xl text-white">
                                     {s.title}
                                 </h3>
 
@@ -402,7 +402,7 @@ export default function SocialMediaMarketingPage() {
             <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Creative Post &amp; Flyer Design Backed by{" "}
                             <span className="gradient-text">
                                 Smart Social Media Marketing
@@ -487,10 +487,10 @@ export default function SocialMediaMarketingPage() {
                             <span className="text-sm xl:text-base 4xl:text-lg font-semibold text-neon-cyan mb-4">
                                 Why Choose Our Social Media Post &amp; Flyer Design Services
                             </span>
-                            <h2 className="font-display font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
+                            <h2 className="font-jakarta font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
                                 Social Media Marketing Means Partnering With a Team That Blends Strategy &amp; Creative Social Media Post &amp; Flyer Design Services
                             </h2>
-                            <span className="text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-display font-bold text-neon-cyan mb-4">
+                            <span className="text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-jakarta font-bold text-neon-cyan mb-4">
                                 Creativity With Strategy
                             </span>
                             <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
@@ -522,7 +522,7 @@ export default function SocialMediaMarketingPage() {
             <section id="smmport" className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="w-full text-center max-w-7xl mx-auto mb-12 md:mb-16 4xl:mb-20 px-2 sm:px-4">
-                        <h2 className="font-display font-extrabold text-xl sm:text-2xl md:text-[2.2rem] xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                        <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-[2.2rem] xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Your Brand is a Story, Told Through{" "}
                             <span className="gradient-text">
                                 Social Media Post &amp; Flyer Design
@@ -556,7 +556,7 @@ export default function SocialMediaMarketingPage() {
             {/* 8. PRICING */}
             <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-display font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
+                    <span className="font-jakarta font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
                         PRICING
                     </span>
                 </div>
@@ -567,7 +567,7 @@ export default function SocialMediaMarketingPage() {
                             Social Media Marketing Packages
                         </span>
 
-                        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
+                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
                             SMM Package Prices According To You Need
                         </h2>
                     </div>
@@ -587,13 +587,13 @@ export default function SocialMediaMarketingPage() {
                                             Recommended
                                         </span>
                                     )}
-                                    <h3 className="font-display font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
                                     <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 mt-4 mb-2">
-                                        <span className="font-display font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
+                                        <span className="font-jakarta font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
                                             {plan.price}
                                         </span>
                                     </div>
@@ -641,7 +641,7 @@ export default function SocialMediaMarketingPage() {
                             How We Deliver Effective Social Media Post &amp; Flyer Design Services
                         </span>
 
-                        <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
+                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
                             Start Strong with Our Social Media Post &amp; Flyer Design Services
                         </h2>
                     </div>
@@ -660,7 +660,7 @@ export default function SocialMediaMarketingPage() {
                                     className={`relative flex items-start justify-between gap-4 xl:gap-5 p-6 md:p-8 xl:p-9 4xl:p-11 rounded-3xl bg-gradient-to-br ${gradients[idx % gradients.length]} border border-white/20 overflow-hidden`}
                                 >
                                     <div className="flex-1">
-                                        <h3 className="font-display font-bold text-lg md:text-xl xl:text-2xl 4xl:text-3xl text-white mb-3">
+                                        <h3 className="font-jakarta font-bold text-lg md:text-xl xl:text-2xl 4xl:text-3xl text-white mb-3">
                                             {step.title}
                                         </h3>
                                         <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
@@ -689,7 +689,7 @@ export default function SocialMediaMarketingPage() {
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-display font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -722,7 +722,7 @@ export default function SocialMediaMarketingPage() {
                                         className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-display font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-jakarta font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>

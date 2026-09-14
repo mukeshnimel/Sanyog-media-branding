@@ -60,7 +60,7 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-4 sm:mb-6"
+              className="font-jakarta font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-4 sm:mb-6"
             >
               Your Brand Is a Story — We Solve Branding, Design &amp; Digital
               Growth
@@ -144,7 +144,7 @@ export default function WhatWeDo() {
               className="rounded-2xl border border-white/15 p-5 sm:p-6 xl:p-7 4xl:p-9 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4 sm:mb-5 4xl:mb-6">
-                <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+                <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                   {card.line1}
                   <br />
                   {card.line2}

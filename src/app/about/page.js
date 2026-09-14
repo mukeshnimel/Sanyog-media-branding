@@ -69,7 +69,7 @@ function ServiceCard({ service, delay }) {
         "
       />
 
-      <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+      <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
         {service.title}
       </h3>
 
@@ -119,7 +119,7 @@ export default function RedesignedAboutUsPage() {
                 At Sanyog Media Concepts,
               </span>
 
-              <h2 className="font-display font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-6xl text-white leading-tight mb-4 sm:mb-6">
+              <h2 className="font-jakarta font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-6xl text-white leading-tight mb-4 sm:mb-6">
                 We Bring Imagination To Life Across Every Touchpoint Of Your Brand
               </h2>
 
@@ -183,7 +183,7 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-slate-600/60 backdrop-blur-sm p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">co_present</span>
-              <h3 className="font-display font-extrabold text-xl sm:text-2xl xl:text-3xl 4xl:text-4xl text-white">
+              <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl xl:text-3xl 4xl:text-4xl text-white">
                 What We Offer
               </h3>
               <p className="text-sm sm:text-base xl:text-lg 4xl:text-xl text-white/90">Why Choose Sanyog Media?</p>
@@ -198,7 +198,7 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-sky-600 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">diversity_2</span>
-              <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 Your Vision Our Team: Let&apos;s Create Together
               </h3>
               <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
@@ -217,7 +217,7 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-orange-600 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">recycling</span>
-              <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 A Compelling Experience That Beckons You Back
               </h3>
               <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
@@ -235,7 +235,7 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-amber-400 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">hourglass_check</span>
-              <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 On-Time, Every Time
               </h3>
               <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
@@ -253,7 +253,7 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-green-600 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">currency_rupee</span>
-              <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 Transparent, Fair Pricing
               </h3>
               <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
@@ -271,7 +271,7 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-orange-500 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">bar_chart_4_bars</span>
-              <h3 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 Results You Can Measure
               </h3>
               <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
@@ -292,7 +292,7 @@ export default function RedesignedAboutUsPage() {
                 Trust &amp; Experience Highlighting
               </span>
 
-              <h2 className="font-display font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4 whitespace-nowrap text-center">
+              <h2 className="font-jakarta font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4 whitespace-nowrap text-center">
                 Your Trusted Branding &amp; Marketing Partner
               </h2>
             </div>
@@ -361,7 +361,7 @@ export default function RedesignedAboutUsPage() {
               Our Services
             </span>
 
-            <h2 className="w-fit font-display font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-3 sm:mb-4 text-center whitespace-nowrap">
+            <h2 className="w-fit font-jakarta font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-3 sm:mb-4 text-center whitespace-nowrap">
               Elevate Your Brand with Our Diverse Solutions
             </h2>
 
@@ -422,7 +422,7 @@ export default function RedesignedAboutUsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-display font-bold text-white tracking-wide"
+            className="font-jakarta font-bold text-white tracking-wide"
           >
             <span className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 4xl:gap-x-4 gap-y-2 text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl">
               <span>INDIA</span>

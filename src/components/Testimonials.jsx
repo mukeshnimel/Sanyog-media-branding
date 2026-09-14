@@ -83,7 +83,7 @@ export default function Testimonials() {
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
-            className="block text-xs sm:text-sm xl:text-base 4xl:text-lg font-bold text-sky-400 mb-2"
+            className="block text-base sm:text-lg xl:text-xl 4xl:text-2xl font-bold text-sky-400 mb-2"
           >
             Testimonial
           </motion.span>
@@ -93,7 +93,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: 0.1 }}
-            className="font-display font-bold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white"
+            className="font-jakarta font-bold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-7xl text-white"
           >
             What Our Client Say About Us
           </motion.h2>
@@ -127,7 +127,7 @@ export default function Testimonials() {
                         strokeWidth={1.5}
                       />
                     </div>
-                    <h4 className="font-display font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-sky-600 mb-2 pr-12 sm:pr-14 4xl:pr-16">
+                    <h4 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-sky-600 mb-2 pr-12 sm:pr-14 4xl:pr-16">
                       {review.name}
                     </h4>
 

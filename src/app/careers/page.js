@@ -128,7 +128,7 @@ export default function CareersPage() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-display  text-4xl md:text-6xl lg:text-7xl 3xl:text-8xl leading-tight tracking-tight text-white mb-6 max-w-4xl 3xl:max-w-6xl"
+            className="font-jakarta  text-4xl md:text-6xl lg:text-7xl 3xl:text-8xl leading-tight tracking-tight text-white mb-6 max-w-4xl 3xl:max-w-6xl"
           >
             Start Your Career Journey <br />
             <span className="gradient-text">
@@ -187,7 +187,7 @@ export default function CareersPage() {
                 Career at Sanyog Media
               </span>
 
-              <h2 className="font-display font-bold text-3xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight mb-6">
+              <h2 className="font-jakarta font-bold text-3xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight mb-6">
                 Special Advantages to Advance Your Entire Career
               </h2>
 
@@ -243,7 +243,7 @@ export default function CareersPage() {
             <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
               Unique Perks
             </span>
-            <h2 className="font-display font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4">
+            <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4">
               To Foster Your Overall Professional Development
             </h2>
           </div>
@@ -282,7 +282,7 @@ export default function CareersPage() {
                         {perk.icon}
                       </span>
                     </div>
-                    <h3 className="font-display font-semibold text-base 3xl:text-lg text-white mb-2 leading-snug">
+                    <h3 className="font-jakarta font-semibold text-base 3xl:text-lg text-white mb-2 leading-snug">
                       {perk.title}
                     </h3>
                     <p className="text-xs 3xl:text-sm text-slate-400 leading-relaxed">
@@ -311,7 +311,7 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="font-display font-bold text-2xl md:text-6xl 3xl:text-7xl text-white"
+              className="font-jakarta font-bold text-2xl md:text-6xl 3xl:text-7xl text-white"
             >
               <span className="text-sky-400">Internship</span> Program
             </motion.h2>
@@ -352,7 +352,7 @@ export default function CareersPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              <h3 className="font-display font-bold text-2xl md:text-3xl 3xl:text-4xl text-white mb-6">
+              <h3 className="font-jakarta font-bold text-2xl md:text-3xl 3xl:text-4xl text-white mb-6">
                 Internship at Sanyog Media
               </h3>
 
@@ -397,7 +397,7 @@ export default function CareersPage() {
             <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
               Join the Success with Sanyog Media Concepts
             </span>
-            <h2 className="font-display font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 mb-6">
+            <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 mb-6">
               Explore Our Available Roles
             </h2>
             <p className="text-base 3xl:text-lg text-slate-400 max-w-2xl 3xl:max-w-3xl mx-auto">
@@ -428,7 +428,7 @@ export default function CareersPage() {
 
                 {/* Content */}
                 <div className="flex flex-col items-center px-6 pt-6 pb-8 3xl:px-8 3xl:pt-8 3xl:pb-10 flex-1">
-                  <h3 className="font-display font-bold text-lg 3xl:text-xl text-slate-800 text-center mb-4">
+                  <h3 className="font-jakarta font-bold text-lg 3xl:text-xl text-slate-800 text-center mb-4">
                     {role.title}
                   </h3>
 
@@ -480,7 +480,7 @@ export default function CareersPage() {
             </span>
           </span>
 
-          <h2 className="font-display font-extrabold text-3xl md:text-5xl text-white mb-6">
+          <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl text-white mb-6">
             Ready to Make an Impact? Send Your C.V.
           </h2>
 

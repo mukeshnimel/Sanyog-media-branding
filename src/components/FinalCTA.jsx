@@ -192,7 +192,7 @@ export default function FinalCTA() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="
-          font-display
+          font-jakarta
           text-2xl
           sm:text-4xl
           md:text-5xl
