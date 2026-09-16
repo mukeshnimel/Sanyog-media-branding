@@ -83,7 +83,7 @@ export default function Priorities() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: 0.1 }}
-              className="font-jakarta font-bold text-2xl sm:text-3xl md:text-4xl xl:text-4xl 4xl:text-6xl leading-tight text-white mb-6 sm:mb-8 lg:mb-10 4xl:mb-14"
+              className="font-alata font-bold text-2xl sm:text-3xl md:text-4xl xl:text-4xl 4xl:text-6xl leading-tight text-white mb-6 sm:mb-8 lg:mb-10 4xl:mb-14"
             >
               &ldquo;Your Brand Is A Story — Elevating Branding &amp;
               Marketing&rdquo;
@@ -111,7 +111,7 @@ export default function Priorities() {
                       <Icon className="w-5 h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7 4xl:w-8 4xl:h-8 text-white" />
                     </div>
 
-                    <h3 className="font-jakarta font-semibold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                    <h3 className="font-alata font-semibold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                       {item.title}
                     </h3>
                   </motion.div>

@@ -97,68 +97,88 @@ export default function AboutHero() {
             {/* Content */}
             <div className="relative z-10 w-full max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 4xl:px-16 pt-16 sm:pt-10 lg:pt-6 text-center flex flex-col items-center justify-center">
 
+                {/* Who We Are */}
                 <motion.span
                     initial={{ opacity: 0, y: -15 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="block text-[clamp(16px,2.6vw,52px)] font-medium text-white/90 mb-1.5 sm:mb-2"
+                    className="block text-[clamp(16px,2.6vw,52px)] font-medium text-white/90 mb-6 sm:mb-7 4xl:mb-9"
                 >
                     Who We Are
                 </motion.span>
 
+                {/* Main Heading */}
                 <motion.h1
                     initial={{ opacity: 0, y: 25 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.1 }}
-                    className="font-jakarta leading-tight text-white mb-2 text-center w-full"
+                    className="font-alata leading-tight text-white mb-6 sm:mb-8 4xl:mb-10 text-center w-full"
                 >
-                    <span className="block text-[clamp(24px,5vw,78px)] mb-1">
+                    <span className="block text-[clamp(28px,5.5vw,88px)]">
                         We&apos;re a High-End
                     </span>
-                    <span className="block text-[clamp(22px,5vw,78px)] text-center">
+
+                    <span className="block text-[clamp(26px,5.5vw,88px)] mt-2 sm:mt-3 4xl:mt-4">
                         Designing &amp; Marketing Agency
                     </span>
                 </motion.h1>
 
+                {/* Services */}
                 <motion.p
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="text-[clamp(11px,1.6vw,25px)] text-slate-200 mb-3 sm:mb-4 leading-relaxed text-center max-w-4xl 4xl:max-w-5xl px-2"
+                    className="font-nunito text-[clamp(11px,1.6vw,25px)] text-slate-200 mb-7 sm:mb-8 4xl:mb-10 leading-relaxed text-center max-w-none w-full px-2 whitespace-nowrap"
                 >
                     Trade Show Booth Design | Branding | Website Design | Social Media
                     Marketing | Graphics Design
                 </motion.p>
 
+                {/* Button */}
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.3 }}
-                    className="mb-4 sm:mb-5 4xl:mb-7 flex justify-center"
+                    className="mb-7 sm:mb-8 4xl:mb-10 flex justify-center"
                 >
                     <button
                         onClick={() => setShowPopup(true)}
                         className="px-5 sm:px-8 4xl:px-11 py-2.5 sm:py-3.5 4xl:py-5 border border-white rounded-[15px] text-sm sm:text-xl 4xl:text-2xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-1.5 sm:gap-2 4xl:gap-3"
-                        style={{ background: "linear-gradient(128deg, #00549B 21%, #F04F25 100%)" }}
+                        style={{
+                            background:
+                                "linear-gradient(128deg, #00549B 21%, #F04F25 100%)"
+                        }}
                     >
                         Say Hello
+
                         <span className="flex items-center justify-center">
-                            <img src="/images/video-reel/icons/smile.svg" alt="Smile" className="w-4 h-4 sm:w-7 sm:h-7 4xl:w-9 4xl:h-9 brightness-0 invert" />
+                            <img
+                                src="/images/video-reel/icons/smile.svg"
+                                alt="Smile"
+                                className="w-4 h-4 sm:w-7 sm:h-7 4xl:w-9 4xl:h-9 brightness-0 invert"
+                            />
                         </span>
                     </button>
 
-                    <ContactPopup showPopup={showPopup} setShowPopup={setShowPopup} />
+                    <ContactPopup
+                        showPopup={showPopup}
+                        setShowPopup={setShowPopup}
+                    />
                 </motion.div>
 
+                {/* Exhibition Link */}
                 <motion.p
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.4 }}
-                    className="text-[clamp(14px,1.8vw,44px)] font-bold text-white flex flex-col sm:flex-row flex-wrap items-center justify-center gap-1 sm:gap-1.5 4xl:gap-2 text-center"
+                    className="font-nunito text-[clamp(14px,1.8vw,44px)] font-bold text-white flex flex-col sm:flex-row flex-wrap items-center justify-center gap-1 sm:gap-1.5 4xl:gap-2 text-center"
                 >
-                    <span>For &ldquo;Exhibition Stall Design &amp; Fabrication&rdquo;</span>
-                    <span className="flex items-center gap-1.5 4xl:gap-2">
+                    <span>
+                        For &ldquo;Exhibition Stall Design &amp; Fabrication&rdquo;
+                    </span>
 
-                        <a href="https://www.sanyogmedia.com"
+                    <span className="flex items-center gap-1.5 4xl:gap-2">
+                        <a
+                            href="https://www.sanyogmedia.com"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-sky-400 hover:underline inline-flex items-center gap-1 group"
@@ -166,6 +186,7 @@ export default function AboutHero() {
                             Visit
                             <ExternalLink className="w-3 h-3 4xl:w-4 4xl:h-4 group-hover:translate-x-0.5 transition-transform" />
                         </a>
+
                         <span>www.sanyogmedia.com</span>
                     </span>
                 </motion.p>

@@ -163,11 +163,12 @@ export default function FinalCTA() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
             className="
+            font-nunito
           block
           text-xs
           md:text-sm
-          xl:text-base
-          4xl:text-lg
+          xl:text-xl
+          4xl:text-2xl
           font-semibold
           uppercase
           tracking-[0.18em]
@@ -192,7 +193,7 @@ export default function FinalCTA() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="
-          font-jakarta
+          font-alata
           text-2xl
           sm:text-4xl
           md:text-5xl
@@ -227,6 +228,7 @@ export default function FinalCTA() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7, delay: 0.2 }}
             className="
+            font-nunito
           text-sm
           sm:text-base
           md:text-lg
@@ -271,6 +273,7 @@ export default function FinalCTA() {
             <Link
               href="/contact"
               className="
+              font-nunito
             inline-flex
             items-center
             justify-center

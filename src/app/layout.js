@@ -2,11 +2,20 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { Nunito } from "next/font/google";
 
 import { Playfair_Display } from "next/font/google";
 
 
 import { Plus_Jakarta_Sans } from "next/font/google";
+
+import { Alata } from "next/font/google";
+
+const alata = Alata({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-alata",
+});
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-jakarta",
@@ -14,6 +23,14 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+
+
+
+const nunito = Nunito({
+  variable: "--font-nunito",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 
 const playfair = Playfair_Display({
@@ -58,7 +75,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${jakarta.variable} ${playfair.variable} h-full antialiased`}
+      className={`${outfit.variable} ${inter.variable} ${jakarta.variable} ${playfair.variable} ${nunito.variable} ${alata.variable} h-full  antialiased`}
     >
       <head>
         <link

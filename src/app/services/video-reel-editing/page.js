@@ -148,11 +148,12 @@ function PortfolioVideoCard({ src, index, ratio }) {
 
     return (
         <div
-            className="relative h-64 xs:h-72 sm:h-80 md:h-[420px] xl:h-[480px] 4xl:h-[560px] w-full sm:w-auto rounded-2xl overflow-hidden border-2 border-slate-700 bg-black group cursor-pointer"
+            className="relative w-full sm:w-auto rounded-2xl overflow-hidden border-2 border-slate-700 bg-black group cursor-pointer"
             style={{
                 aspectRatio: ratio,
                 flexGrow: 1,
                 flexBasis: `${ratio * 240}px`,
+                height: "400px",   // fixed height classes hata do
             }}
             onClick={togglePlay}
             onMouseEnter={() => {
@@ -189,7 +190,7 @@ function PortfolioVideoCard({ src, index, ratio }) {
                     <Play className="w-5 h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-slate-950 ml-0.5" fill="currentColor" />
                 </div>
             </div>
-            <span className="absolute top-3 left-3 text-[10px] xl:text-xs 4xl:text-sm font-bold uppercase tracking-wider text-white/80 bg-black/40 px-2 py-1 xl:px-2.5 xl:py-1.5 rounded-md">
+            <span className="font-alata absolute top-3 left-3 text-[10px] xl:text-xs 4xl:text-sm font-bold uppercase tracking-wider text-white/80 bg-black/40 px-2 py-1 xl:px-2.5 xl:py-1.5 rounded-md">
                 Reel {index + 1}
             </span>
         </div>
@@ -244,27 +245,27 @@ export default function VideoReelEditingPage() {
                     />
                 </div>
                 <div className="relative z-10 max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 flex flex-col items-center text-center mt-5 sm:mt-4 lg:mt-0">
-                    <span className="text-white text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl font-medium mb-4 sm:mb-6">
+                    <span className="font-alata text-white text-base sm:text-xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl font-medium mb-4 sm:mb-6">
                         What We Do
                     </span>
 
                     <div className="border-4 sm:border-[5px] border-white rounded-2xl sm:rounded-[40px] px-8 sm:px-16 md:px-28 lg:px-40 xl:px-48 4xl:px-56 py-3 sm:py-4 md:py-5 xl:py-6 4xl:py-8 mb-6 sm:mb-8">
-                        <span className="text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-7xl 4xl:text-8xl font-extrabold text-sky-400 whitespace-nowrap">
+                        <span className="font-alata text-xl sm:text-2xl md:text-4xl lg:text-6xl xl:text-7xl 4xl:text-8xl font-extrabold text-sky-400 whitespace-nowrap">
                             Advertisement
                         </span>
                     </div>
 
-                    <h1 className="font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl 4xl:text-8xl leading-tight text-white mb-3 sm:mb-4">
+                    <h1 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl lg:text-6xl xl:text-7xl 4xl:text-8xl leading-tight text-white mb-3 sm:mb-4">
                         Reels &amp; Video Editing
                     </h1>
 
-                    <p className="text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 4xl:text-4xl italic text-white/90 font-medium mb-6 sm:mb-8 px-2">
+                    <p className="font-nunito text-sm sm:text-base md:text-xl lg:text-2xl xl:text-3xl 4xl:text-4xl italic text-white/90 font-medium mb-6 sm:mb-8 px-2">
                         &quot;Innovative Strategies, Lasting Impressions&quot;
                     </p>
 
                     <button
                         onClick={() => setShowPopup(true)}
-                        className="px-6 sm:px-8 xl:px-10 4xl:px-12 py-3 sm:py-3.5 xl:py-4 4xl:py-5 border border-white rounded-xl sm:rounded-[15px] text-base sm:text-xl xl:text-2xl 4xl:text-3xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-2 4xl:gap-3 mb-6 sm:mb-8"
+                        className="font-nunito px-6 sm:px-8 xl:px-10 4xl:px-12 py-3 sm:py-3.5 xl:py-4 4xl:py-5 border border-white rounded-xl sm:rounded-[15px] text-base sm:text-xl xl:text-2xl 4xl:text-3xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-2 4xl:gap-3 mb-6 sm:mb-8"
                         style={{ background: "linear-gradient(128deg, #00549B 21%, #F04F25 100%)" }}
                     >
                         Say Hello
@@ -286,10 +287,13 @@ export default function VideoReelEditingPage() {
                         ))}
                     </div>
 
-                    <span className="text-base sm:text-lg xl:text-xl 4xl:text-2xl font-bold text-white">4.9/5 Star Rating</span>
-                    <span className="text-xs sm:text-sm xl:text-base 4xl:text-lg text-sky-400 hover:underline cursor-pointer">
+                    <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">
+                        4.9/5 Star Rating on Google
+                    </p>
+
+                    <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">
                         Based on Google Review
-                    </span>
+                    </p>
                 </div>
             </section>
 
@@ -297,10 +301,10 @@ export default function VideoReelEditingPage() {
             <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-950 border-b border-slate-800">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 sm:mb-16 4xl:mb-20">
-                        <span className="text-base sm:text-lg md:text-xl xl:text-2xl 4xl:text-3xl font-medium text-sky-400">
+                        <span className="font-alata text-base sm:text-lg md:text-xl xl:text-2xl 4xl:text-3xl font-medium text-sky-400">
                             Advertisement
                         </span>
-                        <h2 className="font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-2 sm:mt-3">
+                        <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-2 sm:mt-3">
                             Video Editing Services for Your Business
                         </h2>
                     </div>
@@ -335,11 +339,11 @@ export default function VideoReelEditingPage() {
                                         />
                                     </div>
 
-                                    <h3 className="font-bold text-lg sm:text-xl xl:text-2xl 4xl:text-3xl text-white">
+                                    <h3 className="font-alata font-bold text-lg sm:text-xl xl:text-2xl 4xl:text-3xl text-white">
                                         {uc.title}
                                     </h3>
 
-                                    <p className="text-sm sm:text-[17px] xl:text-lg 4xl:text-xl text-white/90 leading-relaxed">
+                                    <p className="font-nunito text-sm sm:text-[17px] xl:text-lg 4xl:text-xl text-white/90 leading-relaxed">
                                         {uc.desc}
                                     </p>
                                 </div>
@@ -354,18 +358,18 @@ export default function VideoReelEditingPage() {
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <div className="flex flex-col items-start order-2 lg:order-1">
-                            <span className="text-sm xl:text-base 4xl:text-lg font-bold uppercase tracking-widest text-cyan-400 mb-3 sm:mb-4">
+                            <span className="font-alata text-sm xl:text-base 4xl:text-lg font-bold uppercase tracking-widest text-cyan-400 mb-3 sm:mb-4">
                                 At Sanyog Media Concepts
                             </span>
-                            <h2 className="font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-4 sm:mb-6">
+                            <h2 className="font-alata font-bold text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-4 sm:mb-6">
                                 Captivating Ad Videos, Expertly Edited to Sell Your Story
                             </h2>
-                            <p className="text-slate-400 text-base sm:text-lg md:text-base xl:text-xl 4xl:text-2xl leading-relaxed mb-6 sm:mb-8">
+                            <p className="font-nunito text-slate-400 text-base sm:text-lg md:text-base xl:text-xl 4xl:text-2xl leading-relaxed mb-6 sm:mb-8">
                                 Bring your brand to life with dynamic, professionally edited videos tailored to your goals. Whether you&apos;re looking to engage audiences on social media, showcase products and services, or highlight major events, we deliver high-impact visuals that make your message stand out.
                             </p>
                             <Link
                                 href="/about-us"
-                                className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-xl text-sm xl:text-base 4xl:text-lg font-bold text-white border border-slate-700 hover:border-white transition-all bg-[#0069C2] backdrop-blur-sm w-fit"
+                                className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-xl text-sm xl:text-base 4xl:text-lg font-bold text-white border border-slate-700 hover:border-white transition-all bg-[#0069C2] backdrop-blur-sm w-fit"
                             >
                                 Know More About Us
                             </Link>
@@ -388,10 +392,10 @@ export default function VideoReelEditingPage() {
             <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-900 border-b border-slate-800">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-8 sm:mb-12 4xl:mb-16">
-                        <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
+                        <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                             Let Us Show You
                         </span>
-                        <h2 className="font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4">
+                        <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4">
                             How We Make Things Effortless For You
                         </h2>
                     </div>
@@ -429,24 +433,24 @@ export default function VideoReelEditingPage() {
                     <div className="max-w-6xl xl:max-w-7xl 4xl:max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-8 sm:gap-10 xl:gap-14 4xl:gap-20">
                         {/* Left - Description */}
                         <div className="flex-1 text-center md:text-center">
-                            <p className="text-slate-400 text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl leading-relaxed">
+                            <p className="font-nunito text-slate-400 text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl leading-relaxed">
                                 Share your raw footage — whether from a mobile phone or DSLR — and leave the rest to us. While you relax or focus on what matters most, we handle the editing, polishing every frame to perfection. The result? A high-quality, brand-focused video that makes a powerful impact on the audience that matters most to you.
                             </p>
                         </div>
 
                         {/* Right - Pricing Card */}
                         <div className="border border-slate-700 flex flex-col items-center gap-3 sm:gap-4 xl:gap-5 px-8 sm:px-10 xl:px-12 4xl:px-14 py-6 sm:py-8 xl:py-9 4xl:py-11 rounded-2xl bg-slate-900/50 shrink-0 w-full md:w-auto md:translate-y-10">
-                            <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
+                            <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                                 Reels &amp; Video Editing
                             </span>
 
-                            <span className="font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white whitespace-nowrap">
+                            <span className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white whitespace-nowrap">
                                 Starts From ₹2099
                             </span>
 
                             <Link
                                 href="#contact"
-                                className="px-6 sm:px-8 xl:px-10 4xl:px-12 py-3 sm:py-3.5 xl:py-4 4xl:py-5 rounded-xl text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 4xl:gap-3 w-full md:w-fit"
+                                className="font-nunito px-6 sm:px-8 xl:px-10 4xl:px-12 py-3 sm:py-3.5 xl:py-4 4xl:py-5 rounded-xl text-sm xl:text-base 4xl:text-lg font-bold text-white bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 transition-all shadow-lg shadow-cyan-500/25 flex items-center justify-center gap-2 4xl:gap-3 w-full md:w-fit"
                             >
                                 Contact Us
                                 <ArrowRight className="w-4 h-4 xl:w-5 xl:h-5" />
@@ -465,18 +469,18 @@ export default function VideoReelEditingPage() {
                     <div className="relative text-center max-w-6xl xl:max-w-7xl 4xl:max-w-[1700px] w-full mx-auto mb-10 sm:mb-16 4xl:mb-20 rounded-2xl sm:rounded-3xl border-4 sm:border-[5px] border-teal-800/60 py-8 sm:py-10 xl:py-12 4xl:py-16 px-4 sm:px-6 md:px-10 xl:px-14 4xl:px-16 overflow-hidden">
                         <span
                             aria-hidden="true"
-                            className="pointer-events-none select-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-[2.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] 4xl:text-[10rem] font-extrabold tracking-widest text-white/[0.05] whitespace-nowrap"
+                            className="font-alata pointer-events-none select-none absolute inset-x-0 top-1/2 -translate-y-1/2 text-[2.5rem] sm:text-[5rem] md:text-[6rem] lg:text-[8rem] 4xl:text-[10rem] font-extrabold tracking-widest text-white/[0.05] whitespace-nowrap"
                         >
                             PORTFOLIO
                         </span>
                         <div className="relative z-10">
-                            <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-[0.25em] text-cyan-400">
+                            <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-[0.25em] text-cyan-400">
                                 Portfolio
                             </span>
-                            <h2 className="font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4 mb-3 sm:mb-4 leading-tight">
+                            <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4 mb-3 sm:mb-4 leading-tight">
                                 From Product Promos To Brand Campaigns
                             </h2>
-                            <p className="text-cyan-400 font-semibold text-xs sm:text-sm md:text-base xl:text-lg 4xl:text-xl">
+                            <p className="font-nunito text-cyan-400 font-semibold text-xs sm:text-sm md:text-base xl:text-lg 4xl:text-xl">
                                 Here&apos;s how we craft videos that convert
                             </p>
                         </div>
@@ -498,13 +502,13 @@ export default function VideoReelEditingPage() {
 
             <Priorities />
 
-            {/* 8. FAQ — FULL WIDTH GRADIENT ACCORDION */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-900 relative">
-                <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-10 sm:mb-16 4xl:mb-20 flex flex-col items-center">
-                    <div className="w-12 h-12 sm:w-14 sm:h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-4 sm:mb-6">
-                        <MessageCircleQuestion className="w-5 h-5 sm:w-6 sm:h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
+            {/* 10. FAQ */}
+            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
+                <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
+                    <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
+                        <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-3 sm:mb-4">
+                    <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -513,32 +517,30 @@ export default function VideoReelEditingPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                         <span className="w-10 h-1 rounded-full bg-sky-500" />
                     </div>
-                    <p className="text-xs sm:text-sm xl:text-base 4xl:text-lg text-slate-400">
+                    <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400">
                         Answer To Our Most Frequently Asked Questions are just one Click Away.
                     </p>
                 </div>
 
-                <div className="max-w-5xl xl:max-w-6xl 4xl:max-w-7xl mx-auto px-4 sm:px-6 w-full flex flex-col gap-3 xl:gap-4">
+                <div className="w-full flex flex-col gap-3 xl:gap-4">
                     {faqs.map((faq, idx) => {
                         const isOpen = activeFaq === idx;
                         return (
                             <div
                                 key={idx}
-                                className={`w-full rounded-xl overflow-hidden transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
+                                className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
                                     }`}
-                                style={{
-                                    background: " #1487c9",
-                                }}
+                                style={{ background: "#1487c9" }}
                             >
                                 <button
                                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                                    className="w-full px-4 sm:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-3 sm:gap-4 xl:gap-5 text-left"
+                                    className="font-nunito w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                                 >
                                     <ChevronDown
-                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
+                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-alata font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
@@ -550,9 +552,8 @@ export default function VideoReelEditingPage() {
                                             animate={{ height: "auto" }}
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
-                                            className="overflow-hidden"
                                         >
-                                            <div className="px-4 sm:px-6 md:px-10 pb-6 pl-12 sm:pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
+                                            <div className="font-nunito px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (

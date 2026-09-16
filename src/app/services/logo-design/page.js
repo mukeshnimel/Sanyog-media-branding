@@ -445,41 +445,40 @@ export default function LogoDesignServicePage() {
 
             {/* Left Content Column */}
             <div className="lg:col-span-6 text-left flex flex-col items-start -mt-10 sm:-mt-4 lg:mt-0">
-              <p className="text-base sm:text-xl 3xl:text-2xl 4xl:text-3xl font-bold tracking-wider sm:tracking-widest text-white mb-3 sm:mb-4 leading-snug max-w-full break-words">
-                Unveil Your Brand's Identity with Captivating
+
+              <p className="font-nunito text-[16px] md:text-[22px] 3xl:text-[24px] font-bold tracking-wider sm:tracking-widest text-white mb-2 sm:mb-3 leading-snug max-w-full break-words">
+                Unveil Your Brand&apos;s Identity with Captivating
               </p>
 
               <motion.h1
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="font-jakarta font-extrabold text-4xl sm:text-5xl md:text-7xl 3xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-5 sm:mb-6"
+                className="font-alata font-bold text-3xl sm:text-4xl md:text-5xl xl:text-7xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-2 sm:mb-3"
               >
                 Logo Design
               </motion.h1>
 
-              {/* Rotating word border box */}
+              {/* Rotating word */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="relative overflow-hidden rounded-2xl border-2 border-white px-4 sm:px-6 3xl:px-8 4xl:px-10 py-3 sm:py-3.5 3xl:py-4 4xl:py-5 mb-5 sm:mb-6 bg-white/[0.02] max-w-full"
+                className="mb-3 sm:mb-4"
               >
-                <div className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl 3xl:text-3xl 4xl:text-4xl font-bold whitespace-nowrap">
-                  <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key="logo-design"
-                        initial={{ y: "-100%", opacity: 0 }}
-                        animate={{ y: "0%", opacity: 1 }}
-                        exit={{ y: "100%", opacity: 0 }}
-                        transition={{ duration: 0.45, ease: "easeInOut" }}
-                        className="block text-sky-400"
-                      >
-                        & Brand Identity
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
+                <div className="font-alata text-[25px] sm:text-[30px] md:text-[36px] xl:text-[40px] 2xl:text-[85px] 4xl:text-[128px] leading-tight tracking-tight text-white/90">
+                  <AnimatePresence mode="wait">
+                    <motion.span
+                      key="logo-design"
+                      initial={{ y: "-100%", opacity: 0 }}
+                      animate={{ y: "0%", opacity: 1 }}
+                      exit={{ y: "100%", opacity: 0 }}
+                      transition={{ duration: 0.45, ease: "easeInOut" }}
+                      className="block text-sky-400"
+                    >
+                      &amp; Brand Identity
+                    </motion.span>
+                  </AnimatePresence>
                 </div>
               </motion.div>
 
@@ -487,9 +486,9 @@ export default function LogoDesignServicePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="text-base md:text-lg 3xl:text-xl 4xl:text-2xl text-slate-350 max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl mb-6 sm:mb-8 leading-relaxed"
+                className="font-nunito text-[14px] sm:text-[16px] md:text-[18px] xl:text-[20px] 4xl:text-[24px] text-slate-350 max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl mb-4 sm:mb-5 leading-relaxed"
               >
-                Top-Rated Creative Branding Agency for Logo, Web & Design Solutions.
+                Top-Rated Creative Branding Agency for Logo, Web &amp; Design Solutions.
               </motion.p>
 
               {/* Avatars + rating */}
@@ -497,40 +496,50 @@ export default function LogoDesignServicePage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.25 }}
-                className="mb-6"
+                className="mb-4"
               >
-                <div className="flex -space-x-3 mb-4">
+                <div className="flex -space-x-3 mb-2">
                   {avatars.map((src, i) => (
                     <div
                       key={i}
                       className="w-10 h-10 3xl:w-12 3xl:h-12 4xl:w-16 4xl:h-16 rounded-full border-2 border-dark-bg overflow-hidden relative"
                     >
-                      <Image src={src} alt="Client avatar" fill className="object-cover" sizes="64px" />
+                      <Image
+                        src={src}
+                        alt="Client avatar"
+                        fill
+                        className="object-cover"
+                        sizes="64px"
+                      />
                     </div>
                   ))}
                 </div>
-                <p className="text-base 3xl:text-lg 4xl:text-2xl font-bold text-white">
+
+                <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">
                   4.9/5 Star Rating on Google
                 </p>
-                <p className="text-sm 3xl:text-base 4xl:text-xl font-semibold text-sky-400">
+
+                <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">
                   Trusted By Businesses Across Industries
                 </p>
               </motion.div>
 
               <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 4xl:gap-5 w-full sm:w-auto">
 
-                <a href="#contact"
-                  className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                <a
+                  href="#contact"
+                  className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                 >
                   Connect With Us
                 </a>
 
-
-                <a href="#smmport"
-                  className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                <a
+                  href="#smmport"
+                  className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                 >
                   Portfolio
                 </a>
+
               </div>
             </div>
 
@@ -578,7 +587,7 @@ export default function LogoDesignServicePage() {
                     className="w-9 h-9 sm:w-10 sm:h-10 3xl:w-12 3xl:h-12 4xl:w-14 4xl:h-14 brightness-0 invert"
                   />
                 </div>
-                <span className="text-xs sm:text-sm md:text-base 3xl:text-lg 4xl:text-xl font-bold text-white leading-snug">
+                <span className="font-alata text-[14px] sm:text-[16px] md:text-[20px] 3xl:text-[20px] 4xl:text-[22px]  text-white leading-snug">
                   {badge.line1}
                   <br />
                   {badge.line2}
@@ -600,13 +609,13 @@ export default function LogoDesignServicePage() {
               <h3 className="text-2xl md:text-3xl 3xl:text-4xl font-bold text-white leading-snug">
                 Making a Lasting
               </h3>
-              <h2 className="font-jakarta font-extrabold text-4xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight">
+              <h2 className="font-alata font-extrabold text-4xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight">
                 Mark in The Market
               </h2>
             </div>
 
             {/* Right: Subtitle */}
-            <p className="text-slate-400 text-bg md:text-base 3xl:text-lg leading-relaxed max-w-xs 3xl:max-w-sm md:text-left">
+            <p className="font-nunito text-slate-400 text-[14px] sm:text-[16px] md:text-[18px] 3xl:text-[20px] 4xl:text-[22px] leading-relaxed max-w-xs 3xl:max-w-sm md:text-left">
               Your Brand Is A Story Unfolding Across All Customer Touch Points
             </p>
           </div>
@@ -637,11 +646,11 @@ export default function LogoDesignServicePage() {
 
           {/* Heading */}
           <div className="text-center mb-14 3xl:mb-18 overflow-x-auto">
-            <h2 className="font-jakarta font-bold text-xl md:text-2xl lg:text-4xl 3xl:text-5xl text-white leading-snug mb-4 whitespace-nowrap">
+            <h2 className="font-alata font-bold text-xl md:text-2xl lg:text-4xl 3xl:text-5xl text-white leading-snug mb-4 whitespace-nowrap">
               Your Brand is a Story Unfolding Across all Customer Touch Points
             </h2>
 
-            <p className="text-sm md:text-base 3xl:text-lg font-semibold text-sky-400">
+            <p className="font-nunito text-[14px] sm:text-[16px] md:text-[18px] 3xl:text-[20px] 4xl:text-[22px] font-semibold text-sky-400">
               Check Out These Samples Of Our Work
             </p>
           </div>
@@ -769,7 +778,7 @@ export default function LogoDesignServicePage() {
       <section id="pricing" className="py-24 3xl:py-32 bg-dark-bg relative overflow-hidden">
         {/* Giant faded background text */}
         <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-          <span className="font-jakarta font-black text-[10rem] md:text-[14rem] 3xl:text-[18rem] text-white/[0.03] leading-none tracking-tight">
+          <span className="font-alata font-black text-[10rem] md:text-[14rem] 3xl:text-[18rem] text-white/[0.03] leading-none tracking-tight">
             PRICING
           </span>
         </div>
@@ -780,7 +789,7 @@ export default function LogoDesignServicePage() {
               <span className="inline-flex items-center gap-2 text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan bg-slate-900/60 border border-glass-border px-4 py-1.5 3xl:px-5 3xl:py-2 rounded-full mb-4">
                 Pricing
               </span>
-              <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white">
+              <h2 className="font-alata font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white">
                 Our Logo Design Packages
               </h2>
             </div>
@@ -810,9 +819,9 @@ export default function LogoDesignServicePage() {
                   </div>
 
                   <div className="flex items-start justify-between mb-1">
-                    <h3 className="font-jakarta font-bold text-lg 3xl:text-xl text-white">{pkg.name}</h3>
+                    <h3 className="font-alata font-bold text-lg 3xl:text-xl text-white">{pkg.name}</h3>
                     <div className="text-right shrink-0 ml-3">
-                      <span className="font-jakarta font-extrabold text-2xl 3xl:text-3xl text-white">{pkg.price}</span>
+                      <span className="font-alata font-extrabold text-2xl 3xl:text-3xl text-white">{pkg.price}</span>
                       <span className="text-xs 3xl:text-sm text-slate-500"> / GST</span>
                     </div>
                   </div>
@@ -865,7 +874,7 @@ export default function LogoDesignServicePage() {
           <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
             How It Works
           </span>
-          <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 leading-snug">
+          <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 leading-snug">
             Makes It Easy to Create Your Logo &amp; Branding
           </h2>
         </div>
@@ -888,7 +897,7 @@ export default function LogoDesignServicePage() {
                       className="w-11 h-11 3xl:w-14 3xl:h-14"
                     />
                   </div>
-                  <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-3xl 3xl:text-4xl text-slate-950 mb-3 md:mb-4 max-w-sm 3xl:max-w-md leading-snug">
+                  <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl 3xl:text-4xl text-slate-950 mb-3 md:mb-4 max-w-sm 3xl:max-w-md leading-snug">
                     {step.title}
                   </h3>
                   <p className="text-sm md:text-base 3xl:text-lg text-slate-900/80 max-w-md 3xl:max-w-lg leading-relaxed">
@@ -916,14 +925,13 @@ export default function LogoDesignServicePage() {
         </div>
       </section>
 
-      {/* SECTION 7: FAQS ACCORDION — FULL WIDTH */}
-      <section className="py-24 3xl:py-32 bg-dark-bg relative">
-        {/* Header - stays contained */}
-        <div className="max-w-4xl 3xl:max-w-5xl mx-auto px-6 text-center mb-16 flex flex-col items-center">
-          <div className="w-14 h-14 3xl:w-16 3xl:h-16 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
-            <MessageCircleQuestion className="w-6 h-6 3xl:w-7 3xl:h-7 text-white" strokeWidth={1.5} />
+      {/* 10. FAQ */}
+      <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
+        <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
+          <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
+            <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
           </div>
-          <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mb-4">
+          <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
             Frequently Asked Questions
           </h2>
           <div className="flex items-center gap-1.5 mb-4">
@@ -932,13 +940,12 @@ export default function LogoDesignServicePage() {
             <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
             <span className="w-10 h-1 rounded-full bg-sky-500" />
           </div>
-          <p className="text-sm 3xl:text-base text-slate-400">
+          <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400">
             Answer To Our Most Frequently Asked Questions are just one Click Away.
           </p>
         </div>
 
-        {/* Accordion rows - full width, with gap */}
-        <div className="w-full max-w-[1600px] 3xl:max-w-[1900px] mx-auto flex flex-col gap-3 3xl:gap-4 px-6 3xl:px-10">
+        <div className="w-full flex flex-col gap-3 xl:gap-4">
           {faqs.map((faq, idx) => {
             const isOpen = activeFaq === idx;
             return (
@@ -946,19 +953,17 @@ export default function LogoDesignServicePage() {
                 key={idx}
                 className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
                   }`}
-                style={{
-                  background: " #1487c9",
-                }}
+                style={{ background: "#1487c9" }}
               >
                 <button
                   onClick={() => setActiveFaq(isOpen ? null : idx)}
-                  className="w-full px-4 md:px-5 3xl:px-6 py-4 3xl:py-5 flex items-center gap-4 text-left"
+                  className="font-nunito w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                 >
                   <ChevronDown
-                    className={`w-5 h-5 3xl:w-6 3xl:h-6 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
+                    className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                       }`}
                   />
-                  <span className="font-jakarta font-bold text-sm md:text-base 3xl:text-lg text-white">
+                  <span className="font-alata font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                     {faq.q}
                   </span>
                 </button>
@@ -971,7 +976,7 @@ export default function LogoDesignServicePage() {
                       exit={{ height: 0 }}
                       transition={{ duration: 0.25 }}
                     >
-                      <div className="px-6 md:px-10 pb-6 pl-15 md:pl-19 text-sm 3xl:text-base text-white/85 leading-relaxed">
+                      <div className="font-nunito px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                         {faq.list ? (
                           <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                             {faq.list.map((item, lIdx) => (

@@ -193,7 +193,7 @@ function ContactForm({ idPrefix = "cf" }) {
       <button
         type="submit"
         disabled={status === "sending" || status === "success"}
-        className="glow-btn-primary w-full py-4 3xl:py-5 rounded-xl font-bold text-white text-sm 3xl:text-base flex items-center justify-center gap-2 cursor-pointer active:scale-98 disabled:opacity-50"
+        className="font-nunito bg-[#007EC3] w-full py-4 3xl:py-5 rounded-xl font-bold text-white text-[16px] md:text-[18px] 3xl:text-[20px] flex items-center justify-center gap-2 cursor-pointer active:scale-98 disabled:opacity-50"
       >
         {status === "sending" ? (
           <>
@@ -255,7 +255,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="font-jakarta font-extrabold text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl leading-tight tracking-tight text-white mb-6"
+                className="font-alata font-extrabold text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl leading-tight tracking-tight text-white mb-6"
               >
                 Contact Us
               </motion.h1>
@@ -264,7 +264,7 @@ export default function ContactPage() {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-base 3xl:text-lg text-slate-400 mb-10 leading-relaxed max-w-xl 3xl:max-w-2xl"
+                className="font-nunito text-base 3xl:text-lg text-slate-400 mb-10 leading-relaxed max-w-xl 3xl:max-w-2xl"
               >
                 We would love to speak with you. Feel free to reach out using the below details.
               </motion.p>
@@ -430,15 +430,15 @@ export default function ContactPage() {
               transition={{ duration: 0.6 }}
               className="w-full md:w-1/2"
             >
-              <span className="text-xl 3xl:text-2xl font-bold uppercase tracking-widest text-white">
+              <span className="font-nunito text-xl 3xl:text-2xl font-bold uppercase tracking-widest text-white">
                 Our Team is Here to Help
               </span>
-              <h2 className="font-jakarta font-bold text-2xl md:text-4xl 3xl:text-5xl text-white mt-2 mb-4">
+              <h2 className="font-alata font-bold text-2xl md:text-4xl 3xl:text-5xl text-white mt-2 mb-4">
                 Ready to Elevate Your Brand?
               </h2>
               <button
                 onClick={() => setShowPopup(true)}
-                className="px-7 py-3.5 3xl:px-9 3xl:py-4 rounded-xl text-sm 3xl:text-base font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
+                className="font-nunito px-7 py-3.5 3xl:px-9 3xl:py-4 rounded-xl text-[16px] md:text-[18px] 3xl:text-[20px] font-bold text-white bg-blue-600 hover:bg-blue-700 transition-colors inline-flex items-center justify-center gap-2"
               >
                 Contact Us
                 <ArrowRight className="w-4 h-4 3xl:w-5 3xl:h-5" />
@@ -489,7 +489,7 @@ export default function ContactPage() {
               >
                 <X className="w-5 h-5 3xl:w-6 3xl:h-6" />
               </button>
-              <h2 className="font-jakarta font-bold text-2xl 3xl:text-3xl text-white mb-1">How Can We Help You</h2>
+              <h2 className="font-alata font-bold text-2xl 3xl:text-3xl text-white mb-1">How Can We Help You</h2>
               <h3 className="text-sm 3xl:text-base text-neon-cyan font-semibold mb-6">Let's have a chat</h3>
               <ContactForm idPrefix="popup" />
             </div>

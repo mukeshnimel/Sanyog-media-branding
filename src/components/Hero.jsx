@@ -50,8 +50,8 @@ function CollageTile({ src, alt, tall }) {
   return (
     <div
       className={`relative shrink-0 overflow-hidden rounded-2xl border border-white/10 ${tall
-          ? "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
-          : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
+        ? "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
+        : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
         }`}
     >
       <Image
@@ -131,7 +131,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
-              className="font-jakarta  text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white/90 mb-5 sm:mb-6"
+              className="font-alata  text-3xl sm:text-4xl md:text-5xl xl:text-6xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white/90 mb-5 sm:mb-6"
             >
               Build a{" "}
               <span
@@ -151,7 +151,7 @@ export default function Hero() {
               className="relative overflow-hidden rounded-2xl border-2 border-white px-4 py-3 sm:px-6 sm:py-3.5 xl:px-8 xl:py-4 4xl:px-10 4xl:py-5 mb-5 sm:mb-6 bg-white/[0.02] max-w-full"
             >
               <div className="flex items-center gap-2 text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-bold whitespace-nowrap">
-                <span className="text-white">With</span>
+                <span className="font-nunito text-white">With</span>
                 <span className="relative inline-block h-[1.4em] overflow-hidden align-bottom">
                   <AnimatePresence mode="wait">
                     <motion.span
@@ -173,7 +173,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl text-slate-300 max-w-xl xl:max-w-2xl 4xl:max-w-3xl mb-7 sm:mb-8 leading-relaxed"
+              className="font-nunito text-[14px] sm:text-[16px] md:text-[18px] xl:text-[20px] 4xl:text-[24px] text-slate-300 max-w-xl xl:max-w-2xl 4xl:max-w-3xl mb-7 sm:mb-8 leading-relaxed"
             >
               Top-Rated Creative Branding Agency for Logo, Web & Design
               Solutions.
@@ -202,10 +202,10 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-              <p className="text-sm sm:text-base xl:text-lg 4xl:text-2xl font-bold text-white">
+              <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">
                 4.9/5 Star Rating on Google
               </p>
-              <p className="text-xs sm:text-sm xl:text-base 4xl:text-xl font-semibold text-sky-400">
+              <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">
                 Trusted By Businesses Across Industries
               </p>
             </motion.div>
@@ -214,14 +214,14 @@ export default function Hero() {
             <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
               <Link
                 href="#contact"
-                className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
               >
                 Connect With Us
               </Link>
 
               <Link
                 href="#smmport"
-                className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
               >
                 Portfolio
               </Link>

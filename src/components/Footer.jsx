@@ -132,7 +132,7 @@ export default function Footer() {
               />
             </Link>
 
-            <p className="text-sm xl:text-base 4xl:text-lg text-slate-400 leading-relaxed">
+            <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400 leading-relaxed">
               We Ignite Brands With Bold Creativity, Blending Visionary
               Branding With Striking Social Media Campaigns And Flawless
               Design. Our Approach Goes Beyond Visuals — We Create Powerful
@@ -182,7 +182,7 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="flex flex-col gap-4 sm:gap-5 4xl:gap-7"
           >
-            <h3 className="font-jakarta font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
+            <h3 className="font-alata font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Services
             </h3>
             <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">
@@ -192,7 +192,7 @@ export default function Footer() {
                   <li key={service.label}>
                     <Link
                       href={service.href}
-                      className="flex items-center gap-3 4xl:gap-4 text-[15px] sm:text-[17px] xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
+                      className="font-nunito flex items-center gap-3 4xl:gap-4 text-[15px] sm:text-[17px] xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                     >
                       <Icon className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform shrink-0" />
                       <span>{service.label}</span>
@@ -211,10 +211,10 @@ export default function Footer() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="flex flex-col gap-4 sm:gap-5 4xl:gap-7"
           >
-            <h3 className="font-jakarta font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
+            <h3 className="font-alata font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Get In Touch
             </h3>
-            <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">
+            <ul className="font-nunito flex flex-col gap-3 sm:gap-4 4xl:gap-5">
               <li>
                 <a
                   href="tel:+919929600601"
@@ -264,7 +264,7 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="relative z-10 bg-indigo-950/80 border-t border-white/10 py-3 sm:py-4 xl:py-5 4xl:py-7">
-        <p className="text-center text-[11px] sm:text-xs md:text-lg xl:text-xl 4xl:text-2xl text-slate-300 px-4">
+        <p className="font-nunito text-center text-[11px] sm:text-xs md:text-lg xl:text-xl 4xl:text-2xl text-slate-300 px-4">
           &copy; {new Date().getFullYear()} Sanyog Media Concepts, Trademarks
           and Brands are The Property of Their Respective Owner.
         </p>

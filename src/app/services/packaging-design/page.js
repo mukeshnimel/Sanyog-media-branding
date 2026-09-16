@@ -145,7 +145,7 @@ export default function PackagingDesignPage() {
                             <motion.p
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
-                                className="text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl text-white/90 mb-2"
+                                className="font-nunito text-[14px] sm:text-[16px] md:text-[18px] xl:text-[20px] 4xl:text-[24px] text-slate-350 max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl mb-4 sm:mb-5 leading-relaxed"
                             >
                                 Unveil Your Product&apos;s Essence through
                             </motion.p>
@@ -154,12 +154,12 @@ export default function PackagingDesignPage() {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.1 }}
-                                className="font-jakarta font-black leading-[0.95] mb-2"
+                                className="font-alata font-black leading-[0.95] mb-2"
                             >
-                                <span className="block font-jakarta text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-white">
+                                <span className="block font-alata text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-white">
                                     Packaging
                                 </span>
-                                <span className="block font-jakarta text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-sky-400">
+                                <span className="block font-alata text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-sky-400">
                                     Artistry
                                 </span>
                             </motion.h1>
@@ -168,7 +168,7 @@ export default function PackagingDesignPage() {
                                 initial={{ opacity: 0, y: 15 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.2 }}
-                                className="text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-300 leading-relaxed mt-4 mb-6 max-w-md xl:max-w-lg 4xl:max-w-xl"
+                                className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-300 leading-relaxed mt-4 mb-6 max-w-md xl:max-w-lg 4xl:max-w-xl"
                             >
                                 &ldquo;Sanyog Media Concepts&rdquo; Design Prowess weaves stories
                                 that captivate, setting your product apart with Artful Packaging solutions
@@ -193,22 +193,26 @@ export default function PackagingDesignPage() {
                                 transition={{ delay: 0.35 }}
                                 className="mb-8"
                             >
-                                <p className="text-base xl:text-lg 4xl:text-xl font-bold text-white">4.9/5 Star Rating</p>
-                                <p className="text-sm xl:text-base 4xl:text-lg font-semibold text-sky-400">Based on Google Review</p>
+                                <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">
+                                    4.9/5 Star Rating on Google
+                                </p>
+
+                                <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">
+                                    Trusted By Businesses Across Industries
+                                </p>
                             </motion.div>
 
-                            {/* ✅ FIX: restored missing opening <a tags */}
                             <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
                                 <a
                                     href="#contact"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                                    className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
                                 </a>
 
                                 <a
                                     href="#smmport"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                                    className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
                                 </a>
@@ -265,7 +269,7 @@ export default function PackagingDesignPage() {
 
                             <div className="absolute inset-x-0 top-0 h-16 sm:h-20 md:h-24 bg-gradient-to-b from-dark-bg to-transparent pointer-events-none z-10" />
                             <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 md:h-24 bg-gradient-to-t from-dark-bg to-transparent pointer-events-none z-10" />
-                            <div className="absolute -bottom-3 left-3 inline-flex items-center px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg bg-slate-950 border border-glass-border text-[10px] xl:text-xs font-medium text-sky-400 shadow-lg z-10">
+                            <div className="absolute -bottom-3 left-3 inline-flex items-center px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg bg-slate-950 border border-glass-border text-[10px] xl:text-xs font-medium text-sky-400 shadow-lg z-10 font-alata">
                                 https://sanyogmedia.in
                             </div>
                         </div>
@@ -305,7 +309,7 @@ export default function PackagingDesignPage() {
                                         className="w-9 h-9 sm:w-10 sm:h-10 3xl:w-12 3xl:h-12 brightness-0 invert"
                                     />
                                 </div>
-                                <span className="text-xs sm:text-sm md:text-base 3xl:text-lg font-bold text-white leading-snug">
+                                <span className="font-alata text-[14px] sm:text-[16px] md:text-[20px] 3xl:text-[20px] 4xl:text-[22px]  text-white leading-snug">
                                     {badge.line1}
                                     <br />
                                     {badge.line2}
@@ -321,11 +325,11 @@ export default function PackagingDesignPage() {
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="w-full flex flex-col items-center text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
 
-                        <span className="text-sm xl:text-base 4xl:text-lg font-bold text-sky-400">
+                        <span className="font-alata text-sm xl:text-base 4xl:text-lg font-bold text-sky-400">
                             Trust &amp; Experience Highlighting
                         </span>
 
-                        <h2 className="inline-block font-jakarta font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
+                        <h2 className="font-alata inline-block font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
                             Your Trusted Branding &amp; Marketing Partner
                         </h2>
 
@@ -385,7 +389,7 @@ export default function PackagingDesignPage() {
                             transition={{ duration: 0.6 }}
                             className="flex flex-col items-start"
                         >
-                            <h2 className="font-jakarta text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                            <h2 className="font-alata text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                                 Immersive Experience That Deeply Connects With{" "}
                                 <span className="text-sky-400">Your Audience.</span>
                             </h2>
@@ -397,7 +401,7 @@ export default function PackagingDesignPage() {
                                 <span className="w-10 h-0.5 bg-sky-500 rounded-full" />
                             </div>
 
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
+                            <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
                                 Whether Launching A New Product Or Rebranding, Our Designs Showcase
                                 Our Dedication To Your Satisfaction, Backed By A 100% Money-Back
                                 Guarantee. Join Us To Transform Ordinary Packaging Into
@@ -407,10 +411,9 @@ export default function PackagingDesignPage() {
                                 Your Customer&apos;s Journey They Won&apos;t Forget.
                             </p>
 
-                            {/* ✅ FIX: replaced invalid `xl:py-4.5` with `xl:py-4` */}
                             <a
                                 href="#contact"
-                                className="px-7 py-3.5 xl:px-9 xl:py-4 4xl:px-11 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors inline-flex items-center justify-center"
+                                className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                             >
                                 Connect With Us
                             </a>
@@ -441,14 +444,14 @@ export default function PackagingDesignPage() {
             <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 xl:gap-16 4xl:gap-20 items-start">
-                        <h2 className="font-jakarta text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight lg:col-span-1">
+                        <h2 className="font-alata text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight lg:col-span-1">
                             Our Packaging Design Services
                         </h2>
                         <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 xl:gap-x-10 gap-y-4 sm:gap-y-5 xl:gap-y-6">
                             {services.map((s, idx) => (
                                 <div key={idx} className="flex items-center gap-3 xl:gap-4">
                                     <ArrowRight className="w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-neon-cyan shrink-0" />
-                                    <span className="text-sm md:text-xl xl:text-2xl 4xl:text-3xl font-semibold text-slate-200">{s}</span>
+                                    <span className="font-nunito text-sm md:text-xl xl:text-2xl 4xl:text-3xl font-semibold text-slate-200">{s}</span>
                                 </div>
                             ))}
                         </div>
@@ -459,20 +462,20 @@ export default function PackagingDesignPage() {
             {/* PRICING */}
             <section id="packagingprice" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-jakarta font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
+                    <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
                     </span>
                 </div>
 
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
+                        <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                             Pricing Options
                         </span>
-                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
+                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
                             Packaging Design Pricing
                         </h2>
-                        <p className="text-sm xl:text-base 4xl:text-lg text-slate-400 mt-4">Unique Design For Your UNIQUE Product</p>
+                        <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400 mt-4">Unique Design For Your UNIQUE Product</p>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 xl:gap-7 4xl:gap-9">
@@ -485,23 +488,22 @@ export default function PackagingDesignPage() {
                                     }`}
                             >
                                 <div>
-                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
+                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <span className="font-alata text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
-                                        <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                        <span className="font-jakarta font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
+                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
+                                        <span className="font-alata font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
                                             {plan.price}
                                         </span>
-                                        <span className="text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
+                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
                                     </div>
 
-                                    {/* ✅ FIX: restored opening <a tag */}
                                     <a
                                         href="#contact"
-                                        className={`w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-8 ${plan.popular
+                                        className={`font-alata w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-8 ${plan.popular
                                             ? "bg-white text-slate-950 hover:bg-slate-100"
                                             : "bg-slate-900 border border-glass-border text-white hover:border-white"
                                             }`}
@@ -514,7 +516,7 @@ export default function PackagingDesignPage() {
                                             {pricingFeatures.map((feat, fIdx) => (
                                                 <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-300">
                                                     <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
-                                                    <span>{feat}</span>
+                                                    <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -529,10 +531,10 @@ export default function PackagingDesignPage() {
             {/* HOW IT WORKS */}
             <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
                 <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
-                    <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
+                    <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
-                    <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                    <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
                         Makes It Easy to Create Your Logo &amp; Branding
                     </h2>
                 </div>
@@ -549,10 +551,10 @@ export default function PackagingDesignPage() {
                                     <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
                                         <img src={step.iconImage} alt={`${step.title} icon`} className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
                                     </div>
-                                    <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                    <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
                                         {step.title}
                                     </h3>
-                                    <p className="text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                                    <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
                                         {step.desc}
                                     </p>
                                 </div>
@@ -576,13 +578,13 @@ export default function PackagingDesignPage() {
                 </div>
             </section>
 
-            {/* FAQ */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative">
+            {/* 10. FAQ */}
+            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -591,31 +593,30 @@ export default function PackagingDesignPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                         <span className="w-10 h-1 rounded-full bg-sky-500" />
                     </div>
-                    <p className="text-sm xl:text-base 4xl:text-lg text-slate-400">
+                    <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400">
                         Answer To Our Most Frequently Asked Questions are just one Click Away.
                     </p>
                 </div>
 
-                <div className="max-w-5xl xl:max-w-6xl 4xl:max-w-7xl mx-auto px-4 sm:px-6 w-full flex flex-col gap-3 xl:gap-4">
+                <div className="w-full flex flex-col gap-3 xl:gap-4">
                     {faqs.map((faq, idx) => {
                         const isOpen = activeFaq === idx;
                         return (
                             <div
                                 key={idx}
-                                className={`w-full transition-all duration-300 rounded-xl ${isOpen ? "border border-white" : "border border-transparent"
+                                className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
                                     }`}
                                 style={{ background: "#1487c9" }}
                             >
                                 <button
                                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                                    className="w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
+                                    className="font-nunito w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                                 >
-                                    {/* ✅ FIX: duration-250 → duration-300 */}
                                     <ChevronDown
                                         className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-jakarta font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-alata font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
@@ -628,7 +629,7 @@ export default function PackagingDesignPage() {
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <div className="px-4 sm:px-6 md:px-10 pb-6 pl-[3.25rem] md:pl-[3.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
+                                            <div className="font-nunito px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (

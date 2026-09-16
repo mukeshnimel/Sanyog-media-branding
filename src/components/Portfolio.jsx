@@ -92,7 +92,7 @@ export default function Portfolio() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="whitespace-nowrap font-jakarta font-bold text-center text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 sm:mb-4 leading-snug"
+              className="whitespace-nowrap font-alata font-bold text-center text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 sm:mb-4 leading-snug"
             >
               &ldquo;Your Brand Is a Story Unfolding Across All Customer Touchpoints&rdquo;
             </motion.h2>
@@ -119,7 +119,7 @@ export default function Portfolio() {
                 <button
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`shrink-0 whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 xl:px-6 xl:py-3 4xl:px-7 4xl:py-3.5 rounded-full text-xs sm:text-base xl:text-lg 4xl:text-xl font-semibold transition-all duration-200 ${isActive
+                  className={`font-nunito shrink-0 whitespace-nowrap px-4 py-2 sm:px-5 sm:py-2.5 xl:px-6 xl:py-3 4xl:px-7 4xl:py-3.5 rounded-full text-xs sm:text-base xl:text-lg 4xl:text-xl font-semibold transition-all duration-200 ${isActive
                     ? "bg-sky-500 text-white"
                     : "text-slate-300 hover:text-sky-400"
                     }`}

@@ -363,7 +363,7 @@ export default function GraphicDesignPage() {
             <section className="py-16 md:py-20 4xl:py-28 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                        <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Professional Designs Unique Solutions
                         </h2>
                     </div>
@@ -400,7 +400,7 @@ export default function GraphicDesignPage() {
                                         {isActive && (
                                             <div className="absolute inset-0 flex flex-col items-center justify-end pb-4 md:pb-6 4xl:pb-8 animate-emerge">
                                                 <div className="flex flex-col items-center gap-3 md:gap-4 4xl:gap-5 px-3 md:px-4 w-full max-w-[90%]">
-                                                    <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-jakarta text-center leading-snug">
+                                                    <h3 className="text-white text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-alata text-center leading-snug">
                                                         {accordionTitles[idx]}
                                                     </h3>
 
@@ -663,13 +663,13 @@ export default function GraphicDesignPage() {
                 </div>
             </section>
 
-            {/* 9. FAQ — FULL WIDTH GRADIENT ACCORDION */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
+            {/* 10. FAQ */}
+            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -678,7 +678,7 @@ export default function GraphicDesignPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                         <span className="w-10 h-1 rounded-full bg-sky-500" />
                     </div>
-                    <p className="text-sm xl:text-base 4xl:text-lg text-slate-400">
+                    <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400">
                         Answer To Our Most Frequently Asked Questions are just one Click Away.
                     </p>
                 </div>
@@ -691,19 +691,17 @@ export default function GraphicDesignPage() {
                                 key={idx}
                                 className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
                                     }`}
-                                style={{
-                                    background: " #1487c9",
-                                }}
+                                style={{ background: "#1487c9" }}
                             >
                                 <button
                                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                                    className="w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
+                                    className="font-nunito w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                                 >
                                     <ChevronDown
-                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
+                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-alata font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
@@ -716,7 +714,7 @@ export default function GraphicDesignPage() {
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <div className="px-4 md:px-5 xl:px-6 pb-4 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
+                                            <div className="font-nunito px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (

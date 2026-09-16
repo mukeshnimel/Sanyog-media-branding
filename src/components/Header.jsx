@@ -89,7 +89,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav — now switches at 1008px instead of md (768px) */}
-          <nav className="hidden min-[1008px]:flex items-center gap-5 xl:gap-6 2xl:gap-7 3xl:gap-8 4xl:gap-8 ml-12 xl:ml-20 2xl:ml-24 3xl:ml-24 4xl:ml-28">
+          <nav className="font-nunito hidden min-[1008px]:flex items-center gap-5 xl:gap-6 2xl:gap-7 3xl:gap-8 4xl:gap-8 ml-12 xl:ml-20 2xl:ml-24 3xl:ml-24 4xl:ml-28">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div
@@ -98,14 +98,14 @@ export default function Header() {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button className="group relative flex items-center gap-1.5 py-2 text-[16px] xl:text-[17px] 2xl:text-[18px] 3xl:text-[19px] 4xl:text-[21px] font-semibold text-white/90 hover:text-white transition-colors cursor-pointer">
+                  <button className="group relative flex items-center gap-1.5 py-2 text-[18px] xl:text-[19px] 2xl:text-[21px] 3xl:text-[23px] 4xl:text-[26px] font-semibold text-white/90 hover:text-white transition-colors cursor-pointer">
                     <span
                       className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${dropdownOpen ? "scale-y-100" : "scale-y-0"
                         }`}
                     />
                     {item.name}
                     <ChevronDown
-                      className={`w-3.5 h-3.5 4xl:w-4 4xl:h-4 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
+                      className={`w-4 h-4 4xl:w-5 4xl:h-5 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
                         }`}
                     />
                   </button>
@@ -135,7 +135,7 @@ export default function Header() {
                             >
                               <Link
                                 href={service.href}
-                                className="group/row relative flex items-center px-5 py-3 4xl:px-6 4xl:py-4 text-[14px] 4xl:text-[16px] font-medium text-gray-700 transition-colors duration-200 hover:bg-[#07041D] hover:text-white"
+                                className="group/row relative flex items-center px-5 py-3 4xl:px-6 4xl:py-4 text-[15px] 4xl:text-[19px] font-medium text-gray-700 transition-colors duration-200 hover:bg-[#07041D] hover:text-white"
                               >
                                 <span className="absolute left-0 top-1/2 h-4 w-[3px] -translate-y-1/2 origin-center scale-y-0 bg-sky-400 transition-transform duration-200 group-hover/row:scale-y-100" />
                                 {service.name}
@@ -151,7 +151,7 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="group relative inline-flex items-center py-2 text-[16px] xl:text-[17px] 2xl:text-[18px] 3xl:text-[19px] 4xl:text-[21px] font-semibold text-white/90 hover:text-white transition-colors"
+                  className="group relative inline-flex items-center py-2 text-[18px] xl:text-[19px] 2xl:text-[21px] 3xl:text-[23px] 4xl:text-[26px] font-semibold text-white/90 hover:text-white transition-colors"
                 >
                   <span
                     className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${isActive(item.href)
@@ -172,7 +172,7 @@ export default function Header() {
             <Link
               href="/contact"
               onClick={handleConnectClick}
-              className="relative inline-block rounded-lg bg-sky-500 px-5 py-2.5 xl:px-6 xl:py-3 2xl:px-7 2xl:py-3 3xl:px-7 3xl:py-3.5 4xl:px-8 4xl:py-4 text-sm xl:text-[15px] 2xl:text-[16px] 3xl:text-[17px] 4xl:text-lg font-semibold text-white transition-colors hover:bg-sky-400"
+              className="font-nunito relative inline-block rounded-lg bg-sky-500 px-5 py-2.5 xl:px-6 xl:py-3 2xl:px-7 2xl:py-3 3xl:px-7 3xl:py-3.5 4xl:px-8 4xl:py-4 text-base xl:text-[17px] 2xl:text-[18px] 3xl:text-[19px] 4xl:text-xl font-semibold text-white transition-colors hover:bg-sky-400"
             >
               Connect With Us
             </Link>
@@ -252,6 +252,15 @@ export default function Header() {
           768px–1007px the full 6-item nav + CTA + logo was being squeezed
           into too little space, causing wrapping/overlap. Now that whole
           range correctly shows the hamburger drawer instead.
+
+        FONT-SIZE PASS (this pass):
+        - Desktop nav links + dropdown trigger bumped up one notch per
+          breakpoint (16/17/20/22/25 -> 18/19/21/23/26) and aligned the
+          dropdown trigger to match the other top-level links, which were
+          previously smaller and inconsistent.
+        - Dropdown menu item text bumped 14px/18px(4xl) -> 15px/19px(4xl).
+        - Mobile drawer links bumped text-lg/xl -> text-xl/2xl, and mobile
+          dropdown sub-items bumped 15px -> 16px.
       */}
       <AnimatePresence>
         {isOpen && (
@@ -281,7 +290,7 @@ export default function Header() {
               </button>
             </div>
 
-            <nav className="relative flex flex-1 flex-col justify-start gap-0.5 px-5 pt-4 pb-6 sm:px-6">
+            <nav className="font-nunito relative flex flex-1 flex-col justify-start gap-0.5 px-5 pt-4 pb-6 sm:px-6">
               {navItems.map((item, idx) =>
                 item.dropdown ? (
                   <div key={item.name} className="border-b border-white/10 py-2">
@@ -293,7 +302,7 @@ export default function Header() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.15 + idx * 0.05 }}
-                        className="text-lg font-semibold tracking-tight text-white sm:text-xl"
+                        className="text-xl font-semibold tracking-tight text-white sm:text-2xl"
                       >
                         {item.name}
                       </motion.span>
@@ -323,7 +332,7 @@ export default function Header() {
                                 <Link
                                   href={sub.href}
                                   onClick={() => setIsOpen(false)}
-                                  className="block rounded-lg px-2 py-2.5 text-[15px] font-medium text-white/60 transition-colors active:bg-white/5 hover:text-white"
+                                  className="block rounded-lg px-2 py-2.5 text-[16px] font-medium text-white/60 transition-colors active:bg-white/5 hover:text-white"
                                 >
                                   {sub.name}
                                 </Link>
@@ -345,7 +354,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`text-lg font-semibold tracking-tight transition-colors sm:text-xl ${isActive(item.href) ? "text-sky-400" : "text-white"
+                      className={`text-xl font-semibold tracking-tight transition-colors sm:text-2xl ${isActive(item.href) ? "text-sky-400" : "text-white"
                         }`}
                     >
                       {item.name}
@@ -359,7 +368,7 @@ export default function Header() {
               <Link
                 href="/contact"
                 onClick={handleConnectClick}
-                className="block w-full rounded-xl bg-sky-500 py-4 text-center text-base font-bold text-white transition-colors hover:bg-sky-400"
+                className="font-nunito block w-full rounded-xl bg-sky-500 py-4 text-center text-base font-bold text-white transition-colors hover:bg-sky-400"
               >
                 Connect With Us
               </Link>

@@ -248,18 +248,18 @@ export default function SocialMediaMarketingPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         {/* Left — copy */}
                         <div className="flex flex-col items-start pt-8 sm:pt-10 md:pt-0">
-                            <h1 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-1">
+                            <h1 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-1">
                                 We Manage Your
                             </h1>
-                            <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight mb-4 text-sky-400">
+                            <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight mb-4 text-sky-400">
                                 Socials Media
                             </h2>
 
-                            <div className="text-base sm:text-lg md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-6">
+                            <div className="font-alata text-base sm:text-lg md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-6">
                                 With <BlindsRotatingText words={rotatingWords} delay={1500} />
                             </div>
 
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
+                            <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
                                 At Sanyog Media, We Design Scroll-Stopping Visuals With Strategy
                                 And Creativity, Helping Your Brand Build Real Connections And
                                 Grow Online
@@ -282,24 +282,26 @@ export default function SocialMediaMarketingPage() {
                             </div>
 
                             <div className="mb-8">
-                                <p className="text-base xl:text-lg 4xl:text-xl font-bold text-white">4.9/5 Star Rating</p>
-                                <p className="text-sm xl:text-base 4xl:text-lg font-semibold text-sky-400">
+                                <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">
+                                    4.9/5 Star Rating on Google
+                                </p>
+
+                                <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">
                                     Based on Google Review
                                 </p>
                             </div>
 
-                            {/* ✅ FIX: restored missing opening <a tags */}
                             <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
                                 <a
                                     href="#contact"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                                    className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
                                 </a>
 
                                 <a
                                     href="#smmport"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                                    className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
                                 </a>
@@ -319,7 +321,7 @@ export default function SocialMediaMarketingPage() {
 
             {/* 2. MARQUEE RIBBON */}
             <section className="py-0 bg-slate-950 border-b border-glass-border relative overflow-hidden">
-                <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-6 md:py-8 4xl:py-10 border-y border-glass-border/40">
+                <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-6 md:py-8 4xl:py-10">
                     <div className="marquee-track flex items-center gap-10 md:gap-16 4xl:gap-20 whitespace-nowrap">
                         {[...Array(2)].map((_, setIdx) => (
                             <div key={setIdx} className="flex items-center gap-10 md:gap-16 4xl:gap-20 shrink-0">
@@ -343,7 +345,7 @@ export default function SocialMediaMarketingPage() {
                                                 className="w-full h-full object-cover"
                                             />
                                         </div>
-                                        <span className="font-jakarta font-bold text-lg sm:text-xl md:text-3xl 4xl:text-4xl text-white tracking-wide">
+                                        <span className="font-alata font-bold text-lg sm:text-xl md:text-3xl 4xl:text-4xl text-white tracking-wide">
                                             {text}
                                         </span>
                                     </div>
@@ -384,12 +386,11 @@ export default function SocialMediaMarketingPage() {
                                     />
                                 </div>
 
-                                <h3 className="font-jakarta font-bold text-xl xl:text-2xl 4xl:text-3xl text-white">
+                                <h3 className="font-alata font-bold text-xl xl:text-2xl 4xl:text-3xl text-white">
                                     {s.title}
                                 </h3>
 
-                                {/* ✅ FIX: `text-bg` was invalid; use text-sm/base */}
-                                <p className="text-sm xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed">
+                                <p className="font-nunito text-sm xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed">
                                     {s.desc}
                                 </p>
                             </div>
@@ -402,14 +403,14 @@ export default function SocialMediaMarketingPage() {
             <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Creative Post &amp; Flyer Design Backed by{" "}
                             <span className="gradient-text">
                                 Smart Social Media Marketing
                             </span>
                         </h2>
 
-                        <p className="text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white">
+                        <p className="font-nunito text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white">
                             Connect, Design &amp; Convert
                         </p>
                     </div>
@@ -442,11 +443,10 @@ export default function SocialMediaMarketingPage() {
                                         }`}
                                 />
 
-                                {/* ✅ FIX: restored opening <a tag */}
                                 {isActive && (
                                     <a
                                         href="#contact"
-                                        className="absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-4 md:px-6 xl:px-7 4xl:px-9 py-2 md:py-3 xl:py-3.5 4xl:py-4 rounded-full text-xs sm:text-sm md:text-base xl:text-lg 4xl:text-xl font-bold whitespace-nowrap transition-all duration-300 hover:scale-105"
+                                        className="font-nunito absolute bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 bg-white text-black px-4 md:px-6 xl:px-7 4xl:px-9 py-2 md:py-3 xl:py-3.5 4xl:py-4 rounded-full text-xs sm:text-sm md:text-base xl:text-lg 4xl:text-xl font-bold whitespace-nowrap transition-all duration-300 hover:scale-105"
                                     >
                                         Contact Us
                                     </a>
@@ -467,7 +467,7 @@ export default function SocialMediaMarketingPage() {
                                 <div className="w-7 h-7 xl:w-8 xl:h-8 4xl:w-9 4xl:h-9 rounded-full bg-neon-cyan/20 flex items-center justify-center shrink-0">
                                     <Check className="w-4 h-4 xl:w-5 xl:h-5 text-neon-cyan stroke-[3]" />
                                 </div>
-                                <span className="text-base md:text-lg xl:text-xl 4xl:text-2xl font-medium text-slate-300">
+                                <span className="font-alata text-base md:text-lg xl:text-xl 4xl:text-2xl font-medium text-slate-300">
                                     {item}
                                 </span>
                             </div>
@@ -476,7 +476,6 @@ export default function SocialMediaMarketingPage() {
                 </div>
             </section>
 
-            {/* ✅ FIX: removed space after `<` */}
             <Testimonials />
 
             {/* 6. WHY CHOOSE OUR SERVICES */}
@@ -484,23 +483,22 @@ export default function SocialMediaMarketingPage() {
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <div className="flex flex-col items-start">
-                            <span className="text-sm xl:text-base 4xl:text-lg font-semibold text-neon-cyan mb-4">
+                            <span className="font-alata text-sm xl:text-base 4xl:text-lg font-semibold text-neon-cyan mb-4">
                                 Why Choose Our Social Media Post &amp; Flyer Design Services
                             </span>
-                            <h2 className="font-jakarta font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
+                            <h2 className="font-alata font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
                                 Social Media Marketing Means Partnering With a Team That Blends Strategy &amp; Creative Social Media Post &amp; Flyer Design Services
                             </h2>
-                            <span className="text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-jakarta font-bold text-neon-cyan mb-4">
+                            <span className="font-alata text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-bold text-neon-cyan mb-4">
                                 Creativity With Strategy
                             </span>
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
+                            <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
                                 We focus on understanding your brand, audience, and goals to create tailored content that drives real engagement and results. From eye-catching visuals to data-backed ad campaigns, we ensure every post and promotion contributes to your growth. Our commitment to consistency, performance, and innovation sets us apart in delivering measurable value across all social platforms.
                             </p>
 
-                            {/* ✅ FIX: xl:py-4.5 → xl:py-4 */}
                             <a
                                 href="#contact"
-                                className="px-8 py-3.5 xl:px-10 xl:py-4 4xl:px-12 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white glow-btn-primary"
+                                className="font-nunito px-8 py-3.5 xl:px-10 xl:py-4 4xl:px-12 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white glow-btn-primary"
                             >
                                 Know More About Us
                             </a>
@@ -522,14 +520,14 @@ export default function SocialMediaMarketingPage() {
             <section id="smmport" className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="w-full text-center max-w-7xl mx-auto mb-12 md:mb-16 4xl:mb-20 px-2 sm:px-4">
-                        <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-[2.2rem] xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
+                        <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-[2.2rem] xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
                             Your Brand is a Story, Told Through{" "}
                             <span className="gradient-text">
                                 Social Media Post &amp; Flyer Design
                             </span>
                         </h2>
 
-                        <p className="text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl text-white">
+                        <p className="font-nunito text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl text-white">
                             Check out these samples of our work
                         </p>
                     </div>
@@ -556,18 +554,18 @@ export default function SocialMediaMarketingPage() {
             {/* 8. PRICING */}
             <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-jakarta font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
+                    <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
                         PRICING
                     </span>
                 </div>
 
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <span className="text-xs sm:text-sm xl:text-base 4xl:text-lg uppercase tracking-widest text-neon-cyan">
+                        <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg uppercase tracking-widest text-neon-cyan">
                             Social Media Marketing Packages
                         </span>
 
-                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
+                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
                             SMM Package Prices According To You Need
                         </h2>
                     </div>
@@ -583,26 +581,25 @@ export default function SocialMediaMarketingPage() {
                             >
                                 <div>
                                     {plan.popular && (
-                                        <span className="inline-block mb-3 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
+                                        <span className="font-alata inline-block mb-3 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
                                             Recommended
                                         </span>
                                     )}
-                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
+                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <span className="font-alata text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
                                     <div className="flex items-baseline gap-2 mt-4 mb-2">
-                                        <span className="font-jakarta font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
+                                        <span className="font-alata font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
                                             {plan.price}
                                         </span>
                                     </div>
-                                    <span className="text-xs xl:text-sm 4xl:text-base text-slate-500">{plan.period}</span>
+                                    <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500">{plan.period}</span>
 
-                                    {/* ✅ FIX: restored opening <a tag */}
                                     <a
                                         href="#contact"
-                                        className={`w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mt-6 mb-8 ${plan.popular
+                                        className={`font-nunito w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mt-6 mb-8 ${plan.popular
                                             ? "bg-white text-slate-950 hover:bg-slate-100"
                                             : "bg-slate-900 border border-glass-border text-white hover:border-white"
                                             }`}
@@ -615,13 +612,13 @@ export default function SocialMediaMarketingPage() {
                                             {plan.features.map((feat, fIdx) => (
                                                 <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-300">
                                                     <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
-                                                    <span>{feat}</span>
+                                                    <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                             {plan.excluded && plan.excluded.map((feat, fIdx) => (
                                                 <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-500">
                                                     <X className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 mt-0.5" />
-                                                    <span>{feat}</span>
+                                                    <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -637,11 +634,11 @@ export default function SocialMediaMarketingPage() {
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <span className="text-xs sm:text-sm xl:text-base 4xl:text-lg text-white uppercase tracking-widest text-neon-cyan">
+                        <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg text-white uppercase tracking-widest text-neon-cyan">
                             How We Deliver Effective Social Media Post &amp; Flyer Design Services
                         </span>
 
-                        <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
+                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
                             Start Strong with Our Social Media Post &amp; Flyer Design Services
                         </h2>
                     </div>
@@ -660,10 +657,10 @@ export default function SocialMediaMarketingPage() {
                                     className={`relative flex items-start justify-between gap-4 xl:gap-5 p-6 md:p-8 xl:p-9 4xl:p-11 rounded-3xl bg-gradient-to-br ${gradients[idx % gradients.length]} border border-white/20 overflow-hidden`}
                                 >
                                     <div className="flex-1">
-                                        <h3 className="font-jakarta font-bold text-lg md:text-xl xl:text-2xl 4xl:text-3xl text-white mb-3">
+                                        <h3 className="font-alata font-bold text-lg md:text-xl xl:text-2xl 4xl:text-3xl text-white mb-3">
                                             {step.title}
                                         </h3>
-                                        <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
+                                        <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
                                             {step.desc}
                                         </p>
                                     </div>
@@ -689,7 +686,7 @@ export default function SocialMediaMarketingPage() {
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-jakarta font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -698,7 +695,7 @@ export default function SocialMediaMarketingPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                         <span className="w-10 h-1 rounded-full bg-sky-500" />
                     </div>
-                    <p className="text-sm xl:text-base 4xl:text-lg text-slate-400">
+                    <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400">
                         Answer To Our Most Frequently Asked Questions are just one Click Away.
                     </p>
                 </div>
@@ -715,14 +712,13 @@ export default function SocialMediaMarketingPage() {
                             >
                                 <button
                                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                                    className="w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
+                                    className="font-nunito w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                                 >
-                                    {/* ✅ FIX: duration-250 → duration-300 */}
                                     <ChevronDown
                                         className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-jakarta font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-alata font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
@@ -735,7 +731,7 @@ export default function SocialMediaMarketingPage() {
                                             exit={{ height: 0 }}
                                             transition={{ duration: 0.25 }}
                                         >
-                                            <div className="px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
+                                            <div className="font-nunito px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (

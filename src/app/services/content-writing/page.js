@@ -103,8 +103,6 @@ export default function ContentWritingPage() {
         <main className="flex-1 bg-slate-950 text-slate-100 overflow-hidden">
 
             {/* HERO SECTION */}
-            {/* FIX: min-h dropped a step on mobile so the video section isn't
-                needlessly tall/empty on small phones. */}
             <section className="relative min-h-[680px] sm:min-h-[750px] md:min-h-[850px] xl:min-h-[950px] 4xl:min-h-[1100px] overflow-visible bg-slate-950 border-b border-slate-800">
 
                 <div className="absolute inset-0">
@@ -129,33 +127,24 @@ export default function ContentWritingPage() {
                 {/* Hero Content */}
                 <div className="relative z-10 max-w-6xl xl:max-w-7xl 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 pt-24 sm:pt-28 md:pt-36 xl:pt-40 4xl:pt-48 pb-16 sm:pb-20 md:pb-28 xl:pb-32 4xl:pb-40 text-center flex flex-col items-center">
 
-                    <span className="text-xs sm:text-sm md:text-xl xl:text-2xl 4xl:text-3xl font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white mb-6">
+                    <span className="font-alata text-xs sm:text-sm md:text-xl xl:text-2xl 4xl:text-3xl font-bold uppercase tracking-[0.2em] sm:tracking-[0.25em] text-white mb-6">
                         Your Ideas, Our Content. Let&apos;s Begin
                     </span>
 
-                    {/* FIX: `whitespace-nowrap` forced this headline onto one line
-                        even on a 375px phone, so it either overflowed the screen or
-                        got silently clipped. It now wraps normally on mobile/tablet
-                        and only forces a single line from lg upward where there's
-                        enough width for it. */}
                     <h1
-                        className="w-full max-w-none mx-auto text-center font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 4xl:text-7xl leading-tight text-white mb-8 whitespace-normal lg:whitespace-nowrap"
+                        className="font-alata w-full max-w-none mx-auto text-center font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 4xl:text-7xl leading-tight text-white mb-8 whitespace-normal lg:whitespace-nowrap"
                     >
                         Turn Your Brand Vision Into{" "}
                         <span className="gradient-text">Content</span>
                     </h1>
 
-                    {/* FIX: `border-3` and `px-8 md:px-25` aren't valid Tailwind
-                        utilities (no class is generated for either), so this badge had
-                        no visible border and no extra horizontal padding on desktop.
-                        Replaced with real values, scaled down for mobile. */}
                     <div className="border-2 sm:border-[3px] border-white/70 rounded-[20px] sm:rounded-[30px] px-5 sm:px-8 md:px-[6.25rem] xl:px-32 4xl:px-40 py-2.5 sm:py-3 md:py-10 xl:py-12 4xl:py-14 mb-7 bg-white/5 backdrop-blur-sm">
-                        <span className="text-sm sm:text-base md:text-3xl xl:text-4xl 4xl:text-5xl font-bold text-cyan-400">
+                        <span className="font-alata text-sm sm:text-base md:text-3xl xl:text-4xl 4xl:text-5xl font-bold text-cyan-400">
                             Copy Writing &amp; Content Creation
                         </span>
                     </div>
 
-                    <p className="text-sm sm:text-base md:text-3xl xl:text-4xl 4xl:text-5xl italic text-white/90 font-medium mb-10">
+                    <p className="font-nunito text-sm sm:text-base md:text-3xl xl:text-4xl 4xl:text-5xl italic text-white/90 font-medium mb-10">
                         Think It — Create It — Share It
                     </p>
 
@@ -179,26 +168,17 @@ export default function ContentWritingPage() {
                             ))}
                         </div>
 
-                        <span className="text-sm sm:text-base xl:text-lg 4xl:text-xl font-bold text-white">
+                        <span className="font-alata text-sm sm:text-base xl:text-lg 4xl:text-xl font-bold text-white">
                             4.9/5 Star Rating
                         </span>
 
-                        <span className="text-xs sm:text-sm xl:text-base 4xl:text-lg text-cyan-400 mt-1">
+                        <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg text-cyan-400 mt-1">
                             Based on Google Review
                         </span>
                     </div>
                 </div>
 
                 {/* CTA CARD */}
-                {/* FIX: this whole card used to be `absolute` + `flex justify-between`
-                    with one child forced to `absolute left-1/2 -translate-x-1/2`. That
-                    only works when all three children (phone icon / centered text /
-                    call+button) fit side-by-side, which needs a wide desktop viewport —
-                    on mobile the pieces overlapped each other and the nowrap headings
-                    inside it overflowed the card. Below lg it's now a normal stacked
-                    block sitting in the page flow (no absolute overlap, no clipped
-                    text); from lg upward it goes back to the original absolute
-                    bottom-overlap treatment. */}
                 <div className="relative lg:absolute left-0 right-0 lg:bottom-0 lg:translate-y-1/2 z-20 px-4 sm:px-6 xl:px-10 4xl:px-16 -mt-10 sm:-mt-14 lg:mt-0">
                     <div className="max-w-6xl xl:max-w-7xl 4xl:max-w-[1700px] mx-auto">
                         <div className="relative bg-[#0a0e27] rounded-[2rem] sm:rounded-[2.5rem] px-6 py-8 sm:px-8 md:px-10 md:py-8 xl:px-14 xl:py-10 4xl:px-16 4xl:py-12 flex flex-col lg:flex-row items-center lg:justify-between gap-8 lg:gap-4 xl:gap-6 4xl:gap-8 border-2 border-slate-700 shadow-2xl">
@@ -231,9 +211,6 @@ export default function ContentWritingPage() {
                                     <span className="absolute w-28 h-28 rounded-full bg-cyan-400/20 blur-2xl animate-pulse" />
 
                                     {/* PHONE CIRCLE */}
-                                    {/* FIX: w-25/h-25 aren't valid Tailwind sizes, so this
-                                        circle had no explicit size at all. Using the real
-                                        w-24/h-24 scale value instead. */}
                                     <div className="relative z-10 w-24 h-24 rounded-full bg-cyan-500 flex items-center justify-center text-white shadow-[0_0_35px_rgba(34,211,238,0.65)]">
 
                                         <Phone
@@ -247,11 +224,11 @@ export default function ContentWritingPage() {
 
                             {/* 2. CONTENT — centered on mobile, exact-center overlay from lg */}
                             <div className="text-center lg:absolute lg:left-1/2 lg:-translate-x-1/2 -mt-6 lg:mt-0">
-                                <h2 className="text-lg sm:text-xl md:text-2xl lg:text-[35px] xl:text-[40px] 4xl:text-[48px] text-white mb-2 whitespace-normal lg:whitespace-nowrap">
+                                <h2 className="font-alata text-lg sm:text-xl md:text-2xl lg:text-[35px] xl:text-[40px] 4xl:text-[48px] text-white mb-2 whitespace-normal lg:whitespace-nowrap">
                                     Want To Order Content Writing
                                 </h2>
 
-                                <p className="text-sm sm:text-base lg:text-[26px] xl:text-[28px] 4xl:text-[36px] text-cyan-400 whitespace-normal lg:whitespace-nowrap">
+                                <p className="font-nunito text-sm sm:text-base lg:text-[26px] xl:text-[28px] 4xl:text-[36px] text-cyan-400 whitespace-normal lg:whitespace-nowrap">
                                     Get in Touch for a Free Personalized Pricing Plan
                                 </p>
                             </div>
@@ -259,94 +236,84 @@ export default function ContentWritingPage() {
                             {/* 3 + 4. CALL US + SAY HELLO */}
                             <div className="lg:ml-auto flex flex-col items-center gap-4 xl:gap-5">
                                 <div className="flex flex-col leading-tight text-center">
-                                    {/* FIX: this label was text-2xl — bigger than the
-                                        phone number it labels. Scaled it down to a
-                                        normal small-caps label size. */}
-                                    <span className="text-xs sm:text-sm xl:text-base font-semibold uppercase tracking-wider text-slate-400">
+                                    <span className="font-alata text-xs sm:text-sm xl:text-base font-semibold uppercase tracking-wider text-slate-400">
                                         Call Us
                                     </span>
 
 
-                                   <a href="tel:+919929600601"
-                                    className="text-base md:text-xl xl:text-2xl 4xl:text-3xl font-extrabold text-white hover:text-cyan-400 transition-colors whitespace-nowrap"
+                                    <a href="tel:+919929600601"
+                                        className="font-nunito text-base md:text-xl xl:text-2xl 4xl:text-3xl font-extrabold text-white hover:text-cyan-400 transition-colors whitespace-nowrap"
                                     >
-                                    +91 - 9929 600 601
-                                </a>
+                                        +91 - 9929 600 601
+                                    </a>
+                                </div>
+
+                                <button
+                                    onClick={() => setShowPopup(true)}
+                                    className="font-nunito px-6 sm:px-8 xl:px-10 4xl:px-12 py-3 sm:py-3.5 xl:py-4 4xl:py-5 border border-white rounded-[15px] text-base sm:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-2 4xl:gap-3"
+                                    style={{ background: "linear-gradient(128deg, #00549B 21%, #F04F25 100%)" }}
+                                >
+                                    Say Hello
+                                    <span className="flex items-center justify-center">
+                                        <img src="/images/video-reel/icons/smile.svg" alt="Smile" className="w-6 h-6 sm:w-7 sm:h-7 xl:w-9 xl:h-9 4xl:w-11 4xl:h-11 brightness-0 invert" />
+                                    </span>
+                                </button>
+
+                                <ContactPopup showPopup={showPopup} setShowPopup={setShowPopup} />
                             </div>
 
-                            <button
-                                onClick={() => setShowPopup(true)}
-                                className="px-6 sm:px-8 xl:px-10 4xl:px-12 py-3 sm:py-3.5 xl:py-4 4xl:py-5 border border-white rounded-[15px] text-base sm:text-lg lg:text-xl xl:text-2xl 4xl:text-3xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-2 4xl:gap-3"
-                                style={{ background: "linear-gradient(128deg, #00549B 21%, #F04F25 100%)" }}
-                            >
-                                Say Hello
-                                <span className="flex items-center justify-center">
-                                    <img src="/images/video-reel/icons/smile.svg" alt="Smile" className="w-6 h-6 sm:w-7 sm:h-7 xl:w-9 xl:h-9 4xl:w-11 4xl:h-11 brightness-0 invert" />
-                                </span>
-                            </button>
-
-                            <ContactPopup showPopup={showPopup} setShowPopup={setShowPopup} />
                         </div>
-
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
 
 
-            {/* 3. SERVICES */ }
-    {/* FIX: `py-35` isn't a real Tailwind spacing step, so no vertical
-                padding was actually applied on any screen size (the huge gap you saw
-                was really just the CTA card's mobile margin above). Replaced with a
-                real, responsive scale — smaller on mobile, matching the original
-                intent on desktop. */}
-    <section className="pt-16 sm:pt-20 md:pt-28 lg:pt-[8.75rem] xl:pt-40 4xl:pt-48 pb-16 sm:pb-20 md:pb-28 xl:pb-32 4xl:pb-40 bg-dark-bg">
-        <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
-            <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+            {/* 3. SERVICES */}
+            <section className="pt-16 sm:pt-20 md:pt-28 lg:pt-[8.75rem] xl:pt-40 4xl:pt-48 pb-16 sm:pb-20 md:pb-28 xl:pb-32 4xl:pb-40 bg-dark-bg">
+                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
+                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
 
-                <h2 className="font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
-                    Our Content Writing Services
-                </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10">
-                {services.map((s, idx) => (
-                    <div key={idx} className="border-4 border-[#007EC3] p-5 sm:p-6 xl:p-7 4xl:p-9 rounded-2xl flex flex-col items-start gap-4 xl:gap-5 bg-slate-900/50">
-                        {/* FIX: w-15/h-15 aren't valid Tailwind sizes (no class
-                                    generated), which collapsed this icon box to 0×0. */}
-                        <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-xl bg-[#007EC3] border-slate-700 flex items-center justify-center shrink-0">
-                            <img
-                                src={s.image}
-                                alt={s.title}
-                                className="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16 object-contain brightness-0 invert"
-                            />
-                        </div>
-                        <h3 className="font-bold text-lg sm:text-xl xl:text-2xl 4xl:text-3xl text-white">{s.title}</h3>
-                        <p className="text-sm sm:text-base xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed">{s.desc}</p>
+                        <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
+                            Our Content Writing Services
+                        </h2>
                     </div>
-                ))}
-            </div>
-        </div>
-    </section>
 
-    {/* 4. WORDS THAT WORK */ }
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10">
+                        {services.map((s, idx) => (
+                            <div key={idx} className="border-4 border-[#007EC3] p-5 sm:p-6 xl:p-7 4xl:p-9 rounded-2xl flex flex-col items-start gap-4 xl:gap-5 bg-slate-900/50">
+                                <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-xl bg-[#007EC3] border-slate-700 flex items-center justify-center shrink-0">
+                                    <img
+                                        src={s.image}
+                                        alt={s.title}
+                                        className="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16 object-contain brightness-0 invert"
+                                    />
+                                </div>
+                                <h3 className="font-alata font-bold text-lg sm:text-xl xl:text-2xl 4xl:text-3xl text-white">{s.title}</h3>
+                                <p className="font-nunito text-sm sm:text-base xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed">{s.desc}</p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* 4. WORDS THAT WORK */}
             <section className="py-16 sm:py-20 md:py-15 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <div className="flex flex-col items-start">
-                            <span className="text-base sm:text-lg md:text-xl xl:text-2xl 4xl:text-3xl font-bold uppercase tracking-widest text-cyan-400 mb-4">
+                            <span className="font-alata text-base sm:text-lg md:text-xl xl:text-2xl 4xl:text-3xl font-bold uppercase tracking-widest text-cyan-400 mb-4">
                                 At Sanyog Media Concepts
                             </span>
-                            <h2 className="font-bold text-xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
+                            <h2 className="font-alata font-bold text-xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
                                 Words That Work — Content That Connects
                             </h2>
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
+                            <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
                                 Content writing involves creating written material for digital platforms with the goal of engaging, informing, or converting an audience. This includes blog posts, website copy, product descriptions, social media content, email newsletters, and more. A skilled content writer tailors content to match the brand voice, optimize for search engines (SEO), and meet specific marketing or communication goals.
                             </p>
                             <Link
                                 href="/about-us"
-                                className="px-8 py-4 xl:px-10 xl:py-5 4xl:px-12 4xl:py-6 rounded-xl font-bold text-slate-300 border border-slate-700 hover:border-white hover:text-white transition-all bg-[#007EC3] backdrop-blur-sm w-fit xl:text-lg 4xl:text-xl"
+                                className="font-nunito px-8 py-4 xl:px-10 xl:py-5 4xl:px-12 4xl:py-6 rounded-xl font-bold text-slate-300 border border-slate-700 hover:border-white hover:text-white transition-all bg-[#007EC3] backdrop-blur-sm w-fit xl:text-lg 4xl:text-xl"
                             >
                                 Know More About Us
                             </Link>
@@ -367,18 +334,14 @@ export default function ContentWritingPage() {
 
             <Testimonials />
 
-    {/* 6. OUR COMMITMENTS */ }
-    {/* FIX: `py-15` isn't a valid Tailwind step either — replaced with a
-                real responsive scale. */}
+            {/* 6. OUR COMMITMENTS */}
             <section className="bg-dark-bg py-16 sm:py-20 md:py-24 4xl:py-32">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <span className="text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl uppercase tracking-widest text-cyan-400">
+                        <span className="font-alata text-sm sm:text-base md:text-lg xl:text-xl 4xl:text-2xl uppercase tracking-widest text-cyan-400">
                             Our Commitments To You
                         </span>
-                        {/* FIX: whitespace-nowrap here overflowed on mobile too;
-                            now wraps below lg. */}
-                        <h2 className="w-full text-center text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 whitespace-normal lg:whitespace-nowrap">
+                        <h2 className="font-alata w-full text-center text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 whitespace-normal lg:whitespace-nowrap">
                             With Our Content Writing Services
                         </h2>
                     </div>
@@ -386,7 +349,6 @@ export default function ContentWritingPage() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10">
                         {commitments.map((c, idx) => (
                             <div key={idx} className="border-2 sm:border-[3px] border-white p-5 sm:p-6 xl:p-7 4xl:p-9 rounded-2xl flex flex-col gap-4 xl:gap-5">
-                                {/* FIX: w-15/h-15 → real w-14/h-14 scale value. */}
                                 <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-xl bg-[#007EC3] border border-slate-700 flex items-center justify-center text-cyan-400 shrink-0">
                                     <img
                                         src={c.image}
@@ -394,8 +356,8 @@ export default function ContentWritingPage() {
                                         className="w-9 h-9 sm:w-10 sm:h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 object-contain brightness-0 invert"
                                     />
                                 </div>
-                                <h3 className="font-bold text-lg sm:text-xl xl:text-2xl 4xl:text-3xl text-white">{c.title}</h3>
-                                <p className="text-sm sm:text-base xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed">{c.desc}</p>
+                                <h3 className="font-alata font-bold text-lg sm:text-xl xl:text-2xl 4xl:text-3xl text-white">{c.title}</h3>
+                                <p className="font-nunito text-sm sm:text-base xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed">{c.desc}</p>
                             </div>
                         ))}
                     </div>
@@ -408,8 +370,8 @@ export default function ContentWritingPage() {
 
             <FinalCTA />
 
-    {/* Global CSS for marquee animation */ }
-    <style jsx global>{`
+            {/* Global CSS for marquee animation */}
+            <style jsx global>{`
         @keyframes marquee {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }

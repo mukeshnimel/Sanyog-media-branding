@@ -156,11 +156,11 @@ export default function WebsiteDesignPage() {
 
                         {/* Left — copy */}
                         <div className="flex flex-col items-start w-full pt-8 sm:pt-10 md:pt-0">
-                            <span className="text-sm md:text-base xl:text-lg 4xl:text-xl text-white/90 mb-3">
+                            <span className="font-alata text-sm md:text-base xl:text-lg 4xl:text-xl text-white/90 mb-3">
                                 Creating Your Unique Website.......
                             </span>
 
-                            <h1 className="font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl leading-tight text-white mb-2 break-words">
+                            <h1 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 2xl:text-6xl 3xl:text-7xl 4xl:text-8xl leading-tight text-white mb-2 break-words">
                                 Website Design
                             </h1>
 
@@ -172,7 +172,7 @@ export default function WebsiteDesignPage() {
                                         initial="hidden"
                                         animate="visible"
                                         exit="exit"
-                                        className="flex flex-wrap text-base sm:text-lg md:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl text-sky-400"
+                                        className="flex flex-wrap font-alata text-base sm:text-lg md:text-3xl xl:text-4xl 2xl:text-4xl 3xl:text-5xl 4xl:text-6xl text-sky-400"
                                     >
                                         {rotatingWords[wordIndex].split("").map((char, i) => (
                                             <motion.span key={i} custom={i} variants={waveLetterVariants} className="inline-block">
@@ -183,7 +183,7 @@ export default function WebsiteDesignPage() {
                                 </AnimatePresence>
                             </div>
 
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-2xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 2xl:max-w-2xl 3xl:max-w-3xl 4xl:max-w-4xl">
+                            <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 2xl:text-lg 3xl:text-xl 4xl:text-2xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 2xl:max-w-2xl 3xl:max-w-3xl 4xl:max-w-4xl">
                                 Our Expert Designers Craft Visual Stories That Resonate With Your
                                 Target Audience, Ensuring A Strong and Memorable Brand Presence
                             </p>
@@ -197,21 +197,21 @@ export default function WebsiteDesignPage() {
                             </div>
 
                             <div className="mb-8">
-                                <p className="text-base xl:text-lg 4xl:text-2xl font-bold text-white">4.9/5 Star Rating</p>
-                                <p className="text-sm xl:text-base 4xl:text-xl font-semibold text-sky-400">Based on Google Review</p>
+                                <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">4.9/5 Star Rating</p>
+                                <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">Based on Google Review</p>
                             </div>
 
                             <div className="flex flex-col sm:flex-row items-start gap-3 xl:gap-4 4xl:gap-6 w-full sm:w-auto">
 
                                 <a href="#contact"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                                    className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Connect With Us
                                 </a>
 
 
                                 <a href="#smmport"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                                    className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                                 >
                                     Portfolio
                                 </a>
@@ -240,10 +240,10 @@ export default function WebsiteDesignPage() {
 
                         {/* LEFT — STICKY */}
                         <div className="lg:sticky lg:top-28 self-start h-fit w-full">
-                            <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan block mb-4">
+                            <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan block mb-4">
                                 Why Choose Sanyog Media
                             </span>
-                            <h2 className="font-jakarta font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-8 leading-tight">
+                            <h2 className="font-alata font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-8 leading-tight">
                                 Specialized in Developing Websites
                             </h2>
 
@@ -273,8 +273,8 @@ export default function WebsiteDesignPage() {
                                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-xl bg-white border border-glass-border flex items-center justify-center mb-4 sm:mb-6 shrink-0">
                                         <img src={s.iconImage} alt={`${s.title} icon`} className="w-10 h-10 sm:w-12 sm:h-12 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
                                     </div>
-                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white">{s.title}</h3>
-                                    <p className="text-xs xl:text-sm 4xl:text-base text-slate-400 leading-relaxed">{s.desc}</p>
+                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white">{s.title}</h3>
+                                    <p className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 leading-relaxed">{s.desc}</p>
                                 </div>
                             ))}
                         </div>
@@ -287,10 +287,10 @@ export default function WebsiteDesignPage() {
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 md:mb-12 4xl:mb-16">
-                        <h2 className="font-jakarta font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
+                        <h2 className="font-alata font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
                             Making a Lasting <span className="gradient-text">Mark in The Market</span>
                         </h2>
-                        <p className="text-slate-400 mt-4 xl:text-lg 4xl:text-xl">
+                        <p className="font-nunito text-slate-400 mt-4 xl:text-lg 4xl:text-xl">
                             Your brand is a story unfolding across all customer touch points
                         </p>
                     </div>
@@ -313,7 +313,7 @@ export default function WebsiteDesignPage() {
       left-1/2
       -translate-x-1/2
       w-max
-      font-jakarta
+      font-alata
       font-extrabold
       text-xl
       md:text-3xl
@@ -330,7 +330,7 @@ export default function WebsiteDesignPage() {
                             <span className="gradient-text">Story Comes Alive</span>
                         </h2>
 
-                        <p className="text-slate-400 xl:text-lg 4xl:text-xl text-center">
+                        <p className="font-nunito text-slate-400 xl:text-lg 4xl:text-xl text-center">
                             Check out these samples for your website landing page
                         </p>
                     </div>
@@ -374,7 +374,7 @@ export default function WebsiteDesignPage() {
                             className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center p-4 sm:p-8"
                             onClick={closeLightbox}
                         >
-                            <div className="absolute top-4 left-4 sm:top-6 sm:left-8 text-white/80 font-mono text-xs sm:text-sm tracking-wider z-10">
+                            <div className="font-alata absolute top-4 left-4 sm:top-6 sm:left-8 text-white/80 font-mono text-xs sm:text-sm tracking-wider z-10">
                                 {activeIndex + 1} / {portfolioGallery.length}
                             </div>
 
@@ -409,58 +409,56 @@ export default function WebsiteDesignPage() {
             </section>
 
             <Testimonials />
-
             {/* 5. PRICING */}
             <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-jakarta font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
+                    <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
                     </span>
                 </div>
 
-                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
+                <div className="max-w-[1400px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-10 4xl:px-24 relative z-10">
                     <div className="w-full flex flex-col items-center text-center mb-12 md:mb-16 4xl:mb-20">
-                        <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
+                        <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                             Website Design Packages
                         </span>
 
-                        <h2 className="inline-block font-jakarta font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center whitespace-nowrap">
+                        <h2 className="font-alata font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center max-w-3xl 4xl:max-w-5xl">
                             Expert Website Design at a Price That Fits Your Business
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 xl:gap-7 4xl:gap-9">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-5 4xl:gap-7">
                         {pricingPlans.map((plan, idx) => (
                             <div
                                 key={idx}
-                                className={`rounded-3xl p-6 xl:p-7 4xl:p-9 flex flex-col justify-between border ${plan.popular
+                                className={`min-w-0 rounded-3xl p-5 xl:p-6 4xl:p-8 flex flex-col justify-between border ${plan.popular
                                     ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
                                     : "border-glass-border bg-slate-950/40"
                                     }`}
                             >
                                 <div>
                                     {plan.popular && (
-                                        <span className="inline-block mb-3 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
+                                        <span className="font-alata inline-block mb-2.5 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
                                             Most Popular
                                         </span>
                                     )}
-                                    <h3 className="font-jakarta font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
+                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <span className="font-alata text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
-                                    <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
-                                        <span className="text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                        <span className="font-jakarta font-extrabold text-2xl xl:text-3xl 4xl:text-4xl text-white">
+                                    <div className="flex items-baseline gap-2 mt-3 mb-5 flex-wrap">
+                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
+                                        <span className="font-alata font-extrabold text-2xl xl:text-3xl 4xl:text-4xl text-white">
                                             {plan.price}
                                         </span>
-                                        <span className="text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
+                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
                                     </div>
 
-                                    {/* ✅ FIX: restored opening <a tag */}
                                     <a
                                         href="#contact"
-                                        className={`w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-6 ${plan.popular
+                                        className={`font-nunito w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-5 ${plan.popular
                                             ? "bg-white text-slate-950 hover:bg-slate-100"
                                             : "bg-slate-900 border border-glass-border text-white hover:border-white"
                                             }`}
@@ -468,18 +466,18 @@ export default function WebsiteDesignPage() {
                                         Buy Now
                                     </a>
 
-                                    <div className="border-t border-glass-border/60 pt-5">
-                                        <ul className="flex flex-col gap-2.5">
+                                    <div className="border-t border-glass-border/60 pt-4">
+                                        <ul className="flex flex-col gap-2">
                                             {plan.features.map((feat, fIdx) => (
                                                 <li key={fIdx} className="flex items-start gap-2 text-xs xl:text-sm 4xl:text-base text-slate-300">
                                                     <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
-                                                    <span>{feat}</span>
+                                                    <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                             {plan.excluded?.map((feat, fIdx) => (
                                                 <li key={fIdx} className="flex items-start gap-2 text-xs xl:text-sm 4xl:text-base text-slate-500">
                                                     <span className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 mt-0.5 text-center">✕</span>
-                                                    <span>{feat}</span>
+                                                    <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                         </ul>
@@ -494,10 +492,10 @@ export default function WebsiteDesignPage() {
             {/* 6. HOW IT WORKS */}
             <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
                 <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
-                    <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
+                    <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
-                    <h2 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                    <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
                         Makes It Easy to Create Your Logo &amp; Branding
                     </h2>
                 </div>
@@ -514,10 +512,10 @@ export default function WebsiteDesignPage() {
                                     <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
                                         <img src={step.iconImage} alt={`${step.title} icon`} className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
                                     </div>
-                                    <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                    <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
                                         {step.title}
                                     </h3>
-                                    <p className="text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                                    <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
                                         {step.desc}
                                     </p>
                                 </div>
@@ -534,13 +532,13 @@ export default function WebsiteDesignPage() {
                 </div>
             </section>
 
-            {/* 7. FAQ */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
+            {/* 10. FAQ */}
+            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
                     </div>
-                    <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
+                    <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mb-4">
                         Frequently Asked Questions
                     </h2>
                     <div className="flex items-center gap-1.5 mb-4">
@@ -549,38 +547,43 @@ export default function WebsiteDesignPage() {
                         <span className="w-1.5 h-1.5 rounded-full bg-slate-500" />
                         <span className="w-10 h-1 rounded-full bg-sky-500" />
                     </div>
-                    <p className="text-sm xl:text-base 4xl:text-lg text-slate-400">
+                    <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400">
                         Answer To Our Most Frequently Asked Questions are just one Click Away.
                     </p>
                 </div>
 
-                <div className="max-w-5xl xl:max-w-6xl 4xl:max-w-7xl mx-auto px-4 sm:px-6 w-full flex flex-col gap-3 xl:gap-4">
+                <div className="w-full flex flex-col gap-3 xl:gap-4">
                     {faqs.map((faq, idx) => {
                         const isOpen = activeFaq === idx;
                         return (
                             <div
                                 key={idx}
-                                className={`w-full transition-all duration-300 rounded-xl ${isOpen ? "border border-white" : "border border-transparent"
+                                className={`w-full transition-all duration-300 ${isOpen ? "border border-white" : "border border-transparent"
                                     }`}
                                 style={{ background: "#1487c9" }}
                             >
                                 <button
                                     onClick={() => setActiveFaq(isOpen ? null : idx)}
-                                    className="w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
+                                    className="font-nunito w-full px-4 md:px-5 xl:px-6 4xl:px-8 py-4 xl:py-5 4xl:py-6 flex items-center gap-4 xl:gap-5 text-left"
                                 >
                                     <ChevronDown
-                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-250 ${isOpen ? "rotate-180" : ""
+                                        className={`w-5 h-5 xl:w-6 xl:h-6 4xl:w-7 4xl:h-7 text-white shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180" : ""
                                             }`}
                                     />
-                                    <span className="font-jakarta font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
+                                    <span className="font-alata font-bold text-sm md:text-base xl:text-lg 4xl:text-xl text-white">
                                         {faq.q}
                                     </span>
                                 </button>
 
                                 <AnimatePresence initial={false}>
                                     {isOpen && (
-                                        <motion.div initial={{ height: 0 }} animate={{ height: "auto" }} exit={{ height: 0 }} transition={{ duration: 0.25 }}>
-                                            <div className="px-4 sm:px-6 md:px-10 pb-6 pl-[3.25rem] md:pl-[3.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
+                                        <motion.div
+                                            initial={{ height: 0 }}
+                                            animate={{ height: "auto" }}
+                                            exit={{ height: 0 }}
+                                            transition={{ duration: 0.25 }}
+                                        >
+                                            <div className="font-nunito px-6 md:px-10 pb-6 pl-14 md:pl-[4.75rem] text-sm xl:text-base 4xl:text-lg text-white/85 leading-relaxed">
                                                 {faq.list ? (
                                                     <ol className="list-decimal pl-5 flex flex-col gap-1.5">
                                                         {faq.list.map((item, lIdx) => (

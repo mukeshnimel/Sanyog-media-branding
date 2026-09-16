@@ -128,7 +128,7 @@ export default function CareersPage() {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-jakarta  text-4xl md:text-6xl lg:text-7xl 3xl:text-8xl leading-tight tracking-tight text-white mb-6 max-w-4xl 3xl:max-w-6xl"
+            className="font-alata  text-4xl md:text-6xl lg:text-7xl 3xl:text-8xl leading-tight tracking-tight text-white mb-6 max-w-4xl 3xl:max-w-6xl"
           >
             Start Your Career Journey <br />
             <span className="gradient-text">
@@ -163,7 +163,7 @@ export default function CareersPage() {
           >
             <button
               onClick={() => setShowPopup(true)}
-              className="px-5 sm:px-8 4xl:px-11 py-2.5 sm:py-3.5 4xl:py-5 border border-white rounded-[15px] text-sm sm:text-xl 4xl:text-2xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-1.5 sm:gap-2 4xl:gap-3"
+              className="font-nunito px-5 sm:px-8 4xl:px-11 py-2.5 sm:py-3.5 4xl:py-5 border border-white rounded-[15px] text-sm sm:text-xl 4xl:text-2xl font-bold text-white hover:opacity-90 transition-all shadow-lg flex items-center gap-1.5 sm:gap-2 4xl:gap-3"
               style={{ background: "linear-gradient(128deg, #00549B 21%, #07C4DD 100%)" }}
             >
               Connect With Team
@@ -187,19 +187,19 @@ export default function CareersPage() {
                 Career at Sanyog Media
               </span>
 
-              <h2 className="font-jakarta font-bold text-3xl md:text-5xl 3xl:text-6xl text-sky-400 leading-tight mb-6">
+              <h2 className="font-alata font-bold text-[25px] md:text-[40px] 3xl:text-[55px] text-sky-400 leading-tight mb-6">
                 Special Advantages to Advance Your Entire Career
               </h2>
 
               {/* Highlighted quote/callout box */}
-              <div className="w-full rounded-lg bg-[#0b2a4a] px-6 py-5 3xl:px-8 3xl:py-6 mb-6">
-                <p className="text-white text-sm md:text-base 3xl:text-lg leading-relaxed">
+              <div className="w-full rounded-lg bg-[#0b2a4a] border-l-[5px] border-white px-6 py-5 3xl:px-8 3xl:py-6 mb-6">
+                <p className="font-nunito text-white text-[18px] md:text-[22px] 3xl:text-[25px] leading-relaxed">
                   Certainly! Different ways to express &ldquo;Exclusive benefits for
                   your complete career growth&rdquo; could include:
                 </p>
               </div>
 
-              <p className="text-slate-400 text-sm md:text-base 3xl:text-lg leading-relaxed mb-8">
+              <p className="font-nunito text-slate-400 text-sm md:text-base 3xl:text-lg leading-relaxed mb-8">
                 At Sanyog Media, we&apos;re cultivating an environment where exceptional individuals — just like you — can excel in their endeavors. If you&apos;re prepared to advance in your professional journey and contribute to the rapid growth of countless brands, you&apos;ve found the perfect spot.
               </p>
             </div>
@@ -243,7 +243,7 @@ export default function CareersPage() {
             <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
               Unique Perks
             </span>
-            <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4">
+            <h2 className="font-alata font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4">
               To Foster Your Overall Professional Development
             </h2>
           </div>
@@ -270,7 +270,7 @@ export default function CareersPage() {
                     </div>
                     <div className="flex-1 min-w-0 rounded-md bg-slate-900/80 px-2.5 py-1 3xl:px-3 3xl:py-1.5">
                       <span className="block text-[10px] 3xl:text-xs text-slate-500 truncate group-hover:text-neon-cyan/80 transition-colors duration-300">
-                        sanyogmedia.com/perks/{slug}
+                        sanyogmedia.in/perks/{slug}
                       </span>
                     </div>
                   </div>
@@ -282,10 +282,10 @@ export default function CareersPage() {
                         {perk.icon}
                       </span>
                     </div>
-                    <h3 className="font-jakarta font-semibold text-base 3xl:text-lg text-white mb-2 leading-snug">
+                    <h3 className="font-alata font-semibold text-base 3xl:text-lg text-white mb-2 leading-snug">
                       {perk.title}
                     </h3>
-                    <p className="text-xs 3xl:text-sm text-slate-400 leading-relaxed">
+                    <p className="font-nunito text-xs 3xl:text-sm text-slate-400 leading-relaxed">
                       {perk.description}
                     </p>
                   </div>
@@ -311,7 +311,7 @@ export default function CareersPage() {
               initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
-              className="font-jakarta font-bold text-2xl md:text-6xl 3xl:text-7xl text-white"
+              className="font-alata font-bold text-2xl md:text-6xl 3xl:text-7xl text-white"
             >
               <span className="text-sky-400">Internship</span> Program
             </motion.h2>
@@ -352,25 +352,25 @@ export default function CareersPage() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="lg:col-span-7 flex flex-col items-start"
             >
-              <h3 className="font-jakarta font-bold text-2xl md:text-3xl 3xl:text-4xl text-white mb-6">
+              <h3 className="font-alata font-bold text-2xl md:text-3xl 3xl:text-4xl text-white mb-6">
                 Internship at Sanyog Media
               </h3>
 
               <div className="bg-sky-600 p-5 3xl:p-6 mb-8 w-full border-l-[5px] border-white">
-                <p className="text-sm md:text-base 3xl:text-lg font-semibold text-white leading-relaxed">
+                <p className="font-nunito text-sm text-[18px] md:text-[20px] 3xl:text-[22px] font-semibold text-white leading-relaxed">
                   Confidence Applied Properly Surpasses Genius. There&apos;s Nothing
                   Like Confidence.
                 </p>
               </div>
 
-              <p className="text-sm md:text-base 3xl:text-lg text-slate-300 leading-relaxed mb-5">
+              <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[21px] 4xl:text-[26px] 3xl:text-lg text-slate-300 leading-relaxed mb-5">
                 With A Sharp Focus On Sales And Marketing, We Offer An Intensive
                 Internship Program Designed To Empower Aspiring Professionals. Our
                 Interns Gain Hands-On Experience Working On Real-World Projects,
                 Learning How Design And Communication Drive Business Success.
               </p>
 
-              <p className="text-sm md:text-base 3xl:text-lg text-slate-300 leading-relaxed mb-8">
+              <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[21px] 4xl:text-[26px] text-slate-300 leading-relaxed mb-8">
                 Whether You&apos;re A Brand Looking To Stand Out Or A Student Ready
                 To Launch Your Career, Sanyog Media Concepts Is Your Creative
                 Partner For Growth.
@@ -380,7 +380,7 @@ export default function CareersPage() {
                 href="https://forms.gle/yeDXbEijkvP3KCg5A"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-2.5 3xl:px-8 3xl:py-3 rounded-full bg-sky-500 hover:bg-sky-600 text-white text-sm 3xl:text-base font-bold transition-colors"
+                className="font-nunito inline-flex items-center gap-2 px-6 py-2.5 3xl:px-8 3xl:py-3 rounded-full bg-sky-500 hover:bg-sky-600 text-white text-[16px] md:text-[18px] 3xl:text-[20px] font-bold transition-colors"
               >
                 Apply Now
                 <CheckCircle className="w-4 h-4 3xl:w-5 3xl:h-5" />
@@ -397,10 +397,10 @@ export default function CareersPage() {
             <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
               Join the Success with Sanyog Media Concepts
             </span>
-            <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 mb-6">
+            <h2 className="font-alata font-extrabold text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 mb-6">
               Explore Our Available Roles
             </h2>
-            <p className="text-base 3xl:text-lg text-slate-400 max-w-2xl 3xl:max-w-3xl mx-auto">
+            <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[23px] 4xl:text-[28px] text-slate-400 max-w-2xl 3xl:max-w-3xl mx-auto">
               Discover a job that ignites your passion, confidently set imposter
               syndrome aside, and take the step to apply.
             </p>
@@ -428,7 +428,7 @@ export default function CareersPage() {
 
                 {/* Content */}
                 <div className="flex flex-col items-center px-6 pt-6 pb-8 3xl:px-8 3xl:pt-8 3xl:pb-10 flex-1">
-                  <h3 className="font-jakarta font-bold text-lg 3xl:text-xl text-slate-800 text-center mb-4">
+                  <h3 className="font-alata font-bold text-lg 3xl:text-xl text-slate-800 text-center mb-4">
                     {role.title}
                   </h3>
 
@@ -480,7 +480,7 @@ export default function CareersPage() {
             </span>
           </span>
 
-          <h2 className="font-jakarta font-extrabold text-3xl md:text-5xl text-white mb-6">
+          <h2 className="font-alata font-extrabold text-3xl md:text-5xl text-white mb-6">
             Ready to Make an Impact? Send Your C.V.
           </h2>
 

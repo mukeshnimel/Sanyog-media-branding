@@ -136,7 +136,7 @@ export default function ContactPopup({ showPopup, setShowPopup }) {
         <AnimatePresence>
             {showPopup && (
                 <motion.div
-                    className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+                    className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 pt-20 sm:pt-4 overflow-y-auto"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
@@ -160,7 +160,6 @@ export default function ContactPopup({ showPopup, setShowPopup }) {
                                 y: 0,
                                 transition: { duration: 1.1, ease: [0.16, 1, 0.3, 1] },
                             },
-                            // rotateDown: pivots from top-left, spins and drops toward the bottom
                             rotatedOut: {
                                 opacity: 0,
                                 rotate: 60,
@@ -173,7 +172,7 @@ export default function ContactPopup({ showPopup, setShowPopup }) {
                         animate="visible"
                         exit="rotatedOut"
                         style={{ transformOrigin: "left top" }}
-                        className="relative z-10 w-full max-w-xl rounded-3xl bg-white p-6 shadow-2xl sm:p-7"
+                        className="relative z-10 mt-6 sm:mt-16 w-full max-w-2xl rounded-lg border-2 border-gray-900/10 bg-white p-7 shadow-2xl sm:p-9"
                     >
                         {/* close button */}
                         <button

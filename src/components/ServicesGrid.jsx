@@ -60,7 +60,7 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-jakarta font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-4 sm:mb-6"
+              className="font-alata font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-4 sm:mb-6"
             >
               Your Brand Is a Story — We Solve Branding, Design &amp; Digital
               Growth
@@ -71,7 +71,7 @@ export default function WhatWeDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-lg xl:max-w-xl 4xl:max-w-2xl"
+              className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-lg xl:max-w-xl 4xl:max-w-2xl"
             >
               As A Leading Creative Branding Agency, We Specialize In Building
               Strong Identities That Drive Measurable Results. Our Expert Team
@@ -89,7 +89,7 @@ export default function WhatWeDo() {
             >
               <Link
                 href="/contact"
-                className="inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 xl:px-7 xl:py-3.5 4xl:px-9 4xl:py-4 rounded-lg text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors"
+                className="font-nunito inline-flex items-center px-5 py-2.5 sm:px-6 sm:py-3 xl:px-7 xl:py-3.5 4xl:px-9 4xl:py-4 rounded-lg text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors"
               >
                 Request a Free Consultation
               </Link>
@@ -144,7 +144,7 @@ export default function WhatWeDo() {
               className="rounded-2xl border border-white/15 p-5 sm:p-6 xl:p-7 4xl:p-9 flex flex-col"
             >
               <div className="flex items-start justify-between mb-4 sm:mb-5 4xl:mb-6">
-                <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+                <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                   {card.line1}
                   <br />
                   {card.line2}
@@ -159,7 +159,7 @@ export default function WhatWeDo() {
                   />
                 </div>
               </div>
-              <p className="text-sm xl:text-base 4xl:text-lg text-slate-400 leading-relaxed">
+              <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400 leading-relaxed">
                 {card.description}
               </p>
             </motion.div>

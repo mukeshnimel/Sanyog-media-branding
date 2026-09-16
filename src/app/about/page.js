@@ -69,7 +69,7 @@ function ServiceCard({ service, delay }) {
         "
       />
 
-      <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+      <h3 className="font-nunito font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
         {service.title}
       </h3>
 
@@ -119,11 +119,11 @@ export default function RedesignedAboutUsPage() {
                 At Sanyog Media Concepts,
               </span>
 
-              <h2 className="font-jakarta font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-6xl text-white leading-tight mb-4 sm:mb-6">
+              <h2 className="font-alata font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-6xl text-white leading-tight mb-4 sm:mb-6">
                 We Bring Imagination To Life Across Every Touchpoint Of Your Brand
               </h2>
 
-              <p className="text-slate-400 text-[10px] md:text-[12px] xl:text-[15px] 4xl:text-xl leading-relaxed mb-4 sm:mb-5">
+              <p className="font-nunito text-slate-400 text-[10px] md:text-[12px] xl:text-[15px] 4xl:text-xl leading-relaxed mb-4 sm:mb-5">
                 From Bold Exhibition Stall Designs To Compelling Visual Stories,
                 Our Mission Is To Transform Ideas Into Powerful Experiences.
                 We Specialize In Crafting Captivating Exhibition Stalls,
@@ -132,7 +132,7 @@ export default function RedesignedAboutUsPage() {
                 Unforgettable On Any Shelf.
               </p>
 
-              <p className="text-slate-400 text-[10px] md:text-[12px] xl:text-[15px] 4xl:text-xl leading-relaxed mb-5 sm:mb-6">
+              <p className="font-nunito text-slate-400 text-[10px] md:text-[12px] xl:text-[15px] 4xl:text-xl leading-relaxed mb-5 sm:mb-6">
                 Our Team Also Delivers Engaging Social Media Creatives,
                 Flawlessly Curated Events, And Cohesive Brand Storytelling —
                 All Guided By Creativity And Precision. With Every Project,
@@ -146,7 +146,7 @@ export default function RedesignedAboutUsPage() {
                 href="https://sanyogmedia.in/about-sanyog-media-branding-agency/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-6 sm:px-7 xl:px-8 4xl:px-10 py-2.5 sm:py-3 xl:py-3.5 4xl:py-4 rounded-xl text-sm xl:text-base 4xl:text-lg font-semibold text-white bg-[#0069C2] hover:opacity-90 transition-opacity"
+                className="font-nunito inline-flex items-center justify-center px-6 sm:px-7 xl:px-8 4xl:px-10 py-2.5 sm:py-3 xl:py-3.5 4xl:py-4 rounded-xl text-sm xl:text-base 4xl:text-lg font-semibold text-white bg-[#0069C2] hover:opacity-90 transition-opacity"
               >
                 Know More About Us
               </a>
@@ -183,10 +183,10 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-slate-600/60 backdrop-blur-sm p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">co_present</span>
-              <h3 className="font-jakarta font-extrabold text-xl sm:text-2xl xl:text-3xl 4xl:text-4xl text-white">
+              <h3 className="font-alata font-extrabold text-xl sm:text-2xl xl:text-3xl 4xl:text-4xl text-white">
                 What We Offer
               </h3>
-              <p className="text-sm sm:text-base xl:text-lg 4xl:text-xl text-white/90">Why Choose Sanyog Media?</p>
+              <p className="font-nunito text-sm sm:text-base xl:text-lg 4xl:text-xl text-white/90">Why Choose Sanyog Media?</p>
             </motion.div>
 
             {/* Card 2 */}
@@ -198,10 +198,10 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-sky-600 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">diversity_2</span>
-              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 Your Vision Our Team: Let&apos;s Create Together
               </h3>
-              <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
+              <p className="font-nunitotext-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
                 We Are The Experts In Design, Brand Building, And Communication;
                 You Are The Experts In Your Market. Let&apos;s Work Together To
                 Achieve Your Goals.
@@ -217,10 +217,10 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-orange-600 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">recycling</span>
-              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 A Compelling Experience That Beckons You Back
               </h3>
-              <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
+              <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
                 This Is Because You&apos;ll Like And Trust Us; Repeat Business And
                 Referrals Are The Best Compliments We Receive.
               </p>
@@ -235,10 +235,10 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-amber-400 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">hourglass_check</span>
-              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 On-Time, Every Time
               </h3>
-              <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
+              <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
                 We Respect Deadlines As Much As You Do — Fast Turnarounds Without
                 Ever Compromising On Quality.
               </p>
@@ -253,10 +253,10 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-green-600 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">currency_rupee</span>
-              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 Transparent, Fair Pricing
               </h3>
-              <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
+              <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
                 No Hidden Costs, No Surprises — Just Honest Pricing Structured To
                 Fit Your Budget.
               </p>
@@ -271,10 +271,10 @@ export default function RedesignedAboutUsPage() {
               className="rounded-2xl sm:rounded-3xl border-2 border-white/80 bg-orange-500 p-6 sm:p-8 xl:p-10 4xl:p-12 flex flex-col items-center justify-center text-center gap-3 sm:gap-4 4xl:gap-5 min-h-[280px] sm:min-h-[340px] xl:min-h-[380px] 4xl:min-h-[440px]"
             >
               <span className="material-symbols-outlined">bar_chart_4_bars</span>
-              <h3 className="font-jakarta font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
+              <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white leading-snug">
                 Results You Can Measure
               </h3>
-              <p className="text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
+              <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-white/90 leading-relaxed">
                 Every Project Is Tracked And Optimized To Drive Real, Measurable
                 Business Growth.
               </p>
@@ -292,7 +292,7 @@ export default function RedesignedAboutUsPage() {
                 Trust &amp; Experience Highlighting
               </span>
 
-              <h2 className="font-jakarta font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4 whitespace-nowrap text-center">
+              <h2 className="font-alata font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-3 sm:mt-4 whitespace-nowrap text-center">
                 Your Trusted Branding &amp; Marketing Partner
               </h2>
             </div>
@@ -361,29 +361,29 @@ export default function RedesignedAboutUsPage() {
               Our Services
             </span>
 
-            <h2 className="w-fit font-jakarta font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-3 sm:mb-4 text-center whitespace-nowrap">
+            <h2 className="w-fit font-alata font-bold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mb-3 sm:mb-4 text-center whitespace-nowrap">
               Elevate Your Brand with Our Diverse Solutions
             </h2>
 
-            <p className="text-sm md:text-base xl:text-lg 4xl:text-xl font-semibold text-white/90 italic text-center">
+            <p className="font-nunito text-base md:text-lg xl:text-xl 4xl:text-2xl font-semibold text-white/90 italic text-center">
               &ldquo;Innovative Strategies, Lasting Impressions&rdquo;
             </p>
 
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10 mb-5 sm:mb-6 4xl:mb-8">
+          <div className="font-nunito grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10 mb-5 sm:mb-6 4xl:mb-8">
             {services.slice(0, 2).map((service, idx) => (
               <ServiceCard key={idx} service={service} delay={idx * 0.08} />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10 mb-5 sm:mb-6 4xl:mb-8">
+          <div className="font-nunito grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10 mb-5 sm:mb-6 4xl:mb-8">
             {services.slice(2, 5).map((service, idx) => (
               <ServiceCard key={idx} service={service} delay={(idx + 2) * 0.08} />
             ))}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10">
+          <div className="font-nunito grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 xl:gap-8 4xl:gap-10">
             {services.slice(5, 7).map((service, idx) => (
               <ServiceCard key={idx} service={service} delay={(idx + 5) * 0.08} />
             ))}
@@ -422,9 +422,9 @@ export default function RedesignedAboutUsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="font-jakarta font-bold text-white tracking-wide"
+            className="font-alata font-bold text-white tracking-wide text-center w-full"
           >
-            <span className="flex flex-wrap items-center justify-center gap-x-2 sm:gap-x-3 4xl:gap-x-4 gap-y-2 text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl">
+            <span className="flex items-center justify-center gap-x-2 sm:gap-x-3 4xl:gap-x-4 whitespace-nowrap text-[clamp(14px,3vw,60px)]">
               <span>INDIA</span>
               <span className="text-white/60">|</span>
               <span>U.A.E</span>
