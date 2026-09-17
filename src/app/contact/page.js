@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import {
   Sparkles,
   Phone,
@@ -13,8 +12,7 @@ import {
   Send,
   X,
   ArrowRight,
-  Headset,
-  Image as ImageIcon,
+  ArrowUpRight,
 } from "lucide-react";
 
 const SERVICE_OPTIONS = [
@@ -28,27 +26,24 @@ const SERVICE_OPTIONS = [
   "Content Creation / Copy Writing",
 ];
 
-const SOCIALS = [
+const contactLines = [
   {
-    label: "Facebook",
-    href: "https://instagram.com/sanyogmediaconcepts?igshid=OGQ5ZDc2ODk2ZA==",
-    path: "M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z",
+    icon: Phone,
+    label: "Call our team",
+    value: "+91 9929 600 601",
+    href: "tel:+919929600601",
   },
   {
-    label: "Instagram",
-    href: "https://instagram.com/sanyogmediaconcepts?igshid=OGQ5ZDc2ODk2ZA==",
-    box: true,
-    path: "M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37zM17.5 6.5h.01",
+    icon: Phone,
+    label: "Talk to our team",
+    value: "+91 7726 966 902",
+    href: "tel:+917726966902",
   },
   {
-    label: "LinkedIn",
-    href: "http://www.linkedin.com/in/sanyog-media-concepts-a72669269",
-    path: "M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z",
-  },
-  {
-    label: "YouTube",
-    href: "#",
-    path: "M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.518 3.545 12 3.545 12 3.545s-7.518 0-9.388.507a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.87.507 9.388.507 9.388.507s7.518 0 9.388-.507a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z",
+    icon: Mail,
+    label: "Write to us",
+    value: "hello@sanyogmedia.com",
+    href: "mailto:hello@sanyogmedia.com",
   },
 ];
 
@@ -68,7 +63,8 @@ function ContactForm({ idPrefix = "cf" }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email || !formData.message) return;
+    if (!formData.name || !formData.phone || !formData.email || !formData.message)
+      return;
     setStatus("sending");
     setTimeout(() => {
       setStatus("success");
@@ -90,7 +86,10 @@ function ContactForm({ idPrefix = "cf" }) {
     <form onSubmit={handleSubmit} className="flex flex-col gap-5 3xl:gap-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 3xl:gap-6">
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-name`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+          <label
+            htmlFor={`${idPrefix}-name`}
+            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+          >
             Your Name*
           </label>
           <input
@@ -105,7 +104,10 @@ function ContactForm({ idPrefix = "cf" }) {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-phone`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+          <label
+            htmlFor={`${idPrefix}-phone`}
+            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+          >
             Phone Number*
           </label>
           <input
@@ -125,7 +127,10 @@ function ContactForm({ idPrefix = "cf" }) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 3xl:gap-6">
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-email`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+          <label
+            htmlFor={`${idPrefix}-email`}
+            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+          >
             Email*
           </label>
           <input
@@ -140,7 +145,10 @@ function ContactForm({ idPrefix = "cf" }) {
           />
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor={`${idPrefix}-website`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+          <label
+            htmlFor={`${idPrefix}-website`}
+            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+          >
             Website
           </label>
           <input
@@ -156,7 +164,10 @@ function ContactForm({ idPrefix = "cf" }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor={`${idPrefix}-service`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+        <label
+          htmlFor={`${idPrefix}-service`}
+          className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+        >
           Select Service
         </label>
         <select
@@ -175,7 +186,10 @@ function ContactForm({ idPrefix = "cf" }) {
       </div>
 
       <div className="flex flex-col gap-2">
-        <label htmlFor={`${idPrefix}-message`} className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider">
+        <label
+          htmlFor={`${idPrefix}-message`}
+          className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+        >
           Message*
         </label>
         <textarea
@@ -193,7 +207,7 @@ function ContactForm({ idPrefix = "cf" }) {
       <button
         type="submit"
         disabled={status === "sending" || status === "success"}
-        className="font-nunito bg-[#007EC3] w-full py-4 3xl:py-5 rounded-xl font-bold text-white text-[16px] md:text-[18px] 3xl:text-[20px] flex items-center justify-center gap-2 cursor-pointer active:scale-98 disabled:opacity-50"
+        className="font-nunito bg-[#007EC3] w-full py-4 3xl:py-5 rounded-xl font-bold text-white text-[16px] md:text-[18px] 3xl:text-[20px] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] disabled:opacity-50"
       >
         {status === "sending" ? (
           <>
@@ -227,141 +241,148 @@ export default function ContactPage() {
   const ctaBgY = useTransform(ctaScroll, [0, 1], ["-18%", "18%"]);
   const ctaDotsY = useTransform(ctaScroll, [0, 1], ["-8%", "8%"]);
 
+  // Close popup on Escape
+  useEffect(() => {
+    const onKey = (e) => {
+      if (e.key === "Escape") setShowPopup(false);
+    };
+    if (showPopup) document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+  }, [showPopup]);
+
   return (
     <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
-
-      {/* HERO */}
-      <section className="relative bg-dark-bg  overflow-hidden pt-24 pb-8 3xl:pt-32 3xl:pb-12">
-        {/* <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" /> */}
-        {/* <div className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-neon-cyan/10 blur-[130px] pointer-events-none" /> */}
+      <section className="relative bg-dark-bg overflow-hidden pt-24 pb-8 3xl:pt-32 3xl:pb-12">
+        {/* single deliberate glow, not a decorative wash */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute -top-40 right-[-10%] w-[520px] h-[520px] rounded-full opacity-20 blur-[120px]"
+          style={{ background: "var(--neon-cyan, #22e6e0)" }}
+        />
 
         <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 3xl:gap-20 items-center">
-
+          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 lg:gap-16 3xl:gap-20 items-center">
             {/* LEFT — CONTENT */}
             <div>
               <motion.div
-                initial={{ opacity: 0, y: -15 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 3xl:px-5 3xl:py-2 rounded-full border border-glass-border bg-slate-900/60 backdrop-blur-md mb-6"
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-3 mb-7"
               >
-                <Sparkles className="w-3.5 h-3.5 3xl:w-4 3xl:h-4 text-neon-cyan" />
-                <span className="text-[10px] 3xl:text-xs uppercase tracking-[0.25em] font-semibold text-slate-400">
-                  Contact Sanyog Media Concepts
+                <span className="h-px w-10 bg-neon-cyan/70" />
+                <span className="text-sm font-nunito text-slate-400">
+                  Sanyog Media Concepts
                 </span>
               </motion.div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 25 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 }}
-                className="font-alata font-extrabold text-4xl md:text-5xl lg:text-6xl 3xl:text-7xl leading-tight tracking-tight text-white mb-6"
-              >
-                Contact Us
-              </motion.h1>
 
               <motion.p
-                initial={{ opacity: 0, y: 15 }}
+                initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="font-nunito text-base 3xl:text-lg text-slate-400 mb-10 leading-relaxed max-w-xl 3xl:max-w-2xl"
+                transition={{ delay: 0.16, duration: 0.5 }}
+                className="font-nunito text-base 3xl:text-lg text-slate-400 mb-10 leading-relaxed max-w-md 3xl:max-w-lg"
               >
-                We would love to speak with you. Feel free to reach out using the below details.
+                Tell us what you&rsquo;re building and we&rsquo;ll get back to
+                you within a day. No forms, no gatekeeping — just reach out
+                directly.
               </motion.p>
 
-              <div className="flex flex-wrap gap-4 3xl:gap-5 w-full">
-
-                <a href="tel:+919929600601"
-                  className="px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-900/40 text-xs 3xl:text-sm font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
-                >
-                  <Phone className="w-4 h-4 3xl:w-5 3xl:h-5 text-neon-cyan" />
-                  <span>+91 - 9929 600 601</span>
-                </a>
-
-
-                <a href="tel:+917726966902"
-                  className="px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-900/40 text-xs 3xl:text-sm font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
-                >
-                  <Phone className="w-4 h-4 3xl:w-5 3xl:h-5 text-neon-cyan" />
-                  <span>+91 - 7726 966 902</span>
-                </a>
-
-
-                <a href="mailto:hello@sanyogmedia.com"
-                  className="px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-900/40 text-xs 3xl:text-sm font-semibold text-slate-300 flex items-center gap-2 hover:border-neon-cyan transition-all"
-                >
-                  <Mail className="w-4 h-4 3xl:w-5 3xl:h-5 text-neon-cyan" />
-                  <span>hello@sanyogmedia.com</span>
-                </a>
-              </div>
+              {/* contact list — structured rows, not pill chips */}
+              <motion.div
+                initial={{ opacity: 0, y: 14 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.22, duration: 0.5 }}
+                className="border-t border-glass-border"
+              >
+                {contactLines.map(({ icon: Icon, label, value, href }) => (
+                  <a
+                    key={value}
+                    href={href}
+                    className="group flex items-center justify-between py-4 border-b border-glass-border"
+                  >
+                    <span className="flex items-center gap-3.5">
+                      <Icon className="w-4 h-4 text-neon-cyan shrink-0" />
+                      <span className="font-nunito text-xs uppercase tracking-wide text-slate-500 w-28 shrink-0">
+                        {label}
+                      </span>
+                      <span className="font-alata text-sm md:text-base text-slate-200 relative">
+                        {value}
+                        <span className="absolute left-0 -bottom-0.5 h-px w-0 bg-neon-cyan transition-all duration-300 group-hover:w-full" />
+                      </span>
+                    </span>
+                    <ArrowUpRight className="w-4 h-4 text-slate-600 transition-all duration-300 group-hover:text-neon-cyan group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                  </a>
+                ))}
+              </motion.div>
             </div>
 
-            {/* RIGHT — FLOATING IMAGE */}
+            {/* RIGHT — FRAMED IMAGE, static + angled, one hover response */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="flex items-center justify-end w-full"
+              className="relative hidden lg:flex items-center justify-center w-full"
             >
-              <motion.div
-                className="w-full max-w-[500px] 3xl:max-w-[600px] 4xl:max-w-[680px] cursor-pointer"
-                animate={{
-                  y: [0, -12, 0, 12, 0],
-                  rotate: [0, 1, 0, -1, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                whileHover={{
-                  scale: 1.03,
-                  transition: { duration: 0.3 },
-                }}
-              >
-                <motion.img
-                  src="/images/contact/hero2.png"
-                  alt="Contact Sanyog Media Concepts"
-                  className="w-full h-auto object-contain"
-                  whileHover={{
-                    x: 8,
-                    y: -5,
-                    rotate: 2,
-                    transition: {
-                      duration: 0.3,
-                      ease: "easeOut",
-                    },
-                  }}
-                />
-              </motion.div>
+              <div className="absolute inset-8 rounded-[2rem] border border-glass-border bg-slate-900/30 backdrop-blur-sm -rotate-3" />
+              <motion.img
+                src="/images/contact/hero2.png"
+                alt="Sanyog Media Concepts"
+                className="relative w-full max-w-[420px] 3xl:max-w-[500px] h-auto object-contain rotate-2"
+                whileHover={{ rotate: 0, scale: 1.02 }}
+                transition={{ duration: 0.35, ease: "easeOut" }}
+              />
             </motion.div>
-
           </div>
         </div>
       </section>
 
       {/* FORM + MAP */}
       <section className="py-24 3xl:py-32 bg-dark-bg relative border-b border-glass-border">
-        <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 3xl:gap-16 items-stretch">
-
-            <div
-              id="contact-form"
-              className="glass-card p-8 3xl:p-10 rounded-3xl 3xl:rounded-[2rem] border border-glass-border bg-slate-900/10 backdrop-blur-md"
-            >
+        <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 3xl:gap-20">
+            {/* FORM (LEFT) */}
+            <div className="glass-card rounded-3xl border border-glass-border bg-slate-900/60 p-8 3xl:p-10">
+              <h2 className="font-alata font-bold text-2xl 3xl:text-3xl text-white mb-1">
+                Send Us a Message
+              </h2>
+              <p className="text-sm 3xl:text-base text-neon-cyan font-semibold mb-6">
+                Let&apos;s have a chat
+              </p>
               <ContactForm idPrefix="main" />
             </div>
 
-            <div className="relative rounded-3xl 3xl:rounded-[2rem] overflow-hidden border border-glass-border h-[400px] md:h-[400px] lg:h-[550px] 3xl:h-[650px]">
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7026.545359674175!2d74.96573529999999!3d28.2900629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ab7072948e559c7%3A0x8a361dda702872e!2sSanyog%20Media%20Academy!5e0!3m2!1sen!2sin!4v1788000410719!5m2!1sen!2sin"
-                className="absolute inset-0 w-full h-full border-0"
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="strict-origin-when-cross-origin"
-              />
-            </div>
+            {/* MAP (RIGHT) */}
+            <div className="flex flex-col lg:mt-8 3xl:mt-10">
+              <div className="relative flex-1 min-h-[420px] md:min-h-[480px] 3xl:min-h-[560px]">
+                <div
+                  className="absolute -top-4 -left-3 z-10 flex items-center gap-2 pl-3 pr-4 py-2 border border-dashed border-slate-600 bg-slate-900 -rotate-6 shadow-lg"
+                  style={{ borderRadius: "999px 6px 6px 999px" }}
+                >
+                  <span className="w-2 h-2 rounded-full border border-slate-600 bg-dark-bg shrink-0" />
+                  <MapPin className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
+                  <span className="text-xs 3xl:text-sm font-semibold text-slate-300 whitespace-nowrap">
+                    Visit the studio
+                  </span>
+                </div>
 
+                <div
+                  className="relative w-full h-full overflow-hidden border border-glass-border"
+                  style={{
+                    clipPath:
+                      "polygon(0 0, calc(100% - 36px) 0, 100% 36px, 100% 100%, 0 100%)",
+                  }}
+                >
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7026.545359674175!2d74.96573529999999!3d28.2900629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ab7072948e559c7%3A0x8a361dda702872e!2sSanyog%20Media%20Academy!5e0!3m2!1sen!2sin!4v1788000410719!5m2!1sen!2sin"
+                    className="absolute inset-0 w-full h-full border-0 grayscale-[30%]"
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="strict-origin-when-cross-origin"
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -372,14 +393,13 @@ export default function ContactPage() {
         className="relative py-14 md:py-20 3xl:py-28 bg-[#0a0e27] border-b border-glass-border"
       >
         {/* Background Image */}
-        <div className="absolute inset-0 ">
+        <div className="absolute inset-0">
           <div
             className="absolute inset-0 bg-fixed bg-cover bg-center"
             style={{
               backgroundImage: "url('/images/contact/1.jpg')",
             }}
           />
-
           <div className="absolute inset-0 bg-black/55" />
         </div>
 
@@ -388,7 +408,6 @@ export default function ContactPage() {
           style={{ y: ctaBgY }}
           className="absolute inset-0 pointer-events-none"
         >
-          {/* faint grid */}
           <div
             className="absolute inset-0 opacity-30"
             style={{
@@ -421,8 +440,7 @@ export default function ContactPage() {
         {/* CTA Content */}
         <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-9 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-10 3xl:gap-14 py-5 md:py-6 3xl:py-8">
-
-            {/* LEFT — CONTENT (yehi ab section ki height decide karega) */}
+            {/* LEFT — CONTENT */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -445,7 +463,7 @@ export default function ContactPage() {
               </button>
             </motion.div>
 
-            {/* RIGHT — IMAGE, absolute so it doesn't push section height */}
+            {/* RIGHT — IMAGE (absolute so it doesn't push section height) */}
             <motion.div
               initial={{ opacity: 0, x: 40 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -470,32 +488,37 @@ export default function ContactPage() {
                 className="w-[180px] h-auto object-contain"
               />
             </div>
-
           </div>
         </div>
       </section>
 
-
-
       {/* POPUP: How Can We Help You */}
-      {
-        showPopup && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-            <div className="relative w-full max-w-lg 3xl:max-w-xl glass-card rounded-3xl 3xl:rounded-[2rem] border border-glass-border bg-slate-900 p-8 3xl:p-10">
-              <button
-                onClick={() => setShowPopup(false)}
-                aria-label="Close"
-                className="absolute top-5 right-5 3xl:top-6 3xl:right-6 text-slate-400 hover:text-white"
-              >
-                <X className="w-5 h-5 3xl:w-6 3xl:h-6" />
-              </button>
-              <h2 className="font-alata font-bold text-2xl 3xl:text-3xl text-white mb-1">How Can We Help You</h2>
-              <h3 className="text-sm 3xl:text-base text-neon-cyan font-semibold mb-6">Let's have a chat</h3>
-              <ContactForm idPrefix="popup" />
-            </div>
+      {showPopup && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm"
+          onClick={() => setShowPopup(false)}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="relative w-full max-w-lg 3xl:max-w-xl rounded-3xl 3xl:rounded-[2rem] border border-glass-border bg-slate-900 p-8 3xl:p-10 max-h-[90vh] overflow-y-auto"
+          >
+            <button
+              onClick={() => setShowPopup(false)}
+              aria-label="Close"
+              className="absolute top-5 right-5 3xl:top-6 3xl:right-6 text-slate-400 hover:text-white"
+            >
+              <X className="w-5 h-5 3xl:w-6 3xl:h-6" />
+            </button>
+            <h2 className="font-alata font-bold text-2xl 3xl:text-3xl text-white mb-1">
+              How Can We Help You
+            </h2>
+            <h3 className="text-sm 3xl:text-base text-neon-cyan font-semibold mb-6">
+              Let&apos;s have a chat
+            </h3>
+            <ContactForm idPrefix="popup" />
           </div>
-        )
-      }
-    </main >
+        </div>
+      )}
+    </main>
   );
 }

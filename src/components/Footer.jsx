@@ -18,13 +18,41 @@ import {
 } from "lucide-react";
 
 const services = [
-  { icon: Share2, label: "Logo Design & Branding", href: "/services/logo-design" },
-  { icon: Package, label: "Packaging Design", href: "/#services" },
-  { icon: Monitor, label: "Website Design", href: "/#services" },
-  { icon: Layers, label: "Graphics Design", href: "/#services" },
-  { icon: LineChart, label: "Social Media Marketing", href: "/#services" },
-  { icon: Clapperboard, label: "Reels / Video Editing", href: "/#services" },
-  { icon: Wand2, label: "Content Creation / Copy Writing", href: "/#services" },
+  {
+    image: "/images/footer/3.svg",
+    label: "Logo Design & Branding",
+    href: "/services/logo-design",
+  },
+  {
+    image: "/images/footer/2.svg",
+    label: "Packaging Design",
+    href: "/#services",
+  },
+  {
+    image: "/images/footer/4.svg",
+    label: "Website Design",
+    href: "/#services",
+  },
+  {
+    image: "/images/footer/5.svg",
+    label: "Graphics Design",
+    href: "/#services",
+  },
+  {
+    image: "/images/footer/6.svg",
+    label: "Social Media Marketing",
+    href: "/#services",
+  },
+  {
+    image: "/images/video-reel/icons/1.svg",
+    label: "Reels / Video Editing",
+    href: "/#services",
+  },
+  {
+    image: "/images/footer/7.svg",
+    label: "Content Creation / Copy Writing",
+    href: "/#services",
+  },
 ];
 
 const socials = [
@@ -187,14 +215,18 @@ export default function Footer() {
             </h3>
             <ul className="flex flex-col gap-3 sm:gap-4 4xl:gap-5">
               {services.map((service) => {
-                const Icon = service.icon;
                 return (
                   <li key={service.label}>
                     <Link
                       href={service.href}
                       className="font-nunito flex items-center gap-3 4xl:gap-4 text-[15px] sm:text-[17px] xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                     >
-                      <Icon className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform shrink-0" />
+                      <img
+                        src={service.image}
+                        alt={service.label}
+                        className="w-6 h-6 xl:w-6 xl:h-6 4xl:w-6 4xl:h-6 object-contain brightness-0 invert group-hover:scale-110 transition-transform shrink-0"
+                      />
+
                       <span>{service.label}</span>
                     </Link>
                   </li>
@@ -214,49 +246,81 @@ export default function Footer() {
             <h3 className="font-alata font-bold text-white text-lg sm:text-xl xl:text-2xl 4xl:text-3xl">
               Get In Touch
             </h3>
+
             <ul className="font-nunito flex flex-col gap-3 sm:gap-4 4xl:gap-5">
+
+              {/* Phone 1 */}
               <li>
                 <a
                   href="tel:+919929600601"
                   className="flex items-center gap-3 4xl:gap-4 text-[15px] sm:text-[17px] xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                 >
-                  <Phone className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform" />
+                  <img
+                    src="/images/footer/8.svg"
+                    alt="Phone"
+                    className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 object-contain brightness-0 invert group-hover:scale-110 transition-transform shrink-0"
+                  />
                   <span>+91 - 9929 600 601</span>
                 </a>
               </li>
-              <li>
 
-                <a href="tel:+917726966902"
+              {/* Phone 2 */}
+              <li>
+                <a
+                  href="tel:+917726966902"
                   className="flex items-center gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                 >
-                  <Phone className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform" />
+                  <img
+                    src="/images/footer/8.svg"
+                    alt="Phone"
+                    className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 object-contain brightness-0 invert group-hover:scale-110 transition-transform shrink-0"
+                  />
                   <span>+91 - 7726 966 902</span>
                 </a>
               </li>
+
+              {/* Email */}
               <li>
                 <a
                   href="mailto:hello@sanyogmedia.com"
                   className="flex items-center gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 hover:text-sky-400 transition-colors group"
                 >
-                  <Mail className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 group-hover:scale-110 transition-transform" />
+                  <img
+                    src="/images/footer/9.svg"
+                    alt="Email"
+                    className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 object-contain brightness-0 invert group-hover:scale-110 transition-transform shrink-0"
+                  />
                   <span>hello@sanyogmedia.com</span>
                 </a>
               </li>
+
+              {/* Mumbai Address */}
               <li className="flex gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 leading-relaxed">
-                <MapPin className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 shrink-0 mt-0.5" />
+                <img
+                  src="/images/footer/10.svg"
+                  alt="Location"
+                  className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 object-contain brightness-0 invert shrink-0 mt-0.5"
+                />
                 <p>
                   15, 1st floor, Jai Bharat Industrial Estate, Western Express
                   Hwy, opp. Virwani, Vishveshwar Nagar, Goregaon, Mumbai,
                   Maharashtra 400063
                 </p>
               </li>
+
+              {/* Churu Address */}
               <li className="flex gap-3 4xl:gap-4 text-base sm:text-lg xl:text-lg 4xl:text-xl text-slate-300 leading-relaxed">
-                <MapPin className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-sky-400 shrink-0 mt-0.5" />
+                <img
+                  src="/images/footer/10.svg"
+                  alt="Location"
+                  className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 object-contain brightness-0 invert shrink-0 mt-0.5"
+                />
                 <p>
                   Regd. Ad. - Sanyog, Dharam Stoop Near Water Works, Bissau
                   Road, Churu ( Raj. ) - 331001
                 </p>
               </li>
+
             </ul>
           </motion.div>
         </div>
