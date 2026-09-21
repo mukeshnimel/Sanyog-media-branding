@@ -242,13 +242,13 @@ export default function SocialMediaMarketingPage() {
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-hidden">
 
             {/* 1. HERO */}
-            <section className="relative py-14 sm:py-20 md:py-28 4xl:py-36 bg-dark-bg border-b border-glass-border overflow-hidden">
+            <section className="relative py-14 sm:py-20 md:py-28 4xl:py-36 bg-dark-bg  overflow-hidden">
                 <div className="absolute top-1/3 left-1/4 w-72 h-72 md:w-96 md:h-96 4xl:w-[30rem] 4xl:h-[30rem] rounded-full bg-electric-blue/10 blur-[100px] md:blur-[130px] pointer-events-none" />
                 <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         {/* Left — copy */}
                         <div className="flex flex-col items-start pt-8 sm:pt-10 md:pt-0">
-                            <h1 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl leading-tight text-white mb-1">
+                            <h1 className="font-alata font-extrabold text-xl sm:text-xl md:text-3xl xl:text-4xl 4xl:text-5xl leading-tight text-white mb-1">
                                 We Manage Your
                             </h1>
                             <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight mb-4 text-sky-400">
@@ -306,11 +306,11 @@ export default function SocialMediaMarketingPage() {
                                     Portfolio
                                 </a>
 
-                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
+                                {/* <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
                                     {[...Array(24)].map((_, i) => (
                                         <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
                                     ))}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -320,7 +320,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 2. MARQUEE RIBBON */}
-            <section className="py-0 bg-slate-950 border-b border-glass-border relative overflow-hidden">
+            <section className="py-0 bg-dark-bg relative overflow-hidden">
                 <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-6 md:py-8 4xl:py-10">
                     <div className="marquee-track flex items-center gap-10 md:gap-16 4xl:gap-20 whitespace-nowrap">
                         {[...Array(2)].map((_, setIdx) => (
@@ -368,7 +368,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 3. SERVICES GRID */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6 xl:gap-8 4xl:gap-10">
                         {services.map((s, idx) => (
@@ -400,7 +400,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 4. WHY CHOOSE US — IMAGE ACCORDION */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 border-b border-glass-border">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
                         <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
@@ -479,7 +479,7 @@ export default function SocialMediaMarketingPage() {
             <Testimonials />
 
             {/* 6. WHY CHOOSE OUR SERVICES */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 border-b border-glass-border">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <div className="flex flex-col items-start">
@@ -517,7 +517,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 7. PORTFOLIO GALLERY */}
-            <section id="smmport" className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
+            <section id="smmport" className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="w-full text-center max-w-7xl mx-auto mb-12 md:mb-16 4xl:mb-20 px-2 sm:px-4">
                         <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-[2.2rem] xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
@@ -552,7 +552,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 8. PRICING */}
-            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
+            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
                         PRICING
@@ -631,7 +631,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 9. HOW IT WORKS */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
                         <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg text-white uppercase tracking-widest text-neon-cyan">
@@ -681,7 +681,7 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             {/* 10. FAQ */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />

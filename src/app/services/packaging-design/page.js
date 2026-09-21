@@ -159,7 +159,7 @@ export default function PackagingDesignPage() {
                                 <span className="block font-alata text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-white">
                                     Packaging
                                 </span>
-                                <span className="block font-alata text-3xl sm:text-4xl md:text-6xl xl:text-7xl 4xl:text-8xl text-sky-400">
+                                <span className="block font-alata text-xl sm:text-2xl md:text-3xl xl:text-5xl 4xl:text-6xl text-sky-400">
                                     Artistry
                                 </span>
                             </motion.h1>
@@ -217,11 +217,11 @@ export default function PackagingDesignPage() {
                                     Portfolio
                                 </a>
 
-                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
+                                {/* <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
                                     {[...Array(24)].map((_, i) => (
                                         <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
                                     ))}
-                                </div>
+                                </div> */}
                             </div>
 
                             <div className="flex items-center gap-6">
@@ -290,7 +290,7 @@ export default function PackagingDesignPage() {
             <MarqueeRibbon />
 
             {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-            <section className="py-12 sm:py-16 3xl:py-20 bg-dark-bg border-b border-glass-border">
+            <section className="py-12 sm:py-16 3xl:py-20 bg-dark-bg ">
                 <div className="max-w-7xl 3xl:max-w-[1700px] 4xl:max-w-[2000px] mx-auto px-4 sm:px-6">
                     <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-8 3xl:gap-10">
                         {badges.map((badge, idx) => (
@@ -321,7 +321,7 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* SHOWCASE SWIPER */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative border-b border-glass-border overflow-hidden">
+            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative  overflow-hidden">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="w-full flex flex-col items-center text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
 
@@ -379,7 +379,7 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* IMMERSIVE EXPERIENCE */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border relative overflow-hidden">
+            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg  relative overflow-hidden">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <motion.div
@@ -441,7 +441,7 @@ export default function PackagingDesignPage() {
             <Testimonials />
 
             {/* SERVICES LIST */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
+            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-12 xl:gap-16 4xl:gap-20 items-start">
                         <h2 className="font-alata text-2xl sm:text-3xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight lg:col-span-1">
@@ -460,7 +460,7 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* PRICING */}
-            <section id="packagingprice" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
+            <section id="packagingprice" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden ">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
@@ -529,7 +529,7 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* HOW IT WORKS */}
-            <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
+            <section className="bg-dark-bg relative overflow-hidden">
                 <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
                     <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
@@ -579,7 +579,7 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* 10. FAQ */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />

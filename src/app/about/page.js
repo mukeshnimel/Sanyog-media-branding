@@ -110,7 +110,7 @@ export default function RedesignedAboutUsPage() {
       <AboutHero />
 
       {/* 2. OUR STORY */}
-      <section id="story" className="py-16 sm:py-20 md:py-24 4xl:py-32 relative border-b border-glass-border">
+      <section id="story" className="py-16 sm:py-20 md:py-24 4xl:py-32 relative ">
         <div className={`${CONTAINER} ${CONTAINER_PX}`}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 sm:gap-12 lg:gap-16 xl:gap-20 4xl:gap-28 items-center">
             {/* Left Narrative */}
@@ -165,7 +165,7 @@ export default function RedesignedAboutUsPage() {
       </section>
 
       {/* 3. WHAT WE OFFER */}
-      <section className="relative py-16 sm:py-20 md:py-24 4xl:py-32 overflow-hidden border-b border-glass-border">
+      <section className="relative py-16 sm:py-20 md:py-24 4xl:py-32 overflow-hidden ">
         <div
           className="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center"
           style={{ backgroundImage: "url('/images/about/bg1.jpg')" }}
@@ -284,7 +284,7 @@ export default function RedesignedAboutUsPage() {
       </section>
 
       {/* 4. TRUST & EXPERIENCE SHOWCASE — SWIPER.JS */}
-      <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative border-b border-glass-border overflow-hidden">
+      <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative  overflow-hidden">
         <div className={`${CONTAINER} ${CONTAINER_PX}`}>
           <div className="w-full flex justify-center text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 sm:mb-16 4xl:mb-20">
             <div className="flex flex-col items-center text-center">
@@ -345,7 +345,7 @@ export default function RedesignedAboutUsPage() {
       </section>
 
       {/* 5. OUR SERVICES */}
-      <section ref={servicesSectionRef} className="relative py-16 sm:py-20 md:py-24 4xl:py-32 overflow-hidden border-b border-glass-border">
+      <section ref={servicesSectionRef} className="relative py-16 sm:py-20 md:py-24 4xl:py-32 overflow-hidden ">
         <div className="absolute inset-0 overflow-hidden">
           <div
             className="absolute inset-0 bg-scroll md:bg-fixed bg-cover bg-center"
@@ -396,7 +396,7 @@ export default function RedesignedAboutUsPage() {
       {/* 7. GLOBAL FABRICATION FOOTPRINT */}
       <section
         ref={globeSectionRef}
-        className="relative py-20 sm:py-28 md:py-36 4xl:py-48 overflow-hidden border-b border-glass-border"
+        className="relative py-20 sm:py-28 md:py-36 4xl:py-48 overflow-hidden "
       >
         <div className="absolute inset-0 overflow-hidden">
           <div

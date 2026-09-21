@@ -299,7 +299,7 @@ export default function ContactPage() {
                   <a
                     key={value}
                     href={href}
-                    className="group flex items-center justify-between py-4 border-b border-glass-border"
+                    className="group flex items-center justify-between py-4 "
                   >
                     <span className="flex items-center gap-3.5">
                       <Icon className="w-4 h-4 text-neon-cyan shrink-0" />
@@ -338,7 +338,7 @@ export default function ContactPage() {
       </section>
 
       {/* FORM + MAP */}
-      <section className="py-24 3xl:py-32 bg-dark-bg relative border-b border-glass-border">
+      <section className="py-24 3xl:py-32 bg-dark-bg relative ">
         <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 3xl:gap-20">
             {/* FORM (LEFT) */}
@@ -390,7 +390,7 @@ export default function ContactPage() {
       {/* CTA */}
       <section
         ref={ctaRef}
-        className="relative py-14 md:py-20 3xl:py-28 bg-[#0a0e27] border-b border-glass-border"
+        className="relative py-14 md:py-20 3xl:py-28 bg-[#0a0e27] "
       >
         {/* Background Image */}
         <div className="absolute inset-0">

@@ -70,6 +70,15 @@ const portfolioVideos = [
     { src: "/images/video-reel/6.mp4", ratio: 13 / 20 },   // portrait
     { src: "/images/video-reel/7.mp4", ratio: 16 / 9 },   // landscape
     { src: "/images/video-reel/8.mp4", ratio: 16 / 9 },   // landscape
+    { src: "/images/video-reel/9.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/10.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/11.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/12.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/13.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/14.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/15.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/16.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/17.mp4", ratio: 13 / 20 },   // portrait - reel type
 ];
 
 const testimonials = [

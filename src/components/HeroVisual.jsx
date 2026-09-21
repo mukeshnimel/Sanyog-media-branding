@@ -118,7 +118,7 @@ export default function HeroVisual() {
             <div className="relative rounded-2xl overflow-hidden border border-glass-border bg-slate-950/60 shadow-[0_0_80px_rgba(56,235,255,0.15)]">
 
                 {/* browser chrome */}
-                <div className="flex items-center gap-2 px-5 py-4 border-b border-glass-border bg-slate-900/70">
+                <div className="flex items-center gap-2 px-5 py-4  bg-slate-900/70">
                     <span className="w-3 h-3 rounded-full bg-rose-400/80" />
                     <span className="w-3 h-3 rounded-full bg-amber-400/80" />
                     <span className="w-3 h-3 rounded-full bg-emerald-400/80" />

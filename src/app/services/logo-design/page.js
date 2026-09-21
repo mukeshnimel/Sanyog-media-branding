@@ -436,7 +436,7 @@ export default function LogoDesignServicePage() {
     <main className="flex-1 bg-dark-bg text-slate-100 pt-24 overflow-hidden">
 
       {/* SECTION 1: HERO BANNER (SPLIT 60/40) */}
-      <section className="relative py-24 md:py-10 3xl:py-28 flex items-center bg-dark-bg border-b border-glass-border">
+      <section className="relative py-24 md:py-10 3xl:py-28 flex items-center bg-dark-bg ">
         <div className="absolute top-1/3 left-1/4 w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" />
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
 
@@ -568,7 +568,7 @@ export default function LogoDesignServicePage() {
 
       <MarqueeRibbon />
       {/* SECTION 2: TRUST & VALUE PROPOSITION */}
-      <section className="py-12 sm:py-16 3xl:py-20 4xl:py-24 bg-dark-bg border-b border-glass-border">
+      <section className="py-12 sm:py-16 3xl:py-20 4xl:py-24 bg-dark-bg ">
         <div className="max-w-7xl 3xl:max-w-[1700px] 4xl:max-w-[2200px] mx-auto px-4 sm:px-6 4xl:px-10">
           <div className="grid grid-cols-2 sm:flex sm:flex-wrap items-center justify-center gap-4 sm:gap-5 md:gap-8 3xl:gap-10 4xl:gap-14">
             {badges.map((badge, idx) => (
@@ -622,7 +622,7 @@ export default function LogoDesignServicePage() {
 
           {/* Video Section */}
           <div className="w-full">
-            <div className="relative aspect-[16/9] rounded-3xl 3xl:rounded-[2rem] overflow-hidden border border-glass-border bg-slate-950/40 shadow-xl">
+            <div className="relative aspect-[16/9] rounded-3xl 3xl:rounded-[2rem] overflow-hidden  bg-slate-950/40 shadow-xl">
               <video
                 className="w-full h-full object-cover"
                 src="/images/logo-design/2.mp4"
@@ -640,7 +640,7 @@ export default function LogoDesignServicePage() {
       {/* SECTION 4: PORTFOLIO SHOWCASE */}
       <section
         id="portfolio"
-        className="py-24 3xl:py-32 bg-dark-bg border-t border-b border-glass-border"
+        className="py-24 3xl:py-32 bg-dark-bg "
       >
         <div className="max-w-[1600px] 3xl:max-w-[1900px] 4xl:max-w-[2200px] mx-auto px-6 lg:px-10">
 
@@ -868,7 +868,7 @@ export default function LogoDesignServicePage() {
       </section>
 
       {/* SECTION 6: HOW IT WORKS (ALTERNATING FULL-WIDTH ROWS) */}
-      <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
+      <section className="bg-dark-bg relative overflow-hidden">
         {/* Header */}
         <div className="py-14 md:py-20 3xl:py-28 text-center px-6">
           <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">

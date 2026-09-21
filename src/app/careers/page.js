@@ -84,7 +84,7 @@ export default function CareersPage() {
     <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
       {/* 1. HERO SECTION */}
-      <section className="relative py-24 md:py-35 3xl:py-44 4xl:py-52 flex items-center justify-center bg-dark-bg border-b border-glass-border overflow-hidden">
+      <section className="relative py-24 md:py-35 3xl:py-44 4xl:py-52 flex items-center justify-center bg-dark-bg  overflow-hidden">
 
         {/* Real Background Image */}
         <div className="absolute inset-0">
@@ -177,7 +177,7 @@ export default function CareersPage() {
       </section>
 
       {/* 2. CAREER AT SANYOG MEDIA — INTRO */}
-      <section className="py-24 3xl:py-32 bg-dark-bg relative border-b border-glass-border">
+      <section className="py-24 3xl:py-32 bg-dark-bg relative ">
         <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 3xl:gap-16 items-start">
 
@@ -237,7 +237,7 @@ export default function CareersPage() {
       </section>
 
       {/* 3. UNIQUE PERKS & CULTURE */}
-      <section className="py-24 3xl:py-32 bg-dark-bg relative overflow-hidden border-b border-glass-border">
+      <section className="py-24 3xl:py-32 bg-dark-bg relative overflow-hidden ">
         <div className="max-w-7xl 3xl:max-w-[1700px] 4xl:max-w-[2000px] mx-auto px-6">
           <div className="text-center max-w-3xl 3xl:max-w-4xl mx-auto mb-16">
             <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
@@ -262,7 +262,7 @@ export default function CareersPage() {
                   className="group rounded-xl 3xl:rounded-2xl overflow-hidden border border-glass-border bg-slate-900/40 cursor-default transition-all duration-300 hover:-translate-y-1.5 hover:border-neon-cyan/40 hover:shadow-[0_0_30px_-8px_theme(colors.neon-cyan)]"
                 >
                   {/* Fake browser chrome bar */}
-                  <div className="flex items-center gap-3 px-4 py-2.5 3xl:px-5 3xl:py-3 bg-slate-950/60 border-b border-glass-border">
+                  <div className="flex items-center gap-3 px-4 py-2.5 3xl:px-5 3xl:py-3 bg-slate-950/60 ">
                     <div className="flex gap-1.5 shrink-0">
                       <span className="w-2 h-2 3xl:w-2.5 3xl:h-2.5 rounded-full bg-slate-600 group-hover:bg-red-400/70 transition-colors duration-300" />
                       <span className="w-2 h-2 3xl:w-2.5 3xl:h-2.5 rounded-full bg-slate-600 group-hover:bg-amber-400/70 transition-colors duration-300" />
@@ -301,7 +301,7 @@ export default function CareersPage() {
       </section>
 
       {/* 4. INTERNSHIP PROGRAM SECTION */}
-      <section className="py-24 3xl:py-32 bg-dark-bg border-b border-glass-border relative">
+      <section className="py-24 3xl:py-32 bg-dark-bg  relative">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] 3xl:w-[500px] 3xl:h-[500px] bg-electric-blue/5 rounded-full blur-[100px] pointer-events-none" />
 
         <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6 relative z-10">
@@ -471,7 +471,7 @@ export default function CareersPage() {
       </section>
 
       {/* 6. FAST C.V. SUBMISSION / APPLY SECTION */}
-      {/* <section id="apply" className="py-15 bg-dark-bg border-t border-b border-glass-border relative">
+      {/* <section id="apply" className="py-15 bg-dark-bg border-t  relative">
         <div className="max-w-3xl mx-auto px-6 text-center flex flex-col items-center">
           <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full border border-glass-border bg-slate-900/60 backdrop-blur-md mb-4">
             <Mail className="w-3.5 h-3.5 text-neon-cyan" />

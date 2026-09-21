@@ -26,6 +26,7 @@ import {
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
+import GraphicHero from "@/components/Graphichero";
 
 // ---------- DATA ----------
 
@@ -271,93 +272,7 @@ export default function GraphicDesignPage() {
     return (
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
-            {/* 1. HERO */}
-            <section className="relative py-14 sm:py-20 md:py-28 4xl:py-36 bg-dark-bg overflow-hidden">
-                <div className="absolute top-1/3 left-1/4 w-72 h-72 md:w-96 md:h-96 4xl:w-[30rem] 4xl:h-[30rem] rounded-full pointer-events-none" />
-                <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
-
-                        <div className="flex flex-col items-start">
-                            <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400 mb-3">
-                                Transforming Brands With Design
-                            </span>
-                            <h1 className="font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight text-white mb-2">
-                                Graphic Designs
-                            </h1>
-
-                            <div className="text-base sm:text-lg md:text-2xl xl:text-3xl 4xl:text-4xl font-bold text-sky-400 mb-6">
-                                <BlindsRotatingText words={rotatingWords} delay={1500} />
-                            </div>
-
-                            <p className="text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
-                                Sanyog Media Concepts&apos; graphic design expertise weaves stories that captivate, elevating your brand with artful visual solutions.
-                            </p>
-
-                            {/* Avatar row - real avatars */}
-                            <div className="flex -space-x-3 mb-5">
-                                {avatarSeeds.map((seed, i) => (
-                                    <div
-                                        key={i}
-                                        className="w-9 h-9 md:w-10 md:h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full border-2 border-dark-bg overflow-hidden relative"
-                                    >
-                                        <Image
-                                            src={`https://i.pravatar.cc/64?img=${seed}`}
-                                            alt="Client avatar"
-                                            fill
-                                            className="object-cover"
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-
-                            {/* Rating */}
-                            <div className="flex flex-col leading-tight mb-8">
-                                <span className="text-base xl:text-lg 4xl:text-xl font-bold text-white">4.9/5 Star Rating</span>
-                                <span className="text-sm xl:text-base 4xl:text-lg text-cyan-400 font-medium">Based on Google Review</span>
-                            </div>
-
-                            {/* ✅ FIX: restored missing opening <a tags */}
-                            <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
-                                <a
-                                    href="#contact"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
-                                >
-                                    Connect With Us
-                                </a>
-
-                                <a
-                                    href="#smmport"
-                                    className="px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
-                                >
-                                    Portfolio
-                                </a>
-
-                                <div className="hidden lg:grid grid-cols-8 gap-2 4xl:gap-3 absolute left-[220px] xl:left-[260px] 4xl:left-[320px] top-1">
-                                    {[...Array(24)].map((_, i) => (
-                                        <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* Right side - GIF illustration */}
-                        <div className="relative flex items-center justify-center min-h-[260px] sm:min-h-[340px] lg:min-h-[420px] xl:min-h-[480px] 4xl:min-h-[560px]">
-                            <div className="absolute w-56 h-56 sm:w-72 sm:h-72 md:w-80 md:h-80 4xl:w-96 4xl:h-96 rounded-full bg-cyan-500/10 blur-3xl pointer-events-none" />
-                            <div className="relative w-full max-w-md xl:max-w-lg 4xl:max-w-2xl rounded-2xl overflow-hidden border border-slate-700/50 shadow-2xl shadow-cyan-500/10">
-                                <Image
-                                    src="/images/graphic-design/1.gif"
-                                    alt="Graphic design showcase"
-                                    width={480}
-                                    height={420}
-                                    unoptimized
-                                    className="w-full h-auto object-cover"
-                                />
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
+            <GraphicHero />
 
             {/* 4. WHY CHOOSE US — IMAGE ACCORDION */}
             <section className="py-16 md:py-20 4xl:py-28 bg-dark-bg">

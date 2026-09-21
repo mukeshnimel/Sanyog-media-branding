@@ -216,11 +216,11 @@ export default function WebsiteDesignPage() {
                                     Portfolio
                                 </a>
 
-                                <div className="hidden xl:grid grid-cols-8 gap-2 4xl:gap-3 self-center ml-2 4xl:ml-4">
+                                {/* <div className="hidden xl:grid grid-cols-8 gap-2 4xl:gap-3 self-center ml-2 4xl:ml-4">
                                     {[...Array(24)].map((_, i) => (
                                         <span key={i} className="w-1 h-1 4xl:w-1.5 4xl:h-1.5 rounded-full bg-indigo-400/40" />
                                     ))}
-                                </div>
+                                </div> */}
                             </div>
                         </div>
 
@@ -284,7 +284,7 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 3. VIDEO */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg border-b border-glass-border">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 md:mb-12 4xl:mb-16">
                         <h2 className="font-alata font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
@@ -304,7 +304,7 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 4. PORTFOLIO GALLERY */}
-            <section id="webportfolio" className="py-16 md:py-24 4xl:py-32 bg-slate-950 border-b border-glass-border">
+            <section id="webportfolio" className="py-16 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="w-full text-center mb-12 md:mb-16 4xl:mb-20">
                         <h2
@@ -410,7 +410,7 @@ export default function WebsiteDesignPage() {
 
             <Testimonials />
             {/* 5. PRICING */}
-            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative overflow-hidden border-b border-glass-border">
+            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden ">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
@@ -490,7 +490,7 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 6. HOW IT WORKS */}
-            <section className="bg-dark-bg border-t border-b border-glass-border relative overflow-hidden">
+            <section className="bg-dark-bg  relative overflow-hidden">
                 <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
                     <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
@@ -533,7 +533,7 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 10. FAQ */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />
