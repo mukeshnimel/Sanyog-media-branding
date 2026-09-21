@@ -219,7 +219,7 @@ export default function GraphicDesignHero() {
             {/* =====================================================
                 LAYER 3 — CONTENT (aapka original, center me, slider ke upar)
             ===================================================== */}
-            <div className="relative z-20 w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24">
+            <div className="relative z-20 w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto pt-14 sm:pt-20 md:pt-0 px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24">
                 <div className="mx-auto flex flex-col items-center text-center max-w-2xl xl:max-w-3xl 2xl:max-w-4xl 4xl:max-w-5xl">
 
                     <p className="font-nunito text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl italic text-white/90 font-medium">
@@ -267,18 +267,18 @@ export default function GraphicDesignHero() {
                     </div>
 
                     {/* Buttons */}
-                    <div className="flex flex-wrap justify-center gap-4 xl:gap-5">
+                    <div className="flex flex-wrap justify-center gap-4 xl:gap-5 -mt-4 sm:-mt-2 md:mt-0">
 
                         <a
                             href="#contact"
-                            className="font-nunito px-7 py-3 xl:px-8 xl:py-3 4xl:px-10 4xl:py-4 rounded-[15px] text-base xl:text-lg 4xl:text-xl font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                            className="font-nunito px-5 py-2 sm:px-7 sm:py-3 xl:px-8 xl:py-3 4xl:px-10 4xl:py-4 rounded-[12px] sm:rounded-[15px] text-sm sm:text-base xl:text-lg 4xl:text-xl font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                         >
                             Connect With Us
                         </a>
 
                         <a
                             href="#smmport"
-                            className="font-nunito px-7 py-3 xl:px-8 xl:py-3 4xl:px-10 4xl:py-4 rounded-[15px] text-base xl:text-lg 4xl:text-xl font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
+                            className="font-nunito px-5 py-2 sm:px-7 sm:py-3 xl:px-8 xl:py-3 4xl:px-10 4xl:py-4 rounded-[12px] sm:rounded-[15px] text-sm sm:text-base xl:text-lg 4xl:text-xl font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                         >
                             Portfolio
                         </a>
@@ -290,7 +290,7 @@ export default function GraphicDesignHero() {
             {/* =====================================================
                 Chhota caption (neeche center) — slide ka naam + progress line
             ===================================================== */}
-            <div className="pointer-events-none absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 w-[240px] sm:w-[300px] 4xl:w-[380px] text-center">
+            <div className="pointer-events-none absolute bottom-0 sm:bottom-4 md:bottom-6 left-1/2 -translate-x-1/2 z-20 w-[240px] sm:w-[300px] 4xl:w-[380px] text-center">
                 <div key={active}>
                     <p
                         className="hc-anim text-sm sm:text-base xl:text-lg 4xl:text-2xl font-bold uppercase tracking-wide text-white/80"
