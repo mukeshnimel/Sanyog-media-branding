@@ -72,8 +72,8 @@ const slides = [
 ];
 
 const VISIBLE_RANGE = 3;      // center ke dono side kitne cards dikhane hain
-const AUTOPLAY_MS = 4200;     // har slide kitni der rukegi
-const MOVE_MS = 1400;         // slide ka move kitna slow/cinematic ho
+const AUTOPLAY_MS = 2600;     // pehle 4200 tha — ab har slide jaldi badlegi
+const MOVE_MS = 900;          // pehle 1400 tha — transition bhi fast hogi
 
 export default function GraphicDesignHero() {
     const [active, setActive] = useState(0);
@@ -95,7 +95,7 @@ export default function GraphicDesignHero() {
         <section
             className="relative overflow-hidden bg-dark-bg flex items-center
     min-h-[620px] sm:min-h-[660px] lg:min-h-[720px] xl:min-h-[780px] 4xl:min-h-[950px]
-    py-10 sm:py-14 4xl:py-24"
+    "
             aria-label="Graphic design hero"
         >
             <style>{`
@@ -140,7 +140,7 @@ export default function GraphicDesignHero() {
                         const tx = offset * 92;      // % of card width
                         const tz = -abs * 160;       // depth
                         const ry = -offset * 9;      // slight tilt
-                        const brightness = isActive ? 0.9 : abs === 1 ? 0.55 : abs === 2 ? 0.35 : 0.25;
+                        const brightness = isActive ? 1 : abs === 1 ? 0.75 : abs === 2 ? 0.55 : 0.4;
 
                         return (
                             <div
@@ -185,9 +185,8 @@ export default function GraphicDesignHero() {
             ===================================================== */}
             <div className="pointer-events-none absolute inset-0 z-10" aria-hidden="true">
                 {/* poori slider halka dim */}
-                <div className="absolute inset-0 bg-dark-bg/55" />
-                {/* center me extra dark glow — text ke peeche, taaki content clear padhe */}
-                <div className="absolute left-1/2 top-1/2 h-[85%] w-[90%] lg:w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark-bg/75 blur-3xl" />
+                <div className="absolute inset-0 bg-dark-bg/30" />
+                <div className="absolute left-1/2 top-1/2 h-[85%] w-[90%] lg:w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark-bg/50 blur-3xl" />
                 {/* top + bottom cinematic fade */}
                 <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-dark-bg to-transparent" />
                 <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-dark-bg to-transparent" />
@@ -219,7 +218,7 @@ export default function GraphicDesignHero() {
             {/* =====================================================
                 LAYER 3 — CONTENT (aapka original, center me, slider ke upar)
             ===================================================== */}
-            <div className="relative z-20 w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto pt-14 sm:pt-20 md:pt-0 px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24">
+            <div className="relative z-20 w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto pt-0 sm:pt-4 md:pt-0 px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24">
                 <div className="mx-auto flex flex-col items-center text-center max-w-2xl xl:max-w-3xl 2xl:max-w-4xl 4xl:max-w-5xl">
 
                     <p className="font-nunito text-base sm:text-lg md:text-2xl lg:text-3xl xl:text-4xl 4xl:text-5xl italic text-white/90 font-medium">

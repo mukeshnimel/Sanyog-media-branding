@@ -91,28 +91,28 @@ const howItWorks = [
         iconImage: "/images/logo-design/vector/6.svg",
         title: "Tell Us Your Vision About Your Brand",
         desc: "Submit the design brief and tell us your ideas and what kind of design you're expecting.",
-        bg: "bg-amber-400",
+        bg: "bg-gradient-to-r from-yellow-500 to-amber-600",
         image: "/images/logo-design/6.png",
     },
     {
         iconImage: "/images/packaging-design/icons/1.svg",
         title: "We Will Process Your Packaging Design",
         desc: "According to your requirements, we will first look at your competitors. After doing all the research, we will start designing your packaging.",
-        bg: "bg-sky-400",
+        bg: "bg-gradient-to-r from-blue-600 to-cyan-600",
         image: "/images/web-design/26.png",
     },
     {
         iconImage: "/images/packaging-design/icons/2.svg",
         title: "Review Your Packaging Design",
         desc: "Review the packaging design we provide and let us know if you need any changes.",
-        bg: "bg-rose-400",
+        bg: "bg-gradient-to-r from-orange-600 to-red-600",
         image: "/images/web-design/27.png",
     },
     {
         iconImage: "/images/packaging-design/icons/3.svg",
         title: "Approve Our Packaging Design & Rate Us",
         desc: "Approve & download your final files, then give your feedback to us.",
-        bg: "bg-emerald-400",
+        bg: "bg-gradient-to-r from-green-600 to-emerald-600",
         image: "/images/web-design/28.png",
     },
 ];
@@ -134,7 +134,7 @@ export default function PackagingDesignPage() {
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
             {/* HERO */}
-            <section className="relative flex items-center overflow-hidden bg-dark-bg pt-24 pb-14 sm:pt-28 sm:pb-20">
+            <section className="relative flex items-center overflow-hidden bg-dark-bg pt-16 pb-14 sm:pt-25 sm:pb-20">
                 <div className="absolute top-1/3 left-1/4 -translate-x-1/2 w-64 h-64 sm:w-96 sm:h-96 4xl:w-[30rem] 4xl:h-[30rem] rounded-full bg-electric-blue/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
 
                 <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
@@ -223,14 +223,6 @@ export default function PackagingDesignPage() {
                                     ))}
                                 </div> */}
                             </div>
-
-                            <div className="flex items-center gap-6">
-                                <div className="flex items-center gap-2 xl:gap-3">
-                                    {[...Array(6)].map((_, i) => (
-                                        <span key={i} className="w-1.5 h-1.5 xl:w-2 xl:h-2 rounded-full bg-indigo-400/50" />
-                                    ))}
-                                </div>
-                            </div>
                         </div>
 
                         {/* Right — 3-column vertical marquee */}
@@ -269,9 +261,7 @@ export default function PackagingDesignPage() {
 
                             <div className="absolute inset-x-0 top-0 h-16 sm:h-20 md:h-24 bg-gradient-to-b from-dark-bg to-transparent pointer-events-none z-10" />
                             <div className="absolute inset-x-0 bottom-0 h-16 sm:h-20 md:h-24 bg-gradient-to-t from-dark-bg to-transparent pointer-events-none z-10" />
-                            <div className="absolute -bottom-3 left-3 inline-flex items-center px-3 py-1.5 xl:px-4 xl:py-2 rounded-lg bg-slate-950 border border-glass-border text-[10px] xl:text-xs font-medium text-sky-400 shadow-lg z-10 font-alata">
-                                https://sanyogmedia.in
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -460,7 +450,7 @@ export default function PackagingDesignPage() {
             </section>
 
             {/* PRICING */}
-            <section id="packagingprice" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden ">
+            <section id="packagingprice" className=" bg-dark-bg relative overflow-hidden ">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
@@ -531,7 +521,7 @@ export default function PackagingDesignPage() {
             {/* HOW IT WORKS */}
             <section className="bg-dark-bg relative overflow-hidden">
                 <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
-                    <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
+                    <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
                         How It Works
                     </span>
                     <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
@@ -549,18 +539,23 @@ export default function PackagingDesignPage() {
                                         }`}
                                 >
                                     <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
-                                        <img src={step.iconImage} alt={`${step.title} icon`} className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
+                                        <img
+                                            src={step.iconImage}
+                                            alt={`${step.title} icon`}
+                                            className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
+                                            style={{ filter: "brightness(0) invert(1)" }}
+                                        />
                                     </div>
-                                    <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                    <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
                                         {step.title}
                                     </h3>
-                                    <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                                    <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
                                         {step.desc}
                                     </p>
                                 </div>
 
                                 <div
-                                    className={`relative w-full h-[220px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                                    className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
                                         }`}
                                 >
                                     <Image

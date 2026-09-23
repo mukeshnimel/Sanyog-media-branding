@@ -72,10 +72,10 @@ const pricingPlans = [
 ];
 
 const howItWorks = [
-    { iconImage: "/images/logo-design/vector/6.svg", title: "Share Your Vision for Your Brand", desc: "Submit your design brief and let us know your ideas and expectations.", bg: "bg-amber-400", image: "/images/logo-design/6.png" },
-    { iconImage: "/images/logo-design/vector/7.svg", title: "We Will Create Your Website Design", desc: "We'll start by analyzing your competitors' websites. After thorough research, we'll begin designing your website based on your requirements.", bg: "bg-sky-400", image: "/images/web-design/26.png" },
-    { iconImage: "/images/logo-design/vector/8.svg", title: "Review Your Website Design", desc: "Review the website design we provide and let us know if you need any changes.", bg: "bg-rose-400", image: "/images/web-design/27.png" },
-    { iconImage: "/images/logo-design/vector/7.svg", title: "Approve Your Website Design & Rate Us", desc: "Approve & launch, then give us your feedback.", bg: "bg-emerald-400", image: "/images/web-design/28.png" },
+    { iconImage: "/images/logo-design/vector/6.svg", title: "Share Your Vision for Your Brand", desc: "Submit your design brief and let us know your ideas and expectations.", bg: "bg-gradient-to-r from-yellow-500 to-amber-600", image: "/images/logo-design/6.png" },
+    { iconImage: "/images/logo-design/vector/7.svg", title: "We Will Create Your Website Design", desc: "We'll start by analyzing your competitors' websites. After thorough research, we'll begin designing your website based on your requirements.", bg: "bg-gradient-to-r from-blue-600 to-cyan-600", image: "/images/web-design/26.png" },
+    { iconImage: "/images/logo-design/vector/8.svg", title: "Review Your Website Design", desc: "Review the website design we provide and let us know if you need any changes.", bg: "bg-gradient-to-r from-orange-600 to-red-600", image: "/images/web-design/27.png" },
+    { iconImage: "/images/logo-design/vector/7.svg", title: "Approve Your Website Design & Rate Us", desc: "Approve & launch, then give us your feedback.", bg: "bg-gradient-to-r from-green-600 to-emerald-600", image: "/images/web-design/28.png" },
 ];
 
 const faqs = [
@@ -148,7 +148,7 @@ export default function WebsiteDesignPage() {
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-clip">
 
             {/* 1. HERO */}
-            <section className="relative flex items-center overflow-hidden bg-dark-bg pt-24 pb-14 sm:pt-28 sm:pb-20">
+            <section className="relative flex items-center overflow-hidden bg-dark-bg pt-12 pb-14 sm:pt-28 sm:pb-20">
                 <div className="absolute top-1/3 left-1/4 w-72 h-72 sm:w-96 sm:h-96 4xl:w-[30rem] 4xl:h-[30rem] rounded-full bg-electric-blue/10 blur-[100px] sm:blur-[130px] pointer-events-none" />
 
                 <div className="w-full max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24 relative z-10">
@@ -284,7 +284,7 @@ export default function WebsiteDesignPage() {
             </section>
 
             {/* 3. VIDEO */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
+            <section className=" bg-dark-bg ">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 md:mb-12 4xl:mb-16">
                         <h2 className="font-alata font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight">
@@ -410,7 +410,7 @@ export default function WebsiteDesignPage() {
 
             <Testimonials />
             {/* 5. PRICING */}
-            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden ">
+            <section id="pricing" className="bg-dark-bg relative overflow-hidden ">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
@@ -489,48 +489,60 @@ export default function WebsiteDesignPage() {
                 </div>
             </section>
 
-            {/* 6. HOW IT WORKS */}
-            <section className="bg-dark-bg  relative overflow-hidden">
-                <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
-                    <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
-                        How It Works
-                    </span>
-                    <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
-                        Makes It Easy to Create Your Logo &amp; Branding
-                    </h2>
-                </div>
-
-                <div className="flex flex-col">
-                    {howItWorks.map((step, idx) => {
-                        const imageFirst = idx % 2 !== 0;
-                        return (
-                            <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
-                                <div
-                                    className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
-                                        }`}
-                                >
-                                    <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
-                                        <img src={step.iconImage} alt={`${step.title} icon`} className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16" />
-                                    </div>
-                                    <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-slate-950 mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
-                                        {step.title}
-                                    </h3>
-                                    <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-slate-900/80 max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
-                                        {step.desc}
-                                    </p>
-                                </div>
-
-                                <div
-                                    className={`relative w-full h-[220px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
-                                        }`}
-                                >
-                                    <Image src={step.image} alt={step.title} fill sizes="(max-width: 1024px) 100vw, 50vw" className="object-cover" priority={idx === 0} />
-                                </div>
+             {/* HOW IT WORKS */}
+                        <section className="bg-dark-bg relative overflow-hidden">
+                            <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
+                                <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
+                                    How It Works
+                                </span>
+                                <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                                    Makes It Easy to Create Your Logo &amp; Branding
+                                </h2>
                             </div>
-                        );
-                    })}
-                </div>
-            </section>
+            
+                            <div className="flex flex-col">
+                                {howItWorks.map((step, idx) => {
+                                    const imageFirst = idx % 2 !== 0;
+                                    return (
+                                        <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
+                                            <div
+                                                className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
+                                                    }`}
+                                            >
+                                                <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
+                                                    <img
+                                                        src={step.iconImage}
+                                                        alt={`${step.title} icon`}
+                                                        className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
+                                                        style={{ filter: "brightness(0) invert(1)" }}
+                                                    />
+                                                </div>
+                                                <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                                    {step.title}
+                                                </h3>
+                                                <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                                                    {step.desc}
+                                                </p>
+                                            </div>
+            
+                                            <div
+                                                className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                                                    }`}
+                                            >
+                                                <Image
+                                                    src={step.image}
+                                                    alt={step.title}
+                                                    fill
+                                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                                    className="object-cover"
+                                                    priority={idx === 0}
+                                                />
+                                            </div>
+                                        </div>
+                                    );
+                                })}
+                            </div>
+                        </section>
 
             {/* 10. FAQ */}
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">

@@ -483,13 +483,13 @@ export default function SocialMediaMarketingPage() {
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <div className="flex flex-col items-start">
-                            <span className="font-alata text-sm xl:text-base 4xl:text-lg font-semibold text-neon-cyan mb-4">
+                            <span className="font-alata text-sm xl:text-base 4xl:text-lg font-semibold text-sky-500 mb-4">
                                 Why Choose Our Social Media Post &amp; Flyer Design Services
                             </span>
-                            <h2 className="font-alata font-bold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white leading-tight mb-6">
+                            <h2 className="font-alata font-bold text-xl sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl text-white leading-tight mb-6">
                                 Social Media Marketing Means Partnering With a Team That Blends Strategy &amp; Creative Social Media Post &amp; Flyer Design Services
                             </h2>
-                            <span className="font-alata text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-bold text-neon-cyan mb-4">
+                            <span className="font-alata text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-bold text-sky-500 mb-4">
                                 Creativity With Strategy
                             </span>
                             <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8">
@@ -498,7 +498,7 @@ export default function SocialMediaMarketingPage() {
 
                             <a
                                 href="#contact"
-                                className="font-nunito px-8 py-3.5 xl:px-10 xl:py-4 4xl:px-12 4xl:py-5 rounded-full text-sm xl:text-base 4xl:text-lg font-bold text-white glow-btn-primary"
+                                className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
                             >
                                 Know More About Us
                             </a>

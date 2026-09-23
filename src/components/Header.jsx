@@ -35,6 +35,12 @@ const rowVariants = {
   }),
 };
 
+// Fluid font-size: scales smoothly with viewport width instead of jumping
+// at fixed breakpoints. This is what removes the "danger zone" width range
+// where a two-word nav item (like "About Us") would suddenly not fit and
+// wrap onto two lines. min 16px, max 26px, scales with viewport in between.
+const navLinkFontSize = "clamp(16px, 1.1vw + 0.5rem, 26px)";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -88,24 +94,36 @@ export default function Header() {
             />
           </Link>
 
-          {/* Desktop Nav — now switches at 1008px instead of md (768px) */}
-          <nav className="font-nunito hidden min-[1008px]:flex items-center gap-5 xl:gap-6 2xl:gap-7 3xl:gap-8 4xl:gap-8 ml-12 xl:ml-20 2xl:ml-24 3xl:ml-24 4xl:ml-28">
+          {/*
+            Desktop Nav
+            - Breakpoint synced to Tailwind's standard `lg` (1024px) across
+              nav / CTA / hamburger so all three switch at exactly the same
+              width. No more arbitrary custom min-[1008px] that only one
+              element used.
+            - `flex-nowrap` forces the whole row to stay on one line; if
+              space gets tight, items compress via `gap`, they never wrap
+              onto a second line.
+          */}
+          <nav className="font-nunito hidden lg:flex flex-nowrap items-center gap-3 lg:gap-5 xl:gap-6 2xl:gap-7 3xl:gap-8 4xl:gap-8 ml-8 xl:ml-16 2xl:ml-24 3xl:ml-24 4xl:ml-28">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div
                   key={item.name}
-                  className="relative"
+                  className="relative shrink-0"
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button className="group relative flex items-center gap-1.5 py-2 text-[18px] xl:text-[19px] 2xl:text-[21px] 3xl:text-[23px] 4xl:text-[26px] font-semibold text-white/90 hover:text-white transition-colors cursor-pointer">
+                  <button
+                    className="group relative flex items-center gap-1.5 whitespace-nowrap py-2 font-semibold text-white/90 hover:text-white transition-colors cursor-pointer"
+                    style={{ fontSize: navLinkFontSize }}
+                  >
                     <span
                       className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${dropdownOpen ? "scale-y-100" : "scale-y-0"
                         }`}
                     />
                     {item.name}
                     <ChevronDown
-                      className={`w-4 h-4 4xl:w-5 4xl:h-5 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
+                      className={`w-4 h-4 4xl:w-5 4xl:h-5 shrink-0 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
                         }`}
                     />
                   </button>
@@ -151,7 +169,8 @@ export default function Header() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className="group relative inline-flex items-center py-2 text-[18px] xl:text-[19px] 2xl:text-[21px] 3xl:text-[23px] 4xl:text-[26px] font-semibold text-white/90 hover:text-white transition-colors"
+                  className="group relative inline-flex shrink-0 items-center whitespace-nowrap py-2 font-semibold text-white/90 hover:text-white transition-colors"
+                  style={{ fontSize: navLinkFontSize }}
                 >
                   <span
                     className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${isActive(item.href)
@@ -167,23 +186,23 @@ export default function Header() {
             )}
           </nav>
 
-          {/* CTA — now switches at 1008px instead of md (768px) */}
-          <div className="hidden min-[1008px]:block shrink-0 ml-10 xl:ml-16 2xl:ml-20 3xl:ml-22 4xl:ml-24">
+          {/* CTA — breakpoint synced to lg (1024px), same as nav + hamburger */}
+          <div className="hidden lg:block shrink-0 ml-8 xl:ml-16 2xl:ml-20 3xl:ml-22 4xl:ml-24">
             <Link
               href="/contact"
               onClick={handleConnectClick}
-              className="font-nunito relative inline-block rounded-lg bg-sky-500 px-5 py-2.5 xl:px-6 xl:py-3 2xl:px-7 2xl:py-3 3xl:px-7 3xl:py-3.5 4xl:px-8 4xl:py-4 text-base xl:text-[17px] 2xl:text-[18px] 3xl:text-[19px] 4xl:text-xl font-semibold text-white transition-colors hover:bg-sky-400"
+              className="font-nunito relative inline-block whitespace-nowrap rounded-lg bg-sky-500 px-5 py-2.5 xl:px-6 xl:py-3 2xl:px-7 2xl:py-3 3xl:px-7 3xl:py-3.5 4xl:px-8 4xl:py-4 text-base xl:text-[17px] 2xl:text-[18px] 3xl:text-[19px] 4xl:text-xl font-semibold text-white transition-colors hover:bg-sky-400"
             >
               Connect With Us
             </Link>
           </div>
 
-          {/* Morphing hamburger toggle — now shows below 1008px instead of below md (768px) */}
+          {/* Morphing hamburger toggle — breakpoint synced to lg (1024px) */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle menu"
             aria-expanded={isOpen}
-            className="relative z-[60] flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 backdrop-blur-md min-[1008px]:hidden"
+            className="relative z-[60] flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/5 backdrop-blur-md lg:hidden"
           >
             <div className="relative flex h-4 w-5 flex-col items-center justify-between">
               <motion.span
@@ -218,7 +237,7 @@ export default function Header() {
         </div>
       </header>
 
-      {/* Mobile Drawer — now shows below 1008px instead of below md (768px) */}
+      {/* Mobile Drawer — breakpoint synced to lg (1024px) */}
       {/*
         FIX — this was the cause of the "blink / hang" on mobile:
         the drawer animated `clipPath` from a tiny circle to a huge one
@@ -248,16 +267,21 @@ export default function Header() {
 
         LATEST FIX:
         - Breakpoint for switching between mobile drawer and full desktop
-          nav moved from `md` (768px) to a custom `min-[1008px]`. Between
-          768px–1007px the full 6-item nav + CTA + logo was being squeezed
-          into too little space, causing wrapping/overlap. Now that whole
-          range correctly shows the hamburger drawer instead.
+          nav standardized to Tailwind's `lg` (1024px), used identically on
+          the nav, the CTA button, and this hamburger drawer. Previously a
+          one-off custom `min-[1008px]` was used only on some of these,
+          which left too little room for all 5 nav items + dropdown + CTA
+          + logo at widths just above 1008px, causing "About Us" to wrap
+          onto two lines. Combined with whitespace-nowrap + fluid
+          clamp()-based font-sizing on the desktop nav links (see
+          navLinkFontSize above), this removes the "danger zone" width
+          range where an item could run out of room and break mid-word.
 
         FONT-SIZE PASS (this pass):
-        - Desktop nav links + dropdown trigger bumped up one notch per
-          breakpoint (16/17/20/22/25 -> 18/19/21/23/26) and aligned the
-          dropdown trigger to match the other top-level links, which were
-          previously smaller and inconsistent.
+        - Desktop nav links + dropdown trigger now use a fluid
+          clamp(16px, 1.1vw + 0.5rem, 26px) font-size instead of fixed
+          per-breakpoint text-[Npx] jumps, so size scales continuously with
+          viewport width rather than jumping at one exact pixel value.
         - Dropdown menu item text bumped 14px/18px(4xl) -> 15px/19px(4xl).
         - Mobile drawer links bumped text-lg/xl -> text-xl/2xl, and mobile
           dropdown sub-items bumped 15px -> 16px.
@@ -269,7 +293,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[100] flex flex-col overflow-x-hidden overflow-y-auto bg-[#04060b]/95 backdrop-blur-md min-[1008px]:hidden"
+            className="fixed inset-0 z-[100] flex flex-col overflow-x-hidden overflow-y-auto bg-[#04060b]/95 backdrop-blur-md lg:hidden"
             style={{ willChange: "opacity, transform" }}
           >
             <div className="pointer-events-none absolute -top-24 -right-20 h-64 w-64 rounded-full bg-sky-500/10 blur-3xl" />
@@ -279,7 +303,7 @@ export default function Header() {
               <img
                 src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
                 alt="Sanyog Media Concepts Logo"
-                className="h-9 w-auto max-w-[190px] object-contain sm:h-10"
+                className="h-11 w-auto max-w-[210px] object-contain sm:h-12 sm:max-w-[230px] md:h-14 md:max-w-none xl:h-16 4xl:h-20"
               />
               <button
                 onClick={() => setIsOpen(false)}

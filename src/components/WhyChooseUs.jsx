@@ -181,9 +181,7 @@ export default function WhyChooseUs() {
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
 
-              <div className="absolute bottom-2 left-2 sm:bottom-3 sm:left-3 4xl:bottom-4 4xl:left-4 inline-flex items-center px-2.5 py-1 sm:px-3 sm:py-1.5 4xl:px-4 4xl:py-2 rounded-lg bg-slate-950 border border-glass-border text-[9px] sm:text-[10px] 4xl:text-xs font-medium text-sky-400 shadow-lg">
-                https://sanyogmedia.in
-              </div>
+             
             </div>
           </div>
 

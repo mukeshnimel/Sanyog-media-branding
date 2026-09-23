@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
+import BehindTheDesigns from "@/components/Behindthedesigns";
 import {
   Sparkles,
   Star,
@@ -47,28 +48,28 @@ const howItWorks = [
     iconImage: "/images/logo-design/vector/6.svg",
     title: "Tell Us Your Vision About Your Brand",
     desc: "Submit the design brief and tell us your ideas and what kind of design you're expecting.",
-    bg: "bg-amber-400",
+    bg: "bg-gradient-to-r from-yellow-500 to-amber-600",
     image: "/images/logo-design/6.png",
   },
   {
     iconImage: "/images/logo-design/vector/7.svg",
     title: "We Will Process Your Logo Design",
     desc: "According to your requirements, we will first look at your competitors. After doing all the research, we will start designing your logo.",
-    bg: "bg-sky-400",
+    bg: "bg-gradient-to-r from-blue-600 to-cyan-600",
     image: "/images/logo-design/7.png",
   },
   {
     iconImage: "/images/logo-design/vector/8.svg",
     title: "Review the Logo",
     desc: "Review the logo design we provide and let us know if you need any changes.",
-    bg: "bg-rose-400",
+    bg: "bg-gradient-to-r from-orange-600 to-red-600",
     image: "/images/logo-design/8.png",
   },
   {
     iconImage: "/images/logo-design/vector/7.svg",
     title: "Approve Our Logo Design & Rate Us",
     desc: "Approve & download your final files, then give your feedback to us.",
-    bg: "bg-emerald-400",
+    bg: "bg-gradient-to-r from-green-600 to-emerald-600",
     image: "/images/logo-design/9.png",
   },
 ];
@@ -435,136 +436,7 @@ export default function LogoDesignServicePage() {
   return (
     <main className="flex-1 bg-dark-bg text-slate-100 pt-24 overflow-hidden">
 
-      {/* SECTION 1: HERO BANNER (SPLIT 60/40) */}
-      <section className="relative py-24 md:py-10 3xl:py-28 flex items-center bg-dark-bg ">
-        <div className="absolute top-1/3 left-1/4 w-96 h-96 3xl:w-[32rem] 3xl:h-[32rem] rounded-full bg-electric-blue/10 blur-[130px] pointer-events-none" />
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.012)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.012)_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none" />
-
-        <div className="max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-6 lg:px-10 xl:px-16 4xl:px-24 relative z-10 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 3xl:gap-16 4xl:gap-24 items-center">
-
-            {/* Left Content Column */}
-            <div className="lg:col-span-6 text-left flex flex-col items-start -mt-10 sm:-mt-4 lg:mt-0">
-
-              <p className="font-nunito text-[16px] md:text-[22px] 3xl:text-[24px] font-bold tracking-wider sm:tracking-widest text-white mb-2 sm:mb-3 leading-snug max-w-full break-words">
-                Unveil Your Brand&apos;s Identity with Captivating
-              </p>
-
-              <motion.h1
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="font-alata font-bold text-3xl sm:text-4xl md:text-5xl xl:text-7xl 2xl:text-8xl 4xl:text-9xl leading-tight tracking-tight text-white mb-2 sm:mb-3"
-              >
-                Logo Design
-              </motion.h1>
-
-              {/* Rotating word */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="mb-3 sm:mb-4"
-              >
-                <div className="font-alata text-[25px] sm:text-[30px] md:text-[36px] xl:text-[40px] 2xl:text-[85px] 4xl:text-[128px] leading-tight tracking-tight text-white/90">
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key="logo-design"
-                      initial={{ y: "-100%", opacity: 0 }}
-                      animate={{ y: "0%", opacity: 1 }}
-                      exit={{ y: "100%", opacity: 0 }}
-                      transition={{ duration: 0.45, ease: "easeInOut" }}
-                      className="block text-sky-400"
-                    >
-                      &amp; Brand Identity
-                    </motion.span>
-                  </AnimatePresence>
-                </div>
-              </motion.div>
-
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="font-nunito text-[14px] sm:text-[16px] md:text-[18px] xl:text-[20px] 4xl:text-[24px] text-slate-350 max-w-xl 3xl:max-w-2xl 4xl:max-w-3xl mb-4 sm:mb-5 leading-relaxed"
-              >
-                Top-Rated Creative Branding Agency for Logo, Web &amp; Design Solutions.
-              </motion.p>
-
-              {/* Avatars + rating */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.25 }}
-                className="mb-4"
-              >
-                <div className="flex -space-x-3 mb-2">
-                  {avatars.map((src, i) => (
-                    <div
-                      key={i}
-                      className="w-10 h-10 3xl:w-12 3xl:h-12 4xl:w-16 4xl:h-16 rounded-full border-2 border-dark-bg overflow-hidden relative"
-                    >
-                      <Image
-                        src={src}
-                        alt="Client avatar"
-                        fill
-                        className="object-cover"
-                        sizes="64px"
-                      />
-                    </div>
-                  ))}
-                </div>
-
-                <p className="font-nunito text-[16px] sm:text-[18px] xl:text-[22px] 4xl:text-[28px] font-bold text-white">
-                  4.9/5 Star Rating on Google
-                </p>
-
-                <p className="font-nunito text-[15px] sm:text-[17px] xl:text-[20px] 4xl:text-[25px] font-semibold text-sky-400">
-                  Trusted By Businesses Across Industries
-                </p>
-              </motion.div>
-
-              <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 4xl:gap-5 w-full sm:w-auto">
-
-                <a
-                  href="#contact"
-                  className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
-                >
-                  Connect With Us
-                </a>
-
-                <a
-                  href="#smmport"
-                  className="font-nunito px-6 py-2 xl:px-6 xl:py-2 4xl:px-8 4xl:py-3 rounded-[15px] text-sm xl:text-base 4xl:text-lg font-bold text-white bg-sky-500 hover:bg-sky-600 transition-colors text-center w-full sm:w-fit"
-                >
-                  Portfolio
-                </a>
-
-              </div>
-            </div>
-
-            {/* Right Image */}
-            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative w-full max-w-[500px] lg:max-w-[600px] xl:max-w-[700px] 3xl:max-w-[860px] 4xl:max-w-[980px] aspect-[7/5]"
-              >
-                <Image
-                  src="/images/logo-design/1.png"
-                  alt="Brand Identity Showreel"
-                  fill
-                  priority
-                  className="object-contain"
-                  sizes="(max-width: 1024px) 90vw, 45vw"
-                />
-              </motion.div>
-            </div>
-
-          </div>
-        </div>
-      </section >
+      <BehindTheDesigns />
 
       <MarqueeRibbon />
       {/* SECTION 2: TRUST & VALUE PROPOSITION */}
@@ -640,13 +512,12 @@ export default function LogoDesignServicePage() {
       {/* SECTION 4: PORTFOLIO SHOWCASE */}
       <section
         id="portfolio"
-        className="py-24 3xl:py-32 bg-dark-bg "
+        className=" 3xl:py-32 bg-dark-bg "
       >
         <div className="max-w-[1600px] 3xl:max-w-[1900px] 4xl:max-w-[2200px] mx-auto px-6 lg:px-10">
 
-          {/* Heading */}
-          <div className="text-center mb-14 3xl:mb-18 overflow-x-auto">
-            <h2 className="font-alata font-bold text-xl md:text-2xl lg:text-4xl 3xl:text-5xl text-white leading-snug mb-4 whitespace-nowrap">
+          <div className="text-center mb-14 3xl:mb-18">
+            <h2 className="font-alata font-bold text-xl md:text-2xl lg:text-4xl 3xl:text-5xl text-white leading-snug mb-4">
               Your Brand is a Story Unfolding Across all Customer Touch Points
             </h2>
 
@@ -775,10 +646,13 @@ export default function LogoDesignServicePage() {
 
 
       {/* SECTION 5: PRICING PACKAGES */}
-      <section id="pricing" className="py-24 3xl:py-32 bg-dark-bg relative overflow-hidden">
+      <section id="pricing" className="3xl:py-32 bg-dark-bg relative overflow-hidden">
         {/* Giant faded background text */}
-        <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-          <span className="font-alata font-black text-[10rem] md:text-[14rem] 3xl:text-[18rem] text-white/[0.03] leading-none tracking-tight">
+        <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none overflow-hidden">
+          <span
+            className="font-alata font-black leading-none tracking-tight whitespace-nowrap text-white/[0.03]"
+            style={{ fontSize: "clamp(4rem, 20vw, 18rem)" }}
+          >
             PRICING
           </span>
         </div>
@@ -867,63 +741,60 @@ export default function LogoDesignServicePage() {
         </div>
       </section>
 
-      {/* SECTION 6: HOW IT WORKS (ALTERNATING FULL-WIDTH ROWS) */}
-      <section className="bg-dark-bg relative overflow-hidden">
-        {/* Header */}
-        <div className="py-14 md:py-20 3xl:py-28 text-center px-6">
-          <span className="text-xs 3xl:text-sm font-bold uppercase tracking-widest text-neon-cyan">
-            How It Works
-          </span>
-          <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl 3xl:text-6xl text-white mt-4 leading-snug">
-            Makes It Easy to Create Your Logo &amp; Branding
-          </h2>
-        </div>
-
-        {/* Rows */}
-        <div className="flex flex-col">
-          {howItWorks.map((step, idx) => {
-            const imageFirst = idx % 2 !== 0;
-            return (
-              <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[420px] 3xl:min-h-[520px]">
-                {/* Text block */}
-                <div
-                  className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 3xl:px-20 py-12 md:py-16 3xl:py-20 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
-                    }`}
-                >
-                  <div className="w-10 h-10 3xl:w-12 3xl:h-12 rounded-full  flex items-center justify-center mb-5 md:mb-6">
-                    <img
-                      src={step.iconImage}
-                      alt={`${step.title} icon`}
-                      className="w-11 h-11 3xl:w-14 3xl:h-14"
-                    />
-                  </div>
-                  <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl 3xl:text-4xl text-slate-950 mb-3 md:mb-4 max-w-sm 3xl:max-w-md leading-snug">
-                    {step.title}
-                  </h3>
-                  <p className="text-sm md:text-base 3xl:text-lg text-slate-900/80 max-w-md 3xl:max-w-lg leading-relaxed">
-                    {step.desc}
-                  </p>
-                </div>
-
-                {/* Image block */}
-                <div
-                  className={`relative w-full h-[240px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
-                    }`}
-                >
-                  <Image
-                    src={step.image}
-                    alt={step.title}
-                    fill
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    className="object-cover"
-                    priority={idx === 0}
-                  />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </section>
+      {/* HOW IT WORKS */}
+                 <section className="bg-dark-bg relative overflow-hidden">
+                     <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
+                         <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
+                             How It Works
+                         </span>
+                         <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                             Makes It Easy to Create Your Logo &amp; Branding
+                         </h2>
+                     </div>
+     
+                     <div className="flex flex-col">
+                         {howItWorks.map((step, idx) => {
+                             const imageFirst = idx % 2 !== 0;
+                             return (
+                                 <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
+                                     <div
+                                         className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
+                                             }`}
+                                     >
+                                         <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
+                                             <img
+                                                 src={step.iconImage}
+                                                 alt={`${step.title} icon`}
+                                                 className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
+                                                 style={{ filter: "brightness(0) invert(1)" }}
+                                             />
+                                         </div>
+                                         <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                             {step.title}
+                                         </h3>
+                                         <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                                             {step.desc}
+                                         </p>
+                                     </div>
+     
+                                     <div
+                                         className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                                             }`}
+                                     >
+                                         <Image
+                                             src={step.image}
+                                             alt={step.title}
+                                             fill
+                                             sizes="(max-width: 1024px) 100vw, 50vw"
+                                             className="object-cover"
+                                             priority={idx === 0}
+                                         />
+                                     </div>
+                                 </div>
+                             );
+                         })}
+                     </div>
+                 </section>
 
       {/* 10. FAQ */}
       <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">

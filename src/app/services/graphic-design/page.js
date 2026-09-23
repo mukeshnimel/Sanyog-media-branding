@@ -275,7 +275,7 @@ export default function GraphicDesignPage() {
             <GraphicHero />
 
             {/* 4. WHY CHOOSE US — IMAGE ACCORDION */}
-            <section className="py-16 md:py-20 4xl:py-28 bg-dark-bg">
+            <section className="py-10 md:py-15 4xl:py-20 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
                         <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white leading-tight mb-4">
@@ -285,7 +285,7 @@ export default function GraphicDesignPage() {
 
                     {/* Interactive image accordion — stacked vertically on mobile/tablet-portrait,
                         side-by-side from md: (tablet-landscape) up */}
-                    <div className="relative left-1/2 -translate-x-1/2 w-screen h-[680px] sm:h-[560px] md:h-[420px] lg:h-[500px] xl:h-[580px] 4xl:h-[680px] mb-12 md:mb-16 4xl:mb-20">
+                    <div className="relative left-1/2 -translate-x-1/2 w-screen h-[680px] sm:h-[560px] md:h-[420px] lg:h-[500px] xl:h-[580px] 4xl:h-[680px]">
                         <div className="flex flex-col md:flex-row h-full w-full gap-1 md:gap-0 px-1 md:px-0">
                             {accordionImages.map((src, idx) => {
                                 const accordionTitles = [
@@ -336,9 +336,9 @@ export default function GraphicDesignPage() {
                 </div>
             </section>
             {/* 3. SERVICES GRID */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg">
+            <section className="py-6 md:py-10 4xl:py-14 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
-                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-8 md:mb-10 4xl:mb-15">
                         <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                             Our Graphic Design
                         </span>
@@ -351,7 +351,7 @@ export default function GraphicDesignPage() {
                         {services.map((s, idx) => (
                             <div
                                 key={idx}
-                                className="border border-slate-700 px-4 sm:px-5 xl:px-6 4xl:px-8 py-5 sm:py-6 xl:py-7 4xl:py-9 rounded-2xl flex items-center justify-center text-center hover:border-white/30 transition-all cursor-default bg-[#07ADD0]"
+                                className="border border-slate-700 px-4 sm:px-5 xl:px-6 4xl:px-8 py-5 sm:py-6 xl:py-7 4xl:py-9 rounded-2xl flex items-center justify-center text-center hover:border-white/30 transition-all cursor-default bg-[#007EC3]"
                             >
                                 <span className="font-semibold text-base sm:text-lg md:text-xl xl:text-xl 2xl:text-3xl text-white">{s}</span>
                             </div>
@@ -447,7 +447,7 @@ export default function GraphicDesignPage() {
             <Testimonials />
 
             {/* 7. KEY PRIORITY */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
+            <section className="py-10 md:py-16 4xl:py-20 bg-dark-bg relative overflow-hidden">
                 <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[260px] h-[260px] md:w-[400px] md:h-[400px] 4xl:w-[560px] 4xl:h-[560px] bg-indigo-600/20 blur-[90px] md:blur-[120px] rounded-full pointer-events-none" />
 
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
@@ -507,7 +507,11 @@ export default function GraphicDesignPage() {
             </section>
 
             {/* 8. PRICING */}
-            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
+            {/* 8. PRICING */}
+            <section
+                id="pricing"
+                className="py-10 md:py-14 4xl:py-20 bg-dark-bg relative overflow-hidden"
+            >
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
                         PRICING
@@ -515,7 +519,7 @@ export default function GraphicDesignPage() {
                 </div>
 
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
-                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-8 md:mb-10 4xl:mb-12">
                         <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
                             Graphic Design Packages
                         </span>
