@@ -333,8 +333,8 @@ export default function VideoReelEditingPage() {
                             transition-all duration-300 ease-out
                             hover:scale-95
                             ${isCenter
-                                            ? "bg-orange-600 hover:bg-blue-600 md:py-10 lg:py-14 xl:py-16 4xl:py-20"
-                                            : "bg-blue-600 hover:bg-orange-600"
+                                            ? "bg-orange-500 hover:bg-sky-500 md:py-10 lg:py-14 xl:py-16 4xl:py-20"
+                                            : "bg-sky-500 hover:bg-orange-500"
                                         }
                         `}
                                 >

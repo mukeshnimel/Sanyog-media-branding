@@ -111,3 +111,68 @@ video::-webkit-media-controls,
 video::-webkit-media-controls-enclosure {
   display: none !important;
 }
+
+
+.floating-icon {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  text-decoration: none;
+}
+
+.call-icon {
+  left: 15px;
+  background-color: #34B233;
+}
+
+.whatsapp-float {
+  display: none;
+  position: fixed;
+  bottom: 25px;
+  right: 15px;
+  width: 58px;
+  height: 58px;
+  background-color: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  /* animation: pulse 2s infinite; */
+}
+
+.whatsapp-float svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* @keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+} */
+
+/* Sirf mobile view pe dikhaye */
+@media only screen and (max-width: 768px) {
+
+  .floating-icon,
+  .whatsapp-float {
+    display: flex;
+  }
+}

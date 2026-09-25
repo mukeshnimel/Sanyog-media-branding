@@ -95,7 +95,7 @@ export default function AboutHero() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 w-full max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 4xl:px-16 pt-16 sm:pt-10 lg:pt-6 text-center flex flex-col items-center justify-center">
+            <div className="relative z-10 w-full max-w-6xl 3xl:max-w-7xl 4xl:max-w-[1700px] mx-auto px-4 sm:px-6 lg:px-8 4xl:px-16 pt-16 sm:pt-10 lg:pt-20 text-center flex flex-col items-center justify-center">
 
                 {/* Who We Are */}
                 <motion.span

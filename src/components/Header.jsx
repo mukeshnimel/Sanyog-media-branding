@@ -39,7 +39,7 @@ const rowVariants = {
 // at fixed breakpoints. This is what removes the "danger zone" width range
 // where a two-word nav item (like "About Us") would suddenly not fit and
 // wrap onto two lines. min 16px, max 26px, scales with viewport in between.
-const navLinkFontSize = "clamp(16px, 1.1vw + 0.5rem, 26px)";
+const navLinkFontSize = "clamp(14px, 0.9vw + 0.4rem, 22px)";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -85,12 +85,13 @@ export default function Header() {
       >
         {/* Container ab bade screens pe bhi stretch hoga, Hero ke max-width ke consistent */}
         <div className="max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto flex min-w-0 items-center justify-between px-4 sm:px-6 lg:px-10 xl:px-16 3xl:px-20 4xl:px-24">
-          {/* Logo */}
+          {/* Logo — bumped up on mobile (h-9 -> h-12) so it doesn't look
+              undersized next to the hamburger button before the menu opens */}
           <Link href="/" className="flex min-w-0 shrink-0 items-center">
             <img
               src="/images/logo/SANYOG-MEDIA-CONCEPTS-BRANDING-1-scaled.png"
               alt="Sanyog Media Concepts Logo"
-              className="h-9 w-auto max-w-[180px] object-contain sm:h-10 sm:max-w-[200px] md:h-11 md:max-w-none xl:h-12 4xl:h-16"
+              className="h-12 w-auto max-w-[220px] object-contain sm:h-12 sm:max-w-[220px] md:h-11 md:max-w-none xl:h-12 4xl:h-16"
             />
           </Link>
 
@@ -103,6 +104,9 @@ export default function Header() {
             - `flex-nowrap` forces the whole row to stay on one line; if
               space gets tight, items compress via `gap`, they never wrap
               onto a second line.
+            - Hover/active indicator: replaced the old plain left-side
+              vertical bar with a glowing gradient underline that grows
+              in from the left on hover/active, for a more distinctive look.
           */}
           <nav className="font-nunito hidden lg:flex flex-nowrap items-center gap-3 lg:gap-5 xl:gap-6 2xl:gap-7 3xl:gap-8 4xl:gap-8 ml-8 xl:ml-16 2xl:ml-24 3xl:ml-24 4xl:ml-28">
             {navItems.map((item) =>
@@ -117,13 +121,13 @@ export default function Header() {
                     className="group relative flex items-center gap-1.5 whitespace-nowrap py-2 font-semibold text-white/90 hover:text-white transition-colors cursor-pointer"
                     style={{ fontSize: navLinkFontSize }}
                   >
-                    <span
-                      className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${dropdownOpen ? "scale-y-100" : "scale-y-0"
-                        }`}
-                    />
                     {item.name}
                     <ChevronDown
                       className={`w-4 h-4 4xl:w-5 4xl:h-5 shrink-0 transition-transform duration-300 ${dropdownOpen ? "-rotate-180 text-sky-400" : ""
+                        }`}
+                    />
+                    <span
+                      className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-gradient-to-r from-sky-400 to-cyan-300 shadow-[0_0_8px_rgba(56,189,248,0.6)] transition-all duration-300 ease-out ${dropdownOpen ? "w-full opacity-100" : "w-0 opacity-0"
                         }`}
                     />
                   </button>
@@ -172,15 +176,15 @@ export default function Header() {
                   className="group relative inline-flex shrink-0 items-center whitespace-nowrap py-2 font-semibold text-white/90 hover:text-white transition-colors"
                   style={{ fontSize: navLinkFontSize }}
                 >
-                  <span
-                    className={`absolute -left-3 top-1/2 -translate-y-1/2 h-4 w-[2px] origin-center bg-sky-400 transition-transform duration-300 ${isActive(item.href)
-                      ? "scale-y-100"
-                      : "scale-y-0 group-hover:scale-y-100"
-                      }`}
-                  />
                   <span className={isActive(item.href) ? "text-sky-300" : ""}>
                     {item.name}
                   </span>
+                  <span
+                    className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full bg-gradient-to-r from-sky-400 to-cyan-300 shadow-[0_0_8px_rgba(56,189,248,0.6)] transition-all duration-300 ease-out ${isActive(item.href)
+                      ? "w-full opacity-100"
+                      : "w-0 opacity-0 group-hover:w-full group-hover:opacity-100"
+                      }`}
+                  />
                 </Link>
               )
             )}
@@ -283,8 +287,18 @@ export default function Header() {
           per-breakpoint text-[Npx] jumps, so size scales continuously with
           viewport width rather than jumping at one exact pixel value.
         - Dropdown menu item text bumped 14px/18px(4xl) -> 15px/19px(4xl).
-        - Mobile drawer links bumped text-lg/xl -> text-xl/2xl, and mobile
-          dropdown sub-items bumped 15px -> 16px.
+
+        LATEST FIX (this pass):
+        - Header logo (closed state, before drawer opens) bumped up on
+          mobile: h-9 -> h-12, max-w-[180px] -> max-w-[220px], so it no
+          longer looks undersized next to the hamburger button.
+        - Mobile drawer nav link text sizes reduced: text-xl/2xl(sm) ->
+          text-lg/xl(sm) for both plain links and the Services trigger —
+          was too large.
+        - Desktop nav hover/active indicator replaced: removed the plain
+          vertical bar to the left of each link, replaced with a glowing
+          gradient underline (sky-400 -> cyan-300) that grows in from the
+          left on hover/active for a more distinctive, unique look.
       */}
       <AnimatePresence>
         {isOpen && (
@@ -326,7 +340,7 @@ export default function Header() {
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ delay: 0.15 + idx * 0.05 }}
-                        className="text-xl font-semibold tracking-tight text-white sm:text-2xl"
+                        className="text-lg font-semibold tracking-tight text-white sm:text-xl"
                       >
                         {item.name}
                       </motion.span>
@@ -378,7 +392,7 @@ export default function Header() {
                     <Link
                       href={item.href}
                       onClick={() => setIsOpen(false)}
-                      className={`text-xl font-semibold tracking-tight transition-colors sm:text-2xl ${isActive(item.href) ? "text-sky-400" : "text-white"
+                      className={`text-lg font-semibold tracking-tight transition-colors sm:text-xl ${isActive(item.href) ? "text-sky-400" : "text-white"
                         }`}
                     >
                       {item.name}

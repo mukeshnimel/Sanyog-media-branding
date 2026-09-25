@@ -185,7 +185,13 @@ export default function GraphicDesignHero() {
             ===================================================== */}
             <div className="pointer-events-none absolute inset-0 z-10" aria-hidden="true">
                 {/* poori slider halka dim */}
-                <div className="absolute inset-0 bg-dark-bg/30" />
+                {/* poori slider halka dim — custom gradient overlay */}
+                <div
+                    className="absolute inset-0 opacity-[0.76] transition-all duration-300"
+                    style={{
+                        background: "linear-gradient(180deg, #001136 46%, #1A0101 100%)",
+                    }}
+                />
                 <div className="absolute left-1/2 top-1/2 h-[85%] w-[90%] lg:w-[65%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-dark-bg/50 blur-3xl" />
                 {/* top + bottom cinematic fade */}
                 <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-dark-bg to-transparent" />

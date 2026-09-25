@@ -486,8 +486,8 @@ export default function SocialMediaMarketingPage() {
                             <span className="font-alata text-sm xl:text-base 4xl:text-lg font-semibold text-sky-500 mb-4">
                                 Why Choose Our Social Media Post &amp; Flyer Design Services
                             </span>
-                            <h2 className="font-alata font-bold text-xl sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl text-white leading-tight mb-6">
-                                Social Media Marketing Means Partnering With a Team That Blends Strategy &amp; Creative Social Media Post &amp; Flyer Design Services
+                            <h2 className="font-alata text-xl sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl text-white leading-tight mb-6">
+                                Social Media Marketing Means Partnering With a Team That Blends Strategy &amp; Creative Design Services
                             </h2>
                             <span className="font-alata text-lg sm:text-xl md:text-2xl xl:text-3xl 4xl:text-4xl font-bold text-sky-500 mb-4">
                                 Creativity With Strategy

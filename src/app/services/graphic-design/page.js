@@ -27,6 +27,7 @@ import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
 import GraphicHero from "@/components/Graphichero";
+import GraphicServices from "@/components/GraphicServices";
 
 // ---------- DATA ----------
 
@@ -335,31 +336,8 @@ export default function GraphicDesignPage() {
                     </div>
                 </div>
             </section>
-            {/* 3. SERVICES GRID */}
-            <section className="py-6 md:py-10 4xl:py-14 bg-dark-bg">
-                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
-                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-8 md:mb-10 4xl:mb-15">
-                        <span className="text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
-                            Our Graphic Design
-                        </span>
-                        <h2 className="font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4">
-                            Services
-                        </h2>
-                    </div>
 
-                    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 3xl:grid-cols-5 gap-3 sm:gap-4 xl:gap-5 4xl:gap-6">
-                        {services.map((s, idx) => (
-                            <div
-                                key={idx}
-                                className="border border-slate-700 px-4 sm:px-5 xl:px-6 4xl:px-8 py-5 sm:py-6 xl:py-7 4xl:py-9 rounded-2xl flex items-center justify-center text-center hover:border-white/30 transition-all cursor-default bg-[#007EC3]"
-                            >
-                                <span className="font-semibold text-base sm:text-lg md:text-xl xl:text-xl 2xl:text-3xl text-white">{s}</span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
+            <GraphicServices />
 
             {/* 4. WE DESIGN GRAPHICS THAT DEFINE */}
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">

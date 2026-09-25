@@ -50,26 +50,7 @@ const testimonials = [
     { name: "Aniket Sharma", text: "A huge thanks to Rahul ji and his team for their outstanding work in designing and organizing our successful exhibition at Asia's No. 1 Poultry Expo, Poultry India 2024." },
 ];
 
-const pricingPlans = [
-    {
-        name: "Eco", subtitle: "For Micro Business", oldPrice: "₹8999", price: "₹6999",
-        features: ["Single Page Website", "Modern & Clean Design", "Contact Us Form", "Mobile Friendly", "Basic Site Protection"],
-        excluded: ["SSL Certificate Protection", "Technical Support", "Free Domain"],
-    },
-    {
-        name: "Startup", subtitle: "Business Startup Website", oldPrice: "₹14999", price: "₹11999",
-        features: ["3 Page Website", "Modern & Clean Design", "Basic Website Graphic Design", "Call To Action Button", "Mobile & Tablet Friendly", "Contact Form Integration", "Whatsapp Integration", "Basic Site Protection (6 Months)", "3 Months Technical Support"],
-        excluded: ["Free SSL Certificate", "Website Speed Optimization"],
-    },
-    {
-        name: "Premium", subtitle: "Premium Business Website", oldPrice: "₹29999", price: "₹20999", popular: true,
-        features: ["5 - 8 Custom Page", "Develop In WordPress", "Modern & Clean Design", "Basic Website Graphic Design", "Call To Action Button", "Mobile & Tablet Friendly", "Contact Form Integration", "Whatsapp Integration", "Basic Site Protection (1 Year)", "9 Months Technical Support", "Free SSL Certificate", "Website Speed Optimization"],
-    },
-    {
-        name: "Exclusive", subtitle: "Exclusive Premium Website", oldPrice: "₹45999", price: "₹35999",
-        features: ["10-15 Page Website", "Domain & Hosting Configuration", "Advance Website Graphic Design", "Unlimited Image & Videos", "Design & Develop In WordPress", "Mobile & Tablet Friendly", "Live Chat Button", "Contact Us Form Integration", "Call & E-mail Button", "Whatsapp Integration", "Social Media Integration", "Google Map Integration", "SEO Ready Website", "Basic Site Protection (1 Year)", "1 Year Technical Support", "Free SSL Certificate (1 Year)", "Website Speed Optimization"],
-    },
-];
+
 
 const howItWorks = [
     { iconImage: "/images/logo-design/vector/6.svg", title: "Share Your Vision for Your Brand", desc: "Submit your design brief and let us know your ideas and expectations.", bg: "bg-gradient-to-r from-yellow-500 to-amber-600", image: "/images/logo-design/6.png" },
@@ -155,7 +136,7 @@ export default function WebsiteDesignPage() {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-12 xl:gap-16 4xl:gap-24 items-center">
 
                         {/* Left — copy */}
-                        <div className="flex flex-col items-start w-full pt-8 sm:pt-10 md:pt-0">
+                        <div className="flex flex-col items-start w-full pt-10 sm:pt-10 md:pt-0">
                             <span className="font-alata text-sm md:text-base xl:text-lg 4xl:text-xl text-white/90 mb-3">
                                 Creating Your Unique Website.......
                             </span>
@@ -489,60 +470,60 @@ export default function WebsiteDesignPage() {
                 </div>
             </section>
 
-             {/* HOW IT WORKS */}
-                        <section className="bg-dark-bg relative overflow-hidden">
-                            <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
-                                <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
-                                    How It Works
-                                </span>
-                                <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
-                                    Makes It Easy to Create Your Logo &amp; Branding
-                                </h2>
+            {/* HOW IT WORKS */}
+            <section className="bg-dark-bg relative overflow-hidden">
+                <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
+                    <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
+                        How It Works
+                    </span>
+                    <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+                        Makes It Easy to Create Your Logo &amp; Branding
+                    </h2>
+                </div>
+
+                <div className="flex flex-col">
+                    {howItWorks.map((step, idx) => {
+                        const imageFirst = idx % 2 !== 0;
+                        return (
+                            <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
+                                <div
+                                    className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
+                                        }`}
+                                >
+                                    <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
+                                        <img
+                                            src={step.iconImage}
+                                            alt={`${step.title} icon`}
+                                            className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
+                                            style={{ filter: "brightness(0) invert(1)" }}
+                                        />
+                                    </div>
+                                    <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                                        {step.title}
+                                    </h3>
+                                    <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                                        {step.desc}
+                                    </p>
+                                </div>
+
+                                <div
+                                    className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                                        }`}
+                                >
+                                    <Image
+                                        src={step.image}
+                                        alt={step.title}
+                                        fill
+                                        sizes="(max-width: 1024px) 100vw, 50vw"
+                                        className="object-cover"
+                                        priority={idx === 0}
+                                    />
+                                </div>
                             </div>
-            
-                            <div className="flex flex-col">
-                                {howItWorks.map((step, idx) => {
-                                    const imageFirst = idx % 2 !== 0;
-                                    return (
-                                        <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
-                                            <div
-                                                className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
-                                                    }`}
-                                            >
-                                                <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
-                                                    <img
-                                                        src={step.iconImage}
-                                                        alt={`${step.title} icon`}
-                                                        className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
-                                                        style={{ filter: "brightness(0) invert(1)" }}
-                                                    />
-                                                </div>
-                                                <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
-                                                    {step.title}
-                                                </h3>
-                                                <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
-                                                    {step.desc}
-                                                </p>
-                                            </div>
-            
-                                            <div
-                                                className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
-                                                    }`}
-                                            >
-                                                <Image
-                                                    src={step.image}
-                                                    alt={step.title}
-                                                    fill
-                                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                                    className="object-cover"
-                                                    priority={idx === 0}
-                                                />
-                                            </div>
-                                        </div>
-                                    );
-                                })}
-                            </div>
-                        </section>
+                        );
+                    })}
+                </div>
+            </section>
 
             {/* 10. FAQ */}
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">

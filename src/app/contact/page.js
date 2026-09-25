@@ -3,13 +3,9 @@
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
-  Sparkles,
   Phone,
   Mail,
   MapPin,
-  Check,
-  Loader2,
-  Send,
   X,
   ArrowRight,
   ArrowUpRight,
@@ -25,6 +21,9 @@ const SERVICE_OPTIONS = [
   "Ad. Video Editing",
   "Content Creation / Copy Writing",
 ];
+
+const RECAPTCHA_SCRIPT_ID = "recaptcha-script";
+const RECAPTCHA_ZFIX_ID = "recaptcha-zindex-fix";
 
 const contactLines = [
   {
@@ -61,12 +60,60 @@ function ContactForm({ idPrefix = "cf" }) {
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.name || !formData.phone || !formData.email || !formData.message)
+    if (
+      !formData.name ||
+      !formData.phone ||
+      !formData.email ||
+      !formData.message
+    )
       return;
+
     setStatus("sending");
-    setTimeout(() => {
+
+    try {
+      const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+
+      if (!siteKey) {
+        throw new Error(
+          "reCAPTCHA site key missing hai. .env file check karein."
+        );
+      }
+
+      if (!window.grecaptcha) {
+        throw new Error(
+          "reCAPTCHA abhi load ho raha hai, thoda ruk kar dobara try karein."
+        );
+      }
+
+      // token generate karo
+      const token = await new Promise((resolve, reject) => {
+        window.grecaptcha.ready(() => {
+          window.grecaptcha
+            .execute(siteKey, { action: "submit" })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
+
+      // backend se verify karwao
+      const verifyRes = await fetch("/api/verify-recaptcha", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token }),
+      });
+      const verifyData = await verifyRes.json();
+
+      if (!verifyData.success) {
+        alert("Verification failed, please try again.");
+        setStatus("idle");
+        return;
+      }
+
+      // TODO: yahan apna actual form data backend/API/email endpoint pe bhejo
+      console.log("Form submitted:", formData);
+
       setStatus("success");
       setTimeout(() => {
         setStatus("idle");
@@ -79,75 +126,119 @@ function ContactForm({ idPrefix = "cf" }) {
           message: "",
         });
       }, 2500);
-    }, 1200);
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Something went wrong, please try again.");
+      setStatus("idle");
+    }
   };
 
+  // z-index fix — badge hamesha sabse upar dikhe
+  useEffect(() => {
+    if (document.getElementById(RECAPTCHA_ZFIX_ID)) return;
+
+    const style = document.createElement("style");
+    style.id = RECAPTCHA_ZFIX_ID;
+    style.textContent = `
+      .grecaptcha-badge,
+      iframe[src*="recaptcha"],
+      iframe[title*="recaptcha" i],
+      div[style*="z-index: 2000000000"] {
+        z-index: 2147483647 !important;
+      }
+    `;
+    document.head.appendChild(style);
+  }, []);
+
+  // reCAPTCHA script load karo jab yeh component mount ho
+  useEffect(() => {
+    const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
+    const existing = document.getElementById(RECAPTCHA_SCRIPT_ID);
+
+    if (existing) {
+      const badge = document.querySelector(".grecaptcha-badge");
+      if (badge) badge.style.visibility = "visible";
+    } else if (siteKey) {
+      const script = document.createElement("script");
+      script.id = RECAPTCHA_SCRIPT_ID;
+      script.src = `https://www.google.com/recaptcha/api.js?render=${siteKey}`;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    // component unmount hone pe badge hide kar do
+    return () => {
+      const badge = document.querySelector(".grecaptcha-badge");
+      if (badge) badge.style.visibility = "hidden";
+    };
+  }, []);
+
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-5 3xl:gap-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 3xl:gap-6">
-        <div className="flex flex-col gap-2">
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
           <label
             htmlFor={`${idPrefix}-name`}
-            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+            className="block text-xs uppercase tracking-wide text-slate-500 mb-1.5 font-nunito"
           >
-            Your Name*
+            Name *
           </label>
           <input
             id={`${idPrefix}-name`}
             type="text"
             name="name"
-            required
             value={formData.name}
             onChange={handleChange}
-            placeholder="Your Name*"
-            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            required
+            placeholder="Your full name"
+            className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan transition-colors"
           />
         </div>
-        <div className="flex flex-col gap-2">
+
+        <div>
           <label
             htmlFor={`${idPrefix}-phone`}
-            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+            className="block text-xs uppercase tracking-wide text-slate-500 mb-1.5 font-nunito"
           >
-            Phone Number*
+            Phone *
           </label>
           <input
             id={`${idPrefix}-phone`}
             type="tel"
             name="phone"
-            required
-            pattern="[0-9()#&+*-=.]+"
-            title="Only numbers and phone characters (#, -, *, etc) are accepted."
             value={formData.phone}
             onChange={handleChange}
-            placeholder="Phone Number*"
-            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            required
+            placeholder="+91 XXXXX XXXXX"
+            className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan transition-colors"
           />
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 3xl:gap-6">
-        <div className="flex flex-col gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
           <label
             htmlFor={`${idPrefix}-email`}
-            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+            className="block text-xs uppercase tracking-wide text-slate-500 mb-1.5 font-nunito"
           >
-            Email*
+            Email *
           </label>
           <input
             id={`${idPrefix}-email`}
             type="email"
             name="email"
-            required
             value={formData.email}
             onChange={handleChange}
-            placeholder="Email*"
-            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            required
+            placeholder="you@example.com"
+            className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan transition-colors"
           />
         </div>
-        <div className="flex flex-col gap-2">
+
+        <div>
           <label
             htmlFor={`${idPrefix}-website`}
-            className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+            className="block text-xs uppercase tracking-wide text-slate-500 mb-1.5 font-nunito"
           >
             Website
           </label>
@@ -157,74 +248,61 @@ function ContactForm({ idPrefix = "cf" }) {
             name="website"
             value={formData.website}
             onChange={handleChange}
-            placeholder="Website"
-            className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all"
+            placeholder="www.yoursite.com"
+            className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan transition-colors"
           />
         </div>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div>
         <label
           htmlFor={`${idPrefix}-service`}
-          className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+          className="block text-xs uppercase tracking-wide text-slate-500 mb-1.5 font-nunito"
         >
-          Select Service
+          Service
         </label>
         <select
           id={`${idPrefix}-service`}
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950 text-white text-sm 3xl:text-base focus:border-neon-cyan outline-none transition-all appearance-none cursor-pointer"
+          className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 focus:outline-none focus:border-neon-cyan transition-colors"
         >
           {SERVICE_OPTIONS.map((opt) => (
-            <option key={opt} value={opt}>
+            <option key={opt} value={opt} className="bg-slate-900">
               {opt}
             </option>
           ))}
         </select>
       </div>
 
-      <div className="flex flex-col gap-2">
+      <div>
         <label
           htmlFor={`${idPrefix}-message`}
-          className="text-xs 3xl:text-sm font-semibold text-slate-400 uppercase tracking-wider"
+          className="block text-xs uppercase tracking-wide text-slate-500 mb-1.5 font-nunito"
         >
-          Message*
+          Message *
         </label>
         <textarea
           id={`${idPrefix}-message`}
           name="message"
-          required
-          rows={4}
           value={formData.message}
           onChange={handleChange}
-          placeholder="Message"
-          className="w-full px-4 py-3 3xl:px-5 3xl:py-4 rounded-xl border border-glass-border bg-slate-950/40 text-white text-sm 3xl:text-base focus:border-neon-cyan focus:ring-1 focus:ring-neon-cyan outline-none transition-all resize-none"
+          required
+          rows={4}
+          placeholder="Tell us about your project..."
+          className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan transition-colors resize-none"
         />
       </div>
 
       <button
         type="submit"
-        disabled={status === "sending" || status === "success"}
-        className="font-nunito bg-[#007EC3] w-full py-4 3xl:py-5 rounded-xl font-bold text-white text-[16px] md:text-[18px] 3xl:text-[20px] flex items-center justify-center gap-2 cursor-pointer active:scale-[0.98] disabled:opacity-50"
+        disabled={status === "sending"}
+        className="w-full font-nunito px-6 py-3.5 rounded-xl text-base font-bold text-white bg-blue-600 hover:bg-blue-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors inline-flex items-center justify-center gap-2"
       >
-        {status === "sending" ? (
-          <>
-            <Loader2 className="w-4 h-4 3xl:w-5 3xl:h-5 animate-spin" />
-            Sending...
-          </>
-        ) : status === "success" ? (
-          <>
-            <Check className="w-4 h-4 3xl:w-5 3xl:h-5 text-emerald-400" />
-            Submitted
-          </>
-        ) : (
-          <>
-            <Send className="w-4 h-4 3xl:w-5 3xl:h-5" />
-            Submit
-          </>
-        )}
+        {status === "sending" && "Sending..."}
+        {status === "success" && "Message Sent ✓"}
+        {status === "idle" && "Send Message"}
       </button>
     </form>
   );
@@ -276,7 +354,6 @@ export default function ContactPage() {
                 </span>
               </motion.div>
 
-
               <motion.p
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -299,7 +376,7 @@ export default function ContactPage() {
                   <a
                     key={value}
                     href={href}
-                    className="group flex items-center justify-between py-4 "
+                    className="group flex items-center justify-between py-4 border-b border-glass-border"
                   >
                     <span className="flex items-center gap-3.5">
                       <Icon className="w-4 h-4 text-neon-cyan shrink-0" />
@@ -338,7 +415,7 @@ export default function ContactPage() {
       </section>
 
       {/* FORM + MAP */}
-      <section className="py-24 3xl:py-32 bg-dark-bg relative ">
+      <section className="py-24 3xl:py-32 bg-dark-bg relative">
         <div className="max-w-7xl 3xl:max-w-[1600px] 4xl:max-w-[1900px] mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 3xl:gap-20">
             {/* FORM (LEFT) */}
@@ -390,7 +467,7 @@ export default function ContactPage() {
       {/* CTA */}
       <section
         ref={ctaRef}
-        className="relative py-14 md:py-20 3xl:py-28 bg-[#0a0e27] "
+        className="relative py-14 md:py-20 3xl:py-28 bg-[#0a0e27]"
       >
         {/* Background Image */}
         <div className="absolute inset-0">

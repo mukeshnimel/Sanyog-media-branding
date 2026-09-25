@@ -434,7 +434,7 @@ export default function LogoDesignServicePage() {
 
 
   return (
-    <main className="flex-1 bg-dark-bg text-slate-100 pt-24 overflow-hidden">
+    <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
       <BehindTheDesigns />
 
@@ -494,15 +494,20 @@ export default function LogoDesignServicePage() {
 
           {/* Video Section */}
           <div className="w-full">
-            <div className="relative aspect-[16/9] rounded-3xl 3xl:rounded-[2rem] overflow-hidden  bg-slate-950/40 shadow-xl">
+            <div className="relative aspect-[16/9] rounded-3xl 3xl:rounded-[2rem] overflow-hidden bg-slate-950/40 shadow-xl">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover pointer-events-none"
                 src="/images/logo-design/2.mp4"
                 poster="/images/branding-showcase-poster.jpg"
                 autoPlay
                 muted
                 loop
-
+                playsInline
+                preload="auto"
+                controls={false}
+                disablePictureInPicture
+                disableRemotePlayback
+                controlsList="nodownload nofullscreen noremoteplayback"
               />
             </div>
           </div>
@@ -742,59 +747,59 @@ export default function LogoDesignServicePage() {
       </section>
 
       {/* HOW IT WORKS */}
-                 <section className="bg-dark-bg relative overflow-hidden">
-                     <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
-                         <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
-                             How It Works
-                         </span>
-                         <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
-                             Makes It Easy to Create Your Logo &amp; Branding
-                         </h2>
-                     </div>
-     
-                     <div className="flex flex-col">
-                         {howItWorks.map((step, idx) => {
-                             const imageFirst = idx % 2 !== 0;
-                             return (
-                                 <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
-                                     <div
-                                         className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
-                                             }`}
-                                     >
-                                         <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
-                                             <img
-                                                 src={step.iconImage}
-                                                 alt={`${step.title} icon`}
-                                                 className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
-                                                 style={{ filter: "brightness(0) invert(1)" }}
-                                             />
-                                         </div>
-                                         <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
-                                             {step.title}
-                                         </h3>
-                                         <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
-                                             {step.desc}
-                                         </p>
-                                     </div>
-     
-                                     <div
-                                         className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
-                                             }`}
-                                     >
-                                         <Image
-                                             src={step.image}
-                                             alt={step.title}
-                                             fill
-                                             sizes="(max-width: 1024px) 100vw, 50vw"
-                                             className="object-cover"
-                                             priority={idx === 0}
-                                         />
-                                     </div>
-                                 </div>
-                             );
-                         })}
-                     </div>
-                 </section>
+      <section className="bg-dark-bg relative overflow-hidden">
+        <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
+          <span className="font-alata text-[16px] xl:text-[20px] 4xl:text-[26px] font-bold uppercase tracking-widest text-neon-cyan">
+            How It Works
+          </span>
+          <h2 className="font-alata font-extrabold text-xl sm:text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 leading-snug">
+            Makes It Easy to Create Your Logo &amp; Branding
+          </h2>
+        </div>
+
+        <div className="flex flex-col">
+          {howItWorks.map((step, idx) => {
+            const imageFirst = idx % 2 !== 0;
+            return (
+              <div key={idx} className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[370px] 4xl:min-h-[480px]">
+                <div
+                  className={`flex flex-col justify-center px-6 sm:px-10 md:px-16 xl:px-20 4xl:px-28 py-10 sm:py-12 md:py-16 4xl:py-24 ${step.bg} ${imageFirst ? "lg:order-2" : "lg:order-1"
+                    }`}
+                >
+                  <div className="w-10 h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full flex items-center justify-center mb-5 md:mb-6">
+                    <img
+                      src={step.iconImage}
+                      alt={`${step.title} icon`}
+                      className="w-11 h-11 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16"
+                      style={{ filter: "brightness(0) invert(1)" }}
+                    />
+                  </div>
+                  <h3 className="font-alata font-extrabold text-xl sm:text-2xl md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-3 md:mb-4 max-w-sm xl:max-w-md 4xl:max-w-lg leading-snug">
+                    {step.title}
+                  </h3>
+                  <p className="font-nunito text-sm md:text-base xl:text-lg 4xl:text-xl text-white max-w-md xl:max-w-lg 4xl:max-w-xl leading-relaxed">
+                    {step.desc}
+                  </p>
+                </div>
+
+                <div
+                  className={`relative w-full h-[175px] sm:h-[320px] lg:h-auto lg:min-h-full bg-slate-900 overflow-hidden ${imageFirst ? "lg:order-1" : "lg:order-2"
+                    }`}
+                >
+                  <Image
+                    src={step.image}
+                    alt={step.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover"
+                    priority={idx === 0}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
 
       {/* 10. FAQ */}
       <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
