@@ -67,6 +67,123 @@ const faqs = [
     { q: "How Are You Offering Such Benefits At This Price Point?", list: ["Building a relationship", "Impress our clients", "World-class experience", "Business for us in the long term", "Referrals & more growth"] },
 ];
 
+
+const extraChargeNote = "Apart from what's included in this package, any additional feature you add will be charged extra.";
+
+const pricingPlans = [
+    {
+        name: "Landing Page",
+        subtitle: "Quick Single Page Website",
+        oldPrice: "₹6999",
+        price: "₹4999",
+        hostingIncluded: false,
+        domainIncluded: false,
+        sslIncluded: false,
+        supportIncluded: false,
+        features: [
+            "Single Page Website",
+            "Modern & Clean Design",
+            "Contact Us Form",
+            "Mobile Friendly",
+            "Fast Delivery (2-3 Days)",
+        ],
+        excluded: [
+            "Hosting (Extra Charge Applicable)",
+            "Domain (Extra Charge Applicable)",
+            "SSL Certificate (Extra Charge Applicable)",
+            "Technical Support (Extra Charge Applicable)",
+        ],
+        note: extraChargeNote,
+    },
+    {
+        name: "Business Website",
+        subtitle: "Choose WordPress or Custom Coding",
+        hostingIncluded: true,
+        domainIncluded: false,
+        pagesIncluded: 6,
+        extraPageCharge: 699,
+        features: [
+            "5 - 6 Page Website",
+            "Modern & Clean Design",
+            "Basic Website Graphic Design",
+            "Call To Action Button",
+            "Mobile & Tablet Friendly",
+            "Contact Form Integration",
+            "Whatsapp Integration",
+            "Free Hosting",
+        ],
+        variants: [
+            {
+                type: "WordPress",
+                price: "₹13999",
+                extraFeatures: [],
+                extraExcluded: ["Website Speed Optimization"],
+            },
+            {
+                type: "Coding",
+                price: "₹17999",
+                extraFeatures: ["Website Speed Optimization"],
+                extraExcluded: [],
+            },
+        ],
+        excluded: [
+            "Domain (Client Needs to Purchase)",
+            "Extra Pages @ ₹699 per Page",
+        ],
+        note: extraChargeNote,
+    },
+    {
+        name: "Custom Coded Website",
+        subtitle: "React / Next.js + Backend API",
+        oldPrice: "₹79999",
+        price: "₹54999",
+        popular: true,
+        hostingIncluded: true,
+        domainIncluded: true,
+        domainValueLimit: 1000,
+        ecommerceProductLimit: 20,
+        features: [
+            "Fully Custom Coded Website",
+            "Built With React / Next.js",
+            "Dedicated Backend API",
+            "Database Integration",
+            "High Performance & SEO Optimized",
+            "Custom Admin Panel (Optional)",
+            "Mobile & Tablet Friendly",
+            "Contact Form + API Integration",
+            "Whatsapp Integration",
+            "9 Months Technical Support",
+            "Free Hosting",
+            "Free Domain (Up to ₹1000 Value)",
+            "Free SSL Certificate",
+            "Website Speed Optimization",
+            "E-commerce Ready (20 Products Free)",
+        ],
+        note: extraChargeNote,
+    },
+    {
+        name: "Enterprise",
+        subtitle: "High-Tech Custom Solution",
+        oldPrice: "",
+        price: "Depends on Requirement",
+        isCustomQuote: true,
+        hostingIncluded: true,
+        domainIncluded: true,
+        features: [
+            "Fully Customized High-Tech Website",
+            "Web App / SaaS Platform Development",
+            "Advance Backend Architecture",
+            "Third-Party API Integrations",
+            "Scalable Cloud Hosting Setup",
+            "Dedicated Project Manager",
+            "Priority Technical Support",
+            "Custom Feature Development",
+        ],
+        excluded: [],
+        note: extraChargeNote,
+    },
+];
+
 // ---------- PAGE ----------
 
 export default function WebsiteDesignPage() {
@@ -409,11 +526,12 @@ export default function WebsiteDesignPage() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 xl:gap-5 4xl:gap-7">
+                    {/* 4 cards ek hi line me - grid-cols-4 from the start */}
+                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 xl:gap-5 4xl:gap-7">
                         {pricingPlans.map((plan, idx) => (
                             <div
                                 key={idx}
-                                className={`min-w-0 rounded-3xl p-5 xl:p-6 4xl:p-8 flex flex-col justify-between border ${plan.popular
+                                className={`min-w-0 rounded-2xl sm:rounded-3xl p-3 sm:p-5 xl:p-6 4xl:p-8 flex flex-col justify-between border ${plan.popular
                                     ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
                                     : "border-glass-border bg-slate-950/40"
                                     }`}
@@ -424,44 +542,83 @@ export default function WebsiteDesignPage() {
                                             Most Popular
                                         </span>
                                     )}
-                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="font-alata text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
+                                    <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
+                                    <span className="font-alata text-[10px] sm:text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
                                         {plan.subtitle}
                                     </span>
 
-                                    <div className="flex items-baseline gap-2 mt-3 mb-5 flex-wrap">
-                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                        <span className="font-alata font-extrabold text-2xl xl:text-3xl 4xl:text-4xl text-white">
-                                            {plan.price}
-                                        </span>
-                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
-                                    </div>
+                                    {/* Agar variants hain (WordPress/Coding), to dono price dikhao */}
+                                    {plan.variants ? (
+                                        <div className="flex flex-col gap-3 mt-3 mb-5">
+                                            {plan.variants.map((variant, vIdx) => (
+                                                <div key={vIdx} className="border border-glass-border/60 rounded-xl p-3">
+                                                    <div className="flex items-center justify-between mb-1">
+                                                        <span className="font-alata text-xs sm:text-sm font-bold text-neon-cyan uppercase">
+                                                            {variant.type}
+                                                        </span>
+                                                        <span className="font-alata font-extrabold text-lg sm:text-xl text-white">
+                                                            {variant.price}
+                                                        </span>
+                                                    </div>
+                                                    {variant.extraFeatures?.map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-1.5 text-[11px] text-slate-300 mt-1">
+                                                            <Check className="w-3 h-3 text-neon-cyan shrink-0" />
+                                                            <span className="font-alata">{f}</span>
+                                                        </div>
+                                                    ))}
+                                                    {variant.extraExcluded?.map((f, i) => (
+                                                        <div key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1">
+                                                            <span className="w-3 h-3 shrink-0 text-center">✕</span>
+                                                            <span className="font-alata">{f}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <div className="flex items-baseline gap-2 mt-3 mb-5 flex-wrap">
+                                            <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
+                                            <span className="font-alata font-extrabold text-xl sm:text-2xl xl:text-3xl 4xl:text-4xl text-white">
+                                                {plan.price}
+                                            </span>
+                                            {!plan.isCustomQuote && (
+                                                <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
+                                            )}
+                                        </div>
+                                    )}
 
-                                    <a
-                                        href="#contact"
-                                        className={`font-nunito w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-5 ${plan.popular
+
+                                    <a href="#contact"
+                                        className={`font-nunito w-full py-2.5 sm:py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-xs sm:text-sm xl:text-base 4xl:text-lg transition-all block mb-5 ${plan.popular
                                             ? "bg-white text-slate-950 hover:bg-slate-100"
                                             : "bg-slate-900 border border-glass-border text-white hover:border-white"
                                             }`}
                                     >
-                                        Buy Now
+                                        {plan.isCustomQuote ? "Get Custom Quote" : "Buy Now"}
                                     </a>
 
                                     <div className="border-t border-glass-border/60 pt-4">
                                         <ul className="flex flex-col gap-2">
                                             {plan.features.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2 text-xs xl:text-sm 4xl:text-base text-slate-300">
-                                                    <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
+                                                <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-sm 4xl:text-base text-slate-300">
+                                                    <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
                                                     <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                             {plan.excluded?.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2 text-xs xl:text-sm 4xl:text-base text-slate-500">
+                                                <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-sm 4xl:text-base text-slate-500">
                                                     <span className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 mt-0.5 text-center">✕</span>
                                                     <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                         </ul>
+
+                                        {/* Extra charge note - har package me */}
+                                        {plan.note && (
+                                            <p className="font-nunito text-[10px] sm:text-[11px] text-slate-500 italic mt-4 border-t border-glass-border/40 pt-3">
+                                                {plan.note}
+                                            </p>
+                                        )}
                                     </div>
                                 </div>
                             </div>
