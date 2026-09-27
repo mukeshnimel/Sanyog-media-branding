@@ -9,8 +9,6 @@ import SocialNetworkVisual from "@/components/Socialnetworkvisual";
 
 import "swiper/css";
 import {
-    Check,
-    X,
     ChevronDown,
     MessageCircleQuestion,
 } from "lucide-react";
@@ -19,7 +17,7 @@ import FinalCTA from "@/components/FinalCTA";
 
 // ---------- DATA ----------
 
-const rotatingWords = ["Social Media Marketing", "Social Media Management"];
+const rotatingWords = ["Instagram", "Facebook", "Youtube", "Linkedln"];
 
 const avatarSeeds = [12, 32, 47, 5, 15, 60];
 
@@ -77,48 +75,155 @@ const portfolioGallery = [
     "/images/home/social-media-marketing/12.jpg",
 ];
 
+import { Check, X, Camera, Plane, Package, Video, Building2, Mic2 } from "lucide-react";
+
 const pricingPlans = [
     {
-        name: "BASIC PLAN",
-        subtitle: "Best For First Time",
-        price: "₹10999",
-        period: "+ GST / Month / Account",
+        name: "BASIC",
+        subtitle: "Ideal For Small Shops & New Businesses",
+        price: "₹6999",
+        period: "+ GST / Month",
         features: [
-            "1 Social Media Post / Week",
             "Social Media Management",
-            "1 Marketing Post / 15 Days",
-            "2 Advertisement Reels",
+            "30 Monthly Content Pieces",
+            "27 Static Posts & Promotional Creatives",
+            "2 Animated Reels",
+            "1 Video Reel Editing",
+            "Facebook & Instagram Management",
+            "Professional Captions & Hashtags",
+            "Monthly Content Calendar",
+            "Basic Comment & DM Monitoring",
+            "Google Business Profile Setup",
+            "Basic Local Hashtag Strategy",
+            "Monthly Performance Report",
         ],
-        excluded: ["Researched Content Creation"],
+        excluded: [
+            "Meta Advertising (Paid Ads)",
+            "Content Shoot",
+        ],
     },
     {
-        name: "STANDARD PLAN",
-        subtitle: "Recommended",
-        price: "₹19999",
-        period: "+ GST / Month / Account",
+        name: "GROWTH",
+        subtitle: "For Growing Businesses With Paid Advertising",
+        price: "₹10999",
+        period: "+ GST / Month",
+        features: [
+            "Social Media Management",
+            "30 Monthly Content Pieces",
+            "22 Static Posts & Promotional Creatives",
+            "4 Video Reels With Editing",
+            "4 Animated Reels",
+            "Facebook & Instagram Management",
+            "Professional Captions & Hashtags",
+            "Monthly Content Calendar",
+            "Basic Comment & DM Management",
+            "Facebook & Instagram Ads Management",
+            "1 Active Ad Campaign at a Time",
+            "Audience & Location Targeting",
+            "Basic Campaign Optimization",
+            "Ad Performance Reporting",
+            "Google Business Profile Management",
+            "Basic Local SEO",
+        ],
+        excluded: [
+            "Content Shoot",
+            "Lead Generation Campaign Setup",
+        ],
+    },
+    {
+        name: "BUSINESS GROWTH",
+        subtitle: "Professional Content & Regular Advertising",
+        price: "₹15999",
+        period: "+ GST / Month",
         popular: true,
         features: [
-            "5 Post & 5 Reels / Month",
             "Social Media Management",
-            "2 Marketing Post / Week",
-            "Market / Location Research",
-            "Researched Content Creation",
+            "30 Monthly Content Pieces",
+            "18 Static Posts & Promotional Creatives",
+            "8 Video Reels With Editing",
+            "4 Animated Reels",
+            "Professional Copywriting",
+            "Comment & DM Management",
+            "Facebook & Instagram Ads Management",
+            "Up to 2 Active Ad Campaigns",
+            "Local Audience Targeting",
+            "Lead Generation Campaign Setup",
+            "Campaign Optimization",
+            "Monthly Ad Performance Report",
+            "Basic Content Shoot (Up to 2 Hours/Month)",
+            "Product or Business Photography",
+            "Short Video Clips for Reels",
+            "Google Business Profile Management",
+            "Local SEO Optimization",
+            "Monthly Competitor Review",
+            "Monthly Marketing Strategy Meeting",
         ],
         excluded: [],
     },
     {
-        name: "PREMIUM PLAN",
-        subtitle: "Best For Large Business",
-        price: "₹29999",
-        period: "+ GST / Month / Account",
+        name: "BUSINESS PRO",
+        subtitle: "Complete Management, Content & Advertising",
+        price: "₹20999",
+        period: "+ GST / Month",
         features: [
-            "1 Post / 2 Days",
-            "4 Marketing Post / Week",
-            "24 x 7 Social Media Management",
-            "Advance Market & Location Research",
-            "Advanced Content Creation",
+            "Social Media Management",
+            "30 Monthly Content Pieces",
+            "14 Premium Static Posts & Promotional Creatives",
+            "12 Professional Video Reels With Editing",
+            "4 Animated Reels",
+            "Advanced Content Calendar",
+            "Professional Copywriting",
+            "Comment & DM Management",
+            "Facebook & Instagram Ads Management",
+            "Up to 3 Active Ad Campaigns",
+            "Lead Generation & Awareness Campaigns",
+            "Audience Research & Retargeting Setup",
+            "Weekly Campaign Optimization",
+            "Lead & Campaign Performance Tracking",
+            "Professional Content Shoots / Month",
+            "Product & Business Photography",
+            "Professional Reel Shooting",
+            "Basic Promotional Video Production",
+            "Google Business Profile Management",
+            "Local SEO Optimization",
+            "Competitor Content Analysis",
+            "Monthly Strategy Meeting",
+            "Detailed Monthly Performance Report",
         ],
         excluded: [],
+    },
+];
+
+const addOnServices = [
+    {
+        Icon: Camera,
+        name: "Professional Model Shoot",
+        desc: "Professional model-based photography & promotional content shoot.",
+    },
+    {
+        Icon: Plane,
+        name: "Drone Shoot + Professional Editing",
+        desc: "Aerial drone photography/videography with professionally edited final footage.",
+    },
+    {
+        Icon: Package,
+        name: "Professional Product Shoot",
+        desc: "High-quality product photography for social media, websites, catalogues & advertisements.",
+    },
+    {
+        Icon: Video,
+        name: "Professional Reel Shoot + Editing",
+        desc: "Concept-based professional reel shooting with cinematic editing, transitions, music & branding.",
+    },
+    {
+        Icon: Building2,
+        name: "Business / Corporate Shoot",
+        desc: "Office, showroom, factory, team & business profile photography/videography.",
+    },
+    {
+        Icon: Mic2,
+        name: "Professional Interview / Testimonial Shoot",
+        desc: "Customer testimonials, founder videos, expert interviews & promotional videos.",
     },
 ];
 
@@ -185,7 +290,7 @@ function BlindsRotatingText({ words, delay = 1500 }) {
     const SLAT_COUNT = 6;
 
     return (
-        <span className="relative top-[-2px] inline-block h-[1.2em] overflow-hidden align-middle text-sky-400">
+        <span className="font-alata relative top-[-2px] inline-block h-[1.2em] overflow-hidden align-middle text-sky-400">
             <AnimatePresence mode="wait">
                 <motion.span
                     key={index}
@@ -249,20 +354,18 @@ export default function SocialMediaMarketingPage() {
                         {/* Left — copy */}
                         <div className="flex flex-col items-start pt-8 sm:pt-10 md:pt-0">
                             <h1 className="font-alata font-extrabold text-xl sm:text-xl md:text-3xl xl:text-4xl 4xl:text-5xl leading-tight text-white mb-1">
-                                We Manage Your
+                                We Grow Your
                             </h1>
                             <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl leading-tight mb-4 text-sky-400">
-                                Socials Media
+                                Digital Presence
                             </h2>
 
-                            <div className="font-alata text-base sm:text-lg md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-6">
+                            <div className="font-nunito text-base sm:text-lg md:text-3xl xl:text-4xl 4xl:text-5xl text-white mb-6">
                                 With <BlindsRotatingText words={rotatingWords} delay={1500} />
                             </div>
 
                             <p className="font-nunito text-slate-400 text-sm md:text-base xl:text-lg 4xl:text-xl leading-relaxed mb-8 max-w-xl xl:max-w-2xl 4xl:max-w-3xl">
-                                At Sanyog Media, We Design Scroll-Stopping Visuals With Strategy
-                                And Creativity, Helping Your Brand Build Real Connections And
-                                Grow Online
+                                From strategy to execution, we create digital marketing solutions that connect your brand with the right audience and drive meaningful growth
                             </p>
 
                             <div className="flex -space-x-3 mb-5">
@@ -551,84 +654,84 @@ export default function SocialMediaMarketingPage() {
                 </div>
             </section>
 
-            {/* 8. PRICING */}
-            <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
-                    <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
-                        PRICING
-                    </span>
-                </div>
+     {/* 8. PRICING */}
+<section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
+    <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
+        <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
+            PRICING
+        </span>
+    </div>
 
-                <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
-                    <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
-                        <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg uppercase tracking-widest text-neon-cyan">
-                            Social Media Marketing Packages
+    <div className="w-full max-w-none mx-auto px-4 sm:px-6 xl:px-10 4xl:px-16 relative z-10">
+        <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
+            <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg uppercase tracking-widest text-neon-cyan">
+                Social Media Marketing Packages
+            </span>
+
+            <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
+                SMM Package Prices According To You Need
+            </h2>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 xl:gap-4 4xl:gap-5">
+            {pricingPlans.map((plan, idx) => (
+                <div
+                    key={idx}
+                    className={`min-w-0 rounded-2xl p-4 sm:p-5 xl:p-5 4xl:p-6 flex flex-col justify-between border ${plan.popular
+                        ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
+                        : "border-glass-border bg-slate-950/40"
+                        }`}
+                >
+                    <div>
+                        {plan.popular && (
+                            <span className="font-alata inline-block mb-2.5 px-2.5 py-1 rounded-full bg-white text-slate-950 text-[9px] xl:text-[10px] font-bold uppercase tracking-widest">
+                                Recommended
+                            </span>
+                        )}
+                        <h3 className="font-alata font-bold text-sm sm:text-base xl:text-lg 4xl:text-xl text-white mb-1">{plan.name}</h3>
+                        <span className="font-alata text-[10px] sm:text-xs 4xl:text-sm text-slate-500 uppercase tracking-wider">
+                            {plan.subtitle}
                         </span>
 
-                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
-                            SMM Package Prices According To You Need
-                        </h2>
-                    </div>
+                        <div className="flex items-baseline gap-1.5 mt-3 mb-1 flex-wrap">
+                            <span className="font-alata font-extrabold text-xl sm:text-2xl xl:text-2xl 4xl:text-3xl text-white">
+                                {plan.price}
+                            </span>
+                        </div>
+                        <span className="font-nunito text-[10px] sm:text-xs 4xl:text-sm text-slate-500">{plan.period}</span>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 xl:gap-8 4xl:gap-10">
-                        {pricingPlans.map((plan, idx) => (
-                            <div
-                                key={idx}
-                                className={`rounded-3xl p-6 sm:p-8 xl:p-9 4xl:p-11 flex flex-col justify-between border ${plan.popular
-                                    ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
-                                    : "border-glass-border bg-slate-950/40"
-                                    }`}
-                            >
-                                <div>
-                                    {plan.popular && (
-                                        <span className="font-alata inline-block mb-3 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
-                                            Recommended
-                                        </span>
-                                    )}
-                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="font-alata text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
-                                        {plan.subtitle}
-                                    </span>
+                        
+                           <a href="#contact"
+                            className={`font-nunito w-full py-2.5 xl:py-3 rounded-xl font-bold text-center text-xs sm:text-sm xl:text-sm 4xl:text-base transition-all block mt-4 mb-5 ${plan.popular
+                                ? "bg-white text-slate-950 hover:bg-slate-100"
+                                : "bg-slate-900 border border-glass-border text-white hover:border-white"
+                                }`}
+                        >
+                            Purchase Now
+                        </a>
 
-                                    <div className="flex items-baseline gap-2 mt-4 mb-2">
-                                        <span className="font-alata font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
-                                            {plan.price}
-                                        </span>
-                                    </div>
-                                    <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500">{plan.period}</span>
-
-                                    <a
-                                        href="#contact"
-                                        className={`font-nunito w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mt-6 mb-8 ${plan.popular
-                                            ? "bg-white text-slate-950 hover:bg-slate-100"
-                                            : "bg-slate-900 border border-glass-border text-white hover:border-white"
-                                            }`}
-                                    >
-                                        Purchase Now
-                                    </a>
-
-                                    <div className="border-t border-glass-border/60 pt-6">
-                                        <ul className="flex flex-col gap-3">
-                                            {plan.features.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-300">
-                                                    <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
-                                                    <span className="font-alata">{feat}</span>
-                                                </li>
-                                            ))}
-                                            {plan.excluded && plan.excluded.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-500">
-                                                    <X className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 mt-0.5" />
-                                                    <span className="font-alata">{feat}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
+                        <div className="border-t border-glass-border/60 pt-4">
+                            <ul className="flex flex-col gap-2">
+                                {plan.features.map((feat, fIdx) => (
+                                    <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-slate-300">
+                                        <Check className="w-3 h-3 xl:w-3.5 xl:h-3.5 4xl:w-4 4xl:h-4 text-neon-cyan shrink-0 mt-0.5" />
+                                        <span className="font-alata">{feat}</span>
+                                    </li>
+                                ))}
+                                {plan.excluded && plan.excluded.map((feat, fIdx) => (
+                                    <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-slate-500">
+                                        <X className="w-3 h-3 xl:w-3.5 xl:h-3.5 shrink-0 mt-0.5" />
+                                        <span className="font-alata">{feat}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </section>
+            ))}
+        </div>
+    </div>
+</section>
 
             {/* 9. HOW IT WORKS */}
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg">
