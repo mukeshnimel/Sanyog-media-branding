@@ -15,7 +15,7 @@ const navItems = [
       { name: "Logo Design & Branding", href: "/services/logo-design" },
       { name: "Website Design", href: "/services/website-design" },
       { name: "Packaging Design", href: "/services/packaging-design" },
-      { name: "Social Media Marketing", href: "/services/Social-Media-Marketing" },
+      { name: "Digital Marketing", href: "/services/digital-marketing" },
       { name: "Graphics Design", href: "/services/graphic-design" },
       { name: "Video/Reel Editing", href: "/services/video-reel-editing" },
       { name: "Content Creation", href: "/services/content-writing" },
