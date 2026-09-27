@@ -735,7 +735,7 @@ export default function SocialMediaMarketingPage() {
                         </span>
 
                         <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
-                            SMM Package Prices According To You Need
+                            SMM Package Prices According To Your Need
                         </h2>
                     </div>
 
@@ -784,7 +784,7 @@ export default function SocialMediaMarketingPage() {
                                                 </h4>
                                                 <ul className="flex flex-col gap-1.5">
                                                     {group.items.map((feat, fIdx) => (
-                                                        <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-slate-300">
+                                                        <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-[12px] xl:text-[13px] 4xl:text-[15px] text-slate-300">
                                                             <Check className="w-3 h-3 xl:w-3.5 xl:h-3.5 4xl:w-4 4xl:h-4 text-neon-cyan shrink-0 mt-0.5" />
                                                             <span className="font-alata">{feat}</span>
                                                         </li>
