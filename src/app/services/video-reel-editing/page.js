@@ -137,6 +137,8 @@ const faqs = [
     },
 ];
 
+
+
 // ---------- PORTFOLIO VIDEO CARD (hover to play, tap to play on touch devices) ----------
 
 function PortfolioVideoCard({ src, poster, index, ratio }) {
@@ -217,10 +219,77 @@ function PortfolioVideoCard({ src, poster, index, ratio }) {
     );
 }
 
+
+function VideoCard({ src, poster }) {
+    const ref = useRef(null);
+
+    useEffect(() => {
+        const el = ref.current;
+        if (!el) return;
+        const io = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    el.play().catch(() => { });
+                } else {
+                    el.pause();
+                }
+            },
+            { threshold: 0.3 }
+        );
+        io.observe(el);
+        return () => io.disconnect();
+    }, []);
+
+    return (
+        <div className="relative min-h-0 flex-1 overflow-hidden rounded-[1.1em] bg-slate-900 ring-1 ring-white/10">
+            <video
+                ref={ref}
+                src={src}
+                poster={poster}
+                muted
+                loop
+                playsInline
+                preload="none"
+                className="h-full w-full object-cover"
+            />
+        </div>
+    );
+}
+
+// portrait (ratio < 1) => akeli tall column | landscape => 2-2 stack hoke ek column
+function buildColumns(videos) {
+    const portraits = [];
+    const pairs = [];
+    let pending = null;
+
+    videos.forEach((v) => {
+        if (v.ratio >= 1) {
+            if (pending) {
+                pairs.push([pending, v]);
+                pending = null;
+            } else {
+                pending = v;
+            }
+        } else {
+            portraits.push([v]);
+        }
+    });
+    if (pending) pairs.push([pending]);
+
+    // stacked columns ko edges ke paas rakhte hain (image jaisa)
+    const cols = [...portraits];
+    if (pairs[0]) cols.splice(1, 0, pairs[0]);
+    if (pairs[1]) cols.splice(Math.max(cols.length - 1, 0), 0, pairs[1]);
+    return cols;
+
+}
+
 // ---------- PAGE ----------
 
 export default function VideoReelEditingPage() {
     const [activeFaq, setActiveFaq] = useState(null);
+    const columns = buildColumns(portfolioVideos);
+    const mid = Math.floor(columns.length / 2);
 
     // separate refs — sharing one ref between two <video> elements meant only the
     // second video actually responded to play()/pause() calls
@@ -241,10 +310,10 @@ export default function VideoReelEditingPage() {
     const [showPopup, setShowPopup] = useState(false);
 
     return (
-        <main className="flex-1 bg-slate-950 text-slate-100 overflow-x-hidden">
+        <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-hidden">
 
             {/* 1. HERO */}
-            <section className="relative py-16 sm:py-20 md:py-28 lg:py-32 4xl:py-40 bg-slate-950 border-b border-slate-800 overflow-hidden">
+            <section className="relative py-16 sm:py-20 md:py-28 lg:py-32 4xl:py-40 bg-dark-bg overflow-hidden">
                 {/* Background video with gradient overlay */}
                 <div className="absolute inset-0">
                     <video
@@ -320,7 +389,7 @@ export default function VideoReelEditingPage() {
             </section>
 
             {/* 2. ADVERTISEMENT — USE CASES */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-950 border-b border-slate-800">
+            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-10 sm:mb-16 4xl:mb-20">
                         <span className="font-alata text-base sm:text-lg md:text-xl xl:text-2xl 4xl:text-3xl font-medium text-sky-400">
@@ -375,8 +444,48 @@ export default function VideoReelEditingPage() {
                 </div>
             </section>
 
+
+
+            <section id="portfolio" className="bg-dark-bg relative overflow-hidden py-16 md:py-24 4xl:py-32">
+                {/* em-based sizing: poora collage ek saath scale hota hai */}
+                <div className="relative mx-auto flex h-[25em] justify-center gap-[0.75em] text-[10px] sm:text-[13px] xl:text-[16px] 4xl:text-[20px]">
+                    {columns.map((col, i) => {
+                        const d = Math.abs(i - mid);
+                        return (
+                            <div
+                                key={i}
+                                className="flex w-[8.75em] shrink-0 flex-col gap-[0.75em]"
+                                style={{
+                                    marginTop: `${d * 1.2}em`,
+                                    height: `${14 + d * 1.4}em`,
+                                }}
+                            >
+                                {col.map((v) => (
+                                    <VideoCard key={v.src} src={v.src} poster={v.poster} />
+                                ))}
+                            </div>
+                        );
+                    })}
+
+                    {/* heading: beech ke neeche khali jagah me */}
+                    <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center">
+                        {/* <span className="font-nunito rounded-full border border-white/15 bg-white/5 px-[1.1em] py-[0.3em] text-[0.8em] font-semibold text-slate-200">
+                            Video Reels
+                        </span> */}
+                        <h2 className="font-alata mt-[0.7em] text-[1.7em] font-extrabold leading-tight text-white">
+                            Reels That Get Your Brand Noticed
+                            <span className="block text-slate-500">across every industry</span>
+                        </h2>
+                    </div>
+                </div>
+
+                {/* side fade, jaise image me edges halke dikhte hain */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-dark-bg to-transparent sm:w-24" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-dark-bg to-transparent sm:w-24" />
+            </section>
+
             {/* 3. CAPTIVATING AD VIDEOS */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-950 border-b border-slate-800">
+            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 xl:gap-16 4xl:gap-24 items-center">
                         <div className="flex flex-col items-start order-2 lg:order-1">
@@ -397,7 +506,7 @@ export default function VideoReelEditingPage() {
                             </Link>
                         </div>
 
-                        <div className="relative w-full h-full rounded-2xl sm:rounded-3xl overflow-hidden order-1 lg:order-2">
+                        <div className="relative w-full h-full overflow-hidden order-1 lg:order-2">
                             <Image
                                 src="/images/video-reel/1.png"
                                 alt="Reels / Video Editing"
@@ -411,7 +520,7 @@ export default function VideoReelEditingPage() {
             </section>
 
             {/* 4. LET US SHOW YOU — EXPLAINER VIDEO */}
-            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-900 border-b border-slate-800">
+            <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-8 sm:mb-12 4xl:mb-16">
                         <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-cyan-400">
@@ -488,7 +597,7 @@ export default function VideoReelEditingPage() {
             <Testimonials />
 
             {/* 6. PORTFOLIO — HOVER TO PLAY VIDEO GRID */}
-            <section id="reelportfolio" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-slate-900 border-b border-slate-800">
+            <section id="reelportfolio" className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="relative text-center max-w-6xl xl:max-w-7xl 4xl:max-w-[1700px] w-full mx-auto mb-10 sm:mb-16 4xl:mb-20 rounded-2xl sm:rounded-3xl border-4 sm:border-[5px] border-teal-800/60 py-8 sm:py-10 xl:py-12 4xl:py-16 px-4 sm:px-6 md:px-10 xl:px-14 4xl:px-16 overflow-hidden">
                         <span
@@ -528,7 +637,7 @@ export default function VideoReelEditingPage() {
             <Priorities />
 
             {/* 10. FAQ */}
-            <section className="py-16 md:py-24 4xl:py-32 bg-slate-950 relative">
+            <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative">
                 <div className="max-w-4xl xl:max-w-5xl 4xl:max-w-6xl mx-auto px-4 sm:px-6 text-center mb-12 md:mb-16 4xl:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 xl:w-16 xl:h-16 4xl:w-20 4xl:h-20 rounded-full border-2 border-white/70 flex items-center justify-center mb-6">
                         <MessageCircleQuestion className="w-6 h-6 xl:w-7 xl:h-7 4xl:w-9 4xl:h-9 text-white" strokeWidth={1.5} />

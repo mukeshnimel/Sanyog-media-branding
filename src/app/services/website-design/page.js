@@ -183,7 +183,52 @@ const pricingPlans = [
         note: extraChargeNote,
     },
 ];
+const planThemes = [
+    {
+        // 1st card - green
+        header: "from-green-600 to-emerald-600",
+        button: "from-green-600 to-emerald-600 shadow-[0_10px_25px_-8px_rgba(16,185,129,0.8)]",
+        price: "text-green-600",
+        dot: "bg-green-500",
+        wave1: "text-green-200",
+        wave2: "text-green-600",
+        strip: "bg-green-600",
+    },
+    {
+        // 2nd card - orange
+        header: "from-orange-500 to-red-600",
+        button: "from-orange-500 to-red-600 shadow-[0_10px_25px_-8px_rgba(239,68,68,0.8)]",
+        price: "text-orange-600",
+        dot: "bg-orange-500",
+        wave1: "text-orange-200",
+        wave2: "text-orange-600",
+        strip: "bg-orange-600",
+    },
+    {
+        // popular card - blue
+        header: "from-blue-600 to-cyan-500",
+        button: "from-blue-600 to-cyan-500 shadow-[0_10px_25px_-8px_rgba(34,211,238,0.8)]",
+        price: "text-blue-600",
+        dot: "bg-blue-500",
+        wave1: "text-cyan-200",
+        wave2: "text-blue-600",
+        strip: "bg-blue-600",
+    },
+    {
+        // last card - yellow / amber
+        header: "from-yellow-500 to-amber-600",
+        button: "from-yellow-500 to-amber-600 shadow-[0_10px_25px_-8px_rgba(245,158,11,0.8)]",
+        price: "text-amber-600",
+        dot: "bg-amber-500",
+        wave1: "text-amber-200",
+        wave2: "text-amber-600",
+        strip: "bg-amber-600",
+    },
+];
 
+
+const startingPrice = (variants) =>
+    "₹" + Math.min(...variants.map((v) => parseInt(v.price.replace(/\D/g, ""), 10)));
 // ---------- PAGE ----------
 
 export default function WebsiteDesignPage() {
@@ -507,8 +552,7 @@ export default function WebsiteDesignPage() {
             </section>
 
             <Testimonials />
-            {/* 5. PRICING */}
-            <section id="pricing" className="bg-dark-bg relative overflow-hidden ">
+            <section id="pricing" className="bg-dark-bg relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
@@ -520,109 +564,173 @@ export default function WebsiteDesignPage() {
                         <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                             Website Design Packages
                         </span>
-
                         <h2 className="font-alata font-extrabold text-2xl md:text-4xl xl:text-5xl 4xl:text-6xl text-white mt-4 text-center max-w-3xl 4xl:max-w-5xl">
                             Expert Website Design at a Price That Fits Your Business
                         </h2>
                     </div>
 
-                    {/* 4 cards ek hi line me - grid-cols-4 from the start */}
-                    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-4 xl:gap-5 4xl:gap-7">
-                        {pricingPlans.map((plan, idx) => (
-                            <div
-                                key={idx}
-                                className={`min-w-0 rounded-2xl sm:rounded-3xl p-3 sm:p-5 xl:p-6 4xl:p-8 flex flex-col justify-between border ${plan.popular
-                                    ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
-                                    : "border-glass-border bg-slate-950/40"
-                                    }`}
-                            >
-                                <div>
-                                    {plan.popular && (
-                                        <span className="font-alata inline-block mb-2.5 px-3 py-1 xl:px-3.5 xl:py-1.5 rounded-full bg-white text-slate-950 text-[10px] xl:text-xs font-bold uppercase tracking-widest">
-                                            Most Popular
-                                        </span>
-                                    )}
-                                    <h3 className="font-alata font-bold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="font-alata text-[10px] sm:text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
-                                        {plan.subtitle}
-                                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-24 xl:gap-x-6 pt-16 items-stretch">
+                        {pricingPlans.map((plan, idx) => {
+                            const theme = planThemes[idx % planThemes.length];
 
-                                    {/* Agar variants hain (WordPress/Coding), to dono price dikhao */}
-                                    {plan.variants ? (
-                                        <div className="flex flex-col gap-3 mt-3 mb-5">
-                                            {plan.variants.map((variant, vIdx) => (
-                                                <div key={vIdx} className="border border-glass-border/60 rounded-xl p-3">
-                                                    <div className="flex items-center justify-between mb-1">
-                                                        <span className="font-alata text-xs sm:text-sm font-bold text-neon-cyan uppercase">
-                                                            {variant.type}
-                                                        </span>
-                                                        <span className="font-alata font-extrabold text-lg sm:text-xl text-white">
-                                                            {variant.price}
-                                                        </span>
-                                                    </div>
-                                                    {variant.extraFeatures?.map((f, i) => (
-                                                        <div key={i} className="flex items-center gap-1.5 text-[11px] text-slate-300 mt-1">
-                                                            <Check className="w-3 h-3 text-neon-cyan shrink-0" />
-                                                            <span className="font-alata">{f}</span>
-                                                        </div>
-                                                    ))}
-                                                    {variant.extraExcluded?.map((f, i) => (
-                                                        <div key={i} className="flex items-center gap-1.5 text-[11px] text-slate-500 mt-1">
-                                                            <span className="w-3 h-3 shrink-0 text-center">✕</span>
-                                                            <span className="font-alata">{f}</span>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            ))}
-                                        </div>
-                                    ) : (
-                                        <div className="flex items-baseline gap-2 mt-3 mb-5 flex-wrap">
-                                            <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                            <span className="font-alata font-extrabold text-xl sm:text-2xl xl:text-3xl 4xl:text-4xl text-white">
-                                                {plan.price}
-                                            </span>
-                                            {!plan.isCustomQuote && (
-                                                <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
-                                            )}
-                                        </div>
-                                    )}
-
-
-                                    <a href="#contact"
-                                        className={`font-nunito w-full py-2.5 sm:py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-xs sm:text-sm xl:text-base 4xl:text-lg transition-all block mb-5 ${plan.popular
-                                            ? "bg-white text-slate-950 hover:bg-slate-100"
-                                            : "bg-slate-900 border border-glass-border text-white hover:border-white"
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`relative min-w-0 flex transition-transform duration-300 ${plan.popular ? "z-20 xl:scale-[1.04] xl:-translate-y-4" : "z-10 hover:-translate-y-1"
+                                        }`}
+                                >
+                                    {/* ===== PRICE CIRCLE (card ke upar nikla hua) ===== */}
+                                    <div
+                                        className={`absolute left-1/2 -translate-x-1/2 z-30 rounded-full border-[8px] border-white bg-gradient-to-br ${theme.header} shadow-[0_12px_30px_rgba(0,0,0,0.3)] ${plan.popular ? "h-36 w-36 -top-16" : "h-32 w-32 -top-14"
                                             }`}
                                     >
-                                        {plan.isCustomQuote ? "Get Custom Quote" : "Buy Now"}
-                                    </a>
+                                        {/* flower / petal pattern */}
+                                        <div className="absolute inset-0 overflow-hidden rounded-full">
+                                            {[0, 45, 90, 135].map((r) => (
+                                                <span
+                                                    key={r}
+                                                    className="absolute left-1/2 top-1/2 h-[90%] w-[38%] rounded-full bg-white/15"
+                                                    style={{ transform: `translate(-50%, -50%) rotate(${r}deg)` }}
+                                                />
+                                            ))}
+                                        </div>
 
-                                    <div className="border-t border-glass-border/60 pt-4">
-                                        <ul className="flex flex-col gap-2">
+                                        <div className="relative flex h-full w-full flex-col items-center justify-center text-center text-white px-2">
+                                            {plan.variants ? (
+                                                <>
+                                                    <span className="font-nunito text-[9px] font-bold uppercase tracking-widest text-white/85">
+                                                        Starting at
+                                                    </span>
+                                                    <span className="font-alata font-black text-2xl leading-tight">
+                                                        {startingPrice(plan.variants)}
+                                                    </span>
+                                                    <span className="font-nunito text-[10px] font-semibold text-white/85">+ GST</span>
+                                                </>
+                                            ) : plan.isCustomQuote ? (
+                                                <span className="font-alata font-extrabold text-sm leading-tight px-2">
+                                                    {plan.price}
+                                                </span>
+                                            ) : (
+                                                <>
+                                                    {plan.oldPrice && (
+                                                        <span className="font-nunito text-[11px] line-through text-white/70 leading-none">
+                                                            {plan.oldPrice}
+                                                        </span>
+                                                    )}
+                                                    <span
+                                                        className={`font-alata font-black leading-tight ${plan.popular ? "text-3xl" : "text-2xl"
+                                                            }`}
+                                                    >
+                                                        {plan.price}
+                                                    </span>
+                                                    <span className="font-nunito text-[10px] font-semibold text-white/85">+ GST</span>
+                                                </>
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    {/* ===== CARD ===== */}
+                                    <div className="relative flex w-full flex-col overflow-hidden rounded-3xl bg-white shadow-[0_25px_60px_-20px_rgba(0,0,0,0.6)]">
+                                        <div className={`px-5 text-center ${plan.popular ? "pt-24" : "pt-20"}`}>
+                                            {plan.popular && (
+                                                <span
+                                                    className={`font-alata mb-2 inline-block rounded-full bg-gradient-to-r ${theme.header} px-4 py-1 text-[10px] font-bold uppercase tracking-widest text-white`}
+                                                >
+                                                    Most Popular
+                                                </span>
+                                            )}
+                                            <h3 className={`font-alata font-extrabold text-lg xl:text-xl 4xl:text-2xl uppercase tracking-wider ${theme.price}`}>
+                                                {plan.name}
+                                            </h3>
+                                            <p className="font-alata mt-1 text-[10px] sm:text-xs uppercase tracking-wider text-slate-400">
+                                                {plan.subtitle}
+                                            </p>
+                                        </div>
+
+                                        {/* variants (WordPress / Coding) */}
+                                        {plan.variants && (
+                                            <div className="mt-4 flex flex-col gap-2 px-5">
+                                                {plan.variants.map((variant, vIdx) => (
+                                                    <div key={vIdx} className="rounded-xl border border-slate-200 bg-slate-50 p-3">
+                                                        <div className="flex items-center justify-between">
+                                                            <span className={`font-alata text-xs sm:text-sm font-bold uppercase ${theme.price}`}>
+                                                                {variant.type}
+                                                            </span>
+                                                            <span className="font-alata font-extrabold text-lg text-slate-800">
+                                                                {variant.price}
+                                                            </span>
+                                                        </div>
+                                                        {variant.extraFeatures?.map((f, i) => (
+                                                            <div key={i} className="mt-1.5 flex items-center gap-2 text-[11px] text-slate-600">
+                                                                <span className={`h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`} />
+                                                                <span className="font-alata">{f}</span>
+                                                            </div>
+                                                        ))}
+                                                        {variant.extraExcluded?.map((f, i) => (
+                                                            <div key={i} className="mt-1.5 flex items-center gap-2 text-[11px] text-slate-400">
+                                                                <span className="w-1.5 shrink-0 text-center text-[10px] leading-none">✕</span>
+                                                                <span className="font-alata">{f}</span>
+                                                            </div>
+                                                        ))}
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
+
+                                        {/* features */}
+                                        <ul className="mt-5 flex flex-col gap-2.5 px-6 pb-6">
                                             {plan.features.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-sm 4xl:text-base text-slate-300">
-                                                    <Check className="w-3 h-3 sm:w-3.5 sm:h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
+                                                <li
+                                                    key={fIdx}
+                                                    className="flex items-start gap-2.5 text-[11px] sm:text-xs xl:text-[13px] 4xl:text-sm text-slate-600"
+                                                >
+                                                    <span className={`mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full ${theme.dot}`} />
                                                     <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                             {plan.excluded?.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-sm 4xl:text-base text-slate-500">
-                                                    <span className="w-3.5 h-3.5 xl:w-4 xl:h-4 shrink-0 mt-0.5 text-center">✕</span>
+                                                <li
+                                                    key={fIdx}
+                                                    className="flex items-start gap-2.5 text-[11px] sm:text-xs xl:text-[13px] 4xl:text-sm text-slate-400"
+                                                >
+                                                    <span className="mt-0.5 w-1.5 shrink-0 text-center text-[10px] leading-none">✕</span>
                                                     <span className="font-alata">{feat}</span>
                                                 </li>
                                             ))}
                                         </ul>
 
-                                        {/* Extra charge note - har package me */}
-                                        {plan.note && (
-                                            <p className="font-nunito text-[10px] sm:text-[11px] text-slate-500 italic mt-4 border-t border-glass-border/40 pt-3">
-                                                {plan.note}
-                                            </p>
-                                        )}
+                                        {/* note + button + wave (hamesha card ke bottom me) */}
+                                        <div className="mt-auto">
+                                            {plan.note && (
+                                                <p className="font-nunito border-t border-slate-100 px-6 pt-3 text-[10px] sm:text-[11px] italic text-slate-400">
+                                                    {plan.note}
+                                                </p>
+                                            )}
+
+                                            <div className="px-6 pt-4 pb-1">
+                                                <a
+                                                    href="#contact"
+                                                    className={`font-nunito mx-auto block w-4/5 rounded-full bg-gradient-to-r ${theme.button} py-2.5 text-center text-xs sm:text-sm font-extrabold uppercase tracking-widest text-white transition-transform hover:scale-105 active:scale-95`}
+                                                >
+                                                    {plan.isCustomQuote ? "Get Custom Quote" : "Buy Now"}
+                                                </a>
+                                            </div>
+
+                                            <svg
+                                                viewBox="0 0 400 70"
+                                                preserveAspectRatio="none"
+                                                className="block h-14 w-full"
+                                                aria-hidden="true"
+                                            >
+                                                <path d="M0 20 Q140 -15 400 38 V70 H0 Z" fill="currentColor" className={theme.wave1} />
+                                                <path d="M0 48 Q200 5 400 30 V70 H0 Z" fill="currentColor" className={theme.wave2} />
+                                            </svg>
+                                            <div className={`h-3 ${theme.strip}`} />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>

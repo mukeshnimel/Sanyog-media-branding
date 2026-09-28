@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
@@ -29,24 +29,50 @@ const avatars = [
   "https://i.pravatar.cc/64?img=60",
 ];
 
+// Images ke beech reels (type: "video"). Aur reel add karni ho to bas ek line aur daal do.
 const columnAImages = [
   { src: "/images/home-slider/1.png", alt: "Website design showcase", tall: true },
+  { type: "video", src: "/images/video-reel/1.mp4", poster: "/images/video-reel/posters/1.jpg", tall: true },
   { src: "/images/home-slider/2.png", alt: "Logo design workspace", tall: false },
   { src: "/images/home-slider/3.png", alt: "Website design showcase", tall: true },
+  { type: "video", src: "/images/video-reel/3.mp4", poster: "/images/video-reel/posters/3.jpg", tall: true },
   { src: "/images/home-slider/4.png", alt: "Logo design workspace", tall: false },
 ];
 
 const columnBImages = [
   { src: "/images/home-slider/5.png", alt: "Graphic design color palette", tall: false },
+  { type: "video", src: "/images/video-reel/5.mp4", poster: "/images/video-reel/posters/5.jpg", tall: true },
   { src: "/images/home-slider/6.jpg", alt: "Digital marketing showcase", tall: true },
   { src: "/images/home-slider/7.jpg", alt: "Graphic design color palette", tall: false },
+  { type: "video", src: "/images/video-reel/6.mp4", poster: "/images/video-reel/posters/6.jpg", tall: true },
   { src: "/images/home-slider/8.jpg", alt: "Digital marketing showcase", tall: true },
 ];
 
 const columnALoop = [...columnAImages, ...columnAImages];
 const columnBLoop = [...columnBImages, ...columnBImages];
 
-function CollageTile({ src, alt, tall }) {
+function CollageTile({ type, src, poster, alt, tall }) {
+  const videoRef = useRef(null);
+
+  // video sirf tab chalti hai jab screen par dikhe (performance ke liye)
+  useEffect(() => {
+    if (type !== "video") return;
+    const el = videoRef.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.play().catch(() => { });
+        } else {
+          el.pause();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [type]);
+
   return (
     <div
       className={`relative shrink-0 overflow-hidden rounded-2xl border border-white/10 ${tall
@@ -54,13 +80,26 @@ function CollageTile({ src, alt, tall }) {
         : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
         }`}
     >
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover"
-        sizes="(max-width: 1024px) 45vw, 320px"
-      />
+      {type === "video" ? (
+        <video
+          ref={videoRef}
+          src={src}
+          poster={poster}
+          muted
+          loop
+          playsInline
+          preload="none"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
+      ) : (
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          className="object-cover"
+          sizes="(max-width: 1024px) 45vw, 320px"
+        />
+      )}
     </div>
   );
 }
@@ -210,7 +249,7 @@ export default function Hero() {
               </p>
             </motion.div>
 
-            {/* ✅ FIXED: Buttons with proper <Link> tags */}
+            {/* Buttons */}
             <div className="relative flex flex-col sm:flex-row gap-3 xl:gap-4 w-full sm:w-auto">
               <Link
                 href="#contact"
@@ -228,7 +267,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Image Collage */}
+          {/* Right Image + Reels Collage */}
           <div className="lg:col-span-6 w-full relative overflow-hidden">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
@@ -242,8 +281,8 @@ export default function Hero() {
                   transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
                   className="flex flex-col gap-2 sm:gap-3 xl:gap-4"
                 >
-                  {columnALoop.map((img, i) => (
-                    <CollageTile key={`a-${i}-${img.src}`} {...img} />
+                  {columnALoop.map((item, i) => (
+                    <CollageTile key={`a-${i}-${item.src}`} {...item} />
                   ))}
                 </motion.div>
               </div>
@@ -254,8 +293,8 @@ export default function Hero() {
                   transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
                   className="flex flex-col gap-2 sm:gap-3 xl:gap-4"
                 >
-                  {columnBLoop.map((img, i) => (
-                    <CollageTile key={`b-${i}-${img.src}`} {...img} />
+                  {columnBLoop.map((item, i) => (
+                    <CollageTile key={`b-${i}-${item.src}`} {...item} />
                   ))}
                 </motion.div>
               </div>
