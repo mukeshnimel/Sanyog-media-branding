@@ -260,23 +260,33 @@ const pricingPlans = [
 ];
 const planThemes = [
     {
-        // popular / recommended (blue-cyan)
-        gradient: "from-blue-600 to-cyan-600",
-        glow: "shadow-[0_25px_80px_-15px_rgba(34,211,238,0.65)]",
+        // 1st card - purple
+        header: "from-green-600 to-emerald-600",
+        button: "from-green-600 to-emerald-600 shadow-[0_10px_25px_-8px_rgba(124,58,237,0.7)]",
+        price: "text-green-600",
     },
     {
-        gradient: "from-yellow-500 to-amber-600",
-        glow: "shadow-[0_20px_50px_-20px_rgba(245,158,11,0.55)]",
+        // 2nd card - blue
+        header: "from-orange-600 to-red-600",
+        button: "from-orange-600 to-red-600 shadow-[0_10px_25px_-8px_rgba(37,99,235,0.7)]",
+        price: "text-orange-600",
     },
     {
-        gradient: "from-orange-600 to-red-600",
-        glow: "shadow-[0_20px_50px_-20px_rgba(239,68,68,0.55)]",
+        // popular card - magenta / pink
+        header: "from-blue-600 to-cyan-600",
+        button: "from-blue-600 to-cyan-600 shadow-[0_10px_25px_-8px_rgba(217,70,239,0.7)]",
+        price: "text-blue-600",
     },
     {
-        gradient: "from-green-600 to-emerald-600",
-        glow: "shadow-[0_20px_50px_-20px_rgba(16,185,129,0.55)]",
+        // last card - coral / red
+        header: "from-yellow-500 to-amber-600",
+        button: "from-yellow-500 to-amber-600 shadow-[0_10px_25px_-8px_rgba(244,63,94,0.7)]",
+        price: "text-yellow-600",
     },
 ];
+
+
+const HEADER_SHAPE = "polygon(0 0, 100% 0, 100% 82%, 50% 100%, 0 82%)";
 
 const addOnThemes = [
     {
@@ -764,7 +774,6 @@ export default function SocialMediaMarketingPage() {
                 </div>
             </section>
 
-            {/* 8. PRICING */}
             <section id="pricing" className="py-16 md:py-24 4xl:py-32 bg-dark-bg relative overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight">
@@ -773,25 +782,18 @@ export default function SocialMediaMarketingPage() {
                 </div>
 
                 <div className="w-full max-w-none mx-auto px-4 sm:px-6 xl:px-10 4xl:px-16 relative z-10">
-                    <div className="text-center max-w-7xl w-full mx-auto mb-12 md:mb-16 4xl:mb-20">
+                    <div className="text-center max-w-7xl w-full mx-auto mb-16 md:mb-20 4xl:mb-24">
                         <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg uppercase tracking-widest text-neon-cyan">
                             Social Media Marketing Packages
                         </span>
-
                         <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
                             SMM Package Prices According To Your Need
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-5 4xl:gap-6 items-stretch xl:py-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-24 items-start pt-14">
                         {pricingPlans.map((plan, idx) => {
-                            // non-popular cards ko order me colors milenge (repeat nahi hoga)
-                            const nonPopularIdx = pricingPlans
-                                .slice(0, idx)
-                                .filter((p) => !p.popular).length;
-                            const theme = plan.popular
-                                ? planThemes[0]
-                                : planThemes[1 + (nonPopularIdx % (planThemes.length - 1))];
+                            const theme = planThemes[idx % planThemes.length];
                             const currency = plan.price.trim().startsWith("₹") ? "₹" : "";
                             const amount = plan.price.replace("₹", "").trim();
                             const [taxText, perText] = plan.period.split("/").map((s) => s.trim());
@@ -799,148 +801,98 @@ export default function SocialMediaMarketingPage() {
                             return (
                                 <div
                                     key={idx}
-                                    className={`group relative min-w-0 transition-transform duration-300 ${plan.popular
-                                        ? "z-20 xl:scale-[1.04] xl:-translate-y-4"
-                                        : "z-10 hover:-translate-y-2"
+                                    className={`relative pb-6 transition-transform duration-300 ${plan.popular ? "xl:scale-[1.05] z-20" : "hover:-translate-y-1 z-10"
                                         }`}
                                 >
-                                    {/* animated glow behind the recommended card */}
-                                    {plan.popular && (
-                                        <div className="absolute -inset-1.5 rounded-[1.25rem] bg-gradient-to-br from-cyan-300 via-blue-500 to-cyan-400 blur-xl opacity-20 animate-pulse pointer-events-none" />
-                                    )}
-
-                                    {/* floating badge */}
-                                    {plan.popular && (
-                                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 whitespace-nowrap">
-                                            <span className="font-alata inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-blue-700 text-[10px] xl:text-[11px] font-bold uppercase tracking-widest shadow-[0_8px_25px_rgba(0,0,0,0.35)] ring-2 ring-cyan-300/70">
-                                                <span>★</span> Recommended
-                                            </span>
-                                        </div>
-                                    )}
-
-                                    <div
-                                        className={`relative h-full overflow-hidden rounded-2xl p-4 sm:p-5 xl:p-5 4xl:p-6 flex flex-col bg-gradient-to-br ${theme.gradient} ${theme.glow} ring-1 ${plan.popular ? "ring-white/60 pt-7 sm:pt-8" : "ring-white/15"
-                                            }`}
-                                    >
-                                        {/* dotted texture */}
+                                    {/* ===== HEADER (upar wala colored part) ===== */}
+                                    {/* drop-shadow wrapper: clip-path pe box-shadow nahi chalta, isliye filter */}
+                                    <div className="relative z-20 drop-shadow-[0_14px_14px_rgba(0,0,0,0.35)]">
+                                        {/* price circle */}
                                         <div
-                                            className="absolute inset-0 opacity-40 pointer-events-none"
-                                            style={{
-                                                backgroundImage:
-                                                    "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
-                                                backgroundSize: "14px 14px",
-                                                maskImage:
-                                                    "linear-gradient(to bottom, black, transparent 70%)",
-                                                WebkitMaskImage:
-                                                    "linear-gradient(to bottom, black, transparent 70%)",
-                                            }}
-                                        />
-                                        {/* light blobs */}
-                                        <div className="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-white/25 blur-3xl pointer-events-none" />
-                                        <div className="absolute -bottom-20 -left-16 w-48 h-48 rounded-full bg-black/25 blur-3xl pointer-events-none" />
-                                        {/* hover shine sweep */}
-                                        <div className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-[400%] transition-transform duration-[1200ms] ease-out pointer-events-none" />
+                                            className={`absolute left-1/2 -translate-x-1/2 -top-15 z-30 flex flex-col items-center justify-center rounded-full bg-white shadow-[0_12px_30px_rgba(0,0,0,0.3)] ${plan.popular ? "h-35 w-35" : "h-30 w-30"
+                                                }`}
+                                        >
+                                            <div className={`flex items-start font-alata font-black leading-none ${theme.price}`}>
+                                                <span className="text-sm mt-1">{currency}</span>
+                                                <span className={plan.popular ? "text-3xl" : "text-2xl"}>{amount}</span>
+                                            </div>
+                                            <div className="mt-1.5 font-alata text-[13px] font-bold uppercase tracking-wide text-slate-500 whitespace-nowrap">
+                                                {taxText}
+                                            </div>
+                                            <div className="font-nunito text-[11px] font-semibold uppercase tracking-widest text-slate-400">
+                                                / {perText}
+                                            </div>
+                                        </div>
 
-                                        <div className="relative z-10 flex flex-col h-full">
-                                            <h3 className="font-alata font-extrabold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white tracking-wide drop-shadow">
+                                        <div
+                                            className={`relative bg-gradient-to-br ${theme.header} rounded-t-2xl px-4 pt-20 pb-14 text-center overflow-hidden`}
+                                            style={{ clipPath: HEADER_SHAPE, WebkitClipPath: HEADER_SHAPE }}
+                                        >
+                                            <div className="absolute -top-10 -left-8 h-32 w-32 rounded-full bg-white/10" />
+                                            <div className="absolute top-12 -right-10 h-28 w-28 rounded-full bg-white/10" />
+
+                                            <h3 className="relative font-alata font-black text-lg sm:text-xl 4xl:text-2xl text-white tracking-[0.18em]">
                                                 {plan.name}
                                             </h3>
-                                            <span className="font-alata text-[10px] sm:text-xs 4xl:text-sm text-white/80 uppercase tracking-wider mt-0.5">
+                                            <p className="relative font-alata text-[9px] sm:text-[10px] text-white/85 uppercase tracking-[0.15em] mt-1.5 leading-relaxed">
                                                 {plan.subtitle}
-                                            </span>
+                                            </p>
 
-                                            {/* price block */}
-                                            <div className="relative mt-4 overflow-hidden rounded-xl bg-black/25 backdrop-blur-sm ring-1 ring-white/20 px-4 py-3">
-                                                {/* left accent bar */}
-                                                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-white to-white/30" />
-                                                {/* big faded rupee watermark */}
-                                                <span className="absolute -right-1 -bottom-5 font-alata font-black text-7xl leading-none text-white/[0.07] pointer-events-none select-none">
-                                                    ₹
+                                            {plan.popular && (
+                                                <span className="relative mt-3 inline-block rounded-full bg-white px-5 py-0.5 font-alata text-[9px] font-bold uppercase tracking-[0.2em] text-fuchsia-600">
+                                                    ★ Recommended
                                                 </span>
+                                            )}
+                                        </div>
+                                    </div>
 
-                                                <div className="relative flex items-start gap-1">
-                                                    {currency && (
-                                                        <span className="font-alata font-bold text-xl xl:text-xl text-white/80 mt-1.5">
-                                                            {currency}
-                                                        </span>
-                                                    )}
-                                                    <span
-                                                        className={`font-alata font-black leading-none tracking-tight bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent drop-shadow ${plan.popular
-                                                            ? "text-4xl xl:text-5xl 4xl:text-6xl"
-                                                            : "text-3xl xl:text-4xl 4xl:text-5xl"
-                                                            }`}
-                                                    >
-                                                        {amount}
-                                                    </span>
-                                                </div>
-
-                                                <div className="relative mt-2.5 flex items-center gap-2">
-                                                    {taxText && (
-                                                        <span className="font-alata rounded-full bg-white text-slate-900 px-2 py-0.5 text-[9px] xl:text-[10px] font-bold uppercase tracking-wider">
-                                                            {taxText}
-                                                        </span>
-                                                    )}
-                                                    <span className="h-px flex-1 border-t border-dashed border-white/40" />
-                                                    {perText && (
-                                                        <span className="font-nunito text-[10px] xl:text-xs font-semibold uppercase tracking-widest text-white/85">
-                                                            / {perText}
-                                                        </span>
-                                                    )}
-                                                </div>
-                                            </div>
-
-
-                                            <a href="#contact"
-                                                className={`font-nunito w-full py-2.5 xl:py-3 rounded-xl font-bold text-center text-xs sm:text-sm xl:text-sm 4xl:text-base transition-all block mt-4 mb-5 hover:scale-[1.03] active:scale-95 ${plan.popular
-                                                    ? "bg-white text-blue-700 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-cyan-50"
-                                                    : "bg-white/95 text-slate-900 shadow-lg hover:bg-white"
-                                                    }`}
-                                            >
-                                                Purchase Now →
-                                            </a>
-
-                                            {/* features glass panel */}
-                                            <div className="flex-1 rounded-xl bg-black/20 backdrop-blur-sm ring-1 ring-white/15 p-3 sm:p-3.5 flex flex-col gap-4">
-                                                {plan.groups.map((group, gIdx) => (
-                                                    <div key={gIdx}>
-                                                        <div className="flex items-center gap-2 mb-2">
-                                                            <h4 className="font-alata font-bold text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-white uppercase tracking-wider">
-                                                                {group.category}
-                                                            </h4>
-                                                            <span className="h-px flex-1 bg-white/25" />
-                                                        </div>
-                                                        <ul className="flex flex-col gap-1.5">
-                                                            {group.items.map((feat, fIdx) => (
-                                                                <li
-                                                                    key={fIdx}
-                                                                    className="flex items-start gap-2 text-[11px] sm:text-[12px] xl:text-[13px] 4xl:text-[15px] text-white"
-                                                                >
-                                                                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/25">
-                                                                        <Check className="w-2.5 h-2.5 text-white" />
-                                                                    </span>
-                                                                    <span className="font-alata">{feat}</span>
-                                                                </li>
-                                                            ))}
-                                                        </ul>
-                                                    </div>
-                                                ))}
-
-                                                {plan.excluded && plan.excluded.length > 0 && (
-                                                    <ul className="flex flex-col gap-1.5 border-t border-white/20 pt-3">
-                                                        {plan.excluded.map((feat, fIdx) => (
+                                    {/* ===== WHITE PANEL: header ke niche se nikalta hua ===== */}
+                                    <div className="relative z-10 -mt-10 rounded-2xl bg-white pt-16 pb-14 px-3 shadow-[0_25px_60px_-20px_rgba(0,0,0,0.6)]">
+                                        <div className="flex flex-col gap-4">
+                                            {plan.groups.map((group, gIdx) => (
+                                                <div key={gIdx}>
+                                                    <h4 className="font-alata font-bold text-[11px] xl:text-xs text-slate-800 uppercase tracking-wider text-center mb-1.5">
+                                                        {group.category}
+                                                    </h4>
+                                                    <ul>
+                                                        {group.items.map((feat, fIdx) => (
                                                             <li
                                                                 key={fIdx}
-                                                                className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-white/55"
+                                                                className={`flex items-start gap-2 rounded-md px-2.5 py-1.5 text-[11px] sm:text-[12px] xl:text-[13px] 4xl:text-[14px] text-slate-600 ${fIdx % 2 === 0 ? "bg-slate-50" : "bg-white"
+                                                                    }`}
                                                             >
-                                                                <X className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                                                                <Check className="w-3.5 h-3.5 shrink-0 mt-0.5 text-emerald-500" strokeWidth={3} />
                                                                 <span className="font-alata">{feat}</span>
                                                             </li>
                                                         ))}
                                                     </ul>
-                                                )}
-                                            </div>
+                                                </div>
+                                            ))}
+
+                                            {plan.excluded && plan.excluded.length > 0 && (
+                                                <ul>
+                                                    {plan.excluded.map((feat, fIdx) => (
+                                                        <li
+                                                            key={fIdx}
+                                                            className={`flex items-start gap-2 rounded-md px-2.5 py-1.5 text-[11px] sm:text-[12px] xl:text-[13px] 4xl:text-[14px] text-slate-400 ${fIdx % 2 === 0 ? "bg-slate-50" : "bg-white"
+                                                                }`}
+                                                        >
+                                                            <X className="w-3.5 h-3.5 shrink-0 mt-0.5 text-slate-400" strokeWidth={3} />
+                                                            <span className="font-alata">{feat}</span>
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                            )}
                                         </div>
                                     </div>
+
+                                    {/* bottom overlapping pill button */}
+                                    <a
+                                        href="#contact"
+                                        className={`font-nunito absolute bottom-0 left-1/2 -translate-x-1/2 z-30 w-3/5 rounded-full bg-gradient-to-r ${theme.button} py-3 text-center text-xs sm:text-sm font-extrabold uppercase tracking-widest text-white transition-transform hover:scale-105 active:scale-95`}
+                                    >
+                                        Purchase Now
+                                    </a>
                                 </div>
                             );
                         })}
