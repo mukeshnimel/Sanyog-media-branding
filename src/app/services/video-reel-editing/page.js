@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -62,23 +62,23 @@ const avatarImages = [
 ];
 
 const portfolioVideos = [
-    { src: "/images/video-reel/1.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/2.mp4", ratio: 25 / 9 },   // landscape - wide
-    { src: "/images/video-reel/3.mp4", ratio: 13 / 20 },   // portrait
-    { src: "/images/video-reel/4.mp4", ratio: 25 / 9 },   // landscape
-    { src: "/images/video-reel/5.mp4", ratio: 13 / 20 },   // portrait
-    { src: "/images/video-reel/6.mp4", ratio: 13 / 20 },   // portrait
-    { src: "/images/video-reel/7.mp4", ratio: 16 / 9 },   // landscape
-    { src: "/images/video-reel/8.mp4", ratio: 16 / 9 },   // landscape
-    { src: "/images/video-reel/9.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/10.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/11.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/12.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/13.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/14.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/15.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/16.mp4", ratio: 13 / 20 },   // portrait - reel type
-    { src: "/images/video-reel/17.mp4", ratio: 13 / 20 },   // portrait - reel type
+    { src: "/images/video-reel/1.mp4", poster: "/images/video-reel/posters/1.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/2.mp4", poster: "/images/video-reel/posters/2.jpg", ratio: 25 / 9 },
+    { src: "/images/video-reel/3.mp4", poster: "/images/video-reel/posters/3.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/4.mp4", poster: "/images/video-reel/posters/4.jpg", ratio: 25 / 9 },
+    { src: "/images/video-reel/5.mp4", poster: "/images/video-reel/posters/5.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/6.mp4", poster: "/images/video-reel/posters/6.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/7.mp4", poster: "/images/video-reel/posters/7.jpg", ratio: 16 / 9 },
+    { src: "/images/video-reel/8.mp4", poster: "/images/video-reel/posters/8.jpg", ratio: 16 / 9 },
+    { src: "/images/video-reel/9.mp4", poster: "/images/video-reel/posters/9.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/10.mp4", poster: "/images/video-reel/posters/10.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/11.mp4", poster: "/images/video-reel/posters/11.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/12.mp4", poster: "/images/video-reel/posters/12.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/13.mp4", poster: "/images/video-reel/posters/13.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/14.mp4", poster: "/images/video-reel/posters/14.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/15.mp4", poster: "/images/video-reel/posters/15.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/16.mp4", poster: "/images/video-reel/posters/16.jpg", ratio: 13 / 20 },
+    { src: "/images/video-reel/17.mp4", poster: "/images/video-reel/posters/17.jpg", ratio: 13 / 20 },
 ];
 
 const testimonials = [
@@ -139,56 +139,67 @@ const faqs = [
 
 // ---------- PORTFOLIO VIDEO CARD (hover to play, tap to play on touch devices) ----------
 
-function PortfolioVideoCard({ src, index, ratio }) {
+function PortfolioVideoCard({ src, poster, index, ratio }) {
+    const cardRef = useRef(null);
     const videoRef = useRef(null);
     const [isPlaying, setIsPlaying] = useState(false);
-    const [isLoaded, setIsLoaded] = useState(false);
+    const [shouldLoad, setShouldLoad] = useState(false);
 
-    const togglePlay = () => {
-        const vid = videoRef.current;
-        if (!vid) return;
-        if (isPlaying) {
-            vid.pause();
-        } else {
-            vid.play();
-        }
-        setIsPlaying(!isPlaying);
+    // Card screen ke paas aaye tabhi video load hogi
+    useEffect(() => {
+        const el = cardRef.current;
+        if (!el) return;
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setShouldLoad(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+        observer.observe(el);
+        return () => observer.disconnect();
+    }, []);
+
+    const play = () => {
+        setShouldLoad(true);
+        videoRef.current?.play().then(() => setIsPlaying(true)).catch(() => { });
     };
+
+    const pause = () => {
+        videoRef.current?.pause();
+        setIsPlaying(false);
+    };
+
+    const togglePlay = () => (isPlaying ? pause() : play());
 
     return (
         <div
+            ref={cardRef}
             className="relative w-full sm:w-auto rounded-2xl overflow-hidden border-2 border-slate-700 bg-black group cursor-pointer"
             style={{
                 aspectRatio: ratio,
                 flexGrow: 1,
                 flexBasis: `${ratio * 240}px`,
-                height: "400px",   // fixed height classes hata do
+                height: "400px",
             }}
             onClick={togglePlay}
-            onMouseEnter={() => {
-                videoRef.current?.play();
-                setIsPlaying(true);
-            }}
-            onMouseLeave={() => {
-                videoRef.current?.pause();
-                setIsPlaying(false);
-            }}
+            onMouseEnter={play}
+            onMouseLeave={pause}
         >
             <video
                 ref={videoRef}
-                src={src}
+                src={shouldLoad ? src : undefined}
+                poster={poster}
                 muted
                 loop
                 playsInline
-                preload="auto"
+                preload="none"
                 controls={false}
-                controlsList="nodownload nofullscreen noremoteplayback noplaybackrate"
                 disablePictureInPicture
-                disableRemotePlayback
                 onContextMenu={(e) => e.preventDefault()}
-                onLoadedData={() => setIsLoaded(true)}
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 pointer-events-none ${isLoaded ? "opacity-100" : "opacity-0"
-                    }`}
+                className="absolute inset-0 w-full h-full object-cover pointer-events-none"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none" />
             <div
@@ -239,10 +250,12 @@ export default function VideoReelEditingPage() {
                     <video
                         ref={heroVideoRef}
                         src="/images/video-reel/Untitled-design-2-1.mp4"
+                        poster="/images/video-reel/posters/Untitled-design-2-1.jpg"
                         autoPlay
                         muted
                         loop
                         playsInline
+                        preload="metadata"
                         className="w-full h-full object-cover"
                     />
 
@@ -421,10 +434,12 @@ export default function VideoReelEditingPage() {
                         <video
                             ref={explainerVideoRef}
                             src="/images/video-reel/Untitled-design-3-1.mp4"
+                            poster="/images/video-reel/posters/Untitled-design-3-1.jpg"
                             autoPlay
                             muted
                             loop
                             playsInline
+                            preload="metadata"
                             className="absolute inset-0 w-full h-full object-cover"
                         />
 
@@ -501,6 +516,7 @@ export default function VideoReelEditingPage() {
                             <PortfolioVideoCard
                                 key={i}
                                 src={item.src}
+                                poster={item.poster}
                                 index={i}
                                 ratio={item.ratio}
                             />

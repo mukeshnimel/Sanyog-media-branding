@@ -17,6 +17,8 @@
 /.next/
 /out/
 
+video-reel-originals/
+
 # production
 /build
 

@@ -258,6 +258,49 @@ const pricingPlans = [
         excluded: [],
     },
 ];
+const planThemes = [
+    {
+        // popular / recommended (blue-cyan)
+        gradient: "from-blue-600 to-cyan-600",
+        glow: "shadow-[0_25px_80px_-15px_rgba(34,211,238,0.65)]",
+    },
+    {
+        gradient: "from-yellow-500 to-amber-600",
+        glow: "shadow-[0_20px_50px_-20px_rgba(245,158,11,0.55)]",
+    },
+    {
+        gradient: "from-orange-600 to-red-600",
+        glow: "shadow-[0_20px_50px_-20px_rgba(239,68,68,0.55)]",
+    },
+    {
+        gradient: "from-green-600 to-emerald-600",
+        glow: "shadow-[0_20px_50px_-20px_rgba(16,185,129,0.55)]",
+    },
+];
+
+const addOnThemes = [
+    {
+        gradient: "from-blue-600 to-cyan-600",
+        glow: "group-hover:shadow-[0_20px_50px_-15px_rgba(34,211,238,0.5)]",
+        text: "text-cyan-300",
+    },
+    {
+        gradient: "from-yellow-500 to-amber-600",
+        glow: "group-hover:shadow-[0_20px_50px_-15px_rgba(245,158,11,0.5)]",
+        text: "text-amber-300",
+    },
+    {
+        gradient: "from-orange-600 to-red-600",
+        glow: "group-hover:shadow-[0_20px_50px_-15px_rgba(239,68,68,0.5)]",
+        text: "text-orange-300",
+    },
+    {
+        gradient: "from-green-600 to-emerald-600",
+        glow: "group-hover:shadow-[0_20px_50px_-15px_rgba(16,185,129,0.5)]",
+        text: "text-emerald-300",
+    },
+];
+
 
 
 const addOnServices = [
@@ -402,6 +445,7 @@ function BlindsRotatingText({ words, delay = 1500 }) {
 export default function SocialMediaMarketingPage() {
     const [activeFaq, setActiveFaq] = useState(null);
     const [accordionIndex, setAccordionIndex] = useState(1);
+
 
     const accordionImages = [
         "/images/screenshots/3-1.png",
@@ -739,109 +783,248 @@ export default function SocialMediaMarketingPage() {
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 xl:gap-4 4xl:gap-5">
-                        {pricingPlans.map((plan, idx) => (
-                            <div
-                                key={idx}
-                                className={`min-w-0 rounded-2xl p-4 sm:p-5 xl:p-5 4xl:p-6 flex flex-col justify-between border ${plan.popular
-                                    ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
-                                    : "border-glass-border bg-slate-950/40"
-                                    }`}
-                            >
-                                <div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-5 xl:gap-5 4xl:gap-6 items-stretch xl:py-6">
+                        {pricingPlans.map((plan, idx) => {
+                            // non-popular cards ko order me colors milenge (repeat nahi hoga)
+                            const nonPopularIdx = pricingPlans
+                                .slice(0, idx)
+                                .filter((p) => !p.popular).length;
+                            const theme = plan.popular
+                                ? planThemes[0]
+                                : planThemes[1 + (nonPopularIdx % (planThemes.length - 1))];
+                            const currency = plan.price.trim().startsWith("₹") ? "₹" : "";
+                            const amount = plan.price.replace("₹", "").trim();
+                            const [taxText, perText] = plan.period.split("/").map((s) => s.trim());
+
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`group relative min-w-0 transition-transform duration-300 ${plan.popular
+                                        ? "z-20 xl:scale-[1.04] xl:-translate-y-4"
+                                        : "z-10 hover:-translate-y-2"
+                                        }`}
+                                >
+                                    {/* animated glow behind the recommended card */}
                                     {plan.popular && (
-                                        <span className="font-alata inline-block mb-2.5 px-2.5 py-1 rounded-full bg-white text-slate-950 text-[9px] xl:text-[10px] font-bold uppercase tracking-widest">
-                                            Recommended
-                                        </span>
+                                        <div className="absolute -inset-1.5 rounded-[1.25rem] bg-gradient-to-br from-cyan-300 via-blue-500 to-cyan-400 blur-xl opacity-20 animate-pulse pointer-events-none" />
                                     )}
-                                    <h3 className="font-alata font-bold text-sm sm:text-base xl:text-lg 4xl:text-xl text-white mb-1">{plan.name}</h3>
-                                    <span className="font-alata text-[10px] sm:text-xs 4xl:text-sm text-slate-500 uppercase tracking-wider">
-                                        {plan.subtitle}
-                                    </span>
 
-                                    <div className="flex items-baseline gap-1.5 mt-3 mb-1 flex-wrap">
-                                        <span className="font-alata font-extrabold text-xl sm:text-2xl xl:text-2xl 4xl:text-3xl text-white">
-                                            {plan.price}
-                                        </span>
-                                    </div>
-                                    <span className="font-nunito text-[10px] sm:text-xs 4xl:text-sm text-slate-500">{plan.period}</span>
+                                    {/* floating badge */}
+                                    {plan.popular && (
+                                        <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-30 whitespace-nowrap">
+                                            <span className="font-alata inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-white text-blue-700 text-[10px] xl:text-[11px] font-bold uppercase tracking-widest shadow-[0_8px_25px_rgba(0,0,0,0.35)] ring-2 ring-cyan-300/70">
+                                                <span>★</span> Recommended
+                                            </span>
+                                        </div>
+                                    )}
 
-
-                                    <a href="#contact"
-                                        className={`font-nunito w-full py-2.5 xl:py-3 rounded-xl font-bold text-center text-xs sm:text-sm xl:text-sm 4xl:text-base transition-all block mt-4 mb-5 ${plan.popular
-                                            ? "bg-white text-slate-950 hover:bg-slate-100"
-                                            : "bg-slate-900 border border-glass-border text-white hover:border-white"
+                                    <div
+                                        className={`relative h-full overflow-hidden rounded-2xl p-4 sm:p-5 xl:p-5 4xl:p-6 flex flex-col bg-gradient-to-br ${theme.gradient} ${theme.glow} ring-1 ${plan.popular ? "ring-white/60 pt-7 sm:pt-8" : "ring-white/15"
                                             }`}
                                     >
-                                        Purchase Now
-                                    </a>
+                                        {/* dotted texture */}
+                                        <div
+                                            className="absolute inset-0 opacity-40 pointer-events-none"
+                                            style={{
+                                                backgroundImage:
+                                                    "radial-gradient(rgba(255,255,255,0.18) 1px, transparent 1px)",
+                                                backgroundSize: "14px 14px",
+                                                maskImage:
+                                                    "linear-gradient(to bottom, black, transparent 70%)",
+                                                WebkitMaskImage:
+                                                    "linear-gradient(to bottom, black, transparent 70%)",
+                                            }}
+                                        />
+                                        {/* light blobs */}
+                                        <div className="absolute -top-16 -right-16 w-44 h-44 rounded-full bg-white/25 blur-3xl pointer-events-none" />
+                                        <div className="absolute -bottom-20 -left-16 w-48 h-48 rounded-full bg-black/25 blur-3xl pointer-events-none" />
+                                        {/* hover shine sweep */}
+                                        <div className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/25 to-transparent -translate-x-full group-hover:translate-x-[400%] transition-transform duration-[1200ms] ease-out pointer-events-none" />
 
-                                    <div className="border-t border-glass-border/60 pt-4 flex flex-col gap-4">
-                                        {plan.groups.map((group, gIdx) => (
-                                            <div key={gIdx}>
-                                                <h4 className="font-alata font-bold text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-neon-cyan uppercase tracking-wider mb-2">
-                                                    {group.category}
-                                                </h4>
-                                                <ul className="flex flex-col gap-1.5">
-                                                    {group.items.map((feat, fIdx) => (
-                                                        <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-[12px] xl:text-[13px] 4xl:text-[15px] text-slate-300">
-                                                            <Check className="w-3 h-3 xl:w-3.5 xl:h-3.5 4xl:w-4 4xl:h-4 text-neon-cyan shrink-0 mt-0.5" />
-                                                            <span className="font-alata">{feat}</span>
-                                                        </li>
-                                                    ))}
-                                                </ul>
+                                        <div className="relative z-10 flex flex-col h-full">
+                                            <h3 className="font-alata font-extrabold text-base sm:text-lg xl:text-xl 4xl:text-2xl text-white tracking-wide drop-shadow">
+                                                {plan.name}
+                                            </h3>
+                                            <span className="font-alata text-[10px] sm:text-xs 4xl:text-sm text-white/80 uppercase tracking-wider mt-0.5">
+                                                {plan.subtitle}
+                                            </span>
+
+                                            {/* price block */}
+                                            <div className="relative mt-4 overflow-hidden rounded-xl bg-black/25 backdrop-blur-sm ring-1 ring-white/20 px-4 py-3">
+                                                {/* left accent bar */}
+                                                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-white to-white/30" />
+                                                {/* big faded rupee watermark */}
+                                                <span className="absolute -right-1 -bottom-5 font-alata font-black text-7xl leading-none text-white/[0.07] pointer-events-none select-none">
+                                                    ₹
+                                                </span>
+
+                                                <div className="relative flex items-start gap-1">
+                                                    {currency && (
+                                                        <span className="font-alata font-bold text-xl xl:text-xl text-white/80 mt-1.5">
+                                                            {currency}
+                                                        </span>
+                                                    )}
+                                                    <span
+                                                        className={`font-alata font-black leading-none tracking-tight bg-gradient-to-b from-white to-white/70 bg-clip-text text-transparent drop-shadow ${plan.popular
+                                                            ? "text-4xl xl:text-5xl 4xl:text-6xl"
+                                                            : "text-3xl xl:text-4xl 4xl:text-5xl"
+                                                            }`}
+                                                    >
+                                                        {amount}
+                                                    </span>
+                                                </div>
+
+                                                <div className="relative mt-2.5 flex items-center gap-2">
+                                                    {taxText && (
+                                                        <span className="font-alata rounded-full bg-white text-slate-900 px-2 py-0.5 text-[9px] xl:text-[10px] font-bold uppercase tracking-wider">
+                                                            {taxText}
+                                                        </span>
+                                                    )}
+                                                    <span className="h-px flex-1 border-t border-dashed border-white/40" />
+                                                    {perText && (
+                                                        <span className="font-nunito text-[10px] xl:text-xs font-semibold uppercase tracking-widest text-white/85">
+                                                            / {perText}
+                                                        </span>
+                                                    )}
+                                                </div>
                                             </div>
-                                        ))}
 
-                                        {plan.excluded && plan.excluded.length > 0 && (
-                                            <ul className="flex flex-col gap-1.5 border-t border-glass-border/40 pt-3">
-                                                {plan.excluded.map((feat, fIdx) => (
-                                                    <li key={fIdx} className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-slate-500">
-                                                        <X className="w-3 h-3 xl:w-3.5 xl:h-3.5 shrink-0 mt-0.5" />
-                                                        <span className="font-alata">{feat}</span>
-                                                    </li>
+
+                                            <a href="#contact"
+                                                className={`font-nunito w-full py-2.5 xl:py-3 rounded-xl font-bold text-center text-xs sm:text-sm xl:text-sm 4xl:text-base transition-all block mt-4 mb-5 hover:scale-[1.03] active:scale-95 ${plan.popular
+                                                    ? "bg-white text-blue-700 shadow-[0_10px_30px_rgba(0,0,0,0.3)] hover:bg-cyan-50"
+                                                    : "bg-white/95 text-slate-900 shadow-lg hover:bg-white"
+                                                    }`}
+                                            >
+                                                Purchase Now →
+                                            </a>
+
+                                            {/* features glass panel */}
+                                            <div className="flex-1 rounded-xl bg-black/20 backdrop-blur-sm ring-1 ring-white/15 p-3 sm:p-3.5 flex flex-col gap-4">
+                                                {plan.groups.map((group, gIdx) => (
+                                                    <div key={gIdx}>
+                                                        <div className="flex items-center gap-2 mb-2">
+                                                            <h4 className="font-alata font-bold text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-white uppercase tracking-wider">
+                                                                {group.category}
+                                                            </h4>
+                                                            <span className="h-px flex-1 bg-white/25" />
+                                                        </div>
+                                                        <ul className="flex flex-col gap-1.5">
+                                                            {group.items.map((feat, fIdx) => (
+                                                                <li
+                                                                    key={fIdx}
+                                                                    className="flex items-start gap-2 text-[11px] sm:text-[12px] xl:text-[13px] 4xl:text-[15px] text-white"
+                                                                >
+                                                                    <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white/25">
+                                                                        <Check className="w-2.5 h-2.5 text-white" />
+                                                                    </span>
+                                                                    <span className="font-alata">{feat}</span>
+                                                                </li>
+                                                            ))}
+                                                        </ul>
+                                                    </div>
                                                 ))}
-                                            </ul>
-                                        )}
+
+                                                {plan.excluded && plan.excluded.length > 0 && (
+                                                    <ul className="flex flex-col gap-1.5 border-t border-white/20 pt-3">
+                                                        {plan.excluded.map((feat, fIdx) => (
+                                                            <li
+                                                                key={fIdx}
+                                                                className="flex items-start gap-2 text-[11px] sm:text-xs xl:text-xs 4xl:text-sm text-white/55"
+                                                            >
+                                                                <X className="w-3.5 h-3.5 shrink-0 mt-0.5" />
+                                                                <span className="font-alata">{feat}</span>
+                                                            </li>
+                                                        ))}
+                                                    </ul>
+                                                )}
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
 
 
             {/* 9. ADD-ON SERVICES */}
-            <section className=" bg-dark-bg relative overflow-hidden">
+            <section className="py-12 md:py-16 4xl:py-24 bg-dark-bg relative overflow-hidden">
+                {/* background glow */}
+                <div className="absolute top-10 left-1/2 -translate-x-1/2 w-[40rem] h-[18rem] rounded-full bg-blue-500/10 blur-3xl pointer-events-none" />
+
                 <div className="w-full max-w-none mx-auto px-4 sm:px-6 xl:px-10 4xl:px-16 relative z-10">
-                    <div className="text-center max-w-7xl w-full mx-auto mb-10 md:mb-14 4xl:mb-16">
-                        <span className="font-alata text-xs sm:text-sm xl:text-base 4xl:text-lg uppercase tracking-widest text-neon-cyan">
+                    {/* HEADING */}
+                    <div className="text-center max-w-4xl w-full mx-auto mb-10 md:mb-14 4xl:mb-16">
+                        <span className="font-alata inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/30 bg-cyan-400/10 text-[11px] sm:text-xs xl:text-sm uppercase tracking-[0.2em] text-cyan-300">
+                            <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
                             Available On Additional Charges
                         </span>
 
-                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
-                            Add-On Services
+                        <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-5 leading-tight">
+                            Boost Your Plan With{" "}
+                            <span className="bg-gradient-to-r from-cyan-300 via-blue-400 to-cyan-300 bg-clip-text text-transparent">
+                                Add-On Services
+                            </span>
                         </h2>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 xl:gap-4 4xl:gap-5">
+                    {/* CARDS */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 xl:gap-5 4xl:gap-6">
                         {addOnServices.map((service, idx) => {
                             const { Icon } = service;
+                            const t = addOnThemes[idx % addOnThemes.length];
+
                             return (
                                 <div
                                     key={idx}
-                                    className="min-w-0 rounded-2xl p-4 sm:p-5 xl:p-5 4xl:p-6 border border-glass-border bg-slate-950/40 flex flex-col gap-3 hover:border-white/20 transition-all"
+                                    className={`group relative min-w-0 rounded-2xl transition-all duration-300 hover:-translate-y-1.5 ${t.glow}`}
                                 >
-                                    <div className="w-10 h-10 xl:w-11 xl:h-11 4xl:w-12 4xl:h-12 rounded-xl bg-slate-900 border border-glass-border flex items-center justify-center">
-                                        <Icon className="w-5 h-5 xl:w-5.5 xl:h-5.5 4xl:w-6 4xl:h-6 text-neon-cyan" strokeWidth={1.75} />
+                                    {/* gradient border (halka, hover pe full) */}
+                                    <div
+                                        className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${t.gradient} opacity-30 group-hover:opacity-100 transition-opacity duration-300`}
+                                    />
+
+                                    {/* card body */}
+                                    <div className="relative m-px h-full overflow-hidden rounded-[15px] bg-slate-950 p-4 sm:p-5 xl:p-5 4xl:p-6 flex flex-col gap-3">
+                                        {/* colored glow blob */}
+                                        <div
+                                            className={`absolute -top-12 -right-12 w-36 h-36 rounded-full bg-gradient-to-br ${t.gradient} opacity-20 blur-3xl group-hover:opacity-40 transition-opacity duration-300 pointer-events-none`}
+                                        />
+                                        {/* big faded number */}
+                                        <span className="absolute top-2 right-4 font-alata font-black text-5xl xl:text-6xl leading-none text-white/[0.05] pointer-events-none select-none">
+                                            {String(idx + 1).padStart(2, "0")}
+                                        </span>
+                                        {/* hover shine */}
+                                        <div className="absolute inset-y-0 -left-1/2 w-1/2 -skew-x-12 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-[400%] transition-transform duration-[1200ms] ease-out pointer-events-none" />
+
+                                        {/* icon */}
+                                        <div
+                                            className={`relative w-10 h-10 xl:w-11 xl:h-11 4xl:w-12 4xl:h-12 rounded-xl bg-gradient-to-br ${t.gradient} flex items-center justify-center shadow-lg ring-1 ring-white/25 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300`}
+                                        >
+                                            <Icon
+                                                className="w-5 h-5 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 text-white"
+                                                strokeWidth={1.75}
+                                            />
+                                        </div>
+
+                                        <h3 className="relative font-alata font-bold text-sm sm:text-base xl:text-base 4xl:text-lg text-white">
+                                            {service.name}
+                                        </h3>
+                                        <p className="relative font-nunito text-xs sm:text-sm xl:text-sm 4xl:text-base text-slate-400 leading-relaxed">
+                                            {service.desc}
+                                        </p>
+
+                                        {/* footer link */}
+
+                                        <a href="#contact"
+                                            className={`relative mt-auto pt-3 border-t border-white/10 font-alata text-[11px] xl:text-xs font-bold uppercase tracking-widest ${t.text} flex items-center gap-1.5`}
+                                        >
+                                            Get A Quote
+                                            <span className="transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+                                        </a>
                                     </div>
-                                    <h3 className="font-alata font-bold text-sm sm:text-base xl:text-base 4xl:text-lg text-white">
-                                        {service.name}
-                                    </h3>
-                                    <p className="font-nunito text-xs sm:text-sm xl:text-sm 4xl:text-base text-slate-400 leading-relaxed">
-                                        {service.desc}
-                                    </p>
                                 </div>
                             );
                         })}
@@ -971,6 +1154,6 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             <FinalCTA />
-        </main>
+        </main >
     );
 }
