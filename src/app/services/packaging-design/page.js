@@ -11,6 +11,7 @@ import { ArrowRight, Check, ChevronDown, MessageCircleQuestion } from "lucide-re
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // ---------- DATA ----------
 
@@ -85,6 +86,55 @@ const pricingFeatures = [
     "Copyright Ownership Transfer",
     "CMYK Colour Design",
 ];
+
+
+const planThemes = [
+    {
+        // 1st card - green
+        header: "from-green-600 to-emerald-600",
+        button: "from-green-600 to-emerald-600 shadow-[0_10px_25px_-8px_rgba(16,185,129,0.8)]",
+        price: "text-green-600",
+        dot: "bg-green-500",
+        wave1: "text-green-200",
+        wave2: "text-green-600",
+        strip: "bg-green-600",
+    },
+    {
+        // 2nd card - orange
+        header: "from-orange-500 to-red-600",
+        button: "from-orange-500 to-red-600 shadow-[0_10px_25px_-8px_rgba(239,68,68,0.8)]",
+        price: "text-orange-600",
+        dot: "bg-orange-500",
+        wave1: "text-orange-200",
+        wave2: "text-orange-600",
+        strip: "bg-orange-600",
+    },
+    {
+        // popular card - blue
+        header: "from-blue-600 to-cyan-500",
+        button: "from-blue-600 to-cyan-500 shadow-[0_10px_25px_-8px_rgba(34,211,238,0.8)]",
+        price: "text-blue-600",
+        dot: "bg-blue-500",
+        wave1: "text-cyan-200",
+        wave2: "text-blue-600",
+        strip: "bg-blue-600",
+    },
+    {
+        // last card - yellow / amber
+        header: "from-yellow-500 to-amber-600",
+        button: "from-yellow-500 to-amber-600 shadow-[0_10px_25px_-8px_rgba(245,158,11,0.8)]",
+        price: "text-amber-600",
+        dot: "bg-amber-500",
+        wave1: "text-amber-200",
+        wave2: "text-amber-600",
+        strip: "bg-amber-600",
+    },
+];
+
+// ribbon ka "flag" shape — right side pointed, left side flush (image jaisa)
+const RIBBON_CLIP = "polygon(0 0, 93% 0, 100% 50%, 93% 100%, 0 100%)";
+// ribbon ke neeche wala chhota folded corner (origami flap)
+const FLAP_CLIP = "polygon(0 0, 100% 0, 0 100%)";
 
 const howItWorks = [
     {
@@ -277,7 +327,7 @@ export default function PackagingDesignPage() {
                 `}</style>
             </section>
 
-            <MarqueeRibbon />
+            <ClientLogoRibbon />
 
             {/* SECTION 2: TRUST & VALUE PROPOSITION */}
             <section className="py-12 sm:py-16 3xl:py-20 bg-dark-bg ">
@@ -449,8 +499,7 @@ export default function PackagingDesignPage() {
                 </div>
             </section>
 
-            {/* PRICING */}
-            <section id="packagingprice" className=" bg-dark-bg relative overflow-hidden ">
+            <section id="packagingprice" className="bg-dark-bg relative overflow-hidden py-16 md:py-24">
                 <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none">
                     <span className="font-alata font-black text-[5rem] sm:text-[8rem] md:text-[12rem] 4xl:text-[15rem] text-white/[0.03] leading-none tracking-tight whitespace-nowrap">
                         PRICING
@@ -458,62 +507,86 @@ export default function PackagingDesignPage() {
                 </div>
 
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24 relative z-10">
-                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
+                    <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-16 md:mb-20 4xl:mb-24">
                         <span className="font-alata text-xs xl:text-sm 4xl:text-base font-bold uppercase tracking-widest text-neon-cyan">
                             Pricing Options
                         </span>
                         <h2 className="font-alata font-extrabold text-2xl sm:text-3xl md:text-5xl xl:text-6xl 4xl:text-7xl text-white mt-4">
                             Packaging Design Pricing
                         </h2>
-                        <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400 mt-4">Unique Design For Your UNIQUE Product</p>
+                        <p className="font-nunito text-sm xl:text-base 4xl:text-lg text-slate-400 mt-4">
+                            Unique Design For Your UNIQUE Product
+                        </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 xl:gap-7 4xl:gap-9">
-                        {pricingPlans.map((plan, idx) => (
-                            <div
-                                key={idx}
-                                className={`rounded-3xl p-6 sm:p-8 xl:p-9 4xl:p-11 flex flex-col justify-between border ${plan.popular
-                                    ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
-                                    : "border-glass-border bg-slate-950/40"
-                                    }`}
-                            >
-                                <div>
-                                    <h3 className="font-alata font-bold text-lg xl:text-xl 4xl:text-2xl text-white mb-1">{plan.name}</h3>
-                                    <span className="font-alata text-xs xl:text-sm 4xl:text-base text-slate-500 uppercase tracking-wider">
-                                        {plan.subtitle}
-                                    </span>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-10 xl:gap-x-7 4xl:gap-x-9">
+                        {pricingPlans.map((plan, idx) => {
+                            const theme = planThemes[idx % planThemes.length];
 
-                                    <div className="flex items-baseline gap-2 mt-4 mb-6 flex-wrap">
-                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-500 line-through">{plan.oldPrice}</span>
-                                        <span className="font-alata font-extrabold text-3xl xl:text-4xl 4xl:text-5xl text-white">
-                                            {plan.price}
-                                        </span>
-                                        <span className="font-nunito text-xs xl:text-sm 4xl:text-base text-slate-400 font-semibold">+ GST</span>
-                                    </div>
+                            return (
+                                <div
+                                    key={idx}
+                                    className={`relative transition-transform duration-300 ${plan.popular ? "sm:scale-[1.03] z-10" : "hover:-translate-y-1"
+                                        }`}
+                                >
+                                    <div className={`relative overflow-visible rounded-2xl ${theme.strip} pb-6 pt-7 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.5)]`}>
+                                        {/* ===== TOP RIBBON: naam ===== */}
+                                        <div className="relative mb-5">
+                                            <div
+                                                className="mx-4 bg-slate-800 py-3.5 text-center shadow-md"
+                                                style={{ clipPath: RIBBON_CLIP }}
+                                            >
+                                                <span className="font-alata text-sm font-bold uppercase tracking-wide text-white">
+                                                    {plan.name}
+                                                </span>
+                                            </div>
+                                            {/* origami fold flap */}
+                                            <div
+                                                className="absolute left-4 top-full h-2.5 w-2.5 bg-slate-950/70"
+                                                style={{ clipPath: FLAP_CLIP }}
+                                            />
+                                        </div>
 
-                                    <a
-                                        href="#contact"
-                                        className={`font-alata w-full py-3 xl:py-3.5 4xl:py-4 rounded-xl font-bold text-center text-sm xl:text-base 4xl:text-lg transition-all block mb-8 ${plan.popular
-                                            ? "bg-white text-slate-950 hover:bg-slate-100"
-                                            : "bg-slate-900 border border-glass-border text-white hover:border-white"
-                                            }`}
-                                    >
-                                        Order Now →
-                                    </a>
+                                        {/* ===== PRICE + FEATURES ===== */}
+                                        <div className="px-6 text-center">
+                                            <div className="flex items-baseline justify-center gap-2 flex-wrap">
+                                                <span className="font-nunito text-xs text-white/60 line-through">{plan.oldPrice}</span>
+                                                <span className="font-alata text-3xl xl:text-4xl font-black text-white">{plan.price}</span>
+                                            </div>
+                                            <span className="font-nunito text-[11px] font-semibold uppercase tracking-widest text-white/70">
+                                                + GST
+                                            </span>
 
-                                    <div className="border-t border-glass-border/60 pt-6">
-                                        <ul className="flex flex-col gap-3">
-                                            {pricingFeatures.map((feat, fIdx) => (
-                                                <li key={fIdx} className="flex items-start gap-2.5 text-xs xl:text-sm 4xl:text-base text-slate-300">
-                                                    <Check className="w-3.5 h-3.5 xl:w-4 xl:h-4 4xl:w-5 4xl:h-5 text-neon-cyan shrink-0 mt-0.5" />
-                                                    <span className="font-alata">{feat}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
+                                            <ul className="mt-5 flex flex-col gap-2 text-left">
+                                                {pricingFeatures.map((feat, fIdx) => (
+                                                    <li key={fIdx} className="flex items-start gap-2 text-[11px] xl:text-xs text-white/90">
+                                                        <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-white" strokeWidth={3} />
+                                                        <span className="font-alata">{feat}</span>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+
+                                        {/* ===== BOTTOM RIBBON: START button ===== */}
+                                        <div className="relative mt-6">
+                                            <a
+                                                href="#contact"
+                                                className="mx-4 block bg-slate-800 py-3.5 text-center transition-colors hover:bg-slate-700"
+                                                style={{ clipPath: RIBBON_CLIP }}
+                                            >
+                                                <span className="font-alata text-sm font-bold uppercase tracking-widest text-white">
+                                                    Start
+                                                </span>
+                                            </a>
+                                            <div
+                                                className="absolute left-4 top-full h-2.5 w-2.5 bg-slate-950/70"
+                                                style={{ clipPath: FLAP_CLIP }}
+                                            />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        ))}
+                            );
+                        })}
                     </div>
                 </div>
             </section>
@@ -645,6 +718,8 @@ export default function PackagingDesignPage() {
             </section>
 
             <FinalCTA />
+
+            <MarqueeRibbon />
         </main>
     );
 }

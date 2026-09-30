@@ -21,30 +21,31 @@ const rotatingWords = [
 ];
 
 const avatars = [
-  "https://i.pravatar.cc/64?img=12",
-  "https://i.pravatar.cc/64?img=32",
-  "https://i.pravatar.cc/64?img=47",
-  "https://i.pravatar.cc/64?img=5",
-  "https://i.pravatar.cc/64?img=15",
-  "https://i.pravatar.cc/64?img=60",
+  "https://randomuser.me/api/portraits/men/61.jpg",
+  "https://randomuser.me/api/portraits/men/40.jpg",
+  "https://randomuser.me/api/portraits/men/43.jpg",
+  "https://randomuser.me/api/portraits/men/86.jpg",
+  "https://randomuser.me/api/portraits/men/4.jpg",
+  "https://randomuser.me/api/portraits/men/7.jpg",
 ];
 
 // Images ke beech reels (type: "video"). Aur reel add karni ho to bas ek line aur daal do.
 const columnAImages = [
   { src: "/images/home-slider/1.png", alt: "Website design showcase", tall: true },
-  { type: "video", src: "/images/video-reel/1.mp4", poster: "/images/video-reel/posters/1.jpg", tall: true },
+  { type: "video", src: "/images/video-reel/13.mp4", poster: "/images/video-reel/posters/13.jpg", tall: true },
   { src: "/images/home-slider/2.png", alt: "Logo design workspace", tall: false },
+  { type: "video", src: "/images/video-reel/14.mp4", poster: "/images/video-reel/posters/14.jpg", tall: true },
   { src: "/images/home-slider/3.png", alt: "Website design showcase", tall: true },
-  { type: "video", src: "/images/video-reel/3.mp4", poster: "/images/video-reel/posters/3.jpg", tall: true },
+  { type: "video", src: "/images/video-reel/15.mp4", poster: "/images/video-reel/posters/15.jpg", tall: true },
   { src: "/images/home-slider/4.png", alt: "Logo design workspace", tall: false },
 ];
 
 const columnBImages = [
   { src: "/images/home-slider/5.png", alt: "Graphic design color palette", tall: false },
-  { type: "video", src: "/images/video-reel/5.mp4", poster: "/images/video-reel/posters/5.jpg", tall: true },
+  { type: "video", src: "/images/video-reel/16.mp4", poster: "/images/video-reel/posters/16.jpg", tall: true },
   { src: "/images/home-slider/6.jpg", alt: "Digital marketing showcase", tall: true },
   { src: "/images/home-slider/7.jpg", alt: "Graphic design color palette", tall: false },
-  { type: "video", src: "/images/video-reel/6.mp4", poster: "/images/video-reel/posters/6.jpg", tall: true },
+  { type: "video", src: "/images/video-reel/11.mp4", poster: "/images/video-reel/posters/11.jpg", tall: true },
   { src: "/images/home-slider/8.jpg", alt: "Digital marketing showcase", tall: true },
 ];
 
@@ -73,14 +74,16 @@ function CollageTile({ type, src, poster, alt, tall }) {
     return () => io.disconnect();
   }, [type]);
 
-  return (
-    <div
-      className={`relative shrink-0 overflow-hidden rounded-2xl border border-white/10 ${tall
-        ? "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
-        : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
-        }`}
-    >
-      {type === "video" ? (
+  // ✅ REEL LOOK: video hamesha 9:16 portrait hai, image tile se patli aur lambi,
+  // beech me center karke, apna alag rounded + ring + play badge ke saath.
+  if (type === "video") {
+    return (
+      <div
+        className={`relative mx-auto aspect-[9/16] w-[78%] shrink-0 overflow-hidden rounded-[1.4rem] ring-2 ring-white/25 shadow-[0_8px_30px_rgba(0,0,0,0.45)] ${tall
+          ? "h-40 sm:h-56 lg:h-72 xl:h-80 2xl:h-96 3xl:h-[26rem] 4xl:h-[30rem]"
+          : "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
+          }`}
+      >
         <video
           ref={videoRef}
           src={src}
@@ -91,15 +94,36 @@ function CollageTile({ type, src, poster, alt, tall }) {
           preload="none"
           className="absolute inset-0 h-full w-full object-cover"
         />
-      ) : (
-        <Image
-          src={src}
-          alt={alt}
-          fill
-          className="object-cover"
-          sizes="(max-width: 1024px) 45vw, 320px"
-        />
-      )}
+
+        {/* top-bottom soft shade, reel jaisa */}
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-8 bg-gradient-to-b from-black/40 via-black/15 to-transparent" />
+
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-7 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+
+        {/* reel / play icon badge */}
+        <span className="absolute right-2 top-2 flex h-6 w-6 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm ring-1 ring-white/40">
+          <svg viewBox="0 0 24 24" className="h-3 w-3 fill-white translate-x-[1px]">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </span>
+      </div>
+    );
+  }
+
+  return (
+    <div
+      className={`relative shrink-0 overflow-hidden rounded-2xl border border-white/10 ${tall
+        ? "h-32 sm:h-44 lg:h-56 xl:h-64 2xl:h-72 3xl:h-80 4xl:h-96"
+        : "h-24 sm:h-32 lg:h-40 xl:h-48 2xl:h-56 3xl:h-64 4xl:h-72"
+        }`}
+    >
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(max-width: 1024px) 45vw, 320px"
+      />
     </div>
   );
 }
@@ -114,8 +138,17 @@ export default function Hero() {
     return () => clearInterval(interval);
   }, []);
 
+  // top/bottom fade mask — collage tiles ko khud fade karta hai,
+  // peeche ke background/glow ko cut nahi karta (isliye koi mismatched patch nahi banega)
+  const fadeMaskStyle = {
+    maskImage:
+      "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+    WebkitMaskImage:
+      "linear-gradient(to bottom, transparent 0%, black 10%, black 90%, transparent 100%)",
+  };
+
   return (
-    <section className="relative flex items-center overflow-hidden bg-dark-bg pt-24 pb-14 sm:pt-28 sm:pb-20">
+    <section className="relative flex items-center overflow-hidden bg-dark-bg pt-24 pb-5 sm:pt-28 sm:pb-5">
       {/* 🔵 Unique animated background — FULL SECTION */}
       <div className="absolute inset-0 -z-0 overflow-hidden pointer-events-none">
         <motion.div
@@ -275,7 +308,10 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="grid grid-cols-2 gap-2 sm:gap-3 xl:gap-4"
             >
-              <div className="relative h-[300px] sm:h-[380px] lg:h-[500px] xl:h-[580px] 2xl:h-[650px] 3xl:h-[720px] 4xl:h-[800px] overflow-hidden">
+              <div
+                className="relative h-[300px] sm:h-[380px] lg:h-[500px] xl:h-[580px] 2xl:h-[650px] 3xl:h-[720px] 4xl:h-[800px] overflow-hidden"
+                style={fadeMaskStyle}
+              >
                 <motion.div
                   animate={{ y: ["0%", "-50%"] }}
                   transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
@@ -287,7 +323,10 @@ export default function Hero() {
                 </motion.div>
               </div>
 
-              <div className="relative h-[300px] sm:h-[380px] lg:h-[500px] xl:h-[580px] 2xl:h-[650px] 3xl:h-[720px] 4xl:h-[800px] overflow-hidden pt-4 sm:pt-6 lg:pt-8">
+              <div
+                className="relative h-[300px] sm:h-[380px] lg:h-[500px] xl:h-[580px] 2xl:h-[650px] 3xl:h-[720px] 4xl:h-[800px] overflow-hidden pt-4 sm:pt-6 lg:pt-8"
+                style={fadeMaskStyle}
+              >
                 <motion.div
                   animate={{ y: ["-50%", "0%"] }}
                   transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
@@ -299,9 +338,6 @@ export default function Hero() {
                 </motion.div>
               </div>
             </motion.div>
-
-            <div className="absolute inset-x-0 top-0 h-12 sm:h-16 bg-gradient-to-b from-dark-bg to-transparent pointer-events-none z-10" />
-            <div className="absolute inset-x-0 bottom-0 h-12 sm:h-16 bg-gradient-to-t from-dark-bg to-transparent pointer-events-none z-10" />
           </div>
         </div>
       </div>

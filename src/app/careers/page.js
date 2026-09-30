@@ -27,6 +27,7 @@ import {
   ArrowRightCircle
 } from "lucide-react";
 import FinalCTA from "@/components/FinalCTA";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // Real perks from Sanyog Media
 const perks = [
@@ -175,6 +176,8 @@ export default function CareersPage() {
 
         </div>
       </section>
+
+      <ClientLogoRibbon />
 
       {/* 2. CAREER AT SANYOG MEDIA — INTRO */}
       <section className="py-24 3xl:py-32 bg-dark-bg relative ">

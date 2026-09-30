@@ -46,11 +46,7 @@ const outfit = Outfit({
 });
 
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
+
 
 
 export const metadata = {
@@ -75,7 +71,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${inter.variable} ${jakarta.variable} ${playfair.variable} ${nunito.variable} ${alata.variable} h-full  antialiased`}
+      className={`${outfit.variable} ${jakarta.variable} ${playfair.variable} ${nunito.variable} ${alata.variable} h-full  antialiased`}
     >
       <head>
         <link
@@ -89,7 +85,7 @@ export default function RootLayout({ children }) {
         /> */}
       </head>
 
-      <body className={`${inter.variable} min-h-full flex flex-col font-sans bg-dark-bg text-slate-100`}>
+      <body className={` min-h-full flex flex-col font-sans bg-dark-bg text-slate-100`}>
         <Header />
         {children}
 

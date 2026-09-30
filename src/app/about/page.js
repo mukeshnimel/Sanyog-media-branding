@@ -13,6 +13,7 @@ import FinalCTA from "@/components/FinalCTA";
 import { Award, Zap, UserCheck, DollarSign } from "lucide-react";
 import AboutHero from "@/components/AboutHero";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 const CONTAINER =
   "max-w-[1600px] 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto";
@@ -108,6 +109,7 @@ export default function RedesignedAboutUsPage() {
   return (
     <main className="flex-1 bg-dark-bg text-slate-100 overflow-x-hidden">
       <AboutHero />
+      <ClientLogoRibbon />
 
       {/* 2. OUR STORY */}
       <section id="story" className="py-16 sm:py-20 md:py-24 4xl:py-32 relative ">

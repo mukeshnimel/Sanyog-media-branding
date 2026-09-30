@@ -19,6 +19,7 @@ import HeroVisual from "@/components/HeroVisual";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // ---------- DATA ----------
 
@@ -372,7 +373,7 @@ export default function WebsiteDesignPage() {
                 </div>
             </section >
 
-            <MarqueeRibbon />
+            <ClientLogoRibbon />
 
             {/* 2. WHY CHOOSE — STICKY LEFT + SCROLLING RIGHT */}
             <section className="relative bg-dark-bg overflow-x-clip">

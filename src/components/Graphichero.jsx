@@ -9,7 +9,12 @@ import { motion, AnimatePresence } from "framer-motion";
  * Agar ye 2 arrays aapki file me pehle se hain to inhe delete kar do.
  */
 const rotatingWords = ["Poster Design", "Logo Design", "Brand Identity", "Social Media Creatives", "Packaging Design"];
-const avatarSeeds = [12, 33, 47, 5, 68, 9, 15];
+const avatarSeeds = ["https://randomuser.me/api/portraits/men/61.jpg",
+    "https://randomuser.me/api/portraits/men/40.jpg",
+    "https://randomuser.me/api/portraits/men/43.jpg",
+    "https://randomuser.me/api/portraits/men/86.jpg",
+    "https://randomuser.me/api/portraits/men/4.jpg",
+    "https://randomuser.me/api/portraits/men/7.jpg",];
 
 function BlindsRotatingText({ words, delay = 1500 }) {
     const [index, setIndex] = useState(0);
@@ -251,7 +256,7 @@ export default function GraphicDesignHero() {
                                 className="relative w-10 h-10 md:w-12 md:h-12 xl:w-14 xl:h-14 4xl:w-16 4xl:h-16 rounded-full border-2 border-white overflow-hidden bg-slate-700"
                             >
                                 <Image
-                                    src={`https://i.pravatar.cc/64?img=${seed}`}
+                                    src={`${seed}`}
                                     alt="Client avatar"
                                     fill
                                     className="object-cover"

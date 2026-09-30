@@ -30,6 +30,7 @@ import {
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // Key features badges
 // const badges = [
@@ -155,6 +156,63 @@ const packages = [
     ],
   },
 ];
+
+
+const planThemes = [
+  {
+    // 1st card - green
+    header: "from-green-600 to-emerald-600",
+    button: "from-green-600 to-emerald-600 shadow-[0_10px_25px_-8px_rgba(16,185,129,0.8)]",
+    price: "text-green-600",
+    dot: "bg-green-500",
+    wave1: "text-green-200",
+    wave2: "text-green-600",
+    strip: "bg-green-600",
+  },
+  {
+    // 2nd card - orange
+    header: "from-orange-500 to-red-600",
+    button: "from-orange-500 to-red-600 shadow-[0_10px_25px_-8px_rgba(239,68,68,0.8)]",
+    price: "text-orange-600",
+    dot: "bg-orange-500",
+    wave1: "text-orange-200",
+    wave2: "text-orange-600",
+    strip: "bg-orange-600",
+  },
+  {
+    // popular card - blue
+    header: "from-blue-600 to-cyan-500",
+    button: "from-blue-600 to-cyan-500 shadow-[0_10px_25px_-8px_rgba(34,211,238,0.8)]",
+    price: "text-blue-600",
+    dot: "bg-blue-500",
+    wave1: "text-cyan-200",
+    wave2: "text-blue-600",
+    strip: "bg-blue-600",
+  },
+  {
+    // last card - yellow / amber
+    header: "from-yellow-500 to-amber-600",
+    button: "from-yellow-500 to-amber-600 shadow-[0_10px_25px_-8px_rgba(245,158,11,0.8)]",
+    price: "text-amber-600",
+    dot: "bg-amber-500",
+    wave1: "text-amber-200",
+    wave2: "text-amber-600",
+    strip: "bg-amber-600",
+  },
+];
+
+
+
+const themeForIdx = [planThemes[0], planThemes[2], planThemes[3]];
+const solidThemes = themeForIdx.map((t) => ({
+  bg: t.strip,
+  text: t.price,
+  ring: t.price.replace("text-", "border-"),
+  stripe: t.wave1.replace("text-", "bg-").replace(/(\d+)$/, "50"),
+}));
+
+const buttonLabels = ["Subscribe", "Order", "Buy Now"];
+
 
 
 const portfolioData = {
@@ -396,12 +454,12 @@ const faqs = [
 ];
 
 const avatars = [
-  "https://i.pravatar.cc/64?img=12",
-  "https://i.pravatar.cc/64?img=32",
-  "https://i.pravatar.cc/64?img=47",
-  "https://i.pravatar.cc/64?img=5",
-  "https://i.pravatar.cc/64?img=15",
-  "https://i.pravatar.cc/64?img=60",
+  "https://randomuser.me/api/portraits/men/61.jpg",
+  "https://randomuser.me/api/portraits/men/40.jpg",
+  "https://randomuser.me/api/portraits/men/43.jpg",
+  "https://randomuser.me/api/portraits/men/86.jpg",
+  "https://randomuser.me/api/portraits/men/4.jpg",
+  "https://randomuser.me/api/portraits/men/7.jpg",
 ];
 
 const badges = [
@@ -438,7 +496,8 @@ export default function LogoDesignServicePage() {
 
       <BehindTheDesigns />
 
-      <MarqueeRibbon />
+
+      <ClientLogoRibbon />
       {/* SECTION 2: TRUST & VALUE PROPOSITION */}
       <section className="py-12 sm:py-16 3xl:py-20 4xl:py-24 bg-dark-bg ">
         <div className="max-w-7xl 3xl:max-w-[1700px] 4xl:max-w-[2200px] mx-auto px-4 sm:px-6 4xl:px-10">
@@ -650,8 +709,7 @@ export default function LogoDesignServicePage() {
 
 
 
-      {/* SECTION 5: PRICING PACKAGES */}
-      <section id="pricing" className="3xl:py-32 bg-dark-bg relative overflow-hidden">
+      <section id="pricing" className="3xl:py-32 py-16 md:py-24 bg-dark-bg relative overflow-hidden">
         {/* Giant faded background text */}
         <div className="absolute top-0 left-0 right-0 flex justify-center pointer-events-none select-none overflow-hidden">
           <span
@@ -677,67 +735,80 @@ export default function LogoDesignServicePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 3xl:gap-8 items-stretch">
-            {packages.map((pkg, idx) => (
-              <div
-                key={idx}
-                className={`rounded-3xl 3xl:rounded-[2rem] p-8 3xl:p-10 flex flex-col justify-between relative border ${pkg.popular
-                  ? "border-white/20 bg-slate-900/80 shadow-[0_0_40px_rgba(255,255,255,0.06)]"
-                  : "border-glass-border bg-slate-950/40"
-                  }`}
-              >
-                <div>
-                  {/* Icon + Name */}
-                  <div className="w-11 h-11 3xl:w-13 3xl:h-13 rounded-xl bg-slate-900 border border-glass-border flex items-center justify-center mb-6">
-                    <img
-                      src={pkg.icon}
-                      alt={`${pkg.name} icon`}
-                      className="w-7 h-7 3xl:w-8 3xl:h-8 brightness-0 saturate-100"
-                      style={{ filter: "invert(70%) sepia(70%) saturate(1000%) hue-rotate(150deg) brightness(1.1)" }}
-                    />
-                  </div>
+          {/* items-end: popular card physically taller, side cards align from bottom */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-x-8 gap-y-16 3xl:gap-x-10 items-end pt-6">
+            {packages.map((pkg, idx) => {
+              const theme = solidThemes[idx % solidThemes.length];
 
-                  <div className="flex items-start justify-between mb-1">
-                    <h3 className="font-alata font-bold text-lg 3xl:text-xl text-white">{pkg.name}</h3>
-                    <div className="text-right shrink-0 ml-3">
-                      <span className="font-alata font-extrabold text-2xl 3xl:text-3xl text-white">{pkg.price}</span>
-                      <span className="text-xs 3xl:text-sm text-slate-500"> / GST</span>
+              return (
+                <div
+                  key={idx}
+                  className={`relative pl-3 pt-3 pb-16 ${pkg.popular ? "lg:pt-8 lg:-mt-8" : ""}`}
+                >
+                  {/* colored back panel: white card ke peeche se left/top/bottom se peek karta hai,
+                                    aur neeche hi button ban jaata hai */}
+                  <div className={`absolute inset-0 rounded-t-[1.75rem] rounded-b-xl ${theme.bg}`} />
+
+                  {/* BEST DEAL diagonal ribbon, sirf popular card par */}
+                  {pkg.popular && (
+                    <div className="absolute -top-1 left-1 z-20 h-20 w-20 overflow-hidden rounded-tl-[1.75rem]">
+                      <span
+                        className="absolute left-[-34px] top-[18px] w-[150px] rotate-[-45deg] bg-slate-900 py-1 text-center font-alata text-[9px] font-bold uppercase tracking-widest text-white shadow"
+                      >
+                        Best Deal
+                      </span>
                     </div>
-                  </div>
-                  <p className="text-xs 3xl:text-sm text-slate-500 line-through mb-4">{pkg.oldPrice} Original</p>
-                  <p className="text-xs 3xl:text-sm text-slate-400 leading-relaxed mb-6">{pkg.tagline}</p>
+                  )}
 
-                  {/* CTA button */}
-                  <a href={pkg.link}
-                    className={`w-full py-3 3xl:py-4 rounded-xl font-bold text-center text-sm 3xl:text-base transition-all block mb-8 ${pkg.popular
-                      ? "bg-white text-slate-950 hover:bg-slate-100"
-                      : "bg-slate-900 border border-glass-border text-white hover:border-white"
-                      }`}
-                  >
-                    Order Now →
-                  </a>
+                  {/* white content card */}
+                  <div className="relative z-10 rounded-2xl bg-white p-6 shadow-[0_20px_45px_-15px_rgba(0,0,0,0.35)]">
+                    {/* icon circle */}
+                    <div className={`mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full border-2 ${theme.ring}`}>
+                      <img src={pkg.icon} alt={`${pkg.name} icon`} className="h-7 w-7 opacity-70" />
+                    </div>
 
-                  {/* Features */}
-                  <div className="border-t border-glass-border/60 pt-6">
-                    <span className="text-xs 3xl:text-sm font-bold uppercase tracking-wider text-slate-400 block mb-4">
-                      Features:
-                    </span>
-                    <ul className="flex flex-col gap-3 3xl:gap-3.5">
+                    <h3 className="text-center font-alata text-lg font-extrabold uppercase tracking-wide text-slate-900">
+                      {pkg.name}
+                    </h3>
+                    <p className={`mb-4 text-center font-nunito text-[11px] font-bold uppercase tracking-wider ${theme.text}`}>
+                      {pkg.name} Package
+                    </p>
+
+                    <ul className="flex flex-col overflow-hidden rounded-lg">
                       {pkg.features.map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2.5 text-xs 3xl:text-sm text-slate-300">
-                          <Check className="w-3.5 h-3.5 3xl:w-4 3xl:h-4 text-neon-cyan shrink-0 mt-0.5" />
-                          <span>{feat}</span>
+                        <li
+                          key={fIdx}
+                          className={`flex items-center gap-2.5 px-3 py-2 text-[11px] text-slate-600 ${fIdx % 2 === 0 ? theme.stripe : "bg-white"
+                            }`}
+                        >
+                          <Check className={`h-3.5 w-3.5 shrink-0 ${theme.text}`} strokeWidth={3} />
+                          <span className="font-alata">{feat}</span>
                         </li>
                       ))}
                     </ul>
+
+                    <div className="mt-5 text-center">
+                      <span className={`font-alata text-3xl font-extrabold ${theme.text}`}>{pkg.price}</span>
+                    </div>
                   </div>
+
+                  {/* colored strip neeche hi BUTTON hai */}
+                  <a
+                    href={pkg.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`absolute bottom-0 left-3 right-0 z-10 rounded-b-xl py-3 text-center font-nunito text-sm font-extrabold uppercase tracking-widest text-white transition-transform hover:scale-[1.02] active:scale-95 ${theme.bg}`}
+                  >
+                    {buttonLabels[idx % buttonLabels.length]}
+                  </a>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
 
           <div className="flex justify-center mt-14">
-            <a href="/contact"
+            <a
+              href="/contact"
               className="px-8 py-3 3xl:px-10 3xl:py-4 rounded-xl text-sm 3xl:text-base font-bold text-slate-300 border border-glass-border hover:border-white hover:text-white transition-all bg-white/5 backdrop-blur-sm"
             >
               View More
@@ -745,7 +816,6 @@ export default function LogoDesignServicePage() {
           </div>
         </div>
       </section>
-
       {/* HOW IT WORKS */}
       <section className="bg-dark-bg relative overflow-hidden">
         <div className="py-12 sm:py-14 md:py-20 4xl:py-28 text-center px-4 sm:px-6">
@@ -873,7 +943,7 @@ export default function LogoDesignServicePage() {
       </section>
 
       <FinalCTA />
-
+      <MarqueeRibbon />
     </main >
   );
 }

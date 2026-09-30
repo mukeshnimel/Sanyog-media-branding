@@ -120,10 +120,19 @@ export default function ContactPopup({ showPopup, setShowPopup }) {
                 setSubmitting(false);
                 return;
             }
+            const contactRes = await fetch("/api/contact", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(form),
+            });
 
-            // TODO: ab actual form data ko apne backend/API/email endpoint pe bhejo
-            console.log("Form submitted:", form);
+            if (!contactRes.ok) {
+                throw new Error("Submission failed, please try again.");
+            }
+
             setShowPopup(false);
+            setForm({ name: "", phone: "", email: "", service: "", requirements: "" });
+            alert("Thanks! We'll get back to you soon.");
         } catch (err) {
             console.error(err);
             alert(err.message || "Something went wrong, please try again.");

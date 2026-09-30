@@ -8,6 +8,7 @@ import Testimonials from "@/components/Testimonials";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
 import FinalCTA from "@/components/FinalCTA";
 import ContactPopup from "@/components/Contactpopup";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // ---------- DATA ----------
 
@@ -152,12 +153,12 @@ export default function ContentWritingPage() {
                     <div className="flex flex-col items-center">
                         <div className="flex -space-x-3 mb-4">
                             {[
-                                "https://randomuser.me/api/portraits/men/32.jpg",
-                                "https://randomuser.me/api/portraits/women/44.jpg",
-                                "https://randomuser.me/api/portraits/men/54.jpg",
-                                "https://randomuser.me/api/portraits/women/68.jpg",
-                                "https://randomuser.me/api/portraits/men/15.jpg",
-                                "https://randomuser.me/api/portraits/men/76.jpg",
+                                "https://randomuser.me/api/portraits/men/61.jpg",
+                                "https://randomuser.me/api/portraits/men/40.jpg",
+                                "https://randomuser.me/api/portraits/men/43.jpg",
+                                "https://randomuser.me/api/portraits/men/86.jpg",
+                                "https://randomuser.me/api/portraits/men/4.jpg",
+                                "https://randomuser.me/api/portraits/men/7.jpg",
                             ].map((src, i) => (
                                 <div
                                     key={i}
@@ -258,19 +259,16 @@ export default function ContentWritingPage() {
                                         <img src="/images/video-reel/icons/smile.svg" alt="Smile" className="w-6 h-6 sm:w-7 sm:h-7 xl:w-9 xl:h-9 4xl:w-11 4xl:h-11 brightness-0 invert" />
                                     </span>
                                 </button>
-
                                 <ContactPopup showPopup={showPopup} setShowPopup={setShowPopup} />
                             </div>
-
                         </div>
                     </div>
                 </div>
             </section>
 
 
-
             {/* 3. SERVICES */}
-            <section className="pt-16 sm:pt-20 md:pt-28 lg:pt-[8.75rem] xl:pt-40 4xl:pt-48 pb-16 sm:pb-20 md:pb-28 xl:pb-32 4xl:pb-40 bg-dark-bg">
+            <section className="pt-16 sm:pt-20 md:pt-28 lg:pt-[8.75rem] xl:pt-40 4xl:pt-48 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
                     <div className="text-center max-w-3xl xl:max-w-4xl 4xl:max-w-5xl mx-auto mb-12 md:mb-16 4xl:mb-20">
 
@@ -296,6 +294,8 @@ export default function ContentWritingPage() {
                     </div>
                 </div>
             </section>
+
+            <ClientLogoRibbon />
 
             {/* 4. WORDS THAT WORK */}
             <section className="py-16 sm:py-20 md:py-15 4xl:py-32 bg-dark-bg">

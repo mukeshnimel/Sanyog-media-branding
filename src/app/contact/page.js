@@ -111,8 +111,23 @@ function ContactForm({ idPrefix = "cf" }) {
         return;
       }
 
-      // TODO: yahan apna actual form data backend/API/email endpoint pe bhejo
-      console.log("Form submitted:", formData);
+      // actual form data ko backend pe bhejo (formData use karo, form nahi)
+      const contactRes = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          email: formData.email,
+          website: formData.website,
+          service: formData.service,
+          requirements: formData.message,
+        }),
+      });
+
+      if (!contactRes.ok) {
+        throw new Error("Submission failed, please try again.");
+      }
 
       setStatus("success");
       setTimeout(() => {
@@ -230,7 +245,7 @@ function ContactForm({ idPrefix = "cf" }) {
             value={formData.email}
             onChange={handleChange}
             required
-            placeholder="you@example.com"
+            placeholder="enter your email"
             className="w-full px-4 py-3 rounded-xl bg-slate-800/60 border border-glass-border text-slate-100 placeholder-slate-500 focus:outline-none focus:border-neon-cyan transition-colors"
           />
         </div>
@@ -439,7 +454,7 @@ export default function ContactPage() {
                   <span className="w-2 h-2 rounded-full border border-slate-600 bg-dark-bg shrink-0" />
                   <MapPin className="w-3.5 h-3.5 text-neon-cyan shrink-0" />
                   <span className="text-xs 3xl:text-sm font-semibold text-slate-300 whitespace-nowrap">
-                    Visit the studio
+                    Visit the office
                   </span>
                 </div>
 

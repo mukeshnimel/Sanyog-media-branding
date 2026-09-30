@@ -28,6 +28,7 @@ import FinalCTA from "@/components/FinalCTA";
 import MarqueeRibbon from "@/components/MarqueeRibbon";
 import GraphicHero from "@/components/Graphichero";
 import GraphicServices from "@/components/GraphicServices";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // ---------- DATA ----------
 
@@ -274,6 +275,7 @@ export default function GraphicDesignPage() {
         <main className="flex-1 bg-dark-bg text-slate-100 overflow-hidden">
 
             <GraphicHero />
+            <ClientLogoRibbon />
 
             {/* 4. WHY CHOOSE US — IMAGE ACCORDION */}
             <section className="py-10 md:py-15 4xl:py-20 bg-dark-bg">

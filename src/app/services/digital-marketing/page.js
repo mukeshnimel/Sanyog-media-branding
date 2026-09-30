@@ -14,12 +14,18 @@ import {
 } from "lucide-react";
 import Testimonials from "@/components/Testimonials";
 import FinalCTA from "@/components/FinalCTA";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 // ---------- DATA ----------
 
 const rotatingWords = ["Instagram", "Facebook", "Youtube", "Linkedln"];
 
-const avatarSeeds = [12, 32, 47, 5, 15, 60];
+const avatarSeeds = ["https://randomuser.me/api/portraits/men/61.jpg",
+    "https://randomuser.me/api/portraits/men/40.jpg",
+    "https://randomuser.me/api/portraits/men/43.jpg",
+    "https://randomuser.me/api/portraits/men/86.jpg",
+    "https://randomuser.me/api/portraits/men/4.jpg",
+    "https://randomuser.me/api/portraits/men/7.jpg",];
 
 const services = [
     {
@@ -495,7 +501,7 @@ export default function SocialMediaMarketingPage() {
                                         className="w-9 h-9 md:w-10 md:h-10 xl:w-12 xl:h-12 4xl:w-14 4xl:h-14 rounded-full border-2 border-dark-bg overflow-hidden relative"
                                     >
                                         <Image
-                                            src={`https://i.pravatar.cc/64?img=${seed}`}
+                                            src={`${seed}`}
                                             alt="Client avatar"
                                             fill
                                             className="object-cover"
@@ -542,53 +548,7 @@ export default function SocialMediaMarketingPage() {
                 </div>
             </section>
 
-            {/* 2. MARQUEE RIBBON */}
-            <section className="py-0 bg-dark-bg relative overflow-hidden">
-                <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-6 md:py-8 4xl:py-10">
-                    <div className="marquee-track flex items-center gap-10 md:gap-16 4xl:gap-20 whitespace-nowrap">
-                        {[...Array(2)].map((_, setIdx) => (
-                            <div key={setIdx} className="flex items-center gap-10 md:gap-16 4xl:gap-20 shrink-0">
-                                {[
-                                    "We Build Different",
-                                    "Grow Your Brand",
-                                    "Digital Excellence",
-                                    "Create. Build. Grow.",
-                                    "Your Vision, Our Strategy",
-                                    "Ideas Into Reality",
-                                    "Powering Digital Brands",
-                                    "We Make Brands Stand Out",
-                                ].map((text, i) => (
-                                    <div key={i} className="flex items-center gap-3 md:gap-4 4xl:gap-5 shrink-0">
-                                        <div className="w-8 h-8 md:w-10 md:h-10 4xl:w-12 4xl:h-12 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
-                                            <Image
-                                                src="https://sanyogmedia.in/wp-content/uploads/2024/11/SMC-Churu-Landing-Page-2.png"
-                                                alt="Icon"
-                                                width={40}
-                                                height={40}
-                                                className="w-full h-full object-cover"
-                                            />
-                                        </div>
-                                        <span className="font-alata font-bold text-lg sm:text-xl md:text-3xl 4xl:text-4xl text-white tracking-wide">
-                                            {text}
-                                        </span>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                <style jsx global>{`
-                    .marquee-track {
-                        width: max-content;
-                        animation: marquee-scroll 25s linear infinite;
-                    }
-                    @keyframes marquee-scroll {
-                        0% { transform: translateX(0); }
-                        100% { transform: translateX(-50%); }
-                    }
-                `}</style>
-            </section>
+            <ClientLogoRibbon />
 
             {/* 3. SERVICES GRID */}
             <section className="py-16 md:py-24 4xl:py-32 bg-dark-bg ">
@@ -1106,6 +1066,53 @@ export default function SocialMediaMarketingPage() {
             </section>
 
             <FinalCTA />
+            {/* 2. MARQUEE RIBBON */}
+            <section className="py-0 bg-dark-bg relative overflow-hidden">
+                <div className="bg-[#fff0] bg-[linear-gradient(180deg,#007EC373_0%,#07ADD01A_100%)] py-6 md:py-8 4xl:py-10">
+                    <div className="marquee-track flex items-center gap-10 md:gap-16 4xl:gap-20 whitespace-nowrap">
+                        {[...Array(2)].map((_, setIdx) => (
+                            <div key={setIdx} className="flex items-center gap-10 md:gap-16 4xl:gap-20 shrink-0">
+                                {[
+                                    "We Build Different",
+                                    "Grow Your Brand",
+                                    "Digital Excellence",
+                                    "Create. Build. Grow.",
+                                    "Your Vision, Our Strategy",
+                                    "Ideas Into Reality",
+                                    "Powering Digital Brands",
+                                    "We Make Brands Stand Out",
+                                ].map((text, i) => (
+                                    <div key={i} className="flex items-center gap-3 md:gap-4 4xl:gap-5 shrink-0">
+                                        <div className="w-8 h-8 md:w-10 md:h-10 4xl:w-12 4xl:h-12 rounded-lg overflow-hidden flex items-center justify-center shrink-0">
+                                            <Image
+                                                src="https://sanyogmedia.in/wp-content/uploads/2024/11/SMC-Churu-Landing-Page-2.png"
+                                                alt="Icon"
+                                                width={40}
+                                                height={40}
+                                                className="w-full h-full object-cover"
+                                            />
+                                        </div>
+                                        <span className="font-alata font-bold text-lg sm:text-xl md:text-3xl 4xl:text-4xl text-white tracking-wide">
+                                            {text}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <style jsx global>{`
+                    .marquee-track {
+                        width: max-content;
+                        animation: marquee-scroll 25s linear infinite;
+                    }
+                    @keyframes marquee-scroll {
+                        0% { transform: translateX(0); }
+                        100% { transform: translateX(-50%); }
+                    }
+                `}</style>
+            </section>
         </main >
     );
 }

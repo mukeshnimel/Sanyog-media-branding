@@ -8,12 +8,14 @@ import Priorities from "@/components/Priorities";
 import Testimonials from "@/components/Testimonials";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 // import ProductChamber from "@/components/ProductChamber";
 
 export default function Home() {
   return (
     <main className="flex-1 bg-dark-bg overflow-hidden lg:overflow-visible">
       <Hero />
+      <ClientLogoRibbon />
       <WhyChooseUs />
       <Portfolio />
       <ServicesGrid />

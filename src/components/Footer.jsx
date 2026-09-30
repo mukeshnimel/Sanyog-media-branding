@@ -26,32 +26,32 @@ const services = [
   {
     image: "/images/footer/2.svg",
     label: "Packaging Design",
-    href: "/#services",
+    href: "/services/packaging-design",
   },
   {
     image: "/images/footer/4.svg",
     label: "Website Design",
-    href: "/#services",
+    href: "/services/website-design",
   },
   {
     image: "/images/footer/5.svg",
     label: "Graphics Design",
-    href: "/#services",
+    href: "/services/graphic-design",
   },
   {
     image: "/images/footer/6.svg",
-    label: "Social Media Marketing",
-    href: "/#services",
+    label: "Digital Marketing",
+    href: "/services/digital-marketing",
   },
   {
     image: "/images/video-reel/icons/1.svg",
     label: "Reels / Video Editing",
-    href: "/#services",
+    href: "/services/video-reel-editing",
   },
   {
     image: "/images/footer/7.svg",
     label: "Content Creation / Copy Writing",
-    href: "/#services",
+    href: "/services/content-writing",
   },
 ];
 
@@ -316,8 +316,7 @@ export default function Footer() {
                   className="w-4 h-4 xl:w-5 xl:h-5 4xl:w-6 4xl:h-6 object-contain brightness-0 invert shrink-0 mt-0.5"
                 />
                 <p>
-                  Regd. Ad. - Sanyog, Dharam Stoop Near Water Works, Bissau
-                  Road, Churu ( Raj. ) - 331001
+                  Office No. 10, Second Floor, Mahaveer Plaza, Naya Bass, Churu, Rajasthan 331001
                 </p>
               </li>
 

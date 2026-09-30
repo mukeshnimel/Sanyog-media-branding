@@ -6,6 +6,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Testimonials from "@/components/Testimonials";
 import ContactPopup from "@/components/Contactpopup";
+import ClientLogoRibbon from "@/components/ClientLogoRibbon";
 
 import {
     Sparkles,
@@ -53,12 +54,12 @@ const useCases = [
 ];
 
 const avatarImages = [
-    "https://picsum.photos/seed/client1/100/100",
-    "https://picsum.photos/seed/client2/100/100",
-    "https://picsum.photos/seed/client3/100/100",
-    "https://picsum.photos/seed/client4/100/100",
-    "https://picsum.photos/seed/client5/100/100",
-    "https://picsum.photos/seed/client6/100/100",
+    "https://randomuser.me/api/portraits/men/61.jpg",
+    "https://randomuser.me/api/portraits/men/40.jpg",
+    "https://randomuser.me/api/portraits/men/43.jpg",
+    "https://randomuser.me/api/portraits/men/86.jpg",
+    "https://randomuser.me/api/portraits/men/4.jpg",
+    "https://randomuser.me/api/portraits/men/7.jpg",
 ];
 
 const portfolioVideos = [
@@ -388,6 +389,47 @@ export default function VideoReelEditingPage() {
                 </div>
             </section>
 
+            <ClientLogoRibbon />
+
+
+            <section id="portfolio" className="bg-dark-bg relative overflow-hidden py-16 md:py-24 4xl:py-32">
+                {/* em-based sizing: poora collage ek saath scale hota hai */}
+                <div className="relative mx-auto flex h-[25em] justify-center gap-[0.75em] text-[10px] sm:text-[13px] xl:text-[16px] 4xl:text-[20px]">
+                    {columns.map((col, i) => {
+                        const d = Math.abs(i - mid);
+                        return (
+                            <div
+                                key={i}
+                                className="flex w-[8.75em] shrink-0 flex-col gap-[0.75em]"
+                                style={{
+                                    marginTop: `${d * 1.2}em`,
+                                    height: `${14 + d * 1.4}em`,
+                                }}
+                            >
+                                {col.map((v) => (
+                                    <VideoCard key={v.src} src={v.src} poster={v.poster} />
+                                ))}
+                            </div>
+                        );
+                    })}
+
+                    {/* heading: beech ke neeche khali jagah me */}
+                    <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center">
+                        {/* <span className="font-nunito rounded-full border border-white/15 bg-white/5 px-[1.1em] py-[0.3em] text-[0.8em] font-semibold text-slate-200">
+                            Video Reels
+                        </span> */}
+                        <h2 className="font-alata mt-[0.7em] text-[1.7em] font-extrabold leading-tight text-white">
+                            Reels That Get Your Brand Noticed
+                            <span className="font-nunito block text-sky-400">across every industry</span>
+                        </h2>
+                    </div>
+                </div>
+
+                {/* side fade, jaise image me edges halke dikhte hain */}
+                <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-dark-bg to-transparent sm:w-24" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-dark-bg to-transparent sm:w-24" />
+            </section>
+
             {/* 2. ADVERTISEMENT — USE CASES */}
             <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg">
                 <div className="max-w-7xl 2xl:max-w-[1900px] 3xl:max-w-[2200px] 4xl:max-w-[2600px] mx-auto px-4 sm:px-6 xl:px-16 4xl:px-24">
@@ -446,43 +488,7 @@ export default function VideoReelEditingPage() {
 
 
 
-            <section id="portfolio" className="bg-dark-bg relative overflow-hidden py-16 md:py-24 4xl:py-32">
-                {/* em-based sizing: poora collage ek saath scale hota hai */}
-                <div className="relative mx-auto flex h-[25em] justify-center gap-[0.75em] text-[10px] sm:text-[13px] xl:text-[16px] 4xl:text-[20px]">
-                    {columns.map((col, i) => {
-                        const d = Math.abs(i - mid);
-                        return (
-                            <div
-                                key={i}
-                                className="flex w-[8.75em] shrink-0 flex-col gap-[0.75em]"
-                                style={{
-                                    marginTop: `${d * 1.2}em`,
-                                    height: `${14 + d * 1.4}em`,
-                                }}
-                            >
-                                {col.map((v) => (
-                                    <VideoCard key={v.src} src={v.src} poster={v.poster} />
-                                ))}
-                            </div>
-                        );
-                    })}
 
-                    {/* heading: beech ke neeche khali jagah me */}
-                    <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-center text-center">
-                        {/* <span className="font-nunito rounded-full border border-white/15 bg-white/5 px-[1.1em] py-[0.3em] text-[0.8em] font-semibold text-slate-200">
-                            Video Reels
-                        </span> */}
-                        <h2 className="font-alata mt-[0.7em] text-[1.7em] font-extrabold leading-tight text-white">
-                            Reels That Get Your Brand Noticed
-                            <span className="block text-slate-500">across every industry</span>
-                        </h2>
-                    </div>
-                </div>
-
-                {/* side fade, jaise image me edges halke dikhte hain */}
-                <div className="pointer-events-none absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-dark-bg to-transparent sm:w-24" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-dark-bg to-transparent sm:w-24" />
-            </section>
 
             {/* 3. CAPTIVATING AD VIDEOS */}
             <section className="py-16 sm:py-20 md:py-24 4xl:py-32 bg-dark-bg">
